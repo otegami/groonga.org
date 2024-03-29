@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>News - 14 series &#8212; Groonga v14.0.1 documentation</title>
+    <title>News - 14 series &#8212; Groonga v14.0.2 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=5aa32c98"></script>
+    <script src="../_static/documentation_options.js?v=f7f35c54"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.1 documentation - Home"/>
-    <script>document.write(`<img src="../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.1 documentation - Home"/>`);</script>
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.2 documentation - Home"/>
+    <script>document.write(`<img src="../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.2 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -426,10 +426,28 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="news-14-series">
 <h1>News - 14 series<a class="headerlink" href="#news-14-series" title="Link to this heading">#</a></h1>
-<section id="release-14-0-1-2024-03-14">
-<span id="release-14-0-1"></span><h2>Release 14.0.1 - 2024-03-14<a class="headerlink" href="#release-14-0-1-2024-03-14" title="Link to this heading">#</a></h2>
+<section id="release-14-0-2-2024-03-29">
+<span id="release-14-0-2"></span><h2>Release 14.0.2 - 2024-03-29<a class="headerlink" href="#release-14-0-2-2024-03-29" title="Link to this heading">#</a></h2>
 <section id="improvements">
 <h3>Improvements<a class="headerlink" href="#improvements" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Reduced a log level of a log when Groonga setting normalizers/tokenizer/token_filters against temporary table.</p>
+<p>For example, the target log of this modification is the following log.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DDL</span><span class="p">:</span><span class="mi">1234567890</span><span class="p">:</span><span class="n">set_normalizers</span> <span class="n">NormalizerAuto</span>
+</pre></div>
+</div>
+<p>PGroonga sets normalizers against temporary table on start. So, this log becomes noise.
+Because this log become output when PGroonga start because of PGroonga’s default log level is <code class="docutils literal notranslate"><span class="pre">notice</span></code>.</p>
+<p>Therefore, we reduce log level to <code class="docutils literal notranslate"><span class="pre">debug</span></code> for the log since this release.
+Thus, this log does not output when PGroonga start in default.</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="release-14-0-1-2024-03-14">
+<span id="release-14-0-1"></span><h2>Release 14.0.1 - 2024-03-14<a class="headerlink" href="#release-14-0-1-2024-03-14" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Improvements<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[<a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a>] Stopped reporting an error when we <code class="docutils literal notranslate"><span class="pre">load</span></code> key that becomes an empty key by normalization.</p>
 <p><code class="docutils literal notranslate"><span class="pre">&quot;-&quot;</span></code> becomes <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> with <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC150(&quot;remove_symbol&quot;,</span> <span class="pre">true)</span></code>. So the following case reports a “empty key” error.</p>
@@ -536,8 +554,8 @@ Because we fail makeing Groonga package for Ubuntu by problrm of build environme
 <span id="release-14-0-0"></span><h2>Release 14.0.0 - 2024-02-29<a class="headerlink" href="#release-14-0-0-2024-02-29" title="Link to this heading">#</a></h2>
 <p>This is a major version up!
 But It keeps backward compatibility. We can upgrade to 14.0.0 without rebuilding database.</p>
-<section id="id1">
-<h3>Improvements<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>Improvements<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>Added a new tokenizer <code class="docutils literal notranslate"><span class="pre">TokenH3Index</span></code> (experimental).</p>
 <p><code class="docutils literal notranslate"><span class="pre">TokenH3Index</span></code>tokenizes WGS84GetPoint to UInt64(H3 index).</p>
@@ -574,8 +592,8 @@ But It keeps backward compatibility. We can upgrade to 14.0.0 without rebuilding
 <li><p>[<a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a>] Added support for <code class="docutils literal notranslate"><span class="pre">Int64</span></code> in <code class="docutils literal notranslate"><span class="pre">output_type=apache-arrow</span></code> for columns that reference other table.</p></li>
 </ul>
 </section>
-<section id="id2">
-<h3>Fixes<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>Fixes<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[Windows] Fixed path for documents of <code class="docutils literal notranslate"><span class="pre">groonga-normalizer-mysql</span></code> in package for Windows.</p>
 <p>Documents of <code class="docutils literal notranslate"><span class="pre">groonga-normalizer-mysql</span></code> put under the <code class="docutils literal notranslate"><span class="pre">share/</span></code> in this release.</p>
@@ -614,15 +632,19 @@ But It keeps backward compatibility. We can upgrade to 14.0.0 without rebuilding
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-1-2024-03-14">Release 14.0.1 - 2024-03-14</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-2-2024-03-29">Release 14.0.2 - 2024-03-29</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#improvements">Improvements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-1-2024-03-14">Release 14.0.1 - 2024-03-14</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Improvements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixes">Fixes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thanks">Thanks</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-0-2024-02-29">Release 14.0.0 - 2024-02-29</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Improvements</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Improvements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Fixes</a></li>
 </ul>
 </li>
 </ul>

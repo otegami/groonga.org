@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>12.2.1. Introduction &#8212; Groonga v14.0.1 documentation</title>
+    <title>12.2.1. Introduction &#8212; Groonga v14.0.2 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../../_static/documentation_options.js?v=5aa32c98"></script>
+    <script src="../../_static/documentation_options.js?v=f7f35c54"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
@@ -139,8 +139,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.1 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.1 documentation - Home"/>`);</script>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.2 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.2 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -457,7 +457,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="introduction">
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1><span class="section-number">12.2.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
 <p>This documentation describes about how to write, generate and manage
 Groonga documentation.</p>
@@ -517,8 +517,61 @@ enable it explicitly by adding <code class="docutils literal notranslate"><span 
 </div>
 <p>You can find generated HTML documentation at <code class="docutils literal notranslate"><span class="pre">../groonga.doc/doc/en/html/</span></code>.</p>
 </section>
+<section id="how-to-edit-documentation">
+<h2><span class="section-number">12.2.1.5. </span>How to edit documentation<a class="headerlink" href="#how-to-edit-documentation" title="Link to this heading">#</a></h2>
+<p>The Groonga documentation is written in <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html">reStructuredText (.rst)</a> or <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/">Markdown (.md)</a> . These files are located in the <code class="docutils literal notranslate"><span class="pre">doc/source</span></code>.
+Each page of the documentation corresponds to a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file or a <code class="docutils literal notranslate"><span class="pre">.md</span></code> file. By modifying the corresponding file, you can edit the target document.
+For Example, if you want to edit this <a class="reference internal" href="#"><span class="doc">Introduction</span></a> page, you should edit the <code class="docutils literal notranslate"><span class="pre">doc/source/contribution/documentation/introduction.rst</span></code> file.
+Please find the file you wish to edit and make your changes.</p>
+</section>
+<section id="preview-changes-on-html-files">
+<h2><span class="section-number">12.2.1.6. </span>Preview changes on HTML files<a class="headerlink" href="#preview-changes-on-html-files" title="Link to this heading">#</a></h2>
+<p>You can preview your documentation changes in your browser in HTML format. Follow these two steps.</p>
+<ol class="arabic simple">
+<li><p>Generate the HTML files with your changes</p></li>
+<li><p>Preview the generated HTML files in your Web browser</p></li>
+</ol>
+<section id="generate-the-html-files-with-your-changes">
+<h3><span class="section-number">12.2.1.6.1. </span>Generate the HTML files with your changes<a class="headerlink" href="#generate-the-html-files-with-your-changes" title="Link to this heading">#</a></h3>
+<p>Use the following command to generate HTML files that reflect your changes. The generated files will be located in <code class="docutils literal notranslate"><span class="pre">../groonga.doc/doc/en/html/</span></code>. Each file corresponds to a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> or <code class="docutils literal notranslate"><span class="pre">.md</span></code> file:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">% </span>cmake<span class="w"> </span>--build<span class="w"> </span>../groonga.doc
+</pre></div>
+</div>
+</section>
+<section id="preview-the-generated-html-files-in-your-web-browser">
+<h3><span class="section-number">12.2.1.6.2. </span>Preview the generated HTML files in your Web browser<a class="headerlink" href="#preview-the-generated-html-files-in-your-web-browser" title="Link to this heading">#</a></h3>
+<p>Open the generated file in your Web browser to preview your changes.
+For example, if you have edited this <a class="reference internal" href="#"><span class="doc">Introduction</span></a> page, you can preview it by the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">% </span>open<span class="w"> </span>../groonga.doc/doc/en/html/contribution/documentation/introduction.html
+</pre></div>
+</div>
+</section>
+</section>
+<section id="optional-translate-documentation">
+<h2><span class="section-number">12.2.1.7. </span>Optional: Translate documentation<a class="headerlink" href="#optional-translate-documentation" title="Link to this heading">#</a></h2>
+<p>This is an optional step.</p>
+<p>After editing and previewing the Groonga documentation, the next step is to translate the documents to make them accessible to a wider range of Groonga community users. Translating into languages other than English ensures that non-English speakers can also understand the Groonga documentation. Follow these steps to translate Groonga documentation.</p>
+<ol class="arabic simple">
+<li><p>Translate the documentation in <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files</p></li>
+</ol>
+<section id="translate-the-documentation-in-edit-po-files">
+<h3><span class="section-number">12.2.1.7.1. </span>Translate the documentation in <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files<a class="headerlink" href="#translate-the-documentation-in-edit-po-files" title="Link to this heading">#</a></h3>
+<p>Use the following command to generate <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files, which are translation files, corresponding to your changes. The generated files will be located in <code class="docutils literal notranslate"><span class="pre">../groonga.doc/doc/locale/${LANGUAGE}/LC_MESSAGES</span></code>. Each file corresponds to a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> or <code class="docutils literal notranslate"><span class="pre">.md</span></code> file. Please add your translations to <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">% </span>cmake<span class="w"> </span>--build<span class="w"> </span>../groonga.doc
+</pre></div>
+</div>
+<p>For example, if you have edited the <a class="reference internal" href="#"><span class="doc">Introduction</span></a> page and want to add Japanese translations, update this <code class="docutils literal notranslate"><span class="pre">../groonga.doc/doc/ja/LC_MESSAGES/contribution/documentation/introduction.edit.po</span></code> file.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Please do not modify the <code class="docutils literal notranslate"><span class="pre">.rst</span></code> or <code class="docutils literal notranslate"><span class="pre">.md</span></code> files while adding translations to the <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files.
+Editing <code class="docutils literal notranslate"><span class="pre">.rst</span></code> or <code class="docutils literal notranslate"><span class="pre">.md</span></code> files without first reflecting the translations in <code class="docutils literal notranslate"><span class="pre">.po</span></code> files will result in the loss of those translations.
+If you want to edit <code class="docutils literal notranslate"><span class="pre">.rst</span></code> or <code class="docutils literal notranslate"><span class="pre">.md</span></code> files, ensure you first reflect your translations in <code class="docutils literal notranslate"><span class="pre">.po</span></code> files.
+The method to reflect translations will be introduced in the next step.</p>
+</div>
+</section>
+</section>
 <section id="update">
-<h2><span class="section-number">12.2.1.5. </span>Update<a class="headerlink" href="#update" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.2.1.8. </span>Update<a class="headerlink" href="#update" title="Link to this heading">#</a></h2>
 <p>You can find sources of documentation at <code class="docutils literal notranslate"><span class="pre">doc/source/</span></code>. The sources
 should be written in English. See <a class="reference internal" href="i18n.html"><span class="doc">I18N</span></a> about how to translate
 documentation.</p>
@@ -577,7 +630,17 @@ documentation file.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-depended-software">12.2.1.2. Install depended software</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-cmake-with-preset-doc">12.2.1.3. Run <code class="docutils literal notranslate"><span class="pre">cmake</span></code> with <code class="docutils literal notranslate"><span class="pre">--preset=doc</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-html">12.2.1.4. Generate HTML</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update">12.2.1.5. Update</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-edit-documentation">12.2.1.5. How to edit documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-changes-on-html-files">12.2.1.6. Preview changes on HTML files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-the-html-files-with-your-changes">12.2.1.6.1. Generate the HTML files with your changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-the-generated-html-files-in-your-web-browser">12.2.1.6.2. Preview the generated HTML files in your Web browser</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-translate-documentation">12.2.1.7. Optional: Translate documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translate-the-documentation-in-edit-po-files">12.2.1.7.1. Translate the documentation in <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update">12.2.1.8. Update</a></li>
 </ul>
   </nav></div>
 
@@ -585,7 +648,7 @@ documentation file.</p>
 
   
   <div class="tocsection editthispage">
-    <a href="https://github.com/groonga/groonga/edit/main/doc/source/contribution/documentation/introduction.rst">
+    <a href="https://github.com/groonga/groonga/edit/main/doc/source/contribution/documentation/introduction.md">
       <i class="fa-solid fa-pencil"></i>
       
       
