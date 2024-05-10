@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>News - 14 series &#8212; Groonga v14.0.2 documentation</title>
+    <title>News - 14 series &#8212; Groonga v14.0.3 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=f7f35c54"></script>
+    <script src="../_static/documentation_options.js?v=933c8c10"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.2 documentation - Home"/>
-    <script>document.write(`<img src="../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.2 documentation - Home"/>`);</script>
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.3 documentation - Home"/>
+    <script>document.write(`<img src="../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.3 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -426,10 +426,377 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="news-14-series">
 <h1>News - 14 series<a class="headerlink" href="#news-14-series" title="Link to this heading">#</a></h1>
-<section id="release-14-0-2-2024-03-29">
-<span id="release-14-0-2"></span><h2>Release 14.0.2 - 2024-03-29<a class="headerlink" href="#release-14-0-2-2024-03-29" title="Link to this heading">#</a></h2>
+<section id="release-14-0-3-2024-05-09">
+<span id="release-14-0-3"></span><h2>Release 14.0.3 - 2024-05-09<a class="headerlink" href="#release-14-0-3-2024-05-09" title="Link to this heading">#</a></h2>
 <section id="improvements">
 <h3>Improvements<a class="headerlink" href="#improvements" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>We optimized performance as below.</p>
+<ul class="simple">
+<li><p>We optimized performance of <code class="docutils literal notranslate"><span class="pre">OR</span></code> and <code class="docutils literal notranslate"><span class="pre">AND</span></code> search when the number of hits were many.</p></li>
+<li><p>We optimized performance of prefix search(<code class="docutils literal notranslate"><span class="pre">&#64;^</span></code>).</p></li>
+<li><p>We optimized performance of <code class="docutils literal notranslate"><span class="pre">AND</span></code> search when the number of records of <code class="docutils literal notranslate"><span class="pre">A</span></code> more than <code class="docutils literal notranslate"><span class="pre">B</span></code> in condition of <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">AND</span> <span class="pre">B</span></code>.</p></li>
+<li><p>We optimized performance of search when we used many dynamic columns.</p></li>
+</ul>
+</li>
+<li><p>[<a class="reference internal" href="../reference/tokenizers/token_ngram.html"><span class="doc">TokenNgram</span></a>] Added new option <code class="docutils literal notranslate"><span class="pre">ignore_blank</span></code>.</p>
+<p>We can replace <code class="docutils literal notranslate"><span class="pre">TokenBigramIgnoreBlank</span></code> with <code class="docutils literal notranslate"><span class="pre">TokenNgram(&quot;ignore_blank&quot;,</span> <span class="pre">true)</span></code> as below.</p>
+<p>Here is example of use <code class="docutils literal notranslate"><span class="pre">TokenBigram</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tokenize</span> <span class="n">TokenBigram</span> <span class="s2">&quot;! ! !&quot;</span> <span class="n">NormalizerAuto</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">1715155644.64263</span><span class="p">,</span>
+    <span class="mf">0.001013517379760742</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;!&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix_search&quot;</span><span class="p">:</span> <span class="n">false</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;!&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix_search&quot;</span><span class="p">:</span> <span class="n">false</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;!&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix_search&quot;</span><span class="p">:</span> <span class="n">false</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Here is example of use <code class="docutils literal notranslate"><span class="pre">TokenBigramIgnoreBlank</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tokenize</span> <span class="n">TokenBigramIgnoreBlank</span> <span class="s2">&quot;! ! !&quot;</span> <span class="n">NormalizerAuto</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">1715155680.323451</span><span class="p">,</span>
+    <span class="mf">0.0009913444519042969</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;!!!&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix_search&quot;</span><span class="p">:</span> <span class="n">false</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Here is example of use <code class="docutils literal notranslate"><span class="pre">TokenNgram(&quot;ignore_blank&quot;,</span> <span class="pre">true)</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tokenize</span> <span class="s1">&#39;TokenNgram(&quot;ignore_blank&quot;, true)&#39;</span> <span class="s2">&quot;! ! !&quot;</span> <span class="n">NormalizerAuto</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">1715155762.340685</span><span class="p">,</span>
+    <span class="mf">0.001041412353515625</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;!!!&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix_search&quot;</span><span class="p">:</span> <span class="n">false</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>[<a class="reference internal" href="../install/ubuntu.html"><span class="doc">Ubuntu</span></a>] Add support for Ubuntu 24.04 LTS (Noble Numbat).</p></li>
+</ul>
+</section>
+<section id="fixes">
+<h3>Fixes<a class="headerlink" href="#fixes" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>[<a class="reference internal" href="../reference/commands/request_cancel.html"><span class="doc">request_cancel</span></a>] Fix a bug that Groonga may crash when we execute <code class="docutils literal notranslate"><span class="pre">request_cancel</span></code> command while we execute the other query.</p></li>
+<li><p>Fixed the unexpected error when using <code class="docutils literal notranslate"><span class="pre">--post_filter</span></code> with <code class="docutils literal notranslate"><span class="pre">--offset</span></code> greater than the post-filtered result</p>
+<p>In the same situation, using <code class="docutils literal notranslate"><span class="pre">--filter</span></code> with <code class="docutils literal notranslate"><span class="pre">--offset</span></code> doesn’t raise the error.
+This inconsistency in behavior between <code class="docutils literal notranslate"><span class="pre">--filter</span></code> and <code class="docutils literal notranslate"><span class="pre">--post-filter</span></code> has now been resolved.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">Users</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">ShortText</span>
+<span class="n">column_create</span> <span class="n">Users</span> <span class="n">age</span> <span class="n">COLUMN_SCALAR</span> <span class="n">UInt32</span>
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Users</span>
+<span class="p">[</span>
+  <span class="p">[</span><span class="s2">&quot;_key&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">21</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">22</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">&quot;Chris&quot;</span><span class="p">,</span> <span class="mi">23</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">&quot;Diana&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">&quot;Emily&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+<span class="p">]</span>
+<span class="n">select</span> <span class="n">Users</span> \
+  <span class="o">--</span><span class="nb">filter</span> <span class="s1">&#39;age &gt;= 22&#39;</span> \
+  <span class="o">--</span><span class="n">post_filter</span> <span class="s1">&#39;age &lt;= 24&#39;</span> \
+  <span class="o">--</span><span class="n">offset</span> <span class="mi">3</span> \
+  <span class="o">--</span><span class="n">sort_keys</span> <span class="o">-</span><span class="n">age</span> <span class="o">--</span><span class="n">output_pretty</span> <span class="n">yes</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="o">-</span><span class="mi">68</span><span class="p">,</span>
+    <span class="mf">1715224057.317582</span><span class="p">,</span>
+    <span class="mf">0.001833438873291016</span><span class="p">,</span>
+    <span class="s2">&quot;[table][sort] grn_output_range_normalize failed&quot;</span><span class="p">,</span>
+    <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;grn_table_sort&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;/home/horimoto/Work/free-software/groonga.tag/lib/sort.c&quot;</span><span class="p">,</span>
+        <span class="mi">1052</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Fixed a bug where incorrect search result could be returned when not all phrases within <code class="docutils literal notranslate"><span class="pre">(...)</span></code> matched using near phrase product.</p>
+<p>For example, there is no record which matched <code class="docutils literal notranslate"><span class="pre">(2)</span></code> condition using <code class="docutils literal notranslate"><span class="pre">--query</span> <span class="pre">'*NPP1&quot;(a)</span> <span class="pre">(2)&quot;'</span></code>.
+In this case, the expected behavior would be return no record. However, the actual behavior was equal to the query <code class="docutils literal notranslate"><span class="pre">--query</span> <span class="pre">'*NPP</span> <span class="pre">and</span> <span class="pre">&quot;(a)&quot;</span></code> as below.
+This means that despite no records matched <code class="docutils literal notranslate"><span class="pre">(2)</span></code>, records like <code class="docutils literal notranslate"><span class="pre">ax1</span></code> and <code class="docutils literal notranslate"><span class="pre">axx1</span></code> were incorrectly returned.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">Entries</span> <span class="n">TABLE_NO_KEY</span>
+<span class="n">column_create</span> <span class="n">Entries</span> <span class="n">content</span> <span class="n">COLUMN_SCALAR</span> <span class="n">Text</span>
+
+<span class="n">table_create</span> <span class="n">Terms</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">ShortText</span>   <span class="o">--</span><span class="n">default_tokenizer</span> <span class="n">TokenNgram</span>
+<span class="n">column_create</span> <span class="n">Terms</span> <span class="n">entries_content</span> <span class="n">COLUMN_INDEX</span><span class="o">|</span><span class="n">WITH_POSITION</span> <span class="n">Entries</span> <span class="n">content</span>
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Entries</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ax1&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;axx1&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">select</span> <span class="n">Entries</span> \
+  <span class="o">--</span><span class="n">match_columns</span> <span class="n">content</span> \
+  <span class="o">--</span><span class="n">query</span> <span class="s1">&#39;*NPP1&quot;(a) (2)&quot;&#39;</span> \
+  <span class="o">--</span><span class="n">output_columns</span> <span class="s1">&#39;content&#39;</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">1715224211.050228</span><span class="p">,</span>
+    <span class="mf">0.001366376876831055</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="mi">2</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;content&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Text&quot;</span>
+        <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;ax1&quot;</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;axx1&quot;</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Fixed a bug that rehash failed or data in a table broke when rehash occured that the table with <code class="docutils literal notranslate"><span class="pre">TABLE_HASH_KEY</span></code> has  2^28 or more records.</p></li>
+<li><p>Fixed a bug that highlight position slipped out of place in the following cases.</p>
+<ul>
+<li><p>If full width space existed before highlight target characters as below.</p>
+<p>We expected that Groonga returned <code class="docutils literal notranslate"><span class="pre">&quot;Groonga　&lt;span</span> <span class="pre">class=\&quot;keyword\&quot;&gt;高&lt;/span&gt;速！&quot;</span></code>.
+However, Groonga returned <code class="docutils literal notranslate"><span class="pre">&quot;Groonga　&lt;span</span> <span class="pre">class=\&quot;keyword\&quot;&gt;高速&lt;/span&gt;！&quot;</span></code> as below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">Entries</span> <span class="n">TABLE_NO_KEY</span>
+<span class="n">column_create</span> <span class="n">Entries</span> <span class="n">body</span> <span class="n">COLUMN_SCALAR</span> <span class="n">ShortText</span>
+
+<span class="n">table_create</span> <span class="n">Terms</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">ShortText</span> \
+  <span class="o">--</span><span class="n">default_tokenizer</span> <span class="s1">&#39;TokenNgram(&quot;report_source_location&quot;, true)&#39;</span> \
+  <span class="o">--</span><span class="n">normalizer</span> <span class="s1">&#39;NormalizerNFKC150(&quot;report_source_offset&quot;, true)&#39;</span>
+<span class="n">column_create</span> <span class="n">Terms</span> <span class="n">document_index</span> <span class="n">COLUMN_INDEX</span><span class="o">|</span><span class="n">WITH_POSITION</span> <span class="n">Entries</span> <span class="n">body</span>
+
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Entries</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="s2">&quot;Groonga　高速！&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="n">select</span> <span class="n">Entries</span> \
+  <span class="o">--</span><span class="n">output_columns</span> \
+  <span class="o">--</span><span class="n">match_columns</span> <span class="n">body</span> \
+  <span class="o">--</span><span class="n">query</span> <span class="s1">&#39;高&#39;</span> \
+  <span class="o">--</span><span class="n">output_columns</span> <span class="s1">&#39;highlight_html(body, Terms)&#39;</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">1715215640.979517</span><span class="p">,</span>
+    <span class="mf">0.001608610153198242</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="mi">1</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;highlight_html&quot;</span><span class="p">,</span>
+          <span class="n">null</span>
+        <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;Groonga　&lt;span class=</span><span class="se">\&quot;</span><span class="s2">keyword</span><span class="se">\&quot;</span><span class="s2">&gt;高速&lt;/span&gt;！&quot;</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>If we used <code class="docutils literal notranslate"><span class="pre">TokenNgram(&quot;loose_blank&quot;,</span> <span class="pre">true)</span></code> and if highlight target characters included full width space as below.</p>
+<p>We expected that Groonga returned <code class="docutils literal notranslate"><span class="pre">&quot;&lt;span</span> <span class="pre">class=\&quot;keyword\&quot;&gt;山田</span> <span class="pre">太郎&lt;/span&gt;&quot;</span></code>.
+However, Groonga returned <code class="docutils literal notranslate"><span class="pre">&quot;&lt;span</span> <span class="pre">class=\&quot;keyword\&quot;&gt;山田</span> <span class="pre">太&lt;/span&gt;&quot;</span></code> as below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">Entries</span> <span class="n">TABLE_NO_KEY</span>
+<span class="n">column_create</span> <span class="n">Entries</span> <span class="n">body</span> <span class="n">COLUMN_SCALAR</span> <span class="n">ShortText</span>
+
+<span class="n">table_create</span> <span class="n">Terms</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">ShortText</span> \
+  <span class="o">--</span><span class="n">default_tokenizer</span> <span class="s1">&#39;TokenNgram(&quot;loose_blank&quot;, true, &quot;report_source_location&quot;, true)&#39;</span> \
+  <span class="o">--</span><span class="n">normalizer</span> <span class="s1">&#39;NormalizerNFKC150(&quot;report_source_offset&quot;, true)&#39;</span>
+<span class="n">column_create</span> <span class="n">Terms</span> <span class="n">document_index</span> <span class="n">COLUMN_INDEX</span><span class="o">|</span><span class="n">WITH_POSITION</span> <span class="n">Entries</span> <span class="n">body</span>
+
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Entries</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="s2">&quot;山田 太郎&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">select</span> <span class="n">Entries</span> <span class="o">--</span><span class="n">output_columns</span> \
+  <span class="o">--</span><span class="n">match_columns</span> <span class="n">body</span> <span class="o">--</span><span class="n">query</span> <span class="s1">&#39;山田太郎&#39;</span> \
+  <span class="o">--</span><span class="n">output_columns</span> <span class="s1">&#39;highlight_html(body, Terms)&#39;</span> <span class="o">--</span><span class="n">output_pretty</span> <span class="n">yes</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">1715220409.096246</span><span class="p">,</span>
+    <span class="mf">0.0004854202270507812</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="mi">1</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;highlight_html&quot;</span><span class="p">,</span>
+          <span class="n">null</span>
+        <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;&lt;span class=</span><span class="se">\&quot;</span><span class="s2">keyword</span><span class="se">\&quot;</span><span class="s2">&gt;山田 太&lt;/span&gt;&quot;</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>If white space existed in the front of highlight target characters as below.</p>
+<p>We expected that Groonga returned <code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">&lt;span</span> <span class="pre">class=\&quot;keyword\&quot;&gt;山&lt;/span&gt;田太郎&quot;</span></code>.
+However, Groonga returned <code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">&lt;span</span> <span class="pre">class=\&quot;keyword\&quot;&gt;山&lt;/span&gt;&quot;</span></code> as below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">Entries</span> <span class="n">TABLE_NO_KEY</span>
+<span class="n">column_create</span> <span class="n">Entries</span> <span class="n">body</span> <span class="n">COLUMN_SCALAR</span> <span class="n">ShortText</span>
+
+<span class="n">table_create</span> <span class="n">Terms</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">ShortText</span> \
+  <span class="o">--</span><span class="n">default_tokenizer</span> <span class="s1">&#39;TokenNgram(&quot;report_source_location&quot;, true)&#39;</span> \
+  <span class="o">--</span><span class="n">normalizer</span> <span class="s1">&#39;NormalizerNFKC150(&quot;report_source_offset&quot;, true)&#39;</span>
+<span class="n">column_create</span> <span class="n">Terms</span> <span class="n">document_index</span> <span class="n">COLUMN_INDEX</span><span class="o">|</span><span class="n">WITH_POSITION</span> <span class="n">Entries</span> <span class="n">body</span>
+
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Entries</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="s2">&quot; 山田太郎&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">select</span> <span class="n">Entries</span> \
+  <span class="o">--</span><span class="n">output_columns</span> \
+  <span class="o">--</span><span class="n">match_columns</span> <span class="n">body</span> \
+  <span class="o">--</span><span class="n">query</span> <span class="s1">&#39;山&#39;</span> \
+  <span class="o">--</span><span class="n">output_columns</span> <span class="s1">&#39;highlight_html(body, Terms)&#39;</span> <span class="o">--</span><span class="n">output_pretty</span> <span class="n">yes</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">1715221627.002193</span><span class="p">,</span>
+    <span class="mf">0.001977920532226562</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="mi">1</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;highlight_html&quot;</span><span class="p">,</span>
+          <span class="n">null</span>
+        <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="s2">&quot; &lt;span class=</span><span class="se">\&quot;</span><span class="s2">keyword</span><span class="se">\&quot;</span><span class="s2">&gt;山&lt;/span&gt;&quot;</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>If the second character of highlight target was full width space as below.</p>
+<p>We expected that Groonga returned <code class="docutils literal notranslate"><span class="pre">&quot;&lt;span</span> <span class="pre">class=\&quot;keyword\&quot;&gt;山　田&lt;/span&gt;太郎&quot;</span></code>.
+However, Groonga returned <code class="docutils literal notranslate"><span class="pre">&quot;&lt;span</span> <span class="pre">class=\&quot;keyword\&quot;&gt;山　田太&lt;/span&gt;郎&quot;</span></code> as below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">Entries</span> <span class="n">TABLE_NO_KEY</span>
+<span class="n">column_create</span> <span class="n">Entries</span> <span class="n">body</span> <span class="n">COLUMN_SCALAR</span> <span class="n">ShortText</span>
+
+<span class="n">table_create</span> <span class="n">Terms</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">ShortText</span> \
+  <span class="o">--</span><span class="n">default_tokenizer</span> <span class="s1">&#39;TokenNgram(&quot;report_source_location&quot;, true)&#39;</span> \
+  <span class="o">--</span><span class="n">normalizer</span> <span class="s1">&#39;NormalizerNFKC150(&quot;report_source_offset&quot;, true)&#39;</span>
+<span class="n">column_create</span> <span class="n">Terms</span> <span class="n">document_index</span> <span class="n">COLUMN_INDEX</span><span class="o">|</span><span class="n">WITH_POSITION</span> <span class="n">Entries</span> <span class="n">body</span>
+
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Entries</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="s2">&quot;山　田太郎&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">select</span> <span class="n">Entries</span> \
+  <span class="o">--</span><span class="n">output_columns</span> \
+  <span class="o">--</span><span class="n">match_columns</span> <span class="n">body</span> \
+  <span class="o">--</span><span class="n">query</span> <span class="s1">&#39;山　田&#39;</span> \
+  <span class="o">--</span><span class="n">output_columns</span> <span class="s1">&#39;highlight_html(body, Terms)&#39;</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">1715222501.496007</span><span class="p">,</span>
+    <span class="mf">0.0005536079406738281</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="mi">0</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;highlight_html&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;&lt;span class=</span><span class="se">\&quot;</span><span class="s2">keyword</span><span class="se">\&quot;</span><span class="s2">&gt;山　田太&lt;/span&gt;郎&quot;</span>
+        <span class="p">]</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="release-14-0-2-2024-03-29">
+<span id="release-14-0-2"></span><h2>Release 14.0.2 - 2024-03-29<a class="headerlink" href="#release-14-0-2-2024-03-29" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Improvements<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>Reduced a log level of a log when Groonga setting normalizers/tokenizer/token_filters against temporary table.</p>
 <p>For example, the target log of this modification is the following log.</p>
@@ -446,8 +813,8 @@ Thus, this log does not output when PGroonga start in default.</p>
 </section>
 <section id="release-14-0-1-2024-03-14">
 <span id="release-14-0-1"></span><h2>Release 14.0.1 - 2024-03-14<a class="headerlink" href="#release-14-0-1-2024-03-14" title="Link to this heading">#</a></h2>
-<section id="id1">
-<h3>Improvements<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>Improvements<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[<a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a>] Stopped reporting an error when we <code class="docutils literal notranslate"><span class="pre">load</span></code> key that becomes an empty key by normalization.</p>
 <p><code class="docutils literal notranslate"><span class="pre">&quot;-&quot;</span></code> becomes <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> with <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC150(&quot;remove_symbol&quot;,</span> <span class="pre">true)</span></code>. So the following case reports a “empty key” error.</p>
@@ -468,8 +835,8 @@ Because we don’t match anything even if we search by empty string. So, we stop
 </li>
 </ul>
 </section>
-<section id="fixes">
-<h3>Fixes<a class="headerlink" href="#fixes" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>Fixes<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>Fixed a crash bug if a request is canceled <a class="reference internal" href="../reference/functions/between.html"><span class="doc">between</span></a> or range search.</p>
 <p>This bug doesn’t necessarily occur. This bug occur when we cancel a request in the specific timing.
@@ -554,8 +921,8 @@ Because we fail makeing Groonga package for Ubuntu by problrm of build environme
 <span id="release-14-0-0"></span><h2>Release 14.0.0 - 2024-02-29<a class="headerlink" href="#release-14-0-0-2024-02-29" title="Link to this heading">#</a></h2>
 <p>This is a major version up!
 But It keeps backward compatibility. We can upgrade to 14.0.0 without rebuilding database.</p>
-<section id="id2">
-<h3>Improvements<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>Improvements<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>Added a new tokenizer <code class="docutils literal notranslate"><span class="pre">TokenH3Index</span></code> (experimental).</p>
 <p><code class="docutils literal notranslate"><span class="pre">TokenH3Index</span></code>tokenizes WGS84GetPoint to UInt64(H3 index).</p>
@@ -592,8 +959,8 @@ But It keeps backward compatibility. We can upgrade to 14.0.0 without rebuilding
 <li><p>[<a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a>] Added support for <code class="docutils literal notranslate"><span class="pre">Int64</span></code> in <code class="docutils literal notranslate"><span class="pre">output_type=apache-arrow</span></code> for columns that reference other table.</p></li>
 </ul>
 </section>
-<section id="id3">
-<h3>Fixes<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>Fixes<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[Windows] Fixed path for documents of <code class="docutils literal notranslate"><span class="pre">groonga-normalizer-mysql</span></code> in package for Windows.</p>
 <p>Documents of <code class="docutils literal notranslate"><span class="pre">groonga-normalizer-mysql</span></code> put under the <code class="docutils literal notranslate"><span class="pre">share/</span></code> in this release.</p>
@@ -632,19 +999,24 @@ But It keeps backward compatibility. We can upgrade to 14.0.0 without rebuilding
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-2-2024-03-29">Release 14.0.2 - 2024-03-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-3-2024-05-09">Release 14.0.3 - 2024-05-09</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#improvements">Improvements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixes">Fixes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-2-2024-03-29">Release 14.0.2 - 2024-03-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Improvements</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-1-2024-03-14">Release 14.0.1 - 2024-03-14</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Improvements</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixes">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Improvements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Fixes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thanks">Thanks</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-0-2024-02-29">Release 14.0.0 - 2024-02-29</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Improvements</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Improvements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Fixes</a></li>
 </ul>
 </li>
 </ul>

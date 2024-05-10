@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>12.2.1. 導入 &#8212; Groonga v14.0.2ドキュメント</title>
+    <title>12.2.1. 導入 &#8212; Groonga v14.0.3ドキュメント</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../../_static/documentation_options.js?v=c604c800"></script>
+    <script src="../../_static/documentation_options.js?v=a2cb1844"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/translations.js?v=4dbe4bdc"></script>
@@ -140,8 +140,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.2ドキュメント - Home"/>
-    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.2ドキュメント - Home"/>`);</script>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.3ドキュメント - Home"/>
+    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.3ドキュメント - Home"/>`);</script>
   
   
 </a></div>
@@ -545,6 +545,8 @@ document.write(`
 <p>Groongaドキュメントの編集とプレビューが完了したら、次のステップは、ドキュメントの翻訳になります。翻訳をすることで、Groongaコミュニティのより広い範囲のユーザーがGroongaを利用しやすくなります。英語以外の言語に翻訳することで、非英語話者でもGroongaのドキュメントを理解しやすくなります。次の手順で、Groongaドキュメントを翻訳しましょう。</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> ファイル内のドキュメントを翻訳する</p></li>
+<li><p>翻訳を <code class="docutils literal notranslate"><span class="pre">.po</span></code> ファイルに反映する</p></li>
+<li><p>HTMLファイルで翻訳を確認する</p></li>
 </ol>
 <section id="translate-the-documentation-in-edit-po-files">
 <h3><span class="section-number">12.2.1.7.1. </span><code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> ファイル内のドキュメントを翻訳する<a class="headerlink" href="#translate-the-documentation-in-edit-po-files" title="Link to this heading">#</a></h3>
@@ -558,11 +560,55 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> ファイルに翻訳を追加している最中に、翻訳元の <code class="docutils literal notranslate"><span class="pre">.rst</span></code> または <code class="docutils literal notranslate"><span class="pre">.md</span></code> ファイルを変更しないでください。翻訳した内容を <code class="docutils literal notranslate"><span class="pre">.po</span></code> ファイルに反映せずにを翻訳元を編集してしまうと、翻訳内容が消えてしまいます。翻訳元を編集したい場合は先に翻訳内容を <code class="docutils literal notranslate"><span class="pre">.po</span></code> ファイルに反映してください。反映方法は次のステップで紹介します。</p>
 </div>
 </section>
+<section id="reflect-translations-to-po-files">
+<h3><span class="section-number">12.2.1.7.2. </span>翻訳を <code class="docutils literal notranslate"><span class="pre">.po</span></code> ファイルに反映する<a class="headerlink" href="#reflect-translations-to-po-files" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> ファイルに翻訳を追加した後、<code class="docutils literal notranslate"><span class="pre">.po</span></code> ファイルへ翻訳を反映するのが、次のステップになります。<code class="docutils literal notranslate"><span class="pre">.po</span></code> ファイルは、最終的な翻訳ファイルになります。ファイルは、<code class="docutils literal notranslate"><span class="pre">doc/locale/${LANGUAGE}/LC_MESSAGES</span></code> 配下にあります。各 <code class="docutils literal notranslate"><span class="pre">.rst</span></code> または <code class="docutils literal notranslate"><span class="pre">.md</span></code> ファイルに対応しています。翻訳を編集したい場合は、対応する <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> ファイルを編集してから、変更内容を <code class="docutils literal notranslate"><span class="pre">.po</span></code> ファイルに反映し直す必要があります。</p>
+<p>次のコマンドで、翻訳内容を <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> ファイルから <code class="docutils literal notranslate"><span class="pre">.po</span></code> ファイルへ反映します。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">% </span>cmake<span class="w"> </span>--build<span class="w"> </span>../groonga.doc
+</pre></div>
+</div>
+<p>例えば、この <a class="reference internal" href="#"><span class="doc">導入</span></a> ページの日本語訳を行い、上記のコマンドを実行した場合、翻訳内容は、<code class="docutils literal notranslate"><span class="pre">/doc/locale/ja/LC_MESSAGES/contribution/documentation/introduction.po</span></code> ファイルに反映されます。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>実は、翻訳を反映するコマンドは、翻訳用の <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> ファイルを生成するコマンドと同じコマンドです。なので、翻訳用のファイル生成と翻訳の反映で違うコマンドを覚える必要はありません。</p>
+</div>
 </section>
-<section id="update">
-<h2><span class="section-number">12.2.1.8. </span>更新<a class="headerlink" href="#update" title="Link to this heading">#</a></h2>
-<p>ドキュメントのソースは <code class="docutils literal notranslate"><span class="pre">doc/source/</span></code> にあります。ソースは英語で書かれているはずです。ドキュメントの翻訳方法については、<a class="reference internal" href="i18n.html"><span class="doc">国際化</span></a> をご覧ください。</p>
-<p>既に存在するドキュメントのファイルを更新すると、翻訳対象のファイルを更新できます。</p>
+<section id="preview-translations-on-html-files">
+<h3><span class="section-number">12.2.1.7.3. </span>HTMLファイルで翻訳を確認する<a class="headerlink" href="#preview-translations-on-html-files" title="Link to this heading">#</a></h3>
+<p>翻訳が反映されたHTML形式のドキュメントをWebブラウザで確認できます。翻訳を <code class="docutils literal notranslate"><span class="pre">.po</span></code> ファイルに反映するステップにて、HTMLファイルも生成されています。これらのファイルは <code class="docutils literal notranslate"><span class="pre">../groonga.doc/doc/${LANGUAGE}/html/</span></code> 配下に生成されています。各ファイルは <code class="docutils literal notranslate"><span class="pre">.rst</span></code> または <code class="docutils literal notranslate"><span class="pre">.md</span></code> ファイルに対応しています。生成されたファイルをWebブラウザで開き、翻訳を確認できます。</p>
+<p>例えば、<a class="reference internal" href="#"><span class="doc">導入</span></a> ページに日本語訳を追加した場合、次のコマンドで確認できます</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">% </span>open<span class="w"> </span>../groonga.doc/doc/ja/html/contribution/documentation/introduction.html
+</pre></div>
+</div>
+</section>
+</section>
+<section id="send-patch">
+<h2><span class="section-number">12.2.1.8. </span>パッチを送る<a class="headerlink" href="#send-patch" title="Link to this heading">#</a></h2>
+<p>GitHub上のGroongaリポジトリに対してプルリクエストを通じてパッチを送ることができます。次の手順で、気軽にプルリクエストを作ってみましょう</p>
+<ul class="simple">
+<li><p>プルリクエストの準備をする</p></li>
+<li><p>プルリクエストを送る</p></li>
+</ul>
+<section id="prepare-your-pull-request">
+<h3><span class="section-number">12.2.1.8.1. </span>プルリクエストの準備をする<a class="headerlink" href="#prepare-your-pull-request" title="Link to this heading">#</a></h3>
+<p>次のコマンドで、変更をコミットし、その変更をGitHubにある自分のフォークリポジトリにプッシュします。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">% </span>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>your-working-branch
+<span class="gp">% </span>git<span class="w"> </span>add<span class="w"> </span>doc
+<span class="gp">% </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;Describe your works here&#39;</span>
+<span class="gp">% </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>your-working-branch
+</pre></div>
+</div>
+</section>
+<section id="submit-your-pull-request">
+<h3><span class="section-number">12.2.1.8.2. </span>プルリクエストを送る<a class="headerlink" href="#submit-your-pull-request" title="Link to this heading">#</a></h3>
+<p>これで、アップストリームのGroongaリポジトリにプルリクエストを送る準備ができました。次のステップに従い実際にプルリクエストを送ってみましょう。</p>
+<ol class="arabic simple">
+<li><p>GitHubで自分のフォークリポジトリにアクセスします</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Compare</span> <span class="pre">&amp;</span> <span class="pre">pull</span> <span class="pre">request</span></code>ボタンをクリックします</p></li>
+<li><p>変更がすべて反映されているかを確認します</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">Pull</span> <span class="pre">Request</span></code>ボタンをクリックして、プルリクエストを送ります</p></li>
+</ol>
+</section>
 </section>
 </section>
 
@@ -624,9 +670,15 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-translate-documentation">12.2.1.7. 任意: ドキュメントを翻訳する</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translate-the-documentation-in-edit-po-files">12.2.1.7.1. <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> ファイル内のドキュメントを翻訳する</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflect-translations-to-po-files">12.2.1.7.2. 翻訳を <code class="docutils literal notranslate"><span class="pre">.po</span></code> ファイルに反映する</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-translations-on-html-files">12.2.1.7.3. HTMLファイルで翻訳を確認する</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update">12.2.1.8. 更新</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#send-patch">12.2.1.8. パッチを送る</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-your-pull-request">12.2.1.8.1. プルリクエストの準備をする</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-your-pull-request">12.2.1.8.2. プルリクエストを送る</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

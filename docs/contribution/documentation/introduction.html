@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>12.2.1. Introduction &#8212; Groonga v14.0.2 documentation</title>
+    <title>12.2.1. Introduction &#8212; Groonga v14.0.3 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../../_static/documentation_options.js?v=f7f35c54"></script>
+    <script src="../../_static/documentation_options.js?v=933c8c10"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
@@ -139,8 +139,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.2 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.2 documentation - Home"/>`);</script>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.3 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.3 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -553,6 +553,8 @@ For example, if you have edited this <a class="reference internal" href="#"><spa
 <p>After editing and previewing the Groonga documentation, the next step is to translate the documents to make them accessible to a wider range of Groonga community users. Translating into languages other than English ensures that non-English speakers can also understand the Groonga documentation. Follow these steps to translate Groonga documentation.</p>
 <ol class="arabic simple">
 <li><p>Translate the documentation in <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files</p></li>
+<li><p>Reflect translations to <code class="docutils literal notranslate"><span class="pre">.po</span></code> files</p></li>
+<li><p>Preview translations on HTML files</p></li>
 </ol>
 <section id="translate-the-documentation-in-edit-po-files">
 <h3><span class="section-number">12.2.1.7.1. </span>Translate the documentation in <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files<a class="headerlink" href="#translate-the-documentation-in-edit-po-files" title="Link to this heading">#</a></h3>
@@ -569,14 +571,59 @@ If you want to edit <code class="docutils literal notranslate"><span class="pre"
 The method to reflect translations will be introduced in the next step.</p>
 </div>
 </section>
+<section id="reflect-translations-to-po-files">
+<h3><span class="section-number">12.2.1.7.2. </span>Reflect translations to <code class="docutils literal notranslate"><span class="pre">.po</span></code> files<a class="headerlink" href="#reflect-translations-to-po-files" title="Link to this heading">#</a></h3>
+<p>After adding your translations to the <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files, the next step is to reflect these translations to the <code class="docutils literal notranslate"><span class="pre">.po</span></code> files. <code class="docutils literal notranslate"><span class="pre">.po</span></code> files are the finalized translation files. These <code class="docutils literal notranslate"><span class="pre">.po</span></code> files are located in <code class="docutils literal notranslate"><span class="pre">doc/locale/${LANGUAGE}/LC_MESSAGES</span></code>. Each file corresponds to a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> or <code class="docutils literal notranslate"><span class="pre">.md</span></code> file. If you want to edit your translations, edit the corresponding <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> file and then reflect your changes to the <code class="docutils literal notranslate"><span class="pre">.po</span></code> file.</p>
+<p>To reflect translations from the <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files to the <code class="docutils literal notranslate"><span class="pre">.po</span></code> files, use the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">% </span>cmake<span class="w"> </span>--build<span class="w"> </span>../groonga.doc
+</pre></div>
+</div>
+<p>For example, if you have added Japanese translations about the <a class="reference internal" href="#"><span class="doc">Introduction</span></a> page and then execute the command above, your translations will be reflected to <code class="docutils literal notranslate"><span class="pre">/doc/locale/ja/LC_MESSAGES/contribution/documentation/introduction.po</span></code> file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Actually, the command to generate translation <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files is the same as the one used for reflecting translations.
+Therefore, there’s no need to memorize different commands for generating translation files and reflecting the translations.</p>
+</div>
 </section>
-<section id="update">
-<h2><span class="section-number">12.2.1.8. </span>Update<a class="headerlink" href="#update" title="Link to this heading">#</a></h2>
-<p>You can find sources of documentation at <code class="docutils literal notranslate"><span class="pre">doc/source/</span></code>. The sources
-should be written in English. See <a class="reference internal" href="i18n.html"><span class="doc">I18N</span></a> about how to translate
-documentation.</p>
-<p>You can update the target file when you update the existing
-documentation file.</p>
+<section id="preview-translations-on-html-files">
+<h3><span class="section-number">12.2.1.7.3. </span>Preview translations on HTML files<a class="headerlink" href="#preview-translations-on-html-files" title="Link to this heading">#</a></h3>
+<p>You can preview your translations in your Web browser in HTML format. The step for reflecting translations into <code class="docutils literal notranslate"><span class="pre">.po</span></code> files also generates the corresponding HTML files. These files are located in <code class="docutils literal notranslate"><span class="pre">../groonga.doc/doc/${LANGUAGE}/html/</span></code>. Each file corresponds to a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> or <code class="docutils literal notranslate"><span class="pre">.md</span></code> file. Open the generated HTML file in your Web browser to review your translations.</p>
+<p>For example, to preview the Japanese translation of the <a class="reference internal" href="#"><span class="doc">Introduction</span></a> page, use the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">% </span>open<span class="w"> </span>../groonga.doc/doc/ja/html/contribution/documentation/introduction.html
+</pre></div>
+</div>
+</section>
+</section>
+<section id="send-patch">
+<h2><span class="section-number">12.2.1.8. </span>Send patch<a class="headerlink" href="#send-patch" title="Link to this heading">#</a></h2>
+<p>You can submit your patch to the Groonga repository on GitHub via a pull request.
+Feel free to send a pull request by following two steps.</p>
+<ul class="simple">
+<li><p>Prepare your pull request</p></li>
+<li><p>Submit your pull request</p></li>
+</ul>
+<section id="prepare-your-pull-request">
+<h3><span class="section-number">12.2.1.8.1. </span>Prepare your pull request<a class="headerlink" href="#prepare-your-pull-request" title="Link to this heading">#</a></h3>
+<p>Ensure your changes are committed and then push your changes to your fork repository on GitHub.
+Follow these commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">% </span>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>your-working-branch
+<span class="gp">% </span>git<span class="w"> </span>add<span class="w"> </span>doc
+<span class="gp">% </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;Describe your works here&#39;</span>
+<span class="gp">% </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>your-working-branch
+</pre></div>
+</div>
+</section>
+<section id="submit-your-pull-request">
+<h3><span class="section-number">12.2.1.8.2. </span>Submit your pull request<a class="headerlink" href="#submit-your-pull-request" title="Link to this heading">#</a></h3>
+<p>Now you’re ready to submit a pull request to the upstream Groonga repository.
+Follow these steps:</p>
+<ol class="arabic simple">
+<li><p>Go to your fork repository on GitHub</p></li>
+<li><p>Click the <code class="docutils literal notranslate"><span class="pre">Compare</span> <span class="pre">&amp;</span> <span class="pre">pull</span> <span class="pre">request</span></code> button</p></li>
+<li><p>Make sure your changes are reflected</p></li>
+<li><p>Click the <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">Pull</span> <span class="pre">Request</span></code> button and send your pull request</p></li>
+</ol>
+</section>
 </section>
 </section>
 
@@ -638,9 +685,15 @@ documentation file.</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-translate-documentation">12.2.1.7. Optional: Translate documentation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translate-the-documentation-in-edit-po-files">12.2.1.7.1. Translate the documentation in <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflect-translations-to-po-files">12.2.1.7.2. Reflect translations to <code class="docutils literal notranslate"><span class="pre">.po</span></code> files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-translations-on-html-files">12.2.1.7.3. Preview translations on HTML files</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update">12.2.1.8. Update</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#send-patch">12.2.1.8. Send patch</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-your-pull-request">12.2.1.8.1. Prepare your pull request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-your-pull-request">12.2.1.8.2. Submit your pull request</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
