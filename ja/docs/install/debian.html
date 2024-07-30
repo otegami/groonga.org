@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.3. Debian GNU/Linux &#8212; Groonga v14.0.5 documentation</title>
+    <title>2.3. Debian GNU/Linux &#8212; Groonga v14.0.6 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../_static/documentation_options.js?v=231aff9d"></script>
+    <script src="../_static/documentation_options.js?v=8e4a8f51"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/translations.js?v=4dbe4bdc"></script>
@@ -141,8 +141,8 @@
       
     
     
-    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.5 documentation - Home"/>
-    <script>document.write(`<img src="../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.5 documentation - Home"/>`);</script>
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.6 documentation - Home"/>
+    <script>document.write(`<img src="../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.6 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -497,64 +497,16 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="bullseye">
-<h2><span class="section-number">2.3.2. </span>bullseye<a class="headerlink" href="#bullseye" title="Link to this heading">#</a></h2>
-<div class="versionadded">
-<p><span class="versionmodified added">バージョン 11.0.2 で追加.</span></p>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">groonga-apt-source</span></code> パッケージのインストール:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">update</span>
-<span class="o">%</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="o">-</span><span class="n">V</span> <span class="n">wget</span>
-<span class="o">%</span> <span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packages</span><span class="o">.</span><span class="n">groonga</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">debian</span><span class="o">/</span><span class="n">groonga</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">source</span><span class="o">-</span><span class="n">latest</span><span class="o">-</span><span class="n">bullseye</span><span class="o">.</span><span class="n">deb</span>
-<span class="o">%</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="o">-</span><span class="n">V</span> <span class="o">./</span><span class="n">groonga</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">source</span><span class="o">-</span><span class="n">latest</span><span class="o">-</span><span class="n">bullseye</span><span class="o">.</span><span class="n">deb</span>
-<span class="o">%</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">update</span>
-</pre></div>
-</div>
-<p>インストール:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="o">-</span><span class="n">V</span> <span class="n">groonga</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p><code class="docutils literal notranslate"><span class="pre">groonga</span></code> パッケージは全文検索のための最小構成パッケージです。Groongaをサーバー用途で使うなら、設定済みの追加パッケージをインストールすることができます。</p>
-<p>サーバー用途のための2つのパッケージがあります。</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="../reference/executables/groonga-server-http.html"><span class="doc">Groonga HTTPサーバー</span></a> （HTTPベースのサーバーパッケージ）</p></li>
-<li><p>groonga-server-gqtp （GQTPベースのサーバーパッケージ）</p></li>
-</ul>
-<p>詳細は <a class="reference internal" href="../server.html"><span class="doc">サーバー</span></a> を参照してください。</p>
-</div>
-<p><a class="reference external" href="https://taku910.github.io/mecab/">MeCab</a> をトークナイザーとして使いたいときは、groonga-tokenizer-mecabパッケージをインストールしてください。</p>
-<p>groonga-tokenizer-mecabパッケージのインストール:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="o">-</span><span class="n">V</span> <span class="n">groonga</span><span class="o">-</span><span class="n">tokenizer</span><span class="o">-</span><span class="n">mecab</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">TokenFilterStem</span></code> をトークンフィルターとして使いたいときはgroonga-tokenizer-filter-stemパッケージをインストールしてください。</p>
-<p>groonga-token-filter-stemパッケージのインストール:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="o">-</span><span class="n">V</span> <span class="n">groonga</span><span class="o">-</span><span class="n">token</span><span class="o">-</span><span class="nb">filter</span><span class="o">-</span><span class="n">stem</span>
-</pre></div>
-</div>
-<p><a class="reference external" href="http://munin-monitoring.org/">Munin</a> プラグインを提供するパッケージもあります。MuninでGroongaの状態をモニターしたい場合は、groonga-munin-pluginsパッケージをインストールしてください。</p>
-<p>groonga-munin-pluginsパッケージのインストール:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="o">-</span><span class="n">V</span> <span class="n">groonga</span><span class="o">-</span><span class="n">munin</span><span class="o">-</span><span class="n">plugins</span>
-</pre></div>
-</div>
-<p>MySQL互換のノーマライザーをGroongaのプラグインとして提供するパッケージがあります。MySQL互換のノーマライザーを使うには <code class="docutils literal notranslate"><span class="pre">groonga-normalizer-mysql</span></code> パッケージをインストールしてください。</p>
-<p>groonga-normalizer-mysqlパッケージのインストール:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="o">-</span><span class="n">V</span> <span class="n">groonga</span><span class="o">-</span><span class="n">normalizer</span><span class="o">-</span><span class="n">mysql</span>
-</pre></div>
-</div>
-</section>
 <section id="build-from-source">
-<h2><span class="section-number">2.3.3. </span>ソースからビルド<a class="headerlink" href="#build-from-source" title="Link to this heading">#</a></h2>
-<p>Debian bullseyeでGroongaをビルドするために必要なパッケージをインストールします:</p>
+<h2><span class="section-number">2.3.2. </span>ソースからビルド<a class="headerlink" href="#build-from-source" title="Link to this heading">#</a></h2>
+<p>Groongaをビルドするために必要なパッケージをインストールします:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="o">-</span><span class="n">V</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span> <span class="n">zlib1g</span><span class="o">-</span><span class="n">dev</span> <span class="n">libmsgpack</span><span class="o">-</span><span class="n">dev</span> <span class="n">libzmq3</span><span class="o">-</span><span class="n">dev</span> <span class="n">libevent</span><span class="o">-</span><span class="n">dev</span> <span class="n">libmecab</span><span class="o">-</span><span class="n">dev</span> <span class="n">liblz4</span><span class="o">-</span><span class="n">dev</span>
 </pre></div>
 </div>
 <p>ソースをダウンロードします:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packages</span><span class="o">.</span><span class="n">groonga</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">source</span><span class="o">/</span><span class="n">groonga</span><span class="o">/</span><span class="n">groonga</span><span class="o">-</span><span class="mf">14.0.5</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
-<span class="o">%</span> <span class="n">tar</span> <span class="n">xvzf</span> <span class="n">groonga</span><span class="o">-</span><span class="mf">14.0.5</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
-<span class="o">%</span> <span class="n">cd</span> <span class="n">groonga</span><span class="o">-</span><span class="mf">14.0.5</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packages</span><span class="o">.</span><span class="n">groonga</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">source</span><span class="o">/</span><span class="n">groonga</span><span class="o">/</span><span class="n">groonga</span><span class="o">-</span><span class="mf">14.0.6</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="o">%</span> <span class="n">tar</span> <span class="n">xvzf</span> <span class="n">groonga</span><span class="o">-</span><span class="mf">14.0.6</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="o">%</span> <span class="n">cd</span> <span class="n">groonga</span><span class="o">-</span><span class="mf">14.0.6</span>
 </pre></div>
 </div>
 <p>configureを実行します（ <code class="docutils literal notranslate"><span class="pre">configure</span></code> のオプションについては <a class="reference internal" href="others.html#source-configure"><span class="std std-ref">configure</span></a> を参照してください）:</p>
@@ -619,8 +571,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bookworm">2.3.1. bookworm</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bullseye">2.3.2. bullseye</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-from-source">2.3.3. ソースからビルド</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-from-source">2.3.2. ソースからビルド</a></li>
 </ul>
   </nav></div>
 
