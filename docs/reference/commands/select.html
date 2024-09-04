@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.3.57. select &#8212; Groonga v14.0.6 documentation</title>
+    <title>7.3.57. select &#8212; Groonga v14.0.7 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../_static/documentation_options.js?v=bfbd1b05"></script>
+    <script src="../../_static/documentation_options.js?v=db72cb41"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
@@ -140,8 +140,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.6 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.6 documentation - Home"/>`);</script>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.7 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.7 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -979,7 +979,7 @@ conditions. It can be used for non fulltext search conditions but
 <code class="docutils literal notranslate"><span class="pre">filter</span></code> is used for the propose.</p>
 <p><code class="docutils literal notranslate"><span class="pre">query</span></code> parameter is used with <code class="docutils literal notranslate"><span class="pre">match_columns</span></code> parameter when
 <code class="docutils literal notranslate"><span class="pre">query</span></code> parameter is used for specifying fulltext search
-conditions. <code class="docutils literal notranslate"><span class="pre">match_columns</span></code> specifies which columnes and indexes are
+conditions. <code class="docutils literal notranslate"><span class="pre">match_columns</span></code> specifies which columns and indexes are
 matched against <code class="docutils literal notranslate"><span class="pre">query</span></code>.</p>
 <p>Here is a simple <code class="docutils literal notranslate"><span class="pre">query</span></code> usage example.</p>
 <p>Execution example:</p>
@@ -1038,8 +1038,8 @@ matched against <code class="docutils literal notranslate"><span class="pre">que
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">select</span></code> command searches records that contain a word <code class="docutils literal notranslate"><span class="pre">fast</span></code>
 in <code class="docutils literal notranslate"><span class="pre">content</span></code> column value from <code class="docutils literal notranslate"><span class="pre">Entries</span></code> table.</p>
-<p><code class="docutils literal notranslate"><span class="pre">query</span></code> has query syntax but its deatils aren’t described here. See
-<a class="reference internal" href="../grn_expr/query_syntax.html"><span class="doc">Query syntax</span></a> for datails.</p>
+<p><code class="docutils literal notranslate"><span class="pre">query</span></code> has query syntax but its details aren’t described here. See
+<a class="reference internal" href="../grn_expr/query_syntax.html"><span class="doc">Query syntax</span></a> for details.</p>
 </section>
 <section id="search-condition-filter">
 <h4><span class="section-number">7.3.57.3.2.2. </span>Search condition: <code class="docutils literal notranslate"><span class="pre">filter</span></code><a class="headerlink" href="#search-condition-filter" title="Link to this heading">#</a></h4>
@@ -1101,7 +1101,7 @@ in <code class="docutils literal notranslate"><span class="pre">content</span></
 <code class="docutils literal notranslate"><span class="pre">==</span></code> is equality operator.</p>
 <p><code class="docutils literal notranslate"><span class="pre">filter</span></code> has more operators and syntax like grouping by <code class="docutils literal notranslate"><span class="pre">(...)</span></code>
 its details aren’t described here. See
-<a class="reference internal" href="../grn_expr/script_syntax.html"><span class="doc">Script syntax</span></a> for datails.</p>
+<a class="reference internal" href="../grn_expr/script_syntax.html"><span class="doc">Script syntax</span></a> for details.</p>
 </section>
 </section>
 <section id="paging">
@@ -1158,12 +1158,12 @@ Here is an example to output only the 2nd record.</p>
 <p><code class="docutils literal notranslate"><span class="pre">offset</span></code> is zero-based. <code class="docutils literal notranslate"><span class="pre">--offset</span> <span class="pre">1</span></code> means output range is
 started from the 2nd record.</p>
 <p><code class="docutils literal notranslate"><span class="pre">limit</span></code> specifies the max number of output records. <code class="docutils literal notranslate"><span class="pre">--limit</span> <span class="pre">1</span></code>
-means the number of output records is 1 at a maximium. If no records
+means the number of output records is 1 at a maximum. If no records
 are matched, <code class="docutils literal notranslate"><span class="pre">select</span></code> command outputs no records.</p>
 </section>
 <section id="the-total-number-of-records">
 <h3><span class="section-number">7.3.57.3.4. </span>The total number of records<a class="headerlink" href="#the-total-number-of-records" title="Link to this heading">#</a></h3>
-<p>You can use <code class="docutils literal notranslate"><span class="pre">--limit</span> <span class="pre">0</span></code> to retrieve the total number of recrods
+<p>You can use <code class="docutils literal notranslate"><span class="pre">--limit</span> <span class="pre">0</span></code> to retrieve the total number of records
 without any contents of records.</p>
 <p>Execution example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="n">Entries</span> <span class="o">--</span><span class="n">limit</span> <span class="mi">0</span>
@@ -1841,7 +1841,7 @@ records.</p>
 <p>Pay attention to <code class="docutils literal notranslate"><span class="pre">_score</span></code> value. <code class="docutils literal notranslate"><span class="pre">_score</span></code> value is the number of
 matched counts against <code class="docutils literal notranslate"><span class="pre">query</span></code> parameter value. In the example,
 <code class="docutils literal notranslate"><span class="pre">query</span></code> parameter value is <code class="docutils literal notranslate"><span class="pre">fast</span></code>. The fact that <code class="docutils literal notranslate"><span class="pre">_score</span></code> value
-is 1 means that <code class="docutils literal notranslate"><span class="pre">fast</span></code> appers in <code class="docutils literal notranslate"><span class="pre">content</span></code> column only once.  The
+is 1 means that <code class="docutils literal notranslate"><span class="pre">fast</span></code> appears in <code class="docutils literal notranslate"><span class="pre">content</span></code> column only once.  The
 fact that <code class="docutils literal notranslate"><span class="pre">_score</span></code> value is 2 means that <code class="docutils literal notranslate"><span class="pre">fast</span></code> appears in
 <code class="docutils literal notranslate"><span class="pre">content</span></code> column twice.</p>
 <p>To specify weight, <code class="docutils literal notranslate"><span class="pre">column</span> <span class="pre">*</span> <span class="pre">weight</span></code> syntax is used. Here is a
@@ -1932,7 +1932,7 @@ columns for fulltext search are <code class="docutils literal notranslate"><span
 <code class="docutils literal notranslate"><span class="pre">_key</span></code> column’s weight is 10 and <code class="docutils literal notranslate"><span class="pre">content</span></code> column’s weight
 is 1. This weight allocation means <code class="docutils literal notranslate"><span class="pre">_key</span></code> column value is more
 important rather than <code class="docutils literal notranslate"><span class="pre">content</span></code> column value. In this example, title
-of blog entry is more important rather thatn content of blog entry.</p>
+of blog entry is more important rather than content of blog entry.</p>
 <p>You can also specify score function. See <a class="reference internal" href="../scorer.html"><span class="doc">Scorer</span></a> for
 details.</p>
 <p>Note that score function isn’t related to <a class="reference internal" href="#select-scorer"><span class="std std-ref">scorer</span></a>
@@ -2212,7 +2212,7 @@ is less than <code class="docutils literal notranslate"><span class="pre">11</sp
 <span id="select-filter"></span><h4><span class="section-number">7.3.57.4.2.3. </span><code class="docutils literal notranslate"><span class="pre">filter</span></code><a class="headerlink" href="#filter" title="Link to this heading">#</a></h4>
 <p>Specifies the filter text. Normally, it is used for complex search
 conditions. <code class="docutils literal notranslate"><span class="pre">filter</span></code> can be used with <code class="docutils literal notranslate"><span class="pre">query</span></code> parameter. If both
-<code class="docutils literal notranslate"><span class="pre">filter</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span></code> are specified, there are conbined with
+<code class="docutils literal notranslate"><span class="pre">filter</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span></code> are specified, there are combined with
 logical and. It means that matched records should be matched against
 both <code class="docutils literal notranslate"><span class="pre">filter</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">filter</span></code> parameter is designed for complex conditions. A filter text
@@ -2498,12 +2498,12 @@ You must specify columns that already exists.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 8.0.1.</span></p>
 </div>
-<p>Specifies threshold to determine whether search storategy
+<p>Specifies threshold to determine whether search strategy
 escalation is used or not. The threshold is compared against the
 number of matched records. If the number of matched records is equal
-to or less than the threshold, the search storategy escalation is
-used. See <a class="reference internal" href="../../spec/search.html"><span class="doc">検索</span></a> about the search storategy escalation.</p>
-<p>The default threshold is 0. It means that search storategy escalation
+to or less than the threshold, the search strategy escalation is
+used. See <a class="reference internal" href="../../spec/search.html"><span class="doc">検索</span></a> about the search strategy escalation.</p>
+<p>The default threshold is 0. It means that search strategy escalation
 is used only when no records are matched.</p>
 <p>The default threshold can be customized by one of the followings.</p>
 <blockquote>
@@ -2610,13 +2610,13 @@ records are matched because the <code class="docutils literal notranslate"><span
 <code class="docutils literal notranslate"><span class="pre">gr|ro|oo|on|ng|ga</span></code>. See <a class="reference internal" href="../tokenizers.html"><span class="doc">Tokenizers</span></a> for details.)
 It means that <code class="docutils literal notranslate"><span class="pre">groonga</span></code> is indexed but <code class="docutils literal notranslate"><span class="pre">groo</span></code> isn’t indexed. So no
 records are matched against <code class="docutils literal notranslate"><span class="pre">groo</span></code> by exact match. In the case, the
-search storategy escalation is used because the number of matched
+search strategy escalation is used because the number of matched
 records (0) is equal to <code class="docutils literal notranslate"><span class="pre">match_escalation_threshold</span></code> (0). One record
 is matched against <code class="docutils literal notranslate"><span class="pre">groo</span></code> by unsplit search.</p>
 <p>The second <code class="docutils literal notranslate"><span class="pre">select</span></code> command also searches records that contain a
 word <code class="docutils literal notranslate"><span class="pre">groo</span></code> in <code class="docutils literal notranslate"><span class="pre">content</span></code> column value from <code class="docutils literal notranslate"><span class="pre">Entries</span></code> table. And
 it also doesn’t find matched records. In this case, the search
-storategy escalation is not used because the number of matched
+strategy escalation is not used because the number of matched
 records (0) is larger than <code class="docutils literal notranslate"><span class="pre">match_escalation_threshold</span></code> (-1). So no
 more searches aren’t executed. And no records are matched.</p>
 </section>
@@ -2772,7 +2772,7 @@ column value by <code class="docutils literal notranslate"><span class="pre">que
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">ALLOW_PRAGMA</span></code> enables pragma at the head of <code class="docutils literal notranslate"><span class="pre">query</span></code>. This is not
 implemented yet.</p>
-<p><code class="docutils literal notranslate"><span class="pre">ALLOW_COLUMN</span></code> enables search againt columns that are not included
+<p><code class="docutils literal notranslate"><span class="pre">ALLOW_COLUMN</span></code> enables search against columns that are not included
 in <code class="docutils literal notranslate"><span class="pre">match_columns</span></code>. To specify column, there are <code class="docutils literal notranslate"><span class="pre">COLUMN:...</span></code>
 syntaxes.</p>
 <p><code class="docutils literal notranslate"><span class="pre">ALLOW_UPDATE</span></code> enables column update by <code class="docutils literal notranslate"><span class="pre">query</span></code> with
@@ -3058,7 +3058,7 @@ in <code class="docutils literal notranslate"><span class="pre">content</span></
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>If you don’t specify this flag, the quey causes a syntax error as below.</p>
+<p>If you don’t specify this flag, the query causes a syntax error as below.</p>
 <p>Execution example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="n">Magazine</span> <span class="o">--</span><span class="n">match_columns</span> <span class="n">title</span> <span class="o">--</span><span class="n">query</span> <span class="s1">&#39;WEB +&#39;</span>  <span class="o">--</span><span class="n">query_flags</span> <span class="n">ALLOW_PRAGMA</span><span class="o">|</span><span class="n">ALLOW_COLUMN</span>
 <span class="c1"># [</span>
@@ -3136,7 +3136,7 @@ specified.</p>
 <section id="query-expander">
 <span id="select-query-expander"></span><h4><span class="section-number">7.3.57.4.3.5. </span><code class="docutils literal notranslate"><span class="pre">query_expander</span></code><a class="headerlink" href="#query-expander" title="Link to this heading">#</a></h4>
 <p>It’s for query expansion. Query expansion substitutes specific words
-to another words in query. Nomally, it’s used for synonym search.</p>
+to another words in query. Normally, it’s used for synonym search.</p>
 <p>It specifies a column that is used to substitute <code class="docutils literal notranslate"><span class="pre">query</span></code> parameter
 value. The format of this parameter value is
 “<code class="docutils literal notranslate"><span class="pre">${TABLE}.${COLUMN}</span></code>”. For example, “<code class="docutils literal notranslate"><span class="pre">Terms.synonym</span></code>” specifies
@@ -3151,7 +3151,7 @@ column”. Substitution column’s value type must be
 <p>Query expansion substitutes key of substitution table in query with
 values in substitution column. If a word in <code class="docutils literal notranslate"><span class="pre">query</span></code> is a key of
 substitution table, the word is substituted with substitution column
-value that is associated with the key. Substition isn’t performed
+value that is associated with the key. Substitution isn’t performed
 recursively. It means that substitution target words in substituted
 query aren’t substituted.</p>
 <p>Here is a sample substitution table to show a simple
@@ -3434,8 +3434,8 @@ So, queries tend to take a long time if there are a lot of <code class="docutils
 <p><code class="docutils literal notranslate"><span class="pre">n_workers</span></code> enables to execute independent <code class="docutils literal notranslate"><span class="pre">drilldown</span></code>, <code class="docutils literal notranslate"><span class="pre">drilldowns</span></code> and <code class="docutils literal notranslate"><span class="pre">slices</span></code> in parallel.
 The execution time of the total sum of processes can be shourtend by executing them in parallel.
 This parallel execution is done for each <code class="docutils literal notranslate"><span class="pre">select</span></code> command.</p>
-<p>“independent” means not using <code class="docutils literal notranslate"><span class="pre">dorilldowns.table</span></code> to reference the results of other drilldowns or slices.</p>
-<p>If there are dependencies as same meaning as using <code class="docutils literal notranslate"><span class="pre">dorilldowns.table</span></code>, it wait for finish the dependent drilldowns or slices.
+<p>“independent” means not using <code class="docutils literal notranslate"><span class="pre">drilldowns.table</span></code> to reference the results of other drilldowns or slices.</p>
+<p>If there are dependencies as same meaning as using <code class="docutils literal notranslate"><span class="pre">drilldowns.table</span></code>, it wait for finish the dependent drilldowns or slices.
 Therefore, the degree of parallelism is reduced if they have dependencies.</p>
 <p>Executing in parallel means using multiple CPUs at the same time.
 If executing in parallel without free CPU resource, it may actually slow down the execution time.
@@ -7110,8 +7110,8 @@ specify one key as <code class="docutils literal notranslate"><span class="pre">
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 6.0.2.</span></p>
 </div>
-<p>Specify <code class="docutils literal notranslate"><span class="pre">${LABLE}</span></code> of other <code class="docutils literal notranslate"><span class="pre">drilldowns</span></code> or <code class="docutils literal notranslate"><span class="pre">slices</span></code>.</p>
-<p>You can drilldown the result of specified <code class="docutils literal notranslate"><span class="pre">${LABLE}</span></code>.
+<p>Specify <code class="docutils literal notranslate"><span class="pre">${LABEL}</span></code> of other <code class="docutils literal notranslate"><span class="pre">drilldowns</span></code> or <code class="docutils literal notranslate"><span class="pre">slices</span></code>.</p>
+<p>You can drilldown the result of specified <code class="docutils literal notranslate"><span class="pre">${LABEL}</span></code>.
 It means that this parameter enables a nested drilldown.</p>
 <p>Here is an example to execute the nested drilldown. The final result takes first drilldown by <code class="docutils literal notranslate"><span class="pre">tag</span></code> and then 2nd drilldown by <code class="docutils literal notranslate"><span class="pre">category</span></code> against first result.</p>
 <p>Execution example:</p>
@@ -7372,7 +7372,7 @@ Thus the result of <code class="docutils literal notranslate"><span class="pre">
 In this case, a target vector is considered as multi set.
 Thus, each element is considered as an individual element when there are multiple elements with same value.</p>
 <p>For example, there is a vector <code class="docutils literal notranslate"><span class="pre">[A,</span> <span class="pre">B,</span> <span class="pre">C]</span></code>. In this case, a target set is <code class="docutils literal notranslate"><span class="pre">{A,</span> <span class="pre">B,</span> <span class="pre">C}</span></code>.
-The power set is aggrigation for all of subsets within a set. Following shows all of subset within a set <code class="docutils literal notranslate"><span class="pre">{A,</span> <span class="pre">B,</span> <span class="pre">C}</span></code>.
+The power set is aggregation for all of subsets within a set. Following shows all of subset within a set <code class="docutils literal notranslate"><span class="pre">{A,</span> <span class="pre">B,</span> <span class="pre">C}</span></code>.
 However, Groonga does not use empty set, that number of elements is 0. It is because empty set is not useful for results of drilldown.
 Please report at <a class="reference external" href="https://github.com/groonga/groonga/issues">issue</a>, if you find a case to use empty set.</p>
 <ul class="simple">

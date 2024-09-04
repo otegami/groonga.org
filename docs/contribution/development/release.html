@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>12.3.7. リリース手順 &#8212; Groonga v14.0.6 documentation</title>
+    <title>12.3.7. リリース手順 &#8212; Groonga v14.0.7 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../_static/documentation_options.js?v=bfbd1b05"></script>
+    <script src="../../_static/documentation_options.js?v=db72cb41"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
@@ -140,8 +140,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.6 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.6 documentation - Home"/>`);</script>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.7 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.7 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -876,13 +876,12 @@ title: Groonga 2.0.5 has been released
 <h3><span class="section-number">12.3.7.3.21. </span>ドキュメントのアップロード<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
 <p>doc/source以下のドキュメントを更新、翻訳まで完了している状態で、ドキュメントのアップロード作業を行います。</p>
 <p>そのためにはまず <code class="docutils literal notranslate"><span class="pre">groonga</span></code> のリポジトリをカレントディレクトリにして以下のコマンドを実行します。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nv">GROONGA_VERSION</span><span class="o">=</span><span class="k">$(</span>git<span class="w"> </span>tag<span class="w"> </span>--sort<span class="o">=</span>taggerdate<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span>-d<span class="w"> </span>v<span class="k">)</span>
-<span class="gp">$ </span>make<span class="w"> </span>update-document<span class="w"> </span><span class="nv">DOCUMENT_VERSION</span><span class="o">=</span><span class="nv">$GROONGA_VERSION</span><span class="w"> </span><span class="nv">DOCUMENT_VERSION_FULL</span><span class="o">=</span><span class="nv">$GROONGA_VERSION</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>../groonga.doc<span class="w"> </span>--preset<span class="o">=</span>doc<span class="w"> </span>--fresh
+<span class="gp">$ </span>rake<span class="w"> </span>release:document:update<span class="w"> </span><span class="nv">BUILD_DIR</span><span class="o">=</span>../groonga.doc<span class="w"> </span><span class="nv">GROONGA_ORG_DIR</span><span class="o">=</span>../groonga.org
 </pre></div>
 </div>
-<p>ここでは最新のtagに基づいてリリースバージョンを調べ、明示的にそのバージョンを指定してドキュメントを更新するようにしています。
-これによりcloneしておいたgroonga.orgのdoc/locale以下に更新したドキュメントがコピーされます。</p>
-<p>生成されているドキュメントに問題のないことを確認できたら、コミット、pushしてgroonga.orgへと反映します。</p>
+<p>これで、 <code class="docutils literal notranslate"><span class="pre">groonga.org</span></code> の <code class="docutils literal notranslate"><span class="pre">docs/</span></code> と <code class="docutils literal notranslate"><span class="pre">ja/docs</span></code> 以下に更新したドキュメントがコピーされます。</p>
+<p>生成されているドキュメントに問題のないことを確認できたら、コミット、pushして <code class="docutils literal notranslate"><span class="pre">groonga.org</span></code> へと反映します。</p>
 <p>また、 <code class="docutils literal notranslate"><span class="pre">groonga.org</span></code> リポジトリの <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> に最新リリースのバージョン番号と日付を表す情報の指定があるので、これらも更新します。</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">groonga_version: x.x.x</span>
 <span class="go">groonga_release_date: xxxx-xx-xx</span>

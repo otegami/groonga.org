@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>News - 5 series &#8212; Groonga v14.0.6 documentation</title>
+    <title>News - 5 series &#8212; Groonga v14.0.7 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../_static/documentation_options.js?v=bfbd1b05"></script>
+    <script src="../_static/documentation_options.js?v=db72cb41"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
@@ -138,8 +138,8 @@
       
     
     
-    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.6 documentation - Home"/>
-    <script>document.write(`<img src="../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.6 documentation - Home"/>`);</script>
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.7 documentation - Home"/>
+    <script>document.write(`<img src="../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.7 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -714,7 +714,7 @@ to <code class="docutils literal notranslate"><span class="pre">Bool</span></cod
 <li><p>[<a class="reference internal" href="../reference/api.html"><span class="doc">API</span></a>] Supported owning other <code class="docutils literal notranslate"><span class="pre">grn_obj</span></code> by
 <code class="docutils literal notranslate"><span class="pre">GRN_PTR</span></code> and <code class="docutils literal notranslate"><span class="pre">GRN_PVECTOR</span></code> bulk. If you specify <code class="docutils literal notranslate"><span class="pre">GRN_OBJ_OWN</span></code>
 flag to <code class="docutils literal notranslate"><span class="pre">GRN_PTR</span></code> and <code class="docutils literal notranslate"><span class="pre">GRN_PVECTOR</span></code> bulks, they call
-<a class="reference internal" href="../reference/api/grn_obj.html#c.grn_obj_close" title="grn_obj_close"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_obj_close()</span></code></a> against <code class="docutils literal notranslate"><span class="pre">grn_obj</span></code> that is held by
+<code class="xref c c-func docutils literal notranslate"><span class="pre">grn_obj_close()</span></code> against <code class="docutils literal notranslate"><span class="pre">grn_obj</span></code> that is held by
 them when they are closed.</p></li>
 <li><p>[incompatible][<a class="reference internal" href="../reference/regular_expression.html"><span class="doc">Regular expression</span></a>] Changed to
 normalize regular expression match target text before matching. It’s
@@ -743,7 +743,7 @@ without this change. B.C. is valid time when system (<code class="docutils liter
 supports it with this change.</p></li>
 <li><p>[<a class="reference internal" href="../reference/api/grn_ctx.html#c.grn_ctx_is_opened" title="grn_ctx_is_opened"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_is_opened()</span></code></a>] Added a new API that checks whether
 object with the ID is opened or not.</p></li>
-<li><p>[<a class="reference internal" href="../reference/api/grn_obj.html#c.grn_obj_remove" title="grn_obj_remove"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_obj_remove()</span></code></a>] Reduced the maximum memory usage. If
+<li><p>[<code class="xref c c-func docutils literal notranslate"><span class="pre">grn_obj_remove()</span></code>] Reduced the maximum memory usage. If
 <a class="reference internal" href="../reference/api/grn_thread.html#c.grn_thread_get_limit" title="grn_thread_get_limit"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_thread_get_limit()</span></code></a> returns <code class="docutils literal notranslate"><span class="pre">1</span></code>, it closes temporary
 opened objects after it finished to use them.</p></li>
 <li><p>[doc][<a class="reference internal" href="../reference/commands/table_remove.html"><span class="doc">table_remove</span></a>] Updated with many

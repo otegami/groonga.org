@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.5. Drilldown &#8212; Groonga v14.0.6 documentation</title>
+    <title>4.5. Drilldown &#8212; Groonga v14.0.7 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../_static/documentation_options.js?v=bfbd1b05"></script>
+    <script src="../_static/documentation_options.js?v=db72cb41"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
@@ -140,8 +140,8 @@
       
     
     
-    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.6 documentation - Home"/>
-    <script>document.write(`<img src="../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.6 documentation - Home"/>`);</script>
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.7 documentation - Home"/>
+    <script>document.write(`<img src="../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.7 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -599,7 +599,7 @@ Now that you can search as you likes, but how do you summarize the number of rec
 </table>
 </div>
 <p>The value of drilldown are returned as the value of <code class="docutils literal notranslate"><span class="pre">_nsubrecs</span></code> column. In this case, <code class="docutils literal notranslate"><span class="pre">Site</span></code> table is grouped by “.org”, “.net”, “.com” domain. <code class="docutils literal notranslate"><span class="pre">_nsubrecs</span></code> shows that each three domain has three records.</p>
-<p>If you execute drildown to the column which has table as a type, you can get the value of column which is stored in referenced table.
+<p>If you execute drilldown to the column which has table as a type, you can get the value of column which is stored in referenced table.
 <code class="docutils literal notranslate"><span class="pre">_nsubrecs</span></code> pseudo column is added to the table which is used for drilldown. this pseudo column stores the number of records which is grouped by.</p>
 <p>Then, investigate referenced table in detail. As <code class="docutils literal notranslate"><span class="pre">Site</span></code> table use <code class="docutils literal notranslate"><span class="pre">SiteDomain</span></code> table as column type of <code class="docutils literal notranslate"><span class="pre">domain</span></code>, you can use <code class="docutils literal notranslate"><span class="pre">--drilldown_output_columns</span></code> to know detail of referenced column.</p>
 <p>Execution example:</p>
@@ -770,7 +770,7 @@ Now that you can search as you likes, but how do you summarize the number of rec
 </div>
 <section id="drilldown-with-multiple-column">
 <h2><span class="section-number">4.5.1. </span>Drilldown with multiple column<a class="headerlink" href="#drilldown-with-multiple-column" title="Link to this heading">#</a></h2>
-<p>Drilldown feature supports multiple column. Use comma separated multiple column names as <code class="docutils literal notranslate"><span class="pre">drildown</span></code> parameter.
+<p>Drilldown feature supports multiple column. Use comma separated multiple column names as <code class="docutils literal notranslate"><span class="pre">drilldown</span></code> parameter.
 You can get the each result of drilldown at once.</p>
 <p>Execution example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span> <span class="o">--</span><span class="n">limit</span> <span class="mi">0</span> <span class="o">--</span><span class="n">drilldown</span> <span class="n">domain</span><span class="p">,</span><span class="n">country</span>
@@ -887,8 +887,8 @@ You can get the each result of drilldown at once.</p>
 </pre></div>
 </div>
 </section>
-<section id="sorting-drildown-results">
-<h2><span class="section-number">4.5.2. </span>Sorting drildown results<a class="headerlink" href="#sorting-drildown-results" title="Link to this heading">#</a></h2>
+<section id="sorting-drilldown-results">
+<h2><span class="section-number">4.5.2. </span>Sorting drilldown results<a class="headerlink" href="#sorting-drilldown-results" title="Link to this heading">#</a></h2>
 <p>Use <code class="docutils literal notranslate"><span class="pre">--drilldown_sort_keys</span></code> if you want to sort the result of drilldown. For example, specify <code class="docutils literal notranslate"><span class="pre">_nsubrecs</span></code> as ascending order.</p>
 <p>Execution example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span> <span class="o">--</span><span class="n">limit</span> <span class="mi">0</span> <span class="o">--</span><span class="n">drilldown</span> <span class="n">country</span> <span class="o">--</span><span class="n">drilldown_sort_keys</span> <span class="n">_nsubrecs</span>
@@ -978,8 +978,8 @@ You can get the each result of drilldown at once.</p>
 </pre></div>
 </div>
 </section>
-<section id="limits-drildown-results">
-<h2><span class="section-number">4.5.3. </span>limits drildown results<a class="headerlink" href="#limits-drildown-results" title="Link to this heading">#</a></h2>
+<section id="limits-drilldown-results">
+<h2><span class="section-number">4.5.3. </span>limits drilldown results<a class="headerlink" href="#limits-drilldown-results" title="Link to this heading">#</a></h2>
 <p>The number of drilldown results is limited to 10 as a default. Use <code class="docutils literal notranslate"><span class="pre">drilldown_limit</span></code> and <code class="docutils literal notranslate"><span class="pre">drilldown_offset</span></code> parameter to customize orilldown results.</p>
 <p>Execution example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span> <span class="o">--</span><span class="n">limit</span> <span class="mi">0</span> <span class="o">--</span><span class="n">drilldown</span> <span class="n">country</span> <span class="o">--</span><span class="n">drilldown_sort_keys</span> <span class="n">_nsubrecs</span> <span class="o">--</span><span class="n">drilldown_limit</span> <span class="mi">2</span> <span class="o">--</span><span class="n">drilldown_offset</span> <span class="mi">2</span>
@@ -1108,8 +1108,8 @@ If you drilldown to string type of column, create the table that type of primary
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drilldown-with-multiple-column">4.5.1. Drilldown with multiple column</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-drildown-results">4.5.2. Sorting drildown results</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limits-drildown-results">4.5.3. limits drildown results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-drilldown-results">4.5.2. Sorting drilldown results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limits-drilldown-results">4.5.3. limits drilldown results</a></li>
 </ul>
   </nav></div>
 

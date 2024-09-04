@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.25.23. grn_table_cursor &#8212; Groonga v14.0.6 documentation</title>
+    <title>7.25.23. grn_table_cursor &#8212; Groonga v14.0.7 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../_static/documentation_options.js?v=bfbd1b05"></script>
+    <script src="../../_static/documentation_options.js?v=db72cb41"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
@@ -140,8 +140,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.6 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.6 documentation - Home"/>`);</script>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.7 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.7 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -703,141 +703,10 @@ document.write(`
 </section>
 <section id="reference">
 <h2><span class="section-number">7.25.23.3. </span>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
-<dl class="c type">
-<dt class="sig sig-object c" id="c.grn_table_cursor">
-<span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_table_cursor</span></span></span><a class="headerlink" href="#c.grn_table_cursor" title="Link to this definition">#</a><br /></dt>
-<dd><p>TODO…</p>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_table_cursor_open">
-<a class="reference internal" href="#c.grn_table_cursor" title="grn_table_cursor"><span class="n"><span class="pre">grn_table_cursor</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">grn_table_cursor_open</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="grn_obj.html#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">table</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">min</span></span>, <span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">min_size</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">max</span></span>, <span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">max_size</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">offset</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">limit</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">flags</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_table_cursor_open" title="Link to this definition">#</a><br /></dt>
-<dd><p>tableに登録されているレコードを順番に取り出すためのカーソルを生成して返します。</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>table</strong> – 対象tableを指定します。</p></li>
-<li><p><strong>min</strong> – keyの下限を指定します。（NULLは下限なしと見なします。） <code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_PREFIX</span></code> については後述。</p></li>
-<li><p><strong>min_size</strong> – minのsizeを指定します。<code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_PREFIX</span></code> については後述。</p></li>
-<li><p><strong>max</strong> – keyの上限を指定します。（NULLは上限なしと見なします。） <code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_PREFIX</span></code> については後述。</p></li>
-<li><p><strong>max_size</strong> – maxのsizeを指定します。<code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_PREFIX</span></code> については無視される場合があります。</p></li>
-<li><p><strong>flags</strong> – <p><code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_ASCENDING</span></code> を指定すると昇順にレコードを取り出します。</p>
-<p><code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_DESCENDING</span></code> を指定すると降順にレコードを取り出します。(下記 <code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_PREFIX</span></code> を指定し、keyが近いレコードを取得する場合、もしくは、common prefix searchを行う場合には、<code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_ASCENDING</span></code> / <code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_DESCENDING</span></code> は無視されます。)</p>
-<p><code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_GT</span></code> を指定するとminに一致したkeyをcursorの範囲に含みません。(minがNULLの場合もしくは、下記 <code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_PREFIX</span></code> を指定し、keyが近いレコードを取得する場合、もしくは、common prefix searchを行う場合には、<code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_GT</span></code> は無視されます。)</p>
-<p><code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_LT</span></code> を指定するとmaxに一致したkeyをcursorの範囲に含みません。(maxがNULLの場合もしくは、下記 <code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_PREFIX</span></code> を指定した場合には、<code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_LT</span></code> は無視されます。)</p>
-<p><code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_BY_ID</span></code> を指定するとID順にレコードを取り出します。(下記 <code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_PREFIX</span></code> を指定した場合には、<code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_BY_ID</span></code> は無視されます。) <code class="docutils literal notranslate"><span class="pre">GRN_OBJ_TABLE_PAT_KEY</span></code> を指定したtableについては、<code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_BY_KEY</span></code> を指定するとkey順にレコードを取り出します。( <code class="docutils literal notranslate"><span class="pre">GRN_OBJ_TABLE_HASH_KEY</span></code> , <code class="docutils literal notranslate"><span class="pre">GRN_OBJ_TABLE_NO_KEY</span></code> を指定したテーブルでは <code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_BY_KEY</span></code> は無視されます。)</p>
-<p><code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_PREFIX</span></code> を指定すると、 <code class="docutils literal notranslate"><span class="pre">GRN_OBJ_TABLE_PAT_KEY</span></code> を指定したテーブルに関する下記のレコードを取り出すカーソルが作成されます。maxがNULLの場合には、keyがminと前方一致するレコードを取り出します。max_sizeパラメータは無視されます。</p>
-<p>maxとmax_sizeが指定され、かつ、テーブルのkeyがShortText型である場合、maxとcommon prefix searchを行い、common prefixがmin_sizeバイト以上のレコードを取り出します。minは無視されます。</p>
-<p>maxとmax_sizeが指定され、かつ、テーブルのkeyが固定長型の場合、maxとPAT木上で近い位置にあるノードから順番にレコードを取り出します。ただし、keyのパトリシア木で、min_sizeバイト未満のビットに対するノードで、maxと異なった方向にあるノードに対応するレコードについては取り出しません。PAT木上で位置が近いこととkeyの値が近いことは同一ではありません。この場合、maxで与えられるポインタが指す値は、対象テーブルのkeyサイズと同じか超える幅である必要があります。minは無視されます。</p>
-<p><code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_BY_ID</span></code> / <code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_BY_KEY</span></code> / <code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_PREFIX</span></code> の3フラグは、同時に指定することができません。</p>
-<p><code class="docutils literal notranslate"><span class="pre">GRN_OBJ_TABLE_PAT_KEY</span></code> を指定して作ったテーブルで、<code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_PREFIX</span></code> と <code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_RK</span></code> を指定すると、半角小文字のアルファベット文字列から、それを旧JIS X 4063:2000規格に従って全角カタカナに変換した文字列に前方一致する値をkeyとするレコードを取り出します。<code class="docutils literal notranslate"><span class="pre">GRN_ENC_UTF8</span></code> のみをサポートしています。<code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_ASCENDING</span></code> / <code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_DESCENDING</span></code> は無効であり、レコードをkey値の昇降順で取り出すことはできません。</p>
-</p></li>
-<li><p><strong>offset</strong> – <p>該当する範囲のレコードのうち、(0ベースで)offset番目からレコードを取り出します。</p>
-<p><code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_PREFIX</span></code> を指定したときは負の数を指定することはできません。</p>
-</p></li>
-<li><p><strong>limit</strong> – <p>該当する範囲のレコードのうち、limit件のみを取り出します。-1が指定された場合は、全件が指定されたものとみなします。</p>
-<p><code class="docutils literal notranslate"><span class="pre">GRN_CURSOR_PREFIX</span></code> を指定したときは-1より小さい負の数を指定することはできません。</p>
-</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_table_cursor_close">
-<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_table_cursor_close</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_table_cursor" title="grn_table_cursor"><span class="n"><span class="pre">grn_table_cursor</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">tc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_table_cursor_close" title="Link to this definition">#</a><br /></dt>
-<dd><p><a class="reference internal" href="#c.grn_table_cursor_open" title="grn_table_cursor_open"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_table_cursor_open()</span></code></a> で生成したcursorを解放します。</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tc</strong> – 対象cursorを指定します。</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_table_cursor_next">
-<span class="n"><span class="pre">grn_id</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_table_cursor_next</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_table_cursor" title="grn_table_cursor"><span class="n"><span class="pre">grn_table_cursor</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">tc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_table_cursor_next" title="Link to this definition">#</a><br /></dt>
-<dd><p>cursorのカレントレコードを一件進めてそのIDを返します。cursorの対象範囲の末尾に達すると <code class="docutils literal notranslate"><span class="pre">GRN_ID_NIL</span></code> を返します。</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tc</strong> – 対象cursorを指定します。</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_table_cursor_get_key">
-<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_table_cursor_get_key</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_table_cursor" title="grn_table_cursor"><span class="n"><span class="pre">grn_table_cursor</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">tc</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">key</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_table_cursor_get_key" title="Link to this definition">#</a><br /></dt>
-<dd><p>cursorのカレントレコードのkeyをkeyパラメータにセットし、その長さを返します。</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tc</strong> – 対象cursorを指定します。</p></li>
-<li><p><strong>key</strong> – カレントレコードのkeyへのポインタがセットされます。</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_table_cursor_get_value">
-<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_table_cursor_get_value</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_table_cursor" title="grn_table_cursor"><span class="n"><span class="pre">grn_table_cursor</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">tc</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_table_cursor_get_value" title="Link to this definition">#</a><br /></dt>
-<dd><p>cursorパラメータのカレントレコードのvalueをvalueパラメータにセットし、その長さを返します。</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tc</strong> – 対象cursorを指定します。</p></li>
-<li><p><strong>value</strong> – カレントレコードのvalueへのポインタがセットされます。</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_table_cursor_set_value">
-<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_table_cursor_set_value</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_table_cursor" title="grn_table_cursor"><span class="n"><span class="pre">grn_table_cursor</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">tc</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">flags</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_table_cursor_set_value" title="Link to this definition">#</a><br /></dt>
-<dd><p>cursorのカレントレコードのvalueを引数の内容に置き換えます。cursorのカレントレコードが存在しない場合は <code class="docutils literal notranslate"><span class="pre">GRN_INVALID_ARGUMENT</span></code> を返します。</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tc</strong> – 対象cursorを指定します。</p></li>
-<li><p><strong>value</strong> – 新しいvalueの値を指定します。</p></li>
-<li><p><strong>flags</strong> – <a class="reference internal" href="grn_obj.html#c.grn_obj_set_value" title="grn_obj_set_value"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_obj_set_value()</span></code></a> のflagsと同様の値を指定できます。</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_table_cursor_delete">
-<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_table_cursor_delete</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_table_cursor" title="grn_table_cursor"><span class="n"><span class="pre">grn_table_cursor</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">tc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_table_cursor_delete" title="Link to this definition">#</a><br /></dt>
-<dd><p>cursorのカレントレコードを削除します。cursorのカレントレコードが存在しない場合は <code class="docutils literal notranslate"><span class="pre">GRN_INVALID_ARGUMENT</span></code> を返します。</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tc</strong> – 対象cursorを指定します。</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_table_cursor_table">
-<a class="reference internal" href="grn_obj.html#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">grn_table_cursor_table</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_table_cursor" title="grn_table_cursor"><span class="n"><span class="pre">grn_table_cursor</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">tc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_table_cursor_table" title="Link to this definition">#</a><br /></dt>
-<dd><p>cursorが属するtableを返します。</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tc</strong> – 対象cursorを指定します。</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We are currently switching to automatic generation using Doxygen.</p>
+</div>
 </section>
 </section>
 

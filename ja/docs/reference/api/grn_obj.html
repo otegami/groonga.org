@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.25.19. grn_obj &#8212; Groonga v14.0.6 documentation</title>
+    <title>7.25.19. grn_obj &#8212; Groonga v14.0.7 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../_static/documentation_options.js?v=8e4a8f51"></script>
+    <script src="../../_static/documentation_options.js?v=ea855f15"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/translations.js?v=4dbe4bdc"></script>
@@ -141,8 +141,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.6 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.6 documentation - Home"/>`);</script>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.7 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.7 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -704,245 +704,14 @@ document.write(`
 </section>
 <section id="reference">
 <h2><span class="section-number">7.25.19.3. </span>リファレンス<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>現在、Doxygenを使った自動生成に切り替え中です。</p>
+</div>
 <dl class="c type">
 <dt class="sig sig-object c" id="c.grn_obj">
 <span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_obj</span></span></span><a class="headerlink" href="#c.grn_obj" title="Link to this definition">#</a><br /></dt>
 <dd><p>TODO...</p>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_obj_column">
-<a class="reference internal" href="#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">grn_obj_column</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">table</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">name_size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_obj_column" title="Link to this definition">#</a><br /></dt>
-<dd><p>nameがカラム名の場合、それに対応するtableのカラムを返します。対応するカラムが存在しなければNULLを返します。</p>
-<p>nameがアクセサ文字列の場合、それに対応するaccessorを返します。アクセサ文字列とは、カラム名等を'.'で連結した文字列です。'_id', '_key'は特殊なアクセサで、それぞれレコードID/keyを返します。例) 'col1' / 'col2.col3' / 'col2._id'</p>
-<dl class="field-list simple">
-<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>table</strong> -- 対象tableを指定します。</p></li>
-<li><p><strong>name</strong> -- カラム名を指定します。</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_obj_is_builtin">
-<span class="n"><span class="pre">grn_bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_obj_is_builtin</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">obj</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_obj_is_builtin" title="Link to this definition">#</a><br /></dt>
-<dd><p>Check whether Groonga built-in object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ctx</strong> -- context</p></li>
-<li><p><strong>obj</strong> -- target object</p></li>
-</ul>
-</dd>
-<dt class="field-even">戻り値<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">GRN_TRUE</span></code> for built-in groonga object, <code class="docutils literal notranslate"><span class="pre">GRN_FALSE</span></code> otherwise.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_obj_is_index_column">
-<span class="n"><span class="pre">grn_bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_obj_is_index_column</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">obj</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_obj_is_index_column" title="Link to this definition">#</a><br /></dt>
-<dd><p>インデックスカラムかどうかを判定します。</p>
-<dl class="field-list simple">
-<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ctx</strong> -- その時点のコンテキスト。</p></li>
-<li><p><strong>obj</strong> -- 対象のオブジェクト</p></li>
-</ul>
-</dd>
-<dt class="field-even">戻り値<span class="colon">:</span></dt>
-<dd class="field-even"><p>対象のオブジェクトがインデックスカラムの場合には、 <code class="docutils literal notranslate"><span class="pre">GRN_TRUE</span></code> です。それ以外の場合は、 <code class="docutils literal notranslate"><span class="pre">GRN_FALSE</span></code> です。対象のオブジェクトがカラム以外の場合も <code class="docutils literal notranslate"><span class="pre">GRN_FALSE</span></code> を返します。</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_obj_is_vector_column">
-<span class="n"><span class="pre">grn_bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_obj_is_vector_column</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">obj</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_obj_is_vector_column" title="Link to this definition">#</a><br /></dt>
-<dd><p>ベクターカラムかどうかを判定します。</p>
-<dl class="field-list simple">
-<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ctx</strong> -- その時点のコンテキスト。</p></li>
-<li><p><strong>obj</strong> -- 対象のオブジェクト</p></li>
-</ul>
-</dd>
-<dt class="field-even">戻り値<span class="colon">:</span></dt>
-<dd class="field-even"><p>対象のオブジェクトがベクターカラムの場合には、 <code class="docutils literal notranslate"><span class="pre">GRN_TRUE</span></code> です。それ以外の場合は、 <code class="docutils literal notranslate"><span class="pre">GRN_FALSE</span></code> です。対象のオブジェクトがカラム以外の場合も <code class="docutils literal notranslate"><span class="pre">GRN_FALSE</span></code> を返します。</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_obj_get_value">
-<a class="reference internal" href="#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">grn_obj_get_value</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">obj</span></span>, <span class="n"><span class="pre">grn_id</span></span><span class="w"> </span><span class="n"><span class="pre">id</span></span>, <a class="reference internal" href="#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_obj_get_value" title="Link to this definition">#</a><br /></dt>
-<dd><p>objのIDに対応するレコードのvalueを取得します。valueを戻り値として返します。</p>
-<dl class="field-list simple">
-<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>obj</strong> -- 対象objectを指定します。</p></li>
-<li><p><strong>id</strong> -- 対象レコードのIDを指定します。</p></li>
-<li><p><strong>value</strong> -- 値を格納するバッファ（呼出側で準備する）を指定します。</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_obj_get_values">
-<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_obj_get_values</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">obj</span></span>, <span class="n"><span class="pre">grn_id</span></span><span class="w"> </span><span class="n"><span class="pre">offset</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_obj_get_values" title="Link to this definition">#</a><br /></dt>
-<dd><p>objに指定されたカラムについて、offsetに指定されたレコードIDを開始位置として、IDが連続するレコードに対応するカラム値が昇順に格納された配列へのポインタをvaluesにセットします。</p>
-<p>取得できた件数が戻り値として返されます。エラーが発生した場合は -1 が返されます。</p>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p>値が固定長であるカラムのみがobjに指定できます。範囲内のIDに対応するレコードが有効であるとは限りません。delete操作を実行したことのあるテーブルに対しては、<a class="reference internal" href="grn_table.html#c.grn_table_at" title="grn_table_at"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_table_at()</span></code></a> などによって各レコードの存否を別途確認しなければなりません。</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>obj</strong> -- 対象objectを指定します。</p></li>
-<li><p><strong>offset</strong> -- 値を取得する範囲の開始位置となるレコードIDを指定します。</p></li>
-<li><p><strong>values</strong> -- 値の配列がセットされます。</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_obj_set_value">
-<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_obj_set_value</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">obj</span></span>, <span class="n"><span class="pre">grn_id</span></span><span class="w"> </span><span class="n"><span class="pre">id</span></span>, <a class="reference internal" href="#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">flags</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_obj_set_value" title="Link to this definition">#</a><br /></dt>
-<dd><p>objのIDに対応するレコードの値を更新します。対応するレコードが存在しない場合は <code class="docutils literal notranslate"><span class="pre">GRN_INVALID_ARGUMENT</span></code> を返します。</p>
-<dl class="field-list simple">
-<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>obj</strong> -- 対象objectを指定します。</p></li>
-<li><p><strong>id</strong> -- 対象レコードのIDを指定します。</p></li>
-<li><p><strong>value</strong> -- 格納する値を指定します。</p></li>
-<li><p><strong>flags</strong> -- <p>以下の値を指定できます。</p>
-<table class="hlist"><tr><td><ul>
-<li><p><a class="reference internal" href="#c.GRN_OBJ_SET" title="GRN_OBJ_SET"><code class="xref c c-macro docutils literal notranslate"><span class="pre">GRN_OBJ_SET</span></code></a></p></li>
-<li><p><a class="reference internal" href="#c.GRN_OBJ_INCR" title="GRN_OBJ_INCR"><code class="xref c c-macro docutils literal notranslate"><span class="pre">GRN_OBJ_INCR</span></code></a></p></li>
-<li><p><a class="reference internal" href="#c.GRN_OBJ_DECR" title="GRN_OBJ_DECR"><code class="xref c c-macro docutils literal notranslate"><span class="pre">GRN_OBJ_DECR</span></code></a></p></li>
-</ul>
-</td><td><ul>
-<li><p><a class="reference internal" href="#c.GRN_OBJ_APPEND" title="GRN_OBJ_APPEND"><code class="xref c c-macro docutils literal notranslate"><span class="pre">GRN_OBJ_APPEND</span></code></a></p></li>
-<li><p><a class="reference internal" href="#c.GRN_OBJ_PREPEND" title="GRN_OBJ_PREPEND"><code class="xref c c-macro docutils literal notranslate"><span class="pre">GRN_OBJ_PREPEND</span></code></a></p></li>
-<li><p><a class="reference internal" href="#c.GRN_OBJ_GET" title="GRN_OBJ_GET"><code class="xref c c-macro docutils literal notranslate"><span class="pre">GRN_OBJ_GET</span></code></a></p></li>
-</ul>
-</td><td><ul>
-<li><p><a class="reference internal" href="#c.GRN_OBJ_COMPARE" title="GRN_OBJ_COMPARE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">GRN_OBJ_COMPARE</span></code></a></p></li>
-<li><p><a class="reference internal" href="#c.GRN_OBJ_LOCK" title="GRN_OBJ_LOCK"><code class="xref c c-macro docutils literal notranslate"><span class="pre">GRN_OBJ_LOCK</span></code></a></p></li>
-<li><p><a class="reference internal" href="#c.GRN_OBJ_UNLOCK" title="GRN_OBJ_UNLOCK"><code class="xref c c-macro docutils literal notranslate"><span class="pre">GRN_OBJ_UNLOCK</span></code></a></p></li>
-</ul>
-</td></tr></table>
-</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c macro">
-<dt class="sig sig-object c" id="c.GRN_OBJ_SET_MASK">
-<span class="sig-name descname"><span class="n"><span class="pre">GRN_OBJ_SET_MASK</span></span></span><a class="headerlink" href="#c.GRN_OBJ_SET_MASK" title="Link to this definition">#</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="c macro">
-<dt class="sig sig-object c" id="c.GRN_OBJ_SET">
-<span class="sig-name descname"><span class="n"><span class="pre">GRN_OBJ_SET</span></span></span><a class="headerlink" href="#c.GRN_OBJ_SET" title="Link to this definition">#</a><br /></dt>
-<dd><p>レコードの値をvalueと置き換えます。</p>
-</dd></dl>
-
-<dl class="c macro">
-<dt class="sig sig-object c" id="c.GRN_OBJ_INCR">
-<span class="sig-name descname"><span class="n"><span class="pre">GRN_OBJ_INCR</span></span></span><a class="headerlink" href="#c.GRN_OBJ_INCR" title="Link to this definition">#</a><br /></dt>
-<dd><p>レコードの値にvalueを加算します。</p>
-</dd></dl>
-
-<dl class="c macro">
-<dt class="sig sig-object c" id="c.GRN_OBJ_DECR">
-<span class="sig-name descname"><span class="n"><span class="pre">GRN_OBJ_DECR</span></span></span><a class="headerlink" href="#c.GRN_OBJ_DECR" title="Link to this definition">#</a><br /></dt>
-<dd><p>レコードの値にvalueを減算します。</p>
-</dd></dl>
-
-<dl class="c macro">
-<dt class="sig sig-object c" id="c.GRN_OBJ_APPEND">
-<span class="sig-name descname"><span class="n"><span class="pre">GRN_OBJ_APPEND</span></span></span><a class="headerlink" href="#c.GRN_OBJ_APPEND" title="Link to this definition">#</a><br /></dt>
-<dd><p>レコードの値の末尾にvalueを追加します。</p>
-</dd></dl>
-
-<dl class="c macro">
-<dt class="sig sig-object c" id="c.GRN_OBJ_PREPEND">
-<span class="sig-name descname"><span class="n"><span class="pre">GRN_OBJ_PREPEND</span></span></span><a class="headerlink" href="#c.GRN_OBJ_PREPEND" title="Link to this definition">#</a><br /></dt>
-<dd><p>レコードの値の先頭にvalueを追加します。</p>
-</dd></dl>
-
-<dl class="c macro">
-<dt class="sig sig-object c" id="c.GRN_OBJ_GET">
-<span class="sig-name descname"><span class="n"><span class="pre">GRN_OBJ_GET</span></span></span><a class="headerlink" href="#c.GRN_OBJ_GET" title="Link to this definition">#</a><br /></dt>
-<dd><p>新しいレコードの値をvalueにセットします。</p>
-</dd></dl>
-
-<dl class="c macro">
-<dt class="sig sig-object c" id="c.GRN_OBJ_COMPARE">
-<span class="sig-name descname"><span class="n"><span class="pre">GRN_OBJ_COMPARE</span></span></span><a class="headerlink" href="#c.GRN_OBJ_COMPARE" title="Link to this definition">#</a><br /></dt>
-<dd><p>レコードの値とvalueが等しいか調べます。</p>
-</dd></dl>
-
-<dl class="c macro">
-<dt class="sig sig-object c" id="c.GRN_OBJ_LOCK">
-<span class="sig-name descname"><span class="n"><span class="pre">GRN_OBJ_LOCK</span></span></span><a class="headerlink" href="#c.GRN_OBJ_LOCK" title="Link to this definition">#</a><br /></dt>
-<dd><p>当該レコードをロックします。<a class="reference internal" href="#c.GRN_OBJ_COMPARE" title="GRN_OBJ_COMPARE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">GRN_OBJ_COMPARE</span></code></a> と共に指定された場合は、レコードの値とvalueが等しい場合に限ってロックします。</p>
-</dd></dl>
-
-<dl class="c macro">
-<dt class="sig sig-object c" id="c.GRN_OBJ_UNLOCK">
-<span class="sig-name descname"><span class="n"><span class="pre">GRN_OBJ_UNLOCK</span></span></span><a class="headerlink" href="#c.GRN_OBJ_UNLOCK" title="Link to this definition">#</a><br /></dt>
-<dd><p>当該レコードのロックを解除します。</p>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_obj_remove">
-<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_obj_remove</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">obj</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_obj_remove" title="Link to this definition">#</a><br /></dt>
-<dd><p>objをメモリから解放し、それが永続オブジェクトであった場合は、該当するファイル一式を削除します。</p>
-<dl class="field-list simple">
-<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>obj</strong> -- 対象objectを指定します。</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_obj_rename">
-<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_obj_rename</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">obj</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">name_size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_obj_rename" title="Link to this definition">#</a><br /></dt>
-<dd><p>ctxが使用するdbにおいてobjに対応する名前をnameに更新します。objは永続オブジェクトでなければいけません。</p>
-<dl class="field-list simple">
-<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>obj</strong> -- 対象objectを指定します。</p></li>
-<li><p><strong>name</strong> -- 新しい名前を指定します。</p></li>
-<li><p><strong>name_size</strong> -- nameパラメータのsize（byte）を指定します。</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_obj_close">
-<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_obj_close</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">obj</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_obj_close" title="Link to this definition">#</a><br /></dt>
-<dd><p>一時的なobjectであるobjをメモリから解放します。objに属するobjectも再帰的にメモリから解放されます。</p>
-<p>永続的な、table, column, exprなどは解放してはいけません。一般的には、一時的か永続的かを気にしなくてよい <a class="reference internal" href="#c.grn_obj_unlink" title="grn_obj_unlink"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_obj_unlink()</span></code></a> を用いるべきです。</p>
-<dl class="field-list simple">
-<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>obj</strong> -- 対象objectを指定します。</p></li>
-</ul>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="c function">

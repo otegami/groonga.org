@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.25.8. grn_ctx &#8212; Groonga v14.0.6 documentation</title>
+    <title>7.25.8. grn_ctx &#8212; Groonga v14.0.7 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../_static/documentation_options.js?v=bfbd1b05"></script>
+    <script src="../../_static/documentation_options.js?v=db72cb41"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
@@ -140,8 +140,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.6 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.6 documentation - Home"/>`);</script>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.7 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.7 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -768,7 +768,7 @@ use-case.</p>
 <dd><p>初期化された <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> オブジェクトを返します。</p>
 <p><a class="reference internal" href="#c.grn_ctx_init" title="grn_ctx_init"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_init()</span></code></a> で初期化された <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> オブジェクトは構造体の実体をAPIの呼び元で確保するのに対して、 <a class="reference internal" href="#c.grn_ctx_open" title="grn_ctx_open"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_open()</span></code></a> ではGroongaライブラリの内部で、実体を確保します。
 どちらで初期化された <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> も、 <a class="reference internal" href="#c.grn_ctx_fin" title="grn_ctx_fin"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_fin()</span></code></a> で解放できます。
-<a class="reference internal" href="#c.grn_ctx_open" title="grn_ctx_open"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_open()</span></code></a> で確保した <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> 構造体に関しては、<a class="reference internal" href="#c.grn_ctx_fin" title="grn_ctx_fin"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_fin()</span></code></a> で解放した後に、その <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> で作成した <a class="reference internal" href="grn_obj.html#c.grn_obj" title="grn_obj"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_obj</span></code></a> を <a class="reference internal" href="grn_obj.html#c.grn_obj_close" title="grn_obj_close"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_obj_close()</span></code></a> によって解放しても問題ありません。</p>
+<a class="reference internal" href="#c.grn_ctx_open" title="grn_ctx_open"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_open()</span></code></a> で確保した <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> 構造体に関しては、<a class="reference internal" href="#c.grn_ctx_fin" title="grn_ctx_fin"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_fin()</span></code></a> で解放した後に、その <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> で作成した <a class="reference internal" href="grn_obj.html#c.grn_obj" title="grn_obj"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_obj</span></code></a> を <code class="xref c c-func docutils literal notranslate"><span class="pre">grn_obj_close()</span></code> によって解放しても問題ありません。</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -816,13 +816,13 @@ use-case.</p>
 
 <dl class="c function">
 <dt class="sig sig-object c" id="c.grn_ctx_get_command_version">
-<a class="reference internal" href="grn_command_version.html#c.grn_command_version" title="grn_command_version"><span class="n"><span class="pre">grn_command_version</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_ctx_get_command_version</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_ctx_get_command_version" title="Link to this definition">#</a><br /></dt>
+<span class="n"><span class="pre">grn_command_version</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_ctx_get_command_version</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_ctx_get_command_version" title="Link to this definition">#</a><br /></dt>
 <dd><p>command_versionを返します。</p>
 </dd></dl>
 
 <dl class="c function">
 <dt class="sig sig-object c" id="c.grn_ctx_set_command_version">
-<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_ctx_set_command_version</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="grn_command_version.html#c.grn_command_version" title="grn_command_version"><span class="n"><span class="pre">grn_command_version</span></span></a><span class="w"> </span><span class="n"><span class="pre">version</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_ctx_set_command_version" title="Link to this definition">#</a><br /></dt>
+<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_ctx_set_command_version</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <span class="n"><span class="pre">grn_command_version</span></span><span class="w"> </span><span class="n"><span class="pre">version</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_ctx_set_command_version" title="Link to this definition">#</a><br /></dt>
 <dd><p>command_versionを変更します。</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.3.57. select &#8212; Groonga v14.0.6 documentation</title>
+    <title>7.3.57. select &#8212; Groonga v14.0.7 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../_static/documentation_options.js?v=8e4a8f51"></script>
+    <script src="../../_static/documentation_options.js?v=ea855f15"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/translations.js?v=4dbe4bdc"></script>
@@ -141,8 +141,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.6 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.6 documentation - Home"/>`);</script>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.7 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.7 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -3130,7 +3130,7 @@ document.write(`
 <p>このパラメータの値に <code class="docutils literal notranslate"><span class="pre">-1</span></code> または <code class="docutils literal notranslate"><span class="pre">2</span></code> 以上を指定すると、 <a class="reference internal" href="#select-drilldown"><span class="std std-ref">drilldown</span></a> と <a class="reference internal" href="#select-advanced-drilldown-related-parameters"><span class="std std-ref">drilldowns</span></a> および <a class="reference internal" href="#select-slice-related-parameters"><span class="std std-ref">スライス</span></a> を並列で実行します。</p>
 <p>デフォルトでは各 <code class="docutils literal notranslate"><span class="pre">drilldown</span></code> 、 <code class="docutils literal notranslate"><span class="pre">drilldowns</span></code> 、 <code class="docutils literal notranslate"><span class="pre">slices</span></code> を直列に実行します。つまり、1つの処理が終わったら次の処理を実行します。そのため、 <code class="docutils literal notranslate"><span class="pre">drilldown</span></code> 、 <code class="docutils literal notranslate"><span class="pre">drilldowns</span></code> 、 <code class="docutils literal notranslate"><span class="pre">slices</span></code> がたくさんある場合は、クエリーの実行時間が長くなる傾向にあります。</p>
 <p><code class="docutils literal notranslate"><span class="pre">n_workers</span></code> を使うと依存関係のない複数の <code class="docutils literal notranslate"><span class="pre">drilldown</span></code> 、 <code class="docutils literal notranslate"><span class="pre">drilldowns</span></code> 、 <code class="docutils literal notranslate"><span class="pre">slices</span></code>  を並列に実行できます。そのため、従来はすべての処理の総和分の実行時間がかかっていたところが並列に実行する分短縮できます。この並列実行は、 <code class="docutils literal notranslate"><span class="pre">select</span></code> コマンドごとに行います。</p>
-<p>依存関係がないとは、 <code class="docutils literal notranslate"><span class="pre">dorilldowns.table</span></code> を使用して他のドリルダウンやスライスの結果を参照していないことです。</p>
+<p>依存関係がないとは、 <code class="docutils literal notranslate"><span class="pre">drilldowns.table</span></code> を使用して他のドリルダウンやスライスの結果を参照していないことです。</p>
 <p>依存関係がある場合、つまり、 <code class="docutils literal notranslate"><span class="pre">drilldowns.table</span></code> を使用している場合、依存するドリルダウンやスライスの処理の終了を待ちます。したがって依存関係がある場合は並列度が下がります。</p>
 <p>並列に実行するということは、複数のCPUを同時に使用するということです。CPUのリソースに空きがないのに並列に実行しようとするとかえって遅くなることがあります。対象のCPUが実行している別処理が終わるのを待たないといけないからです。</p>
 <p>CPUのリソースに空きがあるかどうか、どのくらいの <code class="docutils literal notranslate"><span class="pre">n_workers</span></code> を指定すべきかの判断基準はどのようなシステム構成かに依存します。</p>
@@ -6497,8 +6497,8 @@ document.write(`
 <div class="versionadded">
 <p><span class="versionmodified added">バージョン 6.0.2 で追加.</span></p>
 </div>
-<p>他の <code class="docutils literal notranslate"><span class="pre">drilldowns</span></code> または <code class="docutils literal notranslate"><span class="pre">slices</span></code> の <code class="docutils literal notranslate"><span class="pre">${LABLE}</span></code> を指定します。</p>
-<p>指定した <code class="docutils literal notranslate"><span class="pre">${LABLE}</span></code> の結果をドリルダウンします。つまり、このパラメータを使うと多段ドリルダウンができます。</p>
+<p>他の <code class="docutils literal notranslate"><span class="pre">drilldowns</span></code> または <code class="docutils literal notranslate"><span class="pre">slices</span></code> の <code class="docutils literal notranslate"><span class="pre">${LABEL}</span></code> を指定します。</p>
+<p>指定した <code class="docutils literal notranslate"><span class="pre">${LABEL}</span></code> の結果をドリルダウンします。つまり、このパラメータを使うと多段ドリルダウンができます。</p>
 <p>以下は、多段ドリルダウンを行う例です。最初に <code class="docutils literal notranslate"><span class="pre">tag</span></code> でドリルダウンし、次にそのドリルダウン結果を <code class="docutils literal notranslate"><span class="pre">category</span></code> でドリルダウンしたものが最終的な結果です。</p>
 <p>実行例:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">NestedDrilldownTags</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">ShortText</span>

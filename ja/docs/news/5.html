@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>お知らせ - 5系 &#8212; Groonga v14.0.6 documentation</title>
+    <title>お知らせ - 5系 &#8212; Groonga v14.0.7 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../_static/documentation_options.js?v=8e4a8f51"></script>
+    <script src="../_static/documentation_options.js?v=ea855f15"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/translations.js?v=4dbe4bdc"></script>
@@ -139,8 +139,8 @@
       
     
     
-    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.6 documentation - Home"/>
-    <script>document.write(`<img src="../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.6 documentation - Home"/>`);</script>
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.7 documentation - Home"/>
+    <script>document.write(`<img src="../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.7 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -613,7 +613,7 @@ document.write(`
 <ul>
 <li><p>[Windows] MySQLにバンドルしてビルドできるようになりました。（一時できない時期がありました。）</p></li>
 <li><p>[<a class="reference internal" href="../reference/grn_expr/script_syntax.html"><span class="doc">スクリプト構文</span></a>] <a class="reference internal" href="../reference/grn_expr/script_syntax.html#script-syntax-match-operator"><span class="std std-ref">マッチ演算子</span></a> や <a class="reference internal" href="../reference/grn_expr/script_syntax.html#script-syntax-equal-operator"><span class="std std-ref">等価演算子</span></a> のような述語演算（真偽値を返す演算）が <code class="docutils literal notranslate"><span class="pre">Int32</span></code> ではなく <code class="docutils literal notranslate"><span class="pre">Bool</span></code> の値を返すようになりました。</p></li>
-<li><p>[<a class="reference internal" href="../reference/api.html"><span class="doc">API</span></a>] <code class="docutils literal notranslate"><span class="pre">GRN_PTR</span></code> バルク・ <code class="docutils literal notranslate"><span class="pre">GRN_PVECTOR</span></code> バルクが参照する <code class="docutils literal notranslate"><span class="pre">grn_obj</span></code> の所有権を持てるようになりました。 <code class="docutils literal notranslate"><span class="pre">GRN_OBJ_OWN</span></code> フラグを <code class="docutils literal notranslate"><span class="pre">GRN_PTR</span></code> バルク・ <code class="docutils literal notranslate"><span class="pre">GRN_PVECTOR</span></code> バルクに指定すると、自身が解放されるときに参照している <code class="docutils literal notranslate"><span class="pre">grn_obj</span></code> を <a class="reference internal" href="../reference/api/grn_obj.html#c.grn_obj_close" title="grn_obj_close"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_obj_close()</span></code></a> します。</p></li>
+<li><p>[<a class="reference internal" href="../reference/api.html"><span class="doc">API</span></a>] <code class="docutils literal notranslate"><span class="pre">GRN_PTR</span></code> バルク・ <code class="docutils literal notranslate"><span class="pre">GRN_PVECTOR</span></code> バルクが参照する <code class="docutils literal notranslate"><span class="pre">grn_obj</span></code> の所有権を持てるようになりました。 <code class="docutils literal notranslate"><span class="pre">GRN_OBJ_OWN</span></code> フラグを <code class="docutils literal notranslate"><span class="pre">GRN_PTR</span></code> バルク・ <code class="docutils literal notranslate"><span class="pre">GRN_PVECTOR</span></code> バルクに指定すると、自身が解放されるときに参照している <code class="docutils literal notranslate"><span class="pre">grn_obj</span></code> を <code class="xref c c-func docutils literal notranslate"><span class="pre">grn_obj_close()</span></code> します。</p></li>
 <li><p>[非互換][<a class="reference internal" href="../reference/regular_expression.html"><span class="doc">正規表現</span></a>] マッチ前にマッチ対象のテキストを正規化するようにしました。これは一貫性と性能のためです。</p>
 <p><a class="reference internal" href="../reference/grn_expr/script_syntax.html#script-syntax-prefix-search-operator"><span class="std std-ref">前方一致検索演算子</span></a> のように他の演算は対象のテキストを正規化しています。</p>
 <p><code class="docutils literal notranslate"><span class="pre">\Ahello</span></code> のようにシンプルな正規表現はインデックスを使って評価できます。インデックスを使うと速いです。</p>
@@ -625,7 +625,7 @@ document.write(`
 <li><p>[CMake] 2回同じ <code class="docutils literal notranslate"><span class="pre">pkg-config</span></code> を実行しないようにしました。 [Sergei Golubchikさんがパッチ提供]</p></li>
 <li><p>時刻に対するチェックのうち、「年」に対する不要なチェックを削除しました。この変更前は紀元前は常に不正な時刻でした。この変更後は、システム（ <code class="docutils literal notranslate"><span class="pre">mktime()</span></code> ）が紀元前をサポートしていれば、紀元前の時刻も妥当な時刻になります。</p></li>
 <li><p>[<a class="reference internal" href="../reference/api/grn_ctx.html#c.grn_ctx_is_opened" title="grn_ctx_is_opened"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_is_opened()</span></code></a>] 指定したIDのオブジェクトが開かれているかどうかをチェックするAPIを追加しました。</p></li>
-<li><p>[<a class="reference internal" href="../reference/api/grn_obj.html#c.grn_obj_remove" title="grn_obj_remove"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_obj_remove()</span></code></a>] 最大メモリー使用量を減らしました。 <a class="reference internal" href="../reference/api/grn_thread.html#c.grn_thread_get_limit" title="grn_thread_get_limit"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_thread_get_limit()</span></code></a> が <code class="docutils literal notranslate"><span class="pre">1</span></code> を返す場合、一時的に開いたオブジェクトを処理が終わったら閉じるようになります。</p></li>
+<li><p>[<code class="xref c c-func docutils literal notranslate"><span class="pre">grn_obj_remove()</span></code>] 最大メモリー使用量を減らしました。 <a class="reference internal" href="../reference/api/grn_thread.html#c.grn_thread_get_limit" title="grn_thread_get_limit"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_thread_get_limit()</span></code></a> が <code class="docutils literal notranslate"><span class="pre">1</span></code> を返す場合、一時的に開いたオブジェクトを処理が終わったら閉じるようになります。</p></li>
 <li><p>[ドキュメント][<a class="reference internal" href="../reference/commands/table_remove.html"><span class="doc">table_remove</span></a>] 説明を増やしました。</p></li>
 <li><p>[<a class="reference internal" href="../reference/executables/groonga.html"><span class="doc">groonga 実行ファイル</span></a>] スタンドアローンモードのときは <a class="reference internal" href="../reference/commands/dump.html"><span class="doc">dump</span></a> の結果の最後に改行を追加するようにしました。</p></li>
 <li><p>[<a class="reference internal" href="../reference/log.html#process-log"><span class="std std-ref">プロセスログ</span></a>] <code class="docutils literal notranslate"><span class="pre">grn_init</span></code> のログにGroongaのバージョンを入れるようにしました。</p></li>
