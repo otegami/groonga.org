@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>12.2.1. 導入 &#8212; Groonga v14.0.7 documentation</title>
+    <title>12.2.1. 導入 &#8212; Groonga v14.0.8 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../_static/documentation_options.js?v=ea855f15"></script>
+    <script src="../../_static/documentation_options.js?v=9f07e62a"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/translations.js?v=4dbe4bdc"></script>
@@ -141,8 +141,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.7 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.7 documentation - Home"/>`);</script>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.8 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.8 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -461,7 +461,17 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1><span class="section-number">12.2.1. </span>導入<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
-<p>この文書では、Groongaドキュメントの執筆・生成・管理の方法について説明します。</p>
+<p>このドキュメントは、Groongaドキュメントの執筆、生成、管理の手順について説明します。以下の手順で、Groongaドキュメントの向上や更新に貢献できます。</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#how-to-fork-and-clone-groonga-repository">Groongaリポジトリをフォークしクローンする方法</a></p></li>
+<li><p><a class="reference internal" href="#install-dependent-software">必要なソフトウェアのインストール</a></p></li>
+<li><p><a class="reference internal" href="#run-cmake-with-preset-doc"><code class="docutils literal notranslate"><span class="pre">cmake</span></code> を <code class="docutils literal notranslate"><span class="pre">--preset=doc</span></code> 付きで実行</a></p></li>
+<li><p><a class="reference internal" href="#generate-html">HTMLファイルを生成</a></p></li>
+<li><p><a class="reference internal" href="#how-to-edit-documentation">ドキュメントを編集する方法</a></p></li>
+<li><p><a class="reference internal" href="#preview-changes-on-html-files">HTMLファイルで変更を確認する</a></p></li>
+<li><p><a class="reference internal" href="#send-patch">パッチを送る</a></p></li>
+<li><p><a class="reference internal" href="#optional-translate-documentation">任意: ドキュメントを翻訳する</a></p></li>
+</ul>
 <section id="how-to-fork-and-clone-groonga-repository">
 <h2><span class="section-number">12.2.1.1. </span>Groongaリポジトリをフォークしクローンする方法<a class="headerlink" href="#how-to-fork-and-clone-groonga-repository" title="Link to this heading">#</a></h2>
 <p>Groongaドキュメントへ貢献するには、まずはGroongaリポジトリをフォークしクローンするとこから始めます。そうすることで、あなたのリポジトリで個人的な変更や実験が可能になります。他にも、その成果をGroongaリポジトリにあなたの貢献として送ることもできます。まずは、次の手順に倣って、フォークとクローンをしてください。</p>
@@ -474,8 +484,8 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="install-depended-software">
-<h2><span class="section-number">12.2.1.2. </span>必要なソフトウェアのインストール<a class="headerlink" href="#install-depended-software" title="Link to this heading">#</a></h2>
+<section id="install-dependent-software">
+<h2><span class="section-number">12.2.1.2. </span>必要なソフトウェアのインストール<a class="headerlink" href="#install-dependent-software" title="Link to this heading">#</a></h2>
 <p>Groongaはドキュメントツールとして <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a> を使います。</p>
 <p>以下はSphinxをインストールするコマンドラインです。</p>
 <p>Debian GNU/Linux, Ubuntu:</p>
@@ -609,7 +619,7 @@ document.write(`
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">% </span>open<span class="w"> </span>../groonga.doc/doc/ja/html/contribution/documentation/introduction.html
 </pre></div>
 </div>
-<p>翻訳を確認して正しく反映されていたらパッチを送りましょう。送り方については、<a class="reference internal" href="#send-patch"><span class="xref myst">パッチを送る</span></a>を参照してください。</p>
+<p>翻訳を確認して正しく反映されていたらパッチを送りましょう。送り方については、<a class="reference internal" href="#send-patch">パッチを送る</a>を参照してください。</p>
 </section>
 </section>
 </section>
@@ -661,7 +671,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-fork-and-clone-groonga-repository">12.2.1.1. Groongaリポジトリをフォークしクローンする方法</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-depended-software">12.2.1.2. 必要なソフトウェアのインストール</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dependent-software">12.2.1.2. 必要なソフトウェアのインストール</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-cmake-with-preset-doc">12.2.1.3. <code class="docutils literal notranslate"><span class="pre">cmake</span></code> を <code class="docutils literal notranslate"><span class="pre">--preset=doc</span></code> 付きで実行</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-html">12.2.1.4. HTMLファイルを生成</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-edit-documentation">12.2.1.5. ドキュメントを編集する方法</a></li>
