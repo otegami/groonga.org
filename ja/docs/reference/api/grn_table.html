@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.25.22. grn_table &#8212; Groonga v14.0.8 documentation</title>
+    <title>7.25.22. grn_table &#8212; Groonga v14.0.9ドキュメント</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../_static/documentation_options.js?v=9f07e62a"></script>
+    <script src="../../_static/documentation_options.js?v=fbc8366e"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/translations.js?v=4dbe4bdc"></script>
@@ -141,8 +141,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.8 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.8 documentation - Home"/>`);</script>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.9ドキュメント - Home"/>
+    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.9ドキュメント - Home"/>`);</script>
   
   
 </a></div>
@@ -704,21 +704,6 @@ document.write(`
 </section>
 <section id="reference">
 <h2><span class="section-number">7.25.22.3. </span>リファレンス<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_table_lcp_search">
-<span class="n"><span class="pre">grn_id</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_table_lcp_search</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="grn_obj.html#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">table</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">key</span></span>, <span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">key_size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_table_lcp_search" title="Link to this definition">#</a><br /></dt>
-<dd><p>tableが <code class="docutils literal notranslate"><span class="pre">GRN_TABLE_PAT_KEY</span></code> もしくは <code class="docutils literal notranslate"><span class="pre">GRN_TABLE_DAT_KEY</span></code> を指定して作ったtableなら、longest common prefix searchを行い、対応するIDを返します。</p>
-<p>tableが <code class="docutils literal notranslate"><span class="pre">GRN_TABLE_HASH_KEY</span></code> を指定して作ったtableなら、完全に一致するキーを検索し、対応するIDを返します。</p>
-<dl class="field-list simple">
-<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>table</strong> -- 対象tableを指定します。</p></li>
-<li><p><strong>key</strong> -- 検索keyを指定します。</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="c type">
 <dt class="sig sig-object c" id="c.grn_table_sort_key">
 <span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_table_sort_key</span></span></span><a class="headerlink" href="#c.grn_table_sort_key" title="Link to this definition">#</a><br /></dt>
@@ -755,23 +740,6 @@ document.write(`
 <li><p><strong>n_keys</strong> -- group化キー構造体の配列のサイズを指定します。</p></li>
 <li><p><strong>results</strong> -- group化の結果を格納する構造体の配列へのポインタを指定します。</p></li>
 <li><p><strong>n_results</strong> -- group化の結果を格納する構造体の配列のサイズを指定します。</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_table_setoperation">
-<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_table_setoperation</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="grn_obj.html#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">table1</span></span>, <a class="reference internal" href="grn_obj.html#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">table2</span></span>, <a class="reference internal" href="grn_obj.html#c.grn_obj" title="grn_obj"><span class="n"><span class="pre">grn_obj</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">res</span></span>, <span class="n"><span class="pre">grn_operator</span></span><span class="w"> </span><span class="n"><span class="pre">op</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_table_setoperation" title="Link to this definition">#</a><br /></dt>
-<dd><p>table1とtable2をopの指定に従って集合演算した結果をresに格納します。</p>
-<p>resにtable1あるいはtable2そのものを指定した場合を除けば、table1, table2は破壊されません。</p>
-<dl class="field-list simple">
-<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>table1</strong> -- 対象table1を指定します。</p></li>
-<li><p><strong>table2</strong> -- 対象table2を指定します。</p></li>
-<li><p><strong>res</strong> -- 結果を格納するtableを指定します。</p></li>
-<li><p><strong>op</strong> -- 実行する演算の種類を指定します。</p></li>
 </ul>
 </dd>
 </dl>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.3.59. status &#8212; Groonga v14.0.8 documentation</title>
+    <title>7.3.59. status &#8212; Groonga v14.0.9 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../_static/documentation_options.js?v=aef0727e"></script>
+    <script src="../../_static/documentation_options.js?v=ca3fa23a"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
@@ -140,8 +140,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.8 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.8 documentation - Home"/>`);</script>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.9 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.9 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -798,7 +798,9 @@ request. See <a class="reference internal" href="#status-return-value"><span cla
     <span class="s2">&quot;apache_arrow&quot;</span><span class="p">:</span> <span class="n">APACHE_ARROW_INFORMATION</span><span class="p">,</span>
     <span class="s2">&quot;memory_map_size&quot;</span><span class="p">:</span> <span class="n">MEMORY_MAP_SIZE</span><span class="p">,</span>
     <span class="s2">&quot;n_workers&quot;</span><span class="p">:</span> <span class="n">N_WORKERS</span><span class="p">,</span>
-    <span class="s2">&quot;default_n_workers&quot;</span><span class="p">:</span> <span class="n">DEFAULT_N_WORKERS</span>
+    <span class="s2">&quot;default_n_workers&quot;</span><span class="p">:</span> <span class="n">DEFAULT_N_WORKERS</span><span class="p">,</span>
+    <span class="s2">&quot;os&quot;</span><span class="p">:</span> <span class="n">OS</span><span class="p">,</span>
+    <span class="s2">&quot;cpu&quot;</span><span class="p">:</span> <span class="n">CPU_N_WORKERS</span>
   <span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
@@ -961,6 +963,22 @@ counts only requests that use commands that support cache.</p>
 <p>The default <code class="docutils literal notranslate"><span class="pre">n_workers</span></code> value of the Groonga process.</p>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">os</span></code></p></td>
+<td><div class="versionadded">
+<p><span class="versionmodified added">New in version 14.0.8.</span></p>
+</div>
+<p>The OS name.</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Linux</span></code>, <code class="docutils literal notranslate"><span class="pre">Darwin</span></code>, <code class="docutils literal notranslate"><span class="pre">Windows</span></code> and so on</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cpu</span></code></p></td>
+<td><div class="versionadded">
+<p><span class="versionmodified added">New in version 14.0.8.</span></p>
+</div>
+<p>The CPU architecture name.</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x86_64</span></code>, <code class="docutils literal notranslate"><span class="pre">arm64</span></code> and so on</p></td>
 </tr>
 </tbody>
 </table>
