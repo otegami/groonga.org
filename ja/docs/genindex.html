@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>索引 &#8212; Groonga v14.0.9ドキュメント</title>
+    <title>索引 &#8212; Groonga v14.1.0ドキュメント</title>
   
   
   
@@ -15,29 +15,32 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=fbc8366e"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/documentation_options.js?v=1d5d5492"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/translations.js?v=4dbe4bdc"></script>
+    <script src="_static/translations.js?v=4755f45a"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -53,7 +56,7 @@
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'japanese';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
@@ -63,6 +66,7 @@
     <link rel="search" title="検索" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
+  <meta name="docsearch:version" content="14.1.0" />
   </head>
   
   
@@ -78,19 +82,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -98,7 +91,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -106,8 +98,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -116,7 +108,7 @@
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
   </button>
   
@@ -125,7 +117,9 @@
     
       <div class="navbar-item">
 
-   
+  
+     
+  
 
 <a class="navbar-brand logo" href="https://groonga.org/ja/">
   
@@ -138,8 +132,8 @@
       
     
     
-    <img src="_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.9ドキュメント - Home"/>
-    <script>document.write(`<img src="_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.9ドキュメント - Home"/>`);</script>
+    <img src="_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.0ドキュメント - Home"/>
+    <img src="_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.0ドキュメント - Home"/>
   
   
 </a></div>
@@ -154,31 +148,23 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">検索</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -189,7 +175,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -201,7 +187,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -213,34 +199,30 @@ document.write(`
           
           
           
-          <a href="/ja/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/ja/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
       
         <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-2"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-2"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-2"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-2">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
       
     </div>
     
@@ -249,15 +231,11 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">検索</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
@@ -274,7 +252,8 @@ document.write(`
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -287,17 +266,13 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -308,7 +283,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -320,7 +295,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -332,34 +307,30 @@ document.write(`
           
           
           
-          <a href="/ja/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/ja/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
         
           <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-3"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-3"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-3"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-3">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
         
       </div>
     
@@ -845,25 +816,9 @@ document.write(`
 </li>
       <li><a href="reference/api/grn_column.html#c.grn_column_name">grn_column_name (C function)</a>
 </li>
-      <li><a href="reference/api/grn_column.html#c.GRN_COLUMN_NAME_ID">GRN_COLUMN_NAME_ID (C macro)</a>
-</li>
-      <li><a href="reference/api/grn_column.html#c.GRN_COLUMN_NAME_ID_LEN">GRN_COLUMN_NAME_ID_LEN (C macro)</a>
-</li>
-      <li><a href="reference/api/grn_column.html#c.GRN_COLUMN_NAME_KEY">GRN_COLUMN_NAME_KEY (C macro)</a>
-</li>
-      <li><a href="reference/api/grn_column.html#c.GRN_COLUMN_NAME_KEY_LEN">GRN_COLUMN_NAME_KEY_LEN (C macro)</a>
-</li>
       <li><a href="reference/api/grn_column.html#c.GRN_COLUMN_NAME_NSUBRECS">GRN_COLUMN_NAME_NSUBRECS (C macro)</a>
 </li>
       <li><a href="reference/api/grn_column.html#c.GRN_COLUMN_NAME_NSUBRECS_LEN">GRN_COLUMN_NAME_NSUBRECS_LEN (C macro)</a>
-</li>
-      <li><a href="reference/api/grn_column.html#c.GRN_COLUMN_NAME_SCORE">GRN_COLUMN_NAME_SCORE (C macro)</a>
-</li>
-      <li><a href="reference/api/grn_column.html#c.GRN_COLUMN_NAME_SCORE_LEN">GRN_COLUMN_NAME_SCORE_LEN (C macro)</a>
-</li>
-      <li><a href="reference/api/grn_column.html#c.GRN_COLUMN_NAME_VALUE">GRN_COLUMN_NAME_VALUE (C macro)</a>
-</li>
-      <li><a href="reference/api/grn_column.html#c.GRN_COLUMN_NAME_VALUE_LEN">GRN_COLUMN_NAME_VALUE_LEN (C macro)</a>
 </li>
       <li><a href="reference/api/grn_column.html#c.grn_column_rename">grn_column_rename (C function)</a>
 </li>
@@ -889,13 +844,9 @@ document.write(`
 </li>
       <li><a href="reference/api/grn_ctx.html#c.grn_ctx_get_command_version">grn_ctx_get_command_version (C function)</a>
 </li>
-      <li><a href="reference/api/grn_match_escalation.html#c.grn_ctx_get_match_escalation_threshold">grn_ctx_get_match_escalation_threshold (C function)</a>
-</li>
       <li><a href="reference/api/grn_ctx.html#c.grn_ctx_get_output_type">grn_ctx_get_output_type (C function)</a>
 </li>
       <li><a href="reference/api/grn_ctx.html#c.grn_ctx_init">grn_ctx_init (C function)</a>
-</li>
-      <li><a href="reference/api/grn_ctx.html#c.grn_ctx_is_opened">grn_ctx_is_opened (C function)</a>
 </li>
       <li><a href="reference/api/grn_ctx.html#c.grn_ctx_open">grn_ctx_open (C function)</a>
 </li>
@@ -903,29 +854,9 @@ document.write(`
 </li>
       <li><a href="reference/api/grn_ctx.html#c.grn_ctx_set_finalizer">grn_ctx_set_finalizer (C function)</a>
 </li>
-      <li><a href="reference/api/grn_match_escalation.html#c.grn_ctx_set_match_escalation_threshold">grn_ctx_set_match_escalation_threshold (C function)</a>
-</li>
       <li><a href="reference/api/grn_ctx.html#c.grn_ctx_set_output_type">grn_ctx_set_output_type (C function)</a>
 </li>
       <li><a href="reference/api/grn_ctx.html#c.grn_ctx_use">grn_ctx_use (C function)</a>
-</li>
-      <li><a href="reference/api/grn_db.html#c.grn_db">grn_db (C type)</a>
-</li>
-      <li><a href="reference/api/grn_db.html#c.grn_db_create">grn_db_create (C function)</a>
-</li>
-      <li><a href="reference/api/grn_db.html#c.grn_db_create_optarg">grn_db_create_optarg (C type)</a>
-</li>
-      <li><a href="reference/api/grn_db.html#c.grn_db_create_optarg.builtin_type_names">grn_db_create_optarg.builtin_type_names (C member)</a>
-</li>
-      <li><a href="reference/api/grn_db.html#c.grn_db_create_optarg.n_builtin_type_names">grn_db_create_optarg.n_builtin_type_names (C member)</a>
-</li>
-      <li><a href="reference/api/grn_db.html#c.grn_db_open">grn_db_open (C function)</a>
-</li>
-      <li><a href="reference/api/grn_db.html#c.grn_db_recover">grn_db_recover (C function)</a>
-</li>
-      <li><a href="reference/api/grn_db.html#c.grn_db_touch">grn_db_touch (C function)</a>
-</li>
-      <li><a href="reference/api/grn_db.html#c.grn_db_unmap">grn_db_unmap (C function)</a>
 </li>
       <li><a href="reference/api/grn_expr.html#c.grn_expr_add_var">grn_expr_add_var (C function)</a>
 </li>
@@ -969,8 +900,6 @@ document.write(`
 </li>
       <li><a href="reference/api/grn_geo.html#c.grn_geo_select_in_rectangle">grn_geo_select_in_rectangle (C function)</a>
 </li>
-      <li><a href="reference/api/grn_match_escalation.html#c.grn_get_default_match_escalation_threshold">grn_get_default_match_escalation_threshold (C function)</a>
-</li>
       <li><a href="reference/api/global_configurations.html#c.grn_get_lock_timeout">grn_get_lock_timeout (C function)</a>
 </li>
       <li><a href="reference/api/grn_hook.html#c.grn_hook_entry">grn_hook_entry (C type)</a>
@@ -986,12 +915,6 @@ document.write(`
       <li><a href="reference/api/grn_ii.html#c.grn_ii_buffer_commit">grn_ii_buffer_commit (C function)</a>
 </li>
       <li><a href="reference/api/grn_ii.html#c.grn_ii_buffer_open">grn_ii_buffer_open (C function)</a>
-</li>
-      <li><a href="reference/api/grn_index_cursor.html#c.grn_index_cursor_next">grn_index_cursor_next (C function)</a>
-</li>
-      <li><a href="reference/api/grn_index_cursor.html#c.grn_index_cursor_open">grn_index_cursor_open (C function)</a>
-</li>
-      <li><a href="reference/api/grn_info.html#c.grn_info_type">grn_info_type (C type)</a>
 </li>
       <li><a href="reference/api/overview.html#c.grn_init">grn_init (C function)</a>
 </li>
@@ -1009,62 +932,12 @@ document.write(`
 </li>
       <li><a href="reference/api/grn_inspect.html#c.grn_inspect_type">grn_inspect_type (C function)</a>
 </li>
-      <li><a href="reference/api/grn_obj.html#c.grn_obj">grn_obj (C type)</a>
-</li>
       <li><a href="reference/api/grn_hook.html#c.grn_obj_add_hook">grn_obj_add_hook (C function)</a>
-</li>
-      <li><a href="reference/api/grn_obj.html#c.grn_obj_cast_by_id">grn_obj_cast_by_id (C function)</a>
-</li>
-      <li><a href="reference/api/grn_obj.html#c.grn_obj_check">grn_obj_check (C function)</a>
-</li>
-      <li><a href="reference/api/grn_obj.html#c.grn_obj_clear_lock">grn_obj_clear_lock (C function)</a>
-</li>
-      <li><a href="reference/api/grn_db.html#c.grn_obj_db">grn_obj_db (C function)</a>
-</li>
-      <li><a href="reference/api/grn_obj.html#c.grn_obj_defrag">grn_obj_defrag (C function)</a>
-</li>
-      <li><a href="reference/api/grn_obj.html#c.grn_obj_delete_by_id">grn_obj_delete_by_id (C function)</a>
-</li>
-      <li><a href="reference/api/grn_hook.html#c.grn_obj_delete_hook">grn_obj_delete_hook (C function)</a>
-</li>
-      <li><a href="reference/api/grn_obj.html#c.grn_obj_expire">grn_obj_expire (C function)</a>
-</li>
-      <li><a href="reference/api/grn_info.html#c.grn_obj_get_element_info">grn_obj_get_element_info (C function)</a>
 </li>
       <li><a href="reference/api/grn_hook.html#c.grn_obj_get_hook">grn_obj_get_hook (C function)</a>
 </li>
-      <li><a href="reference/api/grn_info.html#c.grn_obj_get_info">grn_obj_get_info (C function)</a>
-</li>
-      <li><a href="reference/api/grn_hook.html#c.grn_obj_get_nhooks">grn_obj_get_nhooks (C function)</a>
-</li>
-      <li><a href="reference/api/grn_obj.html#c.grn_obj_get_range">grn_obj_get_range (C function)</a>
-</li>
-      <li><a href="reference/api/grn_obj.html#c.grn_obj_id">grn_obj_id (C function)</a>
-</li>
-      <li><a href="reference/api/grn_obj.html#c.grn_obj_is_locked">grn_obj_is_locked (C function)</a>
-</li>
-      <li><a href="reference/api/grn_obj.html#c.grn_obj_lock">grn_obj_lock (C function)</a>
-</li>
-      <li><a href="reference/api/grn_obj.html#c.grn_obj_name">grn_obj_name (C function)</a>
-</li>
-      <li><a href="reference/api/grn_obj.html#c.grn_obj_path_by_id">grn_obj_path_by_id (C function)</a>
-</li>
-      <li><a href="reference/api/grn_search.html#c.grn_obj_search">grn_obj_search (C function)</a>
-</li>
-      <li><a href="reference/api/grn_info.html#c.grn_obj_set_element_info">grn_obj_set_element_info (C function)</a>
-</li>
-      <li><a href="reference/api/grn_proc.html#c.grn_obj_set_finalizer">grn_obj_set_finalizer (C function)</a>
-</li>
-      <li><a href="reference/api/grn_info.html#c.grn_obj_set_info">grn_obj_set_info (C function)</a>
-</li>
-      <li><a href="reference/api/grn_obj.html#c.grn_obj_unlink">grn_obj_unlink (C function)</a>
-</li>
-      <li><a href="reference/api/grn_obj.html#c.grn_obj_unlock">grn_obj_unlock (C function)</a>
-</li>
       <li><a href="reference/api/grn_inspect.html#c.grn_p">grn_p (C function)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/grn_inspect.html#c.grn_p_geo_point">grn_p_geo_point (C function)</a>
 </li>
       <li><a href="reference/api/grn_inspect.html#c.grn_p_ii_values">grn_p_ii_values (C function)</a>
@@ -1101,6 +974,8 @@ document.write(`
 </li>
       <li><a href="reference/api/plugin.html#c.grn_plugin_proc_alloc">grn_plugin_proc_alloc (C function)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/plugin.html#c.grn_plugin_proc_get_var">grn_plugin_proc_get_var (C function)</a>
 </li>
       <li><a href="reference/api/plugin.html#c.grn_plugin_proc_get_var_by_offset">grn_plugin_proc_get_var_by_offset (C function)</a>
@@ -1113,29 +988,7 @@ document.write(`
 </li>
       <li><a href="reference/api/plugin.html#c.grn_plugin_windows_base_dir">grn_plugin_windows_base_dir (C function)</a>
 </li>
-      <li><a href="reference/api/grn_proc.html#c.grn_proc_create">grn_proc_create (C function)</a>
-</li>
-      <li><a href="reference/api/grn_proc.html#c.grn_proc_func">grn_proc_func (C type)</a>
-</li>
-      <li><a href="reference/api/grn_proc.html#c.grn_proc_get_info">grn_proc_get_info (C function)</a>
-</li>
-      <li><a href="reference/api/grn_proc.html#c.grn_proc_type">grn_proc_type (C type)</a>
-</li>
-      <li><a href="reference/api/grn_search.html#c.grn_search_optarg">grn_search_optarg (C type)</a>
-</li>
-      <li><a href="reference/api/grn_match_escalation.html#c.grn_set_default_match_escalation_threshold">grn_set_default_match_escalation_threshold (C function)</a>
-</li>
       <li><a href="reference/api/global_configurations.html#c.grn_set_lock_timeout">grn_set_lock_timeout (C function)</a>
-</li>
-      <li><a href="reference/api/grn_table.html#c.grn_table_group">grn_table_group (C function)</a>
-</li>
-      <li><a href="reference/api/grn_table.html#c.grn_table_group_flags">grn_table_group_flags (C type)</a>
-</li>
-      <li><a href="reference/api/grn_table.html#c.grn_table_group_result">grn_table_group_result (C type)</a>
-</li>
-      <li><a href="reference/api/grn_table.html#c.grn_table_sort_flags">grn_table_sort_flags (C type)</a>
-</li>
-      <li><a href="reference/api/grn_table.html#c.grn_table_sort_key">grn_table_sort_key (C type)</a>
 </li>
       <li><a href="reference/api/grn_thread.html#c.grn_thread_get_limit">grn_thread_get_limit (C function)</a>
 </li>
@@ -1365,8 +1218,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1391,7 +1244,7 @@ document.write(`
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.3.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>

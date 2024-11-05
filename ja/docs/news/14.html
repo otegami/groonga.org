@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>お知らせ - 14系 &#8212; Groonga v14.0.9ドキュメント</title>
+    <title>お知らせ - 14系 &#8212; Groonga v14.1.0ドキュメント</title>
   
   
   
@@ -16,29 +16,32 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../_static/documentation_options.js?v=fbc8366e"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/documentation_options.js?v=1d5d5492"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/translations.js?v=4dbe4bdc"></script>
+    <script src="../_static/translations.js?v=4755f45a"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -54,7 +57,7 @@
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'news/14';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'japanese';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
@@ -64,6 +67,7 @@
     <link rel="search" title="検索" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
+  <meta name="docsearch:version" content="14.1.0" />
   </head>
   
   
@@ -79,19 +83,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +92,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -107,8 +99,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -117,7 +109,7 @@
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
   </button>
   
@@ -126,7 +118,9 @@
     
       <div class="navbar-item">
 
-   
+  
+     
+  
 
 <a class="navbar-brand logo" href="https://groonga.org/ja/">
   
@@ -139,8 +133,8 @@
       
     
     
-    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.9ドキュメント - Home"/>
-    <script>document.write(`<img src="../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.9ドキュメント - Home"/>`);</script>
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.0ドキュメント - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.0ドキュメント - Home"/>
   
   
 </a></div>
@@ -155,31 +149,23 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">検索</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -190,7 +176,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -202,7 +188,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -214,34 +200,30 @@ document.write(`
           
           
           
-          <a href="/ja/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/ja/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
       
         <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-2"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-2"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-2"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-2">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
       
     </div>
     
@@ -250,20 +232,16 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">検索</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
     </button>
   
@@ -277,7 +255,8 @@ document.write(`
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -290,17 +269,13 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -311,7 +286,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -323,7 +298,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -335,34 +310,30 @@ document.write(`
           
           
           
-          <a href="/ja/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/ja/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
         
           <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-3"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-3"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-3"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-3">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
         
       </div>
     
@@ -399,8 +370,6 @@ document.write(`
       
         <div class="header-article-item">
 
-
-
 <nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
@@ -409,7 +378,7 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">お知らせ - 14系</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">お知らせ - 14系</span></li>
   </ul>
 </nav>
 </div>
@@ -428,19 +397,144 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="news-14-series">
 <h1>お知らせ - 14系<a class="headerlink" href="#news-14-series" title="Link to this heading">#</a></h1>
-<section id="release-14-0-9-2024-09-27">
-<span id="release-14-0-9"></span><h2>14.0.9リリース - 2024-09-27<a class="headerlink" href="#release-14-0-9-2024-09-27" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-start -->
+<section id="release-14-1-0-2024-11-05">
+<span id="release-14-1-0"></span><h2>14.1.0リリース - 2024-11-05<a class="headerlink" href="#release-14-1-0-2024-11-05" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
+<section id="improvements">
+<h3>改良<a class="headerlink" href="#improvements" title="Link to this heading">#</a></h3>
+<section id="reference-commands-status-added-features-llama-cpp-entry">
+<h4>[<a class="reference internal" href="../reference/commands/status.html"><span class="doc">status</span></a>] <code class="docutils literal notranslate"><span class="pre">.[&quot;features&quot;][&quot;llama.cpp&quot;]</span></code>エントリーを追加<a class="headerlink" href="#reference-commands-status-added-features-llama-cpp-entry" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">.[&quot;features&quot;]</span></code>エントリーは次のように各機能が有効かどうかを示しています。</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">  </span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;features&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;nfkc&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;mecab&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>このリリースは<code class="docutils literal notranslate"><span class="pre">.[&quot;features&quot;]</span></code>エントリーに<code class="docutils literal notranslate"><span class="pre">llama.cpp</span></code>を追加しました。</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">  </span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;features&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;nfkc&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;mecab&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;llama.cpp&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://github.com/ggerganov/llama.cpp">llama.cpp</a>が有効になっているかどうかを確認するために<code class="docutils literal notranslate"><span class="pre">.[&quot;features&quot;][&quot;llama.cpp&quot;]</span></code>を使うことができます。</p>
+<p>次で紹介する[<a class="reference internal" href="../reference/functions/language_model_vectorize.html"><span class="doc">language_model_vectorize</span></a>]を使うためにはllama.cppサポートが必要です。</p>
+</section>
+<section id="reference-functions-language-model-vectorize-added-experimental">
+<h4>[<a class="reference internal" href="../reference/functions/language_model_vectorize.html"><span class="doc">language_model_vectorize</span></a>] 追加（実験的）<a class="headerlink" href="#reference-functions-language-model-vectorize-added-experimental" title="Link to this heading">#</a></h4>
+<p>この機能はまだ実験的で安定していません。</p>
+<p>この機能は従来よりも多くのCPUとメモリーを使うかもしれません。</p>
+<p>この関数は、与えられたテキストの正規化されたエンべディング（ベクトル表現）を返します。エンべディングとは、与えられたテキストの意味情報をベクトルとして表現したものです。意味をベクトルとして表現することで、全文検索ではなくセマンティックサーチができるようになります。</p>
+<p>例えば、「牛乳」と「ミルク」は字面は全然違いますが、同じ意味を持つ言葉です。従来でも同義語展開を使えば「牛乳」と「ミルク」のような字面の異なる意味が同じ言葉を検索できますが、同義語展開用のテーブルをメンテナンスしなければなりません。</p>
+<p>セマンティックサーチができるようになると、同義語展開用のテーブルを準備、メンテナンスせずに意味の近い言葉を検索できるようになります。</p>
+</section>
+<section id="reference-commands-column-create-added-the-column-create-generator-parameter">
+<h4>[<a class="reference internal" href="../reference/commands/column_create.html"><span class="doc">column_create</span></a>] <a class="reference internal" href="../reference/commands/column_create.html#column-create-generator"><span class="std std-ref">generator</span></a>引数を追加<a class="headerlink" href="#reference-commands-column-create-added-the-column-create-generator-parameter" title="Link to this heading">#</a></h4>
+<p>このリリースでは<a class="reference internal" href="../reference/column.html#generated-column"><span class="std std-ref">生成カラム</span></a>機能を追加しました。この機能を使うと、他のカラムの値を使ってカラムの値を自動生成できます。</p>
+<p><a class="reference internal" href="../reference/commands/column_create.html"><span class="doc">column_create</span></a>と<a class="reference internal" href="../reference/commands/column_create.html#column-create-generator"><span class="std std-ref">generator</span></a>を使うと生成カラムを作ることができます。詳細は<a class="reference internal" href="../reference/commands/column_create.html#column-create-generated-column"><span class="std std-ref">自動生成カラムを作成</span></a>を参照してください。</p>
+<p>この機能のメリットは次のとおりです。</p>
+<ol class="arabic simple">
+<li><p>生成処理を手動で管理する必要がない</p></li>
+<li><p>生成元のカラムだけあればよいので、ロードするデータ量を減らせる</p></li>
+</ol>
+<p>たとえば、他のカラムの値のエンべディングを生成するために<a class="reference internal" href="../reference/functions/language_model_vectorize.html"><span class="doc">language_model_vectorize</span></a>を使うことができます。エンべディングは小さくないかもしれません。もし、エンべディングが1024次元の32-bit浮動小数点数で表現されている場合、エンべディングのサイズは4KiBになります。<a class="reference internal" href="../reference/functions/language_model_vectorize.html"><span class="doc">language_model_vectorize</span></a>と<a class="reference internal" href="../reference/column.html#generated-column"><span class="std std-ref">生成カラム</span></a>でエンべディングを自動で生成すると4KiBのエンべディング一式をGroongaに送る必要はありません。</p>
+<p>この機能により、検索対象のテキストを<a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a>するだけで、同時に対応するエンべディングも保存できます。</p>
+</section>
+</section>
 <section id="fixes">
 <h3>修正<a class="headerlink" href="#fixes" title="Link to this heading">#</a></h3>
+<section id="server-gqtp-fixed-a-bug-that-wrong-return-code-is-returned">
+<h4>[<a class="reference internal" href="../server/gqtp.html"><span class="doc">GQTP</span></a>] 間違ったリターンコードが返される問題を修正<a class="headerlink" href="#server-gqtp-fixed-a-bug-that-wrong-return-code-is-returned" title="Link to this heading">#</a></h4>
+<p>これはクライアント側の問題です。この問題は14.0.0から存在します。</p>
+<p>GQTPクライアントはサーバーから受け取った<a class="reference internal" href="../reference/command/return_code.html"><span class="doc">リターンコード</span></a>を間違って変換していました。たとえば、<code class="docutils literal notranslate"><span class="pre">INVALID_ARGUMENT</span></code>の値は<code class="docutils literal notranslate"><span class="pre">-22</span></code>ですが、これを<code class="docutils literal notranslate"><span class="pre">65514</span></code>に変換していました。</p>
+<p>GQTPクライアントを利用していないユーザーには影響ありません。</p>
+</section>
+<section id="reference-commands-logical-range-filter-fixed-a-bug-that-invalid-json-format-response-may-be-returned">
+<h4>[<a class="reference internal" href="../reference/commands/logical_range_filter.html"><span class="doc">logical_range_filter</span></a>] 不正なJSONフォーマットのレスポンスが返されることがある問題を修正<a class="headerlink" href="#reference-commands-logical-range-filter-fixed-a-bug-that-invalid-json-format-response-may-be-returned" title="Link to this heading">#</a></h4>
+<p>この問題は<a class="reference internal" href="../reference/command/command_version.html"><span class="doc">コマンドバージョン</span></a> 3でのみ発生します。デフォルトのコマンドバージョンは1です。</p>
+<p>あなたのGroongaのデフォルトのコマンドバージョンは<a class="reference internal" href="../reference/commands/status.html"><span class="doc">status</span></a>コマンドで確認できます。</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">  </span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;command_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;default_command_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>以下が不正なJSONフォーマットのレスポンス例です。実際の<code class="docutils literal notranslate"><span class="pre">&quot;records:</span> <span class="pre">[...]&quot;</span></code>の前に不要な<code class="docutils literal notranslate"><span class="pre">&quot;records&quot;:</span> <span class="pre">[]</span></code>があります。</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;body&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;records&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nt">&quot;records&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;The first post!&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;Welcome! This is my first post!&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="mf">1436313600.0</span><span class="p">,</span>
+<span class="w">        </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;Hello&quot;</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="s2">&quot;...&quot;</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;header&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="reference-commands-request-cancel-fixed-a-bug-that-invalid-json-format-response-may-be-returned">
+<h4>[<a class="reference internal" href="../reference/commands/logical_range_filter.html"><span class="doc">logical_range_filter</span></a>] 不正なJSONフォーマットのレスポンスが返されることがある問題を修正<a class="headerlink" href="#reference-commands-request-cancel-fixed-a-bug-that-invalid-json-format-response-may-be-returned" title="Link to this heading">#</a></h4>
+<p><a class="reference internal" href="../reference/commands/request_cancel.html"><span class="doc">request_cancel</span></a>で実行中のコマンドを止めることができます。</p>
+<p>コマンドをキャンセルすると不正なJSONフォーマットのレスポンスを受け取ることがありました。これはキャンセルのタイミングによって発生したりしなかったりします。</p>
+<p>このリリースではキャンセル処理時の出力処理を改良しました。コマンドをキャンセルしたときでも不正なJSONフォーマットのレスポンスを受け取ることはなくなるはずです。</p>
+</section>
+<section id="reference-commands-index-column-diff-fixed-a-bug-that-false-positive-diff-may-be-reported">
+<h4>[<a class="reference internal" href="../reference/commands/index_column_diff.html"><span class="doc">index_column_diff</span></a>] 擬陽性の差分が報告されるかもしれない問題を修正<a class="headerlink" href="#reference-commands-index-column-diff-fixed-a-bug-that-false-positive-diff-may-be-reported" title="Link to this heading">#</a></h4>
+<p><a class="reference internal" href="../reference/commands/index_column_diff.html"><span class="doc">index_column_diff</span></a>を使うとインデックスの破損を検出できます。</p>
+<p>1つのレコード中に同じトークンが131,072個以上含まれている場合、<a class="reference internal" href="../reference/commands/index_column_diff.html"><span class="doc">index_column_diff</span></a>は本来インデックス内にあるべきレコードが含まれていないと報告します。このリリースではこの問題を修正しました。</p>
+<!-- prettier-ignore-start -->
+</section>
+</section>
+</section>
+<section id="release-14-0-9-2024-09-27">
+<span id="release-14-0-9"></span><h2>14.0.9リリース - 2024-09-27<a class="headerlink" href="#release-14-0-9-2024-09-27" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
+<section id="id1">
+<h3>修正<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Alpine Linux 3.20上でソースからビルドする時にビルドエラーになる問題を修正しました。</p></li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-14-0-8-2024-09-25">
 <span id="release-14-0-8"></span><h2>14.0.8リリース - 2024-09-25<a class="headerlink" href="#release-14-0-8-2024-09-25" title="Link to this heading">#</a></h2>
-<section id="improvements">
-<h3>改良<a class="headerlink" href="#improvements" title="Link to this heading">#</a></h3>
+<!-- prettier-ignore-end -->
+<section id="id2">
+<h3>改良<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[Amazon Linux 2023] Amazon Linux 2023 をサポートしました。 [GH-1845][takoyaki-nyokkiさんとWatsonさんの報告]</p>
 <p>今の所、Amazon Linux 2023のaarch64版はサポートしていません。パッケージのビルドに時間がかかりすぎるため、メンテナンスコストが高いためです。</p>
@@ -448,8 +542,8 @@ document.write(`
 </li>
 </ul>
 </section>
-<section id="id1">
-<h3>修正<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>修正<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Windows版のPGroongaで<code class="docutils literal notranslate"><span class="pre">pgroonga.log_type</span></code>を指定するとクラッシュする問題を修正しました。</p></li>
 </ul>
@@ -460,12 +554,14 @@ document.write(`
 <li><p>takoyaki-nyokkiさん</p></li>
 <li><p>Watsonさん</p></li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-14-0-7-2024-09-03">
 <span id="release-14-0-7"></span><h2>14.0.7リリース - 2024-09-03<a class="headerlink" href="#release-14-0-7-2024-09-03" title="Link to this heading">#</a></h2>
-<section id="id2">
-<h3>改良<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<!-- prettier-ignore-end -->
+<section id="id4">
+<h3>改良<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[NormalizerNFKC] 新しいオプション <code class="docutils literal notranslate"><span class="pre">unify_latin_alphabet_with</span></code> を追加しました。[pgroonga/pgroonga#418][Man Hoangさんの報告]</p>
 <p>このオプションは、以下のように発音記号付きの文字と発音記号なしの文字を同じ文字とみなすことができます。</p>
@@ -545,48 +641,49 @@ document.write(`
 </li>
 </ul>
 </section>
-<section id="id3">
-<h3>修正<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>修正<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[status] &quot;h3&quot;が<code class="docutils literal notranslate"><span class="pre">groonga</span> <span class="pre">--version</span></code>や<code class="docutils literal notranslate"><span class="pre">status</span></code>で表示されない問題を修正しました。</p></li>
 <li><p>ログローテートが有効な時にクラッシュする問題を修正しました。</p>
 <p>この問題は、以下の条件で発生します。</p>
 <ol class="arabic simple">
-<li><p>以下のオプションを指定して、ファイルにロギングする時。</p></li>
-</ol>
+<li><p>以下のオプションを指定して、ファイルにロギングする時。</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">--log-path</span> <span class="pre">&lt;path&gt;</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">--query-log-path</span> <span class="pre">&lt;path&gt;</span></code></p></li>
 </ul>
-<ol class="arabic simple" start="2">
-<li><p>以下のオプションを指定して、ログローテートが有効な時。</p></li>
-</ol>
+</li>
+<li><p>以下のオプションを指定して、ログローテートが有効な時。</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">--log-rotate-threshold-size</span> <span class="pre">&lt;threshold&gt;</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">--query-log-rotate-threshold-size</span> <span class="pre">&lt;threshold&gt;</span></code></p></li>
 </ul>
-<ol class="arabic simple" start="3">
-<li><p>以下のオプションを指定して、プロセスIDの出力が有効な時。</p></li>
-</ol>
+</li>
+<li><p>以下のオプションを指定して、プロセスIDの出力が有効な時。</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">--log-flags</span> <span class="pre">process_id</span></code></p></li>
 </ul>
 </li>
+</ol>
+</li>
 <li><p><code class="docutils literal notranslate"><span class="pre">GRN_WITH_BUNDLED_ONIGMO=OFF</span></code>を指定しているにも関わらず、GroongaがバンドルされているOnigmoを使う問題を修正しました。[termux/termux-packages#21252][Biswapriyo Nathさんがパッチ提供]</p></li>
 </ul>
 </section>
-<section id="id4">
-<h3>感謝<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>感謝<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Man Hoangさん</p></li>
 <li><p>Biswapriyo Nathさん</p></li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-14-0-6-2024-07-29">
 <span id="release-14-0-6"></span><h2>14.0.6リリース - 2024-07-29<a class="headerlink" href="#release-14-0-6-2024-07-29" title="Link to this heading">#</a></h2>
-<section id="id5">
-<h3>改良<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<!-- prettier-ignore-end -->
+<section id="id7">
+<h3>改良<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>インデックスを設定していないベクターカラムに対して、前方一致検索ができるようになりました。</p>
 <p>すでに、インデックスを設定したベクターカラムに対しては前方一致検索できますが、インデックスを設定していないベクターカラムに対しては、今まで前方一致検索できませんでした。</p>
@@ -646,12 +743,14 @@ document.write(`
 </li>
 <li><p>[<a class="reference internal" href="../install/debian.html"><span class="doc">Debian GNU/Linux</span></a>] Debian 11 (bullseye) のサポートをやめました。</p></li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-14-0-5-2024-07-04">
 <span id="release-14-0-5"></span><h2>14.0.5リリース - 2024-07-04<a class="headerlink" href="#release-14-0-5-2024-07-04" title="Link to this heading">#</a></h2>
-<section id="id6">
-<h3>改良<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<!-- prettier-ignore-end -->
+<section id="id8">
+<h3>改良<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>CentOS 7のサポートをやめました。</p>
 <p>CentOS 7はEOLになったためです。</p>
@@ -662,8 +761,8 @@ document.write(`
 </li>
 </ul>
 </section>
-<section id="id7">
-<h3>修正<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h3>修正<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[<a class="reference internal" href="../reference/functions/query.html"><span class="doc">query</span></a>] <code class="docutils literal notranslate"><span class="pre">query()</span></code>の<code class="docutils literal notranslate"><span class="pre">AND</span></code>検索と<code class="docutils literal notranslate"><span class="pre">OR</span></code>検索検索を <code class="docutils literal notranslate"><span class="pre">'A</span> <span class="pre">||</span> <span class="pre">query(&quot;...&quot;,</span> <span class="pre">&quot;B</span> <span class="pre">C&quot;)'</span></code> の順で組み合わせたときに、誤った順序で評価される問題を修正しました</p>
 <p>以下の例では、<code class="docutils literal notranslate"><span class="pre">memo</span> <span class="pre">&#64;</span> <span class="pre">&quot;Groonga</span></code>の条件がマッチする<code class="docutils literal notranslate"><span class="pre">{&quot;name&quot;:</span> <span class="pre">&quot;Alice&quot;,</span> <span class="pre">&quot;memo&quot;:</span> <span class="pre">&quot;Groonga</span> <span class="pre">user&quot;}</span></code>がヒットするはずですが、 この問題が発生した場合はヒットしません。したがって、下記の例では何もヒットしません。</p>
@@ -772,12 +871,14 @@ document.write(`
 </div>
 </li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-14-0-4-2024-05-29">
 <span id="release-14-0-4"></span><h2>14.0.4リリース - 2024-05-29<a class="headerlink" href="#release-14-0-4-2024-05-29" title="Link to this heading">#</a></h2>
-<section id="id8">
-<h3>修正<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<!-- prettier-ignore-end -->
+<section id="id10">
+<h3>修正<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[<a class="reference internal" href="../reference/functions/query_parallel_or.html"><span class="doc">query_parallel_or</span></a>] <code class="docutils literal notranslate"><span class="pre">query_parallel_or()</span></code>を使用すると、<a class="reference internal" href="../reference/commands/select.html#select-match-escalation-threshold"><span class="std std-ref">match_escalation_threshold</span></a> または <code class="docutils literal notranslate"><span class="pre">force_match_escalation</span></code> オプションが無視される問題を修正しました。</p>
 <p>修正前は、検索エスカレーションを無効にしても、<code class="docutils literal notranslate"><span class="pre">query_parallel_or()</span></code>使用時はエスカレーションされていました。この問題は、<code class="docutils literal notranslate"><span class="pre">query_parallel_or()</span></code>でのみ発生します。<a class="reference internal" href="../reference/functions/query.html"><span class="doc">query</span></a>では発生しません。</p>
@@ -868,12 +969,14 @@ document.write(`
 </div>
 </li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-14-0-3-2024-05-09">
 <span id="release-14-0-3"></span><h2>14.0.3リリース - 2024-05-09<a class="headerlink" href="#release-14-0-3-2024-05-09" title="Link to this heading">#</a></h2>
-<section id="id9">
-<h3>改良<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<!-- prettier-ignore-end -->
+<section id="id11">
+<h3>改良<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>以下の最適化を行いました。</p>
 <ul class="simple">
@@ -958,8 +1061,8 @@ document.write(`
 <li><p>[<a class="reference internal" href="../install/ubuntu.html"><span class="doc">Ubuntu</span></a>] Ubuntu 24.04 LTS (Noble Numbat) をサポートしました。</p></li>
 </ul>
 </section>
-<section id="id10">
-<h3>修正<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<section id="id12">
+<h3>修正<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[<a class="reference internal" href="../reference/commands/request_cancel.html"><span class="doc">request_cancel</span></a>] <code class="docutils literal notranslate"><span class="pre">request_cancel</span></code>コマンドで実行中のクエリーを中断した時にGroongaがクラッシュすることがある問題を修正しました。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">--post_filter</span></code>使用時に、<code class="docutils literal notranslate"><span class="pre">--offset</span></code>の値が<code class="docutils literal notranslate"><span class="pre">--post_filter</span></code>の結果より大きい場合に予期しないエラーになる問題を修正しました。</p>
@@ -1228,12 +1331,14 @@ document.write(`
 </ul>
 </li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-14-0-2-2024-03-29">
 <span id="release-14-0-2"></span><h2>14.0.2リリース - 2024-03-29<a class="headerlink" href="#release-14-0-2-2024-03-29" title="Link to this heading">#</a></h2>
-<section id="id11">
-<h3>改良<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<!-- prettier-ignore-end -->
+<section id="id13">
+<h3>改良<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>一時テーブルに対して、normalizers/tokenizer/token_filtersを設定したときに出力されるログのログレベルを下げました。</p>
 <p>例えば、この変更の対象のログは以下のようなログです。</p>
@@ -1244,12 +1349,14 @@ document.write(`
 <p>そのため、今回のリリースからこのようなログのログレベルを<code class="docutils literal notranslate"><span class="pre">debug</span></code>にしました。これにより、デフォルトでは、PGroonga起動時にこのログが出力されないようになります。</p>
 </li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-14-0-1-2024-03-14">
 <span id="release-14-0-1"></span><h2>14.0.1リリース - 2024-03-14<a class="headerlink" href="#release-14-0-1-2024-03-14" title="Link to this heading">#</a></h2>
-<section id="id12">
-<h3>改良<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<!-- prettier-ignore-end -->
+<section id="id14">
+<h3>改良<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[<a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a>] ノーマライズによって空のキーとなったキーを<code class="docutils literal notranslate"><span class="pre">load</span></code>する時のエラーを止めました。</p>
 <p><code class="docutils literal notranslate"><span class="pre">&quot;-&quot;</span></code> は、<code class="docutils literal notranslate"><span class="pre">NormalizerNFKC150(&quot;remove_symbol&quot;,</span> <span class="pre">true)</span></code> によって <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> になります。そのため、以下のケースでは&quot;empty key&quot;エラーが報告されます。</p>
@@ -1268,8 +1375,8 @@ document.write(`
 </li>
 </ul>
 </section>
-<section id="id13">
-<h3>修正<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<section id="id15">
+<h3>修正<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
 <ul>
 <li><p><a class="reference internal" href="../reference/functions/between.html"><span class="doc">between</span></a> または、範囲検索時にリクエストキャンセルするとGroongaがクラッシュする問題を修正しました。</p>
 <p>この問題は必ず発生するわけではありません。特定のタイミングでリクエストキャンセルをすると発生します。シーケンシャルサーチなどの検索時間が長い場合に発生しやすいです。</p>
@@ -1341,18 +1448,20 @@ document.write(`
 <li><p><a class="reference external" href="https://clang.llvm.org/"><code class="docutils literal notranslate"><span class="pre">clang</span></code></a> を使ってソースからビルドした時にビルドエラーになる問題を修正しました。 [GitHub#1738][Reported by windymelt]</p></li>
 </ul>
 </section>
-<section id="id14">
-<h3>感謝<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<section id="id16">
+<h3>感謝<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>windymeltさん</p></li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-14-0-0-2024-02-29">
 <span id="release-14-0-0"></span><h2>14.0.0リリース - 2024-02-29<a class="headerlink" href="#release-14-0-0-2024-02-29" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
 <p>メジャーバージョンアップです! メジャーバージョンアップですが、互換性は壊れていないので、データベースを再構築することなく14.0.0へアップグレードできます。</p>
-<section id="id15">
-<h3>改良<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<section id="id17">
+<h3>改良<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>新しいトークナイザー<code class="docutils literal notranslate"><span class="pre">TokenH3Index</span></code>を追加しました。（実験的）</p>
 <p><code class="docutils literal notranslate"><span class="pre">TokenH3Index</span></code>は、<code class="docutils literal notranslate"><span class="pre">WGS84GetPoint</span></code> を <code class="docutils literal notranslate"><span class="pre">UInt64</span></code>(H3 index)に変換します。</p>
@@ -1389,8 +1498,8 @@ document.write(`
 <li><p>[<a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a>] <code class="docutils literal notranslate"><span class="pre">output_type=apache-arrow</span></code>の時に、<code class="docutils literal notranslate"><span class="pre">_key</span></code>が<code class="docutils literal notranslate"><span class="pre">Int64</span></code>型のテーブルへの参照カラムを表示できるようにしました。</p></li>
 </ul>
 </section>
-<section id="id16">
-<h3>修正<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<section id="id18">
+<h3>修正<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[Windows] Windows向けパッケージ内の<code class="docutils literal notranslate"><span class="pre">groonga-normalizer-mysql</span></code>のドキュメントのパスを修正しました。</p>
 <p>今回のリリースから、<code class="docutils literal notranslate"><span class="pre">groonga-normalizer-mysql</span></code>のドキュメントは<code class="docutils literal notranslate"><span class="pre">share/</span></code>以下に格納されます。</p>
@@ -1418,7 +1527,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1429,53 +1539,69 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-1-0-2024-11-05">14.1.0リリース - 2024-11-05</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#improvements">改良</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-status-added-features-llama-cpp-entry">[<span class="xref std std-doc">/reference/commands/status</span>] <code class="docutils literal notranslate"><span class="pre">.["features"]["llama.cpp"]</span></code>エントリーを追加</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-functions-language-model-vectorize-added-experimental">[<span class="xref std std-doc">/reference/functions/language_model_vectorize</span>] 追加（実験的）</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-column-create-added-the-column-create-generator-parameter">[<span class="xref std std-doc">/reference/commands/column_create</span>] <span class="xref std std-ref">column-create-generator</span>引数を追加</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixes">修正</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#server-gqtp-fixed-a-bug-that-wrong-return-code-is-returned">[<span class="xref std std-doc">/server/gqtp</span>] 間違ったリターンコードが返される問題を修正</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-logical-range-filter-fixed-a-bug-that-invalid-json-format-response-may-be-returned">[<span class="xref std std-doc">/reference/commands/logical_range_filter</span>] 不正なJSONフォーマットのレスポンスが返されることがある問題を修正</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-request-cancel-fixed-a-bug-that-invalid-json-format-response-may-be-returned">[<span class="xref std std-doc">/reference/commands/logical_range_filter</span>] 不正なJSONフォーマットのレスポンスが返されることがある問題を修正</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-index-column-diff-fixed-a-bug-that-false-positive-diff-may-be-reported">[<span class="xref std std-doc">/reference/commands/index_column_diff</span>] 擬陽性の差分が報告されるかもしれない問題を修正</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-9-2024-09-27">14.0.9リリース - 2024-09-27</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixes">修正</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">修正</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-8-2024-09-25">14.0.8リリース - 2024-09-25</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#improvements">改良</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">修正</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">修正</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thanks">感謝</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-7-2024-09-03">14.0.7リリース - 2024-09-03</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">改良</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">修正</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">感謝</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">修正</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">感謝</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-6-2024-07-29">14.0.6リリース - 2024-07-29</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">改良</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-5-2024-07-04">14.0.5リリース - 2024-07-04</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">改良</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">修正</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">修正</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-4-2024-05-29">14.0.4リリース - 2024-05-29</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">修正</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-3-2024-05-09">14.0.3リリース - 2024-05-09</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">改良</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">修正</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-2-2024-03-29">14.0.2リリース - 2024-03-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-3-2024-05-09">14.0.3リリース - 2024-05-09</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">修正</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-2-2024-03-29">14.0.2リリース - 2024-03-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">改良</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-1-2024-03-14">14.0.1リリース - 2024-03-14</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">改良</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">修正</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">感謝</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">修正</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">感謝</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-0-2024-02-29">14.0.0リリース - 2024-02-29</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">改良</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">修正</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">修正</a></li>
 </ul>
 </li>
 </ul>
@@ -1494,8 +1620,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1520,7 +1646,7 @@ document.write(`
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.3.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>

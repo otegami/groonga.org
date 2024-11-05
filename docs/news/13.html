@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>News - 13 series &#8212; Groonga v14.0.9 documentation</title>
+    <title>News - 13 series &#8212; Groonga v14.1.0 documentation</title>
   
   
   
@@ -16,27 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../_static/documentation_options.js?v=ca3fa23a"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/documentation_options.js?v=2caac0c6"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
     <script>
@@ -53,7 +56,7 @@
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'news/13';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'english';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
@@ -63,6 +66,7 @@
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="14.1.0" />
   </head>
   
   
@@ -78,19 +82,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -98,7 +91,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -106,8 +98,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -116,7 +108,7 @@
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
   </button>
   
@@ -125,7 +117,9 @@
     
       <div class="navbar-item">
 
-   
+  
+     
+  
 
 <a class="navbar-brand logo" href="https://groonga.org/">
   
@@ -138,8 +132,8 @@
       
     
     
-    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.9 documentation - Home"/>
-    <script>document.write(`<img src="../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.9 documentation - Home"/>`);</script>
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.0 documentation - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.0 documentation - Home"/>
   
   
 </a></div>
@@ -154,31 +148,23 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -189,7 +175,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -201,7 +187,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -213,34 +199,30 @@ document.write(`
           
           
           
-          <a href="/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
       
         <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-2"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-2"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-2"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-2">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
       
     </div>
     
@@ -249,20 +231,16 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
     </button>
   
@@ -276,7 +254,8 @@ document.write(`
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -289,17 +268,13 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -310,7 +285,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -322,7 +297,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -334,34 +309,30 @@ document.write(`
           
           
           
-          <a href="/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
         
           <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-3"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-3"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-3"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-3">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
         
       </div>
     
@@ -398,8 +369,6 @@ document.write(`
       
         <div class="header-article-item">
 
-
-
 <nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
@@ -408,7 +377,7 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">News - 13 series</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">News - 13 series</span></li>
   </ul>
 </nav>
 </div>
@@ -427,8 +396,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="news-13-series">
 <h1>News - 13 series<a class="headerlink" href="#news-13-series" title="Link to this heading">#</a></h1>
+<!-- prettier-ignore-start -->
 <section id="release-13-1-1-2024-01-09">
 <span id="release-13-1-1"></span><h2>Release 13.1.1 - 2024-01-09<a class="headerlink" href="#release-13-1-1-2024-01-09" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
 <section id="improvements">
 <h3>Improvements<a class="headerlink" href="#improvements" title="Link to this heading">#</a></h3>
 <ul class="simple">
@@ -444,10 +415,12 @@ document.write(`
 This problem only occured in Groonga 13.1.0.</p>
 </li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-13-1-0-2023-12-26">
 <span id="release-13-1-0"></span><h2>Release 13.1.0 - 2023-12-26<a class="headerlink" href="#release-13-1-0-2023-12-26" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
 <section id="id1">
 <h3>Improvements<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <ul>
@@ -552,10 +525,12 @@ So this may or may not be happen.</p>
 </div>
 </li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-13-0-9-2023-10-29">
 <span id="release-13-0-9"></span><h2>Release 13.0.9 - 2023-10-29<a class="headerlink" href="#release-13-0-9-2023-10-29" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
 <section id="id3">
 <h3>Improvements<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <ul>
@@ -818,10 +793,12 @@ We don’t want to detect <code class="docutils literal notranslate"><span class
 <ul class="simple">
 <li><p>yssrku</p></li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-13-0-8-2023-09-29">
 <span id="release-13-0-8"></span><h2>Release 13.0.8 - 2023-09-29<a class="headerlink" href="#release-13-0-8-2023-09-29" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
 <section id="id5">
 <h3>Improvements<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <ul>
@@ -869,10 +846,12 @@ However, we can use <code class="docutils literal notranslate"><span class="pre"
 </div>
 </li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-13-0-7-2023-09-12">
 <span id="release-13-0-7"></span><h2>Release 13.0.7 - 2023-09-12<a class="headerlink" href="#release-13-0-7-2023-09-12" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
 <section id="id7">
 <h3>Fixes<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <ul>
@@ -1035,10 +1014,12 @@ However, we can use <code class="docutils literal notranslate"><span class="pre"
 </div>
 </li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-13-0-6-2023-08-31">
 <span id="release-13-0-6"></span><h2>Release 13.0.6 - 2023-08-31<a class="headerlink" href="#release-13-0-6-2023-08-31" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
 <section id="id8">
 <h3>Improvements<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <ul>
@@ -1146,10 +1127,12 @@ However, we can use <code class="docutils literal notranslate"><span class="pre"
 <p>For example, this bug occures when we specify as highlight target both of keyword with the number of characters is one and keyword with the number of characters is two.</p>
 </li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-13-0-5-2023-08-02">
 <span id="release-13-0-5"></span><h2>Release 13.0.5 - 2023-08-02<a class="headerlink" href="#release-13-0-5-2023-08-02" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
 <section id="id10">
 <h3>Fixes<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <ul>
@@ -1178,10 +1161,12 @@ Therefore, If you already have used the above version, we highly recommend that 
 </div>
 </li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-13-0-4-2023-07-26">
 <span id="release-13-0-4"></span><h2>Release 13.0.4 - 2023-07-26<a class="headerlink" href="#release-13-0-4-2023-07-26" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
 <section id="id11">
 <h3>Improvements<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
 <ul class="simple">
@@ -1196,10 +1181,12 @@ configuration file path for <a class="reference internal" href="../reference/que
 <li><p>[CMake] Fixed a bug that some errors may be reported when CMake 3.16
 or 3.17 are used.</p></li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-13-0-3-2023-07-24">
 <span id="release-13-0-3"></span><h2>Release 13.0.3 - 2023-07-24<a class="headerlink" href="#release-13-0-3-2023-07-24" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
 <section id="id13">
 <h3>Improvements<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
 <ul>
@@ -1230,10 +1217,12 @@ your use case.</p>
 <ul class="simple">
 <li><p>Fixed a bug that the source archive can’t be built with CMake.</p></li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-13-0-2-2023-07-12">
 <span id="release-13-0-2"></span><h2>Release 13.0.2 - 2023-07-12<a class="headerlink" href="#release-13-0-2-2023-07-12" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
 <section id="id15">
 <h3>Improvements<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
 <ul>
@@ -1255,7 +1244,8 @@ the <code class="docutils literal notranslate"><span class="pre">sequential_clas
 <li><p>[<a class="reference internal" href="../reference/functions/highlight_html.html"><span class="doc">highlight_html</span></a>] Added
 the <code class="docutils literal notranslate"><span class="pre">sequential_class_tag_mode</span></code> option.</p></li>
 <li><p>[<a class="reference internal" href="../reference/commands/reference_acquire.html"><span class="doc">reference_acquire</span></a>] Changed to refer
-index columns that are for the target object when <code class="docutils literal notranslate"><span class="pre">--recursive</span> <span class="pre">dependent</span></code> is used.</p>
+index columns that are for the target object when <code class="docutils literal notranslate"><span class="pre">--recursive</span> <span class="pre">dependent</span></code>
+is used.</p>
 <p>If the target object is a column, index columns for the column is
 also referred.</p>
 <p>If the target object is a table, index columns for the table is also
@@ -1288,7 +1278,8 @@ matched.</p>
 <p>It’s happen when multiple 3+ tokens are overlapped in query. For
 example, <code class="docutils literal notranslate"><span class="pre">abc</span></code> and <code class="docutils literal notranslate"><span class="pre">abcd</span></code> are an invalid combination. If shorter
 one (<code class="docutils literal notranslate"><span class="pre">abc</span></code>) exists before longer one (<code class="docutils literal notranslate"><span class="pre">abcd</span></code>), this bug is
-happen. For example, <code class="docutils literal notranslate"><span class="pre">ONPP1</span> <span class="pre">&quot;(abcd</span> <span class="pre">abc)</span> <span class="pre">(1</span> <span class="pre">2)&quot;</span></code> works but <code class="docutils literal notranslate"><span class="pre">ONPP1</span> <span class="pre">&quot;(abc</span> <span class="pre">abcd)</span> <span class="pre">(1</span> <span class="pre">2)&quot;</span></code> doesn’t work.</p>
+happen. For example, <code class="docutils literal notranslate"><span class="pre">ONPP1</span> <span class="pre">&quot;(abcd</span> <span class="pre">abc)</span> <span class="pre">(1</span> <span class="pre">2)&quot;</span></code> works but
+<code class="docutils literal notranslate"><span class="pre">ONPP1</span> <span class="pre">&quot;(abc</span> <span class="pre">abcd)</span> <span class="pre">(1</span> <span class="pre">2)&quot;</span></code> doesn’t work.</p>
 </li>
 <li><p>Fixed a bug that invalid weight may be used with multiple adjusts.</p></li>
 <li><p>[<a class="reference internal" href="../reference/grn_expr/query_syntax.html"><span class="doc">Query syntax</span></a>] Fixed a typo.</p>
@@ -1333,10 +1324,12 @@ problem.</p></li>
 <li><p>Dylan Golow</p></li>
 <li><p>ZangRuochen</p></li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-13-0-1-2023-03-24">
 <span id="release-13-0-1"></span><h2>Release 13.0.1 - 2023-03-24<a class="headerlink" href="#release-13-0-1-2023-03-24" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
 <section id="id18">
 <h3>Improvements<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
 <ul>
@@ -1794,8 +1787,8 @@ select Entries --filter &#39;content *ONP-1,0,1 &quot;abc def&quot;&#39; --outpu
 #]
 </pre></div>
 </div>
-<p>In the example above, the first element interval is specified as <code class="docutils literal notranslate"><span class="pre">1</span></code> with <code class="docutils literal notranslate"><span class="pre">*ONP-1,0,1</span> <span class="pre">&quot;abc</span> <span class="pre">def&quot;</span></code>
-, but all <code class="docutils literal notranslate"><span class="pre">content</span></code> is matched, including those farther than <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<p>In the example above, the first element interval is specified as <code class="docutils literal notranslate"><span class="pre">1</span></code> with <code class="docutils literal notranslate"><span class="pre">*ONP-1,0,1</span> <span class="pre">&quot;abc</span> <span class="pre">def&quot;</span></code>,
+but all <code class="docutils literal notranslate"><span class="pre">content</span></code> is matched, including those farther than <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
 <p>This is because the example satisfies the condition for the bug and the interval is regarded as <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <ol class="arabic">
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">*ONP</span></code> with <code class="docutils literal notranslate"><span class="pre">${MAX_PHRASE_INTERVALS}</span></code></p>
@@ -1902,10 +1895,12 @@ So it should be matched, but isn’t.</p>
 <ul class="simple">
 <li><p>Carlo Cabrera</p></li>
 </ul>
+<!-- prettier-ignore-start -->
 </section>
 </section>
 <section id="release-13-0-0-2023-02-09">
 <span id="release-13-0-0"></span><h2>Release 13.0.0 - 2023-02-09<a class="headerlink" href="#release-13-0-0-2023-02-09" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
 <p>This is a major version up!
 But It keeps backward compatibility. We can upgrade to 13.0.0 without rebuilding database.</p>
 <p>First of all, we introduce the main changes in 13.0.0.
@@ -2690,7 +2685,7 @@ The last 2 records, <code class="docutils literal notranslate"><span class="pre"
 <p>[<a class="reference internal" href="12.html#release-12-0-8"><span class="std std-ref">Release 12.0.8 - 2022-10-03</span></a>]</p>
 <ul class="simple">
 <li><p>Changed specification of the <code class="docutils literal notranslate"><span class="pre">escalate()</span></code> function (Experimental) to make it easier to use.</p></li>
-<li><p>[<a class="reference internal" href="../install/cmake.html"><span class="doc">How to build Groonga with CMake</span></a>] Added a document about how to build Groonga with CMake.</p></li>
+<li><p>[<a class="reference internal" href="../install/cmake.html"><span class="doc">Others: Build with CMake</span></a>] Added a document about how to build Groonga with CMake.</p></li>
 <li><p>[<a class="reference internal" href="../install/others.html"><span class="doc">Others</span></a>] Added descriptions about how to enable/disable Apache Arrow support when building with GNU Autotools.</p></li>
 <li><p>[<a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a>] Added a document about <a class="reference internal" href="../reference/commands/select.html#select-drilldowns-label-table"><span class="std std-ref">drilldowns[${LABEL}].table</span></a>.</p></li>
 <li><p>[<a class="reference internal" href="../contribution/documentation/i18n.html"><span class="doc">I18N</span></a>] Updated the translation procedure.</p></li>
@@ -2819,7 +2814,8 @@ The last 2 records, <code class="docutils literal notranslate"><span class="pre"
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -2932,8 +2928,8 @@ The last 2 records, <code class="docutils literal notranslate"><span class="pre"
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -2958,7 +2954,7 @@ The last 2 records, <code class="docutils literal notranslate"><span class="pre"
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.3.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>

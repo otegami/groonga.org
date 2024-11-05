@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.3.12. column_create &#8212; Groonga v14.0.9 documentation</title>
+    <title>7.3.12. column_create &#8212; Groonga v14.1.0 documentation</title>
   
   
   
@@ -16,27 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../_static/documentation_options.js?v=ca3fa23a"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/documentation_options.js?v=2caac0c6"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
     <script>
@@ -53,7 +56,7 @@
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/commands/column_create';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'english';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
@@ -65,6 +68,7 @@
     <link rel="prev" title="7.3.11. column_copy" href="column_copy.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="14.1.0" />
   </head>
   
   
@@ -80,19 +84,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -100,7 +93,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -108,8 +100,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,7 +110,7 @@
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
   </button>
   
@@ -127,7 +119,9 @@
     
       <div class="navbar-item">
 
-   
+  
+     
+  
 
 <a class="navbar-brand logo" href="https://groonga.org/">
   
@@ -140,8 +134,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.9 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.9 documentation - Home"/>`);</script>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.0 documentation - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.0 documentation - Home"/>
   
   
 </a></div>
@@ -156,31 +150,23 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -191,7 +177,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -203,7 +189,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -215,34 +201,30 @@ document.write(`
           
           
           
-          <a href="/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
       
         <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-2"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-2"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-2"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-2">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
       
     </div>
     
@@ -251,20 +233,16 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
     </button>
   
@@ -278,7 +256,8 @@ document.write(`
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -291,17 +270,13 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -312,7 +287,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -324,7 +299,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -336,34 +311,30 @@ document.write(`
           
           
           
-          <a href="/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
         
           <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-3"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-3"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-3"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-3">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
         
       </div>
     
@@ -473,10 +444,10 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="../types.html">7.4. Data types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tables.html">7.5. Tables</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../column.html">7.6. Column</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../columns/scalar.html">7.6.1. Scalar column</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../columns/vector.html">7.6.2. Vector column</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../columns/pseudo.html">7.6.3. Pseudo column</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../columns/index.html">7.6.4. Index column</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../columns/scalar.html">7.6.2.1. Scalar column</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../columns/vector.html">7.6.2.2. Vector column</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../columns/pseudo.html">7.6.2.3. Pseudo column</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../columns/index.html">7.6.3.1. Index column</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../normalizers.html">7.7. Normalizers</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -549,31 +520,32 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../functions/html_untag.html">7.15.12. <code class="docutils literal notranslate"><span class="pre">html_untag</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../functions/in_records.html">7.15.13. <code class="docutils literal notranslate"><span class="pre">in_records</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../functions/in_values.html">7.15.14. <code class="docutils literal notranslate"><span class="pre">in_values</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/math_abs.html">7.15.15. <code class="docutils literal notranslate"><span class="pre">math_abs</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/now.html">7.15.16. now</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/number_classify.html">7.15.17. <code class="docutils literal notranslate"><span class="pre">number_classify</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/prefix_rk_search.html">7.15.18. <code class="docutils literal notranslate"><span class="pre">prefix_rk_search</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/query.html">7.15.19. <code class="docutils literal notranslate"><span class="pre">query</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/query_parallel_or.html">7.15.20. <code class="docutils literal notranslate"><span class="pre">query_parallel_or</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/rand.html">7.15.21. rand</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/snippet.html">7.15.22. <code class="docutils literal notranslate"><span class="pre">snippet</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/snippet_html.html">7.15.23. <code class="docutils literal notranslate"><span class="pre">snippet_html</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/string_length.html">7.15.24. <code class="docutils literal notranslate"><span class="pre">string_length</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/string_slice.html">7.15.25. <code class="docutils literal notranslate"><span class="pre">string_slice</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/string_substring.html">7.15.26. <code class="docutils literal notranslate"><span class="pre">string_substring</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/sub_filter.html">7.15.27. <code class="docutils literal notranslate"><span class="pre">sub_filter</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_day.html">7.15.28. <code class="docutils literal notranslate"><span class="pre">time_classify_day</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_day_of_week.html">7.15.29. <code class="docutils literal notranslate"><span class="pre">time_classify_day_of_week</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_hour.html">7.15.30. <code class="docutils literal notranslate"><span class="pre">time_classify_hour</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_minute.html">7.15.31. <code class="docutils literal notranslate"><span class="pre">time_classify_minute</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_month.html">7.15.32. <code class="docutils literal notranslate"><span class="pre">time_classify_month</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_second.html">7.15.33. <code class="docutils literal notranslate"><span class="pre">time_classify_second</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_week.html">7.15.34. <code class="docutils literal notranslate"><span class="pre">time_classify_week</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_year.html">7.15.35. <code class="docutils literal notranslate"><span class="pre">time_classify_year</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/vector_find.html">7.15.36. <code class="docutils literal notranslate"><span class="pre">vector_find</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/vector_new.html">7.15.37. <code class="docutils literal notranslate"><span class="pre">vector_new</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/vector_size.html">7.15.38. <code class="docutils literal notranslate"><span class="pre">vector_size</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/vector_slice.html">7.15.39. <code class="docutils literal notranslate"><span class="pre">vector_slice</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/language_model_vectorize.html">7.15.15. <code class="docutils literal notranslate"><span class="pre">language_model_vectorize</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/math_abs.html">7.15.16. <code class="docutils literal notranslate"><span class="pre">math_abs</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/now.html">7.15.17. now</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/number_classify.html">7.15.18. <code class="docutils literal notranslate"><span class="pre">number_classify</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/prefix_rk_search.html">7.15.19. <code class="docutils literal notranslate"><span class="pre">prefix_rk_search</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/query.html">7.15.20. <code class="docutils literal notranslate"><span class="pre">query</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/query_parallel_or.html">7.15.21. <code class="docutils literal notranslate"><span class="pre">query_parallel_or</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/rand.html">7.15.22. rand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/snippet.html">7.15.23. <code class="docutils literal notranslate"><span class="pre">snippet</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/snippet_html.html">7.15.24. <code class="docutils literal notranslate"><span class="pre">snippet_html</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_length.html">7.15.25. <code class="docutils literal notranslate"><span class="pre">string_length</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_slice.html">7.15.26. <code class="docutils literal notranslate"><span class="pre">string_slice</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_substring.html">7.15.27. <code class="docutils literal notranslate"><span class="pre">string_substring</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/sub_filter.html">7.15.28. <code class="docutils literal notranslate"><span class="pre">sub_filter</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_day.html">7.15.29. <code class="docutils literal notranslate"><span class="pre">time_classify_day</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_day_of_week.html">7.15.30. <code class="docutils literal notranslate"><span class="pre">time_classify_day_of_week</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_hour.html">7.15.31. <code class="docutils literal notranslate"><span class="pre">time_classify_hour</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_minute.html">7.15.32. <code class="docutils literal notranslate"><span class="pre">time_classify_minute</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_month.html">7.15.33. <code class="docutils literal notranslate"><span class="pre">time_classify_month</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_second.html">7.15.34. <code class="docutils literal notranslate"><span class="pre">time_classify_second</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_week.html">7.15.35. <code class="docutils literal notranslate"><span class="pre">time_classify_week</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_year.html">7.15.36. <code class="docutils literal notranslate"><span class="pre">time_classify_year</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/vector_find.html">7.15.37. <code class="docutils literal notranslate"><span class="pre">vector_find</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/vector_new.html">7.15.38. <code class="docutils literal notranslate"><span class="pre">vector_new</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/vector_size.html">7.15.39. <code class="docutils literal notranslate"><span class="pre">vector_size</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/vector_slice.html">7.15.40. <code class="docutils literal notranslate"><span class="pre">vector_slice</span></code></a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../window_function.html">7.16. Window function</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -600,35 +572,36 @@ document.write(`
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../indexing.html">7.21. Indexing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sharding.html">7.22. Sharding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../log.html">7.23. Log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tuning.html">7.24. Tuning</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">7.25. API</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/overview.html">7.25.1. Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/global_configurations.html">7.25.2. Global configurations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/plugin.html">7.25.3. Plugin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_cache.html">7.25.4. <code class="docutils literal notranslate"><span class="pre">grn_cache</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_column.html">7.25.5. <code class="docutils literal notranslate"><span class="pre">grn_column</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_command_version.html">7.25.6. <code class="docutils literal notranslate"><span class="pre">grn_command_version</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_content_type.html">7.25.7. <code class="docutils literal notranslate"><span class="pre">grn_content_type</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_ctx.html">7.25.8. <code class="docutils literal notranslate"><span class="pre">grn_ctx</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_db.html">7.25.9. <code class="docutils literal notranslate"><span class="pre">grn_db</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_encoding.html">7.25.10. <code class="docutils literal notranslate"><span class="pre">grn_encoding</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_expr.html">7.25.11. grn_expr</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_geo.html">7.25.12. <code class="docutils literal notranslate"><span class="pre">grn_geo</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_hook.html">7.25.13. <code class="docutils literal notranslate"><span class="pre">grn_hook</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_ii.html">7.25.14. <code class="docutils literal notranslate"><span class="pre">grn_ii</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_index_cursor.html">7.25.15. <code class="docutils literal notranslate"><span class="pre">grn_index_cursor</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_info.html">7.25.16. <code class="docutils literal notranslate"><span class="pre">grn_info</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_inspect.html">7.25.17. <code class="docutils literal notranslate"><span class="pre">grn_inspect</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_match_escalation.html">7.25.18. <code class="docutils literal notranslate"><span class="pre">grn_match_escalation</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_obj.html">7.25.19. <code class="docutils literal notranslate"><span class="pre">grn_obj</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_proc.html">7.25.20. <code class="docutils literal notranslate"><span class="pre">grn_proc</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_search.html">7.25.21. <code class="docutils literal notranslate"><span class="pre">grn_search</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_table.html">7.25.22. <code class="docutils literal notranslate"><span class="pre">grn_table</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_table_cursor.html">7.25.23. <code class="docutils literal notranslate"><span class="pre">grn_table_cursor</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_thread.html">7.25.24. <code class="docutils literal notranslate"><span class="pre">grn_thread_*</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_type.html">7.25.25. <code class="docutils literal notranslate"><span class="pre">grn_type</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_user_data.html">7.25.26. <code class="docutils literal notranslate"><span class="pre">grn_user_data</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language_model.html">7.23. Language model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../log.html">7.24. Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tuning.html">7.25. Tuning</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">7.26. API</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/overview.html">7.26.1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/global_configurations.html">7.26.2. Global configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/plugin.html">7.26.3. Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_cache.html">7.26.4. <code class="docutils literal notranslate"><span class="pre">grn_cache</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_column.html">7.26.5. <code class="docutils literal notranslate"><span class="pre">grn_column</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_command_version.html">7.26.6. <code class="docutils literal notranslate"><span class="pre">grn_command_version</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_content_type.html">7.26.7. <code class="docutils literal notranslate"><span class="pre">grn_content_type</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_ctx.html">7.26.8. <code class="docutils literal notranslate"><span class="pre">grn_ctx</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_db.html">7.26.9. <code class="docutils literal notranslate"><span class="pre">grn_db</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_encoding.html">7.26.10. <code class="docutils literal notranslate"><span class="pre">grn_encoding</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_expr.html">7.26.11. grn_expr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_geo.html">7.26.12. <code class="docutils literal notranslate"><span class="pre">grn_geo</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_hook.html">7.26.13. <code class="docutils literal notranslate"><span class="pre">grn_hook</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_ii.html">7.26.14. <code class="docutils literal notranslate"><span class="pre">grn_ii</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_index_cursor.html">7.26.15. <code class="docutils literal notranslate"><span class="pre">grn_index_cursor</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_info.html">7.26.16. <code class="docutils literal notranslate"><span class="pre">grn_info</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_inspect.html">7.26.17. <code class="docutils literal notranslate"><span class="pre">grn_inspect</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_match_escalation.html">7.26.18. <code class="docutils literal notranslate"><span class="pre">grn_match_escalation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_obj.html">7.26.19. <code class="docutils literal notranslate"><span class="pre">grn_obj</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_proc.html">7.26.20. <code class="docutils literal notranslate"><span class="pre">grn_proc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_search.html">7.26.21. <code class="docutils literal notranslate"><span class="pre">grn_search</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_table.html">7.26.22. <code class="docutils literal notranslate"><span class="pre">grn_table</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_table_cursor.html">7.26.23. <code class="docutils literal notranslate"><span class="pre">grn_table_cursor</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_thread.html">7.26.24. <code class="docutils literal notranslate"><span class="pre">grn_thread_*</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_type.html">7.26.25. <code class="docutils literal notranslate"><span class="pre">grn_type</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_user_data.html">7.26.26. <code class="docutils literal notranslate"><span class="pre">grn_user_data</span></code></a></li>
 </ul>
 </details></li>
 </ul>
@@ -658,8 +631,6 @@ document.write(`
       
         <div class="header-article-item">
 
-
-
 <nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
@@ -674,7 +645,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../command.html" class="nav-link"><span class="section-number">7.3. </span>Command</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span...</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">7.3.12. </span><code class="docutils literal notranslate"><span class="pre">column_create</span></code></span></li>
   </ul>
 </nav>
 </div>
@@ -714,14 +685,14 @@ metadata to each token.</p>
               <span class="nb">type</span>
               <span class="p">[</span><span class="n">source</span><span class="o">=</span><span class="n">null</span><span class="p">]</span>
               <span class="p">[</span><span class="n">path</span><span class="o">=</span><span class="n">null</span><span class="p">]</span>
+              <span class="p">[</span><span class="n">generator</span><span class="o">=</span><span class="n">null</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
 <section id="usage">
 <h2><span class="section-number">7.3.12.3. </span>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
 <p>This section describes about the followings:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><p><a class="reference internal" href="#column-create-scalar"><span class="std std-ref">Create a scalar column</span></a></p></li>
 <li><p><a class="reference internal" href="#column-create-vector"><span class="std std-ref">Create a vector column</span></a></p></li>
 <li><p><a class="reference internal" href="#column-create-vector-weight"><span class="std std-ref">Create a weight vector column</span></a></p></li>
@@ -734,8 +705,8 @@ metadata to each token.</p>
 <li><p><a class="reference internal" href="#column-create-index-large"><span class="std std-ref">Create a large index column</span></a></p></li>
 <li><p><a class="reference internal" href="#column-create-missing-mode"><span class="std std-ref">Missing mode</span></a></p></li>
 <li><p><a class="reference internal" href="#column-create-invalid-mode"><span class="std std-ref">Invalid mode</span></a></p></li>
+<li><p><a class="reference internal" href="#column-create-generated-column"><span class="std std-ref">Create a generated column</span></a></p></li>
 </ul>
-</div></blockquote>
 <p>Here is the <code class="docutils literal notranslate"><span class="pre">People</span></code> table definition. The <code class="docutils literal notranslate"><span class="pre">People</span></code> table is used
 in examples:</p>
 <p>Execution example:</p>
@@ -1485,7 +1456,7 @@ table.</p>
 <section id="missing-mode">
 <span id="column-create-missing-mode"></span><h3><span class="section-number">7.3.12.3.11. </span>Missing mode<a class="headerlink" href="#missing-mode" title="Link to this heading">#</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 12.0.2.</span></p>
+<p><span class="versionmodified added">Added in version 12.0.2.</span></p>
 </div>
 <p>You can control how to process a nonexistent key in the specified new
 value of a reference column by a <code class="docutils literal notranslate"><span class="pre">MISSING_*</span></code> flag. Here are
@@ -1598,7 +1569,7 @@ record whose ID is <code class="docutils literal notranslate"><span class="pre">
 <span class="c1">#       [</span>
 <span class="c1">#         &quot;grn_ra_cast_value&quot;,</span>
 <span class="c1">#         &quot;lib/store.c&quot;,</span>
-<span class="c1">#         522</span>
+<span class="c1">#         2929</span>
 <span class="c1">#       ]</span>
 <span class="c1">#     ]</span>
 <span class="c1">#   ],</span>
@@ -1618,7 +1589,7 @@ record whose ID is <code class="docutils literal notranslate"><span class="pre">
 <span class="c1">#       [</span>
 <span class="c1">#         &quot;grn_ra_cast_value&quot;,</span>
 <span class="c1">#         &quot;lib/store.c&quot;,</span>
-<span class="c1">#         522</span>
+<span class="c1">#         2929</span>
 <span class="c1">#       ]</span>
 <span class="c1">#     ]</span>
 <span class="c1">#   ],</span>
@@ -1908,7 +1879,7 @@ whose ID is <code class="docutils literal notranslate"><span class="pre">0</span
 <section id="invalid-mode">
 <span id="column-create-invalid-mode"></span><h3><span class="section-number">7.3.12.3.12. </span>Invalid mode<a class="headerlink" href="#invalid-mode" title="Link to this heading">#</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 12.0.2.</span></p>
+<p><span class="versionmodified added">Added in version 12.0.2.</span></p>
 </div>
 <p>You can control how to process an invalid value in the specified new
 value of a data column by a <code class="docutils literal notranslate"><span class="pre">INVALID_*</span></code> flag. Here are available
@@ -2075,7 +2046,7 @@ a warning message is logged in <a class="reference internal" href="../log.html#p
 <span class="c1">#       [</span>
 <span class="c1">#         &quot;grn_ra_cast_value&quot;,</span>
 <span class="c1">#         &quot;lib/store.c&quot;,</span>
-<span class="c1">#         522</span>
+<span class="c1">#         2929</span>
 <span class="c1">#       ]</span>
 <span class="c1">#     ]</span>
 <span class="c1">#   ],</span>
@@ -2274,6 +2245,92 @@ logged in <a class="reference internal" href="../log.html#process-log"><span cla
 </pre></div>
 </div>
 </section>
+<section id="create-a-generated-column">
+<span id="column-create-generated-column"></span><h3><span class="section-number">7.3.12.3.13. </span>Create a generated column<a class="headerlink" href="#create-a-generated-column" title="Link to this heading">#</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 14.1.0.</span></p>
+</div>
+<p>You can generate a column value from other column value
+automatically. You can use an expression in
+<a class="reference internal" href="../grn_expr/script_syntax.html"><span class="doc">Script syntax</span></a> how to generate a column value.</p>
+<p>Here is an example how to define a generated column:</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> \
+  <span class="o">--</span><span class="n">name</span> <span class="n">Posts</span> \
+  <span class="o">--</span><span class="n">flags</span> <span class="n">TABLE_NO_KEY</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],true]</span>
+<span class="n">column_create</span> \
+  <span class="o">--</span><span class="n">table</span> <span class="n">Posts</span> \
+  <span class="o">--</span><span class="n">name</span> <span class="n">title_html</span> \
+  <span class="o">--</span><span class="n">flags</span> <span class="n">COLUMN_SCALAR</span> \
+  <span class="o">--</span><span class="nb">type</span> <span class="n">ShortText</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],true]</span>
+<span class="n">column_create</span> \
+  <span class="o">--</span><span class="n">table</span> <span class="n">Posts</span> \
+  <span class="o">--</span><span class="n">name</span> <span class="n">title_text</span> \
+  <span class="o">--</span><span class="n">flags</span> <span class="n">COLUMN_SCALAR</span> \
+  <span class="o">--</span><span class="nb">type</span> <span class="n">ShortText</span> \
+  <span class="o">--</span><span class="n">source</span> <span class="n">title_html</span> \
+  <span class="o">--</span><span class="n">generator</span> <span class="s1">&#39;html_untag(title_html)&#39;</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],true]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Posts.title_text</span></code> is a generated column. Its value is generated
+from a value of <code class="docutils literal notranslate"><span class="pre">Posts.title_html</span></code>. <code class="docutils literal notranslate"><span class="pre">--source</span> <span class="pre">title_html</span></code> and
+<code class="docutils literal notranslate"><span class="pre">--generator</span> <span class="pre">'html_untag(title_html)'</span></code> are the important parts.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--source</span> <span class="pre">title_html</span></code> means that <code class="docutils literal notranslate"><span class="pre">Posts.title_text</span></code> uses
+<code class="docutils literal notranslate"><span class="pre">Posts.title_html</span></code> as source.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--generator</span> <span class="pre">'html_untag(title_html)'</span></code> means that
+<code class="docutils literal notranslate"><span class="pre">Posts.title_text</span></code> value is generated by evaluating
+<code class="docutils literal notranslate"><span class="pre">html_untag(title_html)</span></code>. <a class="reference internal" href="../functions/html_untag.html"><span class="doc">html_untag</span></a> is a
+function that removes HTML tags from HTML text. <code class="docutils literal notranslate"><span class="pre">html_untag(&quot;Hello</span>
+<span class="pre">&lt;em&gt;Groonga&lt;/em&gt;&quot;)</span></code> returns <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">Groonga&quot;</span></code>.</p>
+<p>Let’s load a value to <code class="docutils literal notranslate"><span class="pre">Posts.title_html</span></code> and see <code class="docutils literal notranslate"><span class="pre">Posts.title_text</span></code>:</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Posts</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;title_html&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello &lt;em&gt;Groonga&lt;/em&gt;&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],1]</span>
+<span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Posts</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         1</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_id&quot;,</span>
+<span class="c1">#           &quot;UInt32&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;title_html&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;title_text&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         1,</span>
+<span class="c1">#         &quot;Hello &lt;em&gt;Groonga&lt;/em&gt;&quot;,</span>
+<span class="c1">#         &quot;Hello Groonga&quot;</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+<p>You can see <code class="docutils literal notranslate"><span class="pre">Posts.title_text</span></code> has <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">Groonga&quot;</span></code>
+automatically.</p>
+</section>
 </section>
 <section id="parameters">
 <h2><span class="section-number">7.3.12.4. </span>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
@@ -2360,7 +2417,7 @@ the same space efficiency as zlib.</p>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_SHUFFLE</span></code></p></td>
 <td><div class="versionadded">
-<p><span class="versionmodified added">New in version 13.0.8.</span></p>
+<p><span class="versionmodified added">Added in version 13.0.8.</span></p>
 </div>
 <p>These flags are to increase compression rate of <code class="docutils literal notranslate"><span class="pre">COMPRESS_ZLIB</span></code> / <code class="docutils literal notranslate"><span class="pre">COMPRESS_LZ4</span></code> / <code class="docutils literal notranslate"><span class="pre">COMPRESS_ZSTD</span></code>
 to increase by filtering the data before the compression.</p>
@@ -2376,64 +2433,98 @@ Please refer <a class="reference internal" href="../../install/others.html"><spa
 <p>These flags are only available with <code class="docutils literal notranslate"><span class="pre">COLUMN_VECTOR</span></code> and are ignored with <code class="docutils literal notranslate"><span class="pre">COLUMN_SCALAR</span></code> .</p>
 <p>Here are a list of suitable data type for this filter.</p>
 <p>This flag reorganize data based on a element of Nth byte.</p>
-<p>First, 0th byte data of each element within the vector column would be gathered and be continuously placed.
-Then, 1st byte data would be handled as same as 0th byte data, and all byte data would be as so repeatedly.</p>
-<p>There are tendency for those compression algorithms such as  <code class="docutils literal notranslate"><span class="pre">COMPRESS_ZLIB</span></code>,``COMPRESS_LZ4``,and  <code class="docutils literal notranslate"><span class="pre">COMPRESS_ZSTD</span></code> to have the higher compression rate when the data has same values in continuance.
-The point for this flag is to produce data having same values in continuance by reorganizing data for every N byte.</p>
+<p>First, 0th byte data of each element within the vector column
+would be gathered and be continuously placed. Then, 1st byte
+data would be handled as same as 0th byte data and all byte
+data would be as so repeatedly.</p>
+<p>There are tendency for those compression algorithms such as
+<code class="docutils literal notranslate"><span class="pre">COMPRESS_ZLIB</span></code>, <code class="docutils literal notranslate"><span class="pre">COMPRESS_LZ4</span></code> and <code class="docutils literal notranslate"><span class="pre">COMPRESS_ZSTD</span></code> to
+have the higher compression rate when the data has same values
+in continuance. The point for this flag is to produce data
+having same values in continuance by reorganizing data for
+every N byte.</p>
 <p>In particular, it would work as below.</p>
-<p>For example, there is the vector column <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">1051,</span> <span class="pre">515]</span></code> in <code class="docutils literal notranslate"><span class="pre">UInt16</span></code>. It would be as below representing in the little endien byte column.</p>
+<p>For example, there is the vector column <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">1051,</span> <span class="pre">515]</span></code> in
+<code class="docutils literal notranslate"><span class="pre">UInt16</span></code>. It would be as below representing in the little
+endien byte column.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span>
 <span class="o">|--------|--------|</span>  <span class="o">|--------|--------|</span>  <span class="o">|--------|--------|</span>
 <span class="o">|</span> <span class="mh">0x01</span>   <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x1b</span>   <span class="o">|</span> <span class="mh">0x04</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x03</span>   <span class="o">|</span> <span class="mh">0x02</span>   <span class="o">|</span>
 </pre></div>
 </div>
-<p>This flag is to produce the data as following by gathering values of `` Byte 0``, then of `` Byte 1`` from the above data.
-The action to gather values with every N Byte would be called shuffle from now on.
-Shuffling the above data would be as below.</p>
+<p>This flag is to produce the data as following by gathering
+values of <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">0</span></code>, then of <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">1</span></code> from the above data.
+The action to gather values with every N Byte would be called
+shuffle from now on. Shuffling the above data would be as
+below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span>
 <span class="o">|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|</span>
 <span class="o">|</span> <span class="mh">0x01</span>   <span class="o">|</span> <span class="mh">0x1b</span>   <span class="o">|</span> <span class="mh">0x03</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0x04</span>   <span class="o">|</span> <span class="mh">0x02</span>   <span class="o">|</span>
 </pre></div>
 </div>
-<p>The point is whether there would be same values in continuance or not. Looking at the above example data, it is appeared to have no same values in continuance after shuffling.
-Those data are not suitable for this flag because it is not contributed to increase the compression rate even shuffling.</p>
-<p>On the other hand, the vector column <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>  in <code class="docutils literal notranslate"><span class="pre">UInt16</span></code> would be as following after  shuffling.
-First for the explanation, <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> in <code class="docutils literal notranslate"><span class="pre">UInt16</span></code> would be represented as below in the little endien byte column.</p>
+<p>The point is whether there would be same values in continuance
+or not. Looking at the above example data, it is appeared to
+have no same values in continuance after shuffling. Those data
+are not suitable for this flag because it is not contributed to
+increase the compression rate even shuffling.</p>
+<p>On the other hand, the vector column <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> in
+<code class="docutils literal notranslate"><span class="pre">UInt16</span></code> would be as following after shuffling. First for
+the explanation, <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> in <code class="docutils literal notranslate"><span class="pre">UInt16</span></code> would be
+represented as below in the little endien byte column.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span>
 <span class="o">|--------|--------|</span>  <span class="o">|--------|--------|</span>  <span class="o">|--------|--------|</span>
 <span class="o">|</span> <span class="mh">0x01</span>   <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x02</span>   <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x03</span>   <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span>
 </pre></div>
 </div>
-<p>And, after shuffling <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>  in <code class="docutils literal notranslate"><span class="pre">UInt16</span></code>, the data would be as below.</p>
+<p>And, after shuffling <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> in <code class="docutils literal notranslate"><span class="pre">UInt16</span></code>, the data
+would be as below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span>
 <span class="o">|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|</span>
 <span class="o">|</span> <span class="mh">0x01</span>   <span class="o">|</span> <span class="mh">0x02</span>   <span class="o">|</span> <span class="mh">0x03</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span>
 </pre></div>
 </div>
-<p>After shuffling <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> in <code class="docutils literal notranslate"><span class="pre">UInt16</span></code>, the date in <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">1</span></code> would be all <code class="docutils literal notranslate"><span class="pre">0x00</span></code>. It means there are same values in continuance.
-Thus, this data pattern is suitable for this flag because it would contribute to increase the compression rate.</p>
-<p>In case of a floating-point number, the data having same the code part and the exponent part would be corresponded.
-In case of the IEEE 754 type single-precision floating-point format, code part would be placed at 31st bit, and exponent part would be placed at 32nd bit.
-There would be same values in continuance after shuffling the data if the code part and the upper 7 bit of exponent bit become same because the highest byte would be structured with the code part and the upper 7 bit of exponent bit.</p>
-<p>For example, the data, <code class="docutils literal notranslate"><span class="pre">[0.5,</span> <span class="pre">0.6]</span></code> in <code class="docutils literal notranslate"><span class="pre">Float32</span></code>, would have same code bit and exponent part by representing in Single-precision floating-point format in IEEE 754 type as below.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">仮数部</span><span class="p">(</span><span class="mi">23</span><span class="n">bit</span><span class="p">)</span>                 <span class="o">|</span> <span class="n">指数部</span><span class="p">(</span><span class="mi">8</span><span class="n">bit</span><span class="p">)</span> <span class="o">|</span> <span class="n">符号</span><span class="p">(</span><span class="mi">1</span><span class="n">bit</span><span class="p">)</span>　<span class="o">|</span>
-<span class="o">|------------------------------|-------------|------------|</span>
-<span class="o">|</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">000</span> <span class="o">|</span> <span class="mi">0111</span> <span class="mi">1110</span>   <span class="o">|</span>  <span class="mi">0</span>         <span class="o">|</span>
-<span class="o">|</span> <span class="mi">0101</span> <span class="mi">1001</span> <span class="mi">1001</span> <span class="mi">1001</span> <span class="mi">1001</span> <span class="mi">100</span> <span class="o">|</span> <span class="mi">0111</span> <span class="mi">1110</span>   <span class="o">|</span>  <span class="mi">0</span>         <span class="o">|</span>
+<p>After shuffling <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> in <code class="docutils literal notranslate"><span class="pre">UInt16</span></code>, the date in <code class="docutils literal notranslate"><span class="pre">Byte</span>
+<span class="pre">1</span></code> would be all <code class="docutils literal notranslate"><span class="pre">0x00</span></code>. It means there are same values in
+continuance.  Thus, this data pattern is suitable for this flag
+because it would contribute to increase the compression rate.</p>
+<p>In case of a floating-point number, the data having same the
+code part and the exponent part would be corresponded. In case
+of the IEEE 754 type single-precision floating-point format,
+code part would be placed at 31st bit, and exponent part would
+be placed at 32nd bit. There would be same values in
+continuance after shuffling the data if the code part and the
+upper 7 bit of exponent bit become same because the highest
+byte would be structured with the code part and the upper 7 bit
+of exponent bit.</p>
+<p>For example, the data, <code class="docutils literal notranslate"><span class="pre">[0.5,</span> <span class="pre">0.6]</span></code> in <code class="docutils literal notranslate"><span class="pre">Float32</span></code>, would
+have same code bit and exponent part by representing in
+Single-precision floating-point format in IEEE 754 type as
+below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">fraction</span> <span class="p">(</span><span class="mi">23</span><span class="n">bit</span><span class="p">)</span>             <span class="o">|</span> <span class="n">exponent</span> <span class="p">(</span><span class="mi">8</span><span class="n">bit</span><span class="p">)</span> <span class="o">|</span> <span class="n">sign</span> <span class="p">(</span><span class="mi">1</span><span class="n">bit</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">|------------------------------|-----------------|-------------|</span>
+<span class="o">|</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">000</span> <span class="o">|</span> <span class="mi">0111</span> <span class="mi">1110</span>       <span class="o">|</span> <span class="mi">0</span>           <span class="o">|</span>
+<span class="o">|</span> <span class="mi">0101</span> <span class="mi">1001</span> <span class="mi">1001</span> <span class="mi">1001</span> <span class="mi">1001</span> <span class="mi">100</span> <span class="o">|</span> <span class="mi">0111</span> <span class="mi">1110</span>       <span class="o">|</span> <span class="mi">0</span>           <span class="o">|</span>
 </pre></div>
 </div>
-<p>Shuffling the given data would have same values in continuance for <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">3</span></code> as below.</p>
+<p>Shuffling the given data would have same values in continuance
+for <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">3</span></code> as below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span>
 <span class="o">|--------|--------|</span>  <span class="o">|--------|--------|</span>  <span class="o">|--------|--------|</span>  <span class="o">|--------|--------|</span>
 <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0x9a</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0x99</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0x19</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x3f</span>   <span class="o">|</span> <span class="mh">0x3f</span>   <span class="o">|</span>
 </pre></div>
 </div>
-<p>In case of the <code class="docutils literal notranslate"><span class="pre">Float</span></code> / <code class="docutils literal notranslate"><span class="pre">Float32</span></code> type data, please refer to explanations for <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_1BYTE</span></code> and <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_2BYTES</span></code> since it is also possible to combine <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_1BYTE</span></code> or <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_2BYTES</span></code> .</p>
+<p>In case of the <code class="docutils literal notranslate"><span class="pre">Float</span></code> / <code class="docutils literal notranslate"><span class="pre">Float32</span></code> type data, please refer
+to explanations for
+<code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_1BYTE</span></code> and
+<code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_2BYTES</span></code> since it is also
+possible to combine
+<code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_1BYTE</span></code> or
+<code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_2BYTES</span></code>.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_BYTE_DELTA</span></code></p></td>
 <td><div class="versionadded">
-<p><span class="versionmodified added">New in version 13.0.8.</span></p>
+<p><span class="versionmodified added">Added in version 13.0.8.</span></p>
 </div>
 <p>These flags are to increase compression rate of <code class="docutils literal notranslate"><span class="pre">COMPRESS_ZLIB</span></code> / <code class="docutils literal notranslate"><span class="pre">COMPRESS_LZ4</span></code> / <code class="docutils literal notranslate"><span class="pre">COMPRESS_ZSTD</span></code>
 to increase by filtering the data before the compression.</p>
@@ -2448,45 +2539,78 @@ However, We need to valid Blosc support explicitly when we build Groonga from so
 Please refer <a class="reference internal" href="../../install/others.html"><span class="doc">Others</span></a> when we build Groonga from source.</p>
 <p>These flags are only available with <code class="docutils literal notranslate"><span class="pre">COLUMN_VECTOR</span></code> and are ignored with <code class="docutils literal notranslate"><span class="pre">COLUMN_SCALAR</span></code> .</p>
 <p>Here is what kind of the data being effective for this flag.</p>
-<p>This flag is to calculate the difference between bytes of values to be compression targeted.
-As sample case of the vector column <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5]</span></code> in <code class="docutils literal notranslate"><span class="pre">UInt8</span></code>, applying this flag would produce data would become <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">(2-1),</span> <span class="pre">(3-2),</span> <span class="pre">(4-3),</span> <span class="pre">(5-4)]</span> <span class="pre">=</span> <span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code>.</p>
-<p>As noted above, it is trying to increase the compression rate by calculating increments and producing same values in continuance.
-The point is there would be same values in continuance after calculating the increments between each elements.</p>
-<p>Thus, the data is not suitable to use for this flag if there would not be same values in continuance after  calculating the increments.
-Here is the list of data pattern to have same values in continuance after calculating increments.</p>
-<p>First pattern would be the data increased with constant interval such as <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5]</span></code> in <code class="docutils literal notranslate"><span class="pre">UInt8</span></code>.
-The constant interval could be every <code class="docutils literal notranslate"><span class="pre">10</span></code> for <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">11,</span> <span class="pre">21,</span> <span class="pre">31,</span> <span class="pre">41]</span></code> in <code class="docutils literal notranslate"><span class="pre">UInt8</span></code> as long as the interval is same.</p>
-<p>Next pattern would be the data having same values in continuance such as <code class="docutils literal notranslate"><span class="pre">[5,</span> <span class="pre">5,</span> <span class="pre">5,</span> <span class="pre">5,</span> <span class="pre">5]</span></code> in <code class="docutils literal notranslate"><span class="pre">UInt8</span></code>.
-There would be <code class="docutils literal notranslate"><span class="pre">0</span></code> in continuance after calculating the increments of this data.
-In opossite, <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">255,</span> <span class="pre">2,</span> <span class="pre">200,</span> <span class="pre">1]</span></code> in <code class="docutils literal notranslate"><span class="pre">UInt8</span></code> is not suitable for this flag because the data would not have same value in continuance after calculating the increments.</p>
-<p>There would be a case to be able to increase the compression rate by combining  <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_SHUFFLE</span></code> even though calculating increments would not have same value in continuance, or increments are too large.</p>
-<p>For exapmle, <code class="docutils literal notranslate"><span class="pre">[4526677,</span> <span class="pre">4592401,</span> <span class="pre">4658217,</span> <span class="pre">4723879]</span></code> in  <code class="docutils literal notranslate"><span class="pre">UInt32</span></code> would be <code class="docutils literal notranslate"><span class="pre">[4526677,</span> <span class="pre">65724,</span> <span class="pre">65816,</span> <span class="pre">65662]</span></code>  after only being applied <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_BYTE_DELTA</span></code> .
-This data would not have values in continuance, and increments are large.</p>
-<p>But applying <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_SHUFFLE</span></code>  to this data would be different. And it will be explained in following.
-First for the explanation, <code class="docutils literal notranslate"><span class="pre">[4526677,</span> <span class="pre">4592401,</span> <span class="pre">4658217,</span> <span class="pre">4723879]</span></code> in <code class="docutils literal notranslate"><span class="pre">UInt32</span></code> would be represent the byte column in the little endien as below.</p>
+<p>This flag is to calculate the difference between bytes of
+values to be compression targeted. As sample case of the
+vector column <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5]</span></code> in <code class="docutils literal notranslate"><span class="pre">UInt8</span></code>, applying this
+flag would produce data would become <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">(2-1),</span> <span class="pre">(3-2),</span> <span class="pre">(4-3),</span>
+<span class="pre">(5-4)]</span> <span class="pre">=</span> <span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code>.</p>
+<p>As noted above, it is trying to increase the compression rate
+by calculating increments and producing same values in
+continuance. The point is there would be same values in
+continuance after calculating the increments between each
+elements.</p>
+<p>Thus, the data is not suitable to use for this flag if there
+would not be same values in continuance after calculating the
+increments. Here is the list of data pattern to have same
+values in continuance after calculating increments.</p>
+<p>First pattern would be the data increased with constant
+interval such as <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5]</span></code> in <code class="docutils literal notranslate"><span class="pre">UInt8</span></code>. The
+constant interval could be every <code class="docutils literal notranslate"><span class="pre">10</span></code> for <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">11,</span> <span class="pre">21,</span> <span class="pre">31,</span>
+<span class="pre">41]</span></code> in <code class="docutils literal notranslate"><span class="pre">UInt8</span></code> as long as the interval is same.</p>
+<p>Next pattern would be the data having same values in
+continuance such as <code class="docutils literal notranslate"><span class="pre">[5,</span> <span class="pre">5,</span> <span class="pre">5,</span> <span class="pre">5,</span> <span class="pre">5]</span></code> in <code class="docutils literal notranslate"><span class="pre">UInt8</span></code>. There
+would be <code class="docutils literal notranslate"><span class="pre">0</span></code> in continuance after calculating the increments
+of this data. In opposite, <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">255,</span> <span class="pre">2,</span> <span class="pre">200,</span> <span class="pre">1]</span></code> in
+<code class="docutils literal notranslate"><span class="pre">UInt8</span></code> is not suitable for this flag because the data would
+not have same value in continuance after calculating the
+increments.</p>
+<p>There would be a case to be able to increase the compression
+rate by combining <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_SHUFFLE</span></code> even though
+calculating increments would not have same value in
+continuance, or increments are too large.</p>
+<p>For exapmle, <code class="docutils literal notranslate"><span class="pre">[4526677,</span> <span class="pre">4592401,</span> <span class="pre">4658217,</span> <span class="pre">4723879]</span></code> in
+<code class="docutils literal notranslate"><span class="pre">UInt32</span></code> would be <code class="docutils literal notranslate"><span class="pre">[4526677,</span> <span class="pre">65724,</span> <span class="pre">65816,</span> <span class="pre">65662]</span></code> after
+only being applied <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_BYTE_DELTA</span></code>. This data
+would not have values in continuance, and increments are large.</p>
+<p>But applying <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_SHUFFLE</span></code> to this data would be
+different. And it will be explained in following. First for
+the explanation, <code class="docutils literal notranslate"><span class="pre">[4526677,</span> <span class="pre">4592401,</span> <span class="pre">4658217,</span> <span class="pre">4723879]</span></code> in
+<code class="docutils literal notranslate"><span class="pre">UInt32</span></code> would be represent the byte column in the little
+endien as below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span>
 <span class="o">|--------|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|--------|</span>
 <span class="o">|</span> <span class="mh">0x55</span>   <span class="o">|</span> <span class="mh">0x12</span>   <span class="o">|</span> <span class="mh">0x45</span>   <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x11</span>   <span class="o">|</span> <span class="mh">0x13</span>   <span class="o">|</span> <span class="mh">0x46</span>   <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x29</span>   <span class="o">|</span> <span class="mh">0x14</span>   <span class="o">|</span> <span class="mh">0x47</span>   <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0xA7</span>   <span class="o">|</span> <span class="mh">0x14</span>   <span class="o">|</span> <span class="mh">0x48</span>   <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span>
 </pre></div>
 </div>
-<p>Applying <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_SHUFFLE</span></code>  to this data would be following byte columns.</p>
+<p>Applying <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_SHUFFLE</span></code> to this data would be
+following byte columns.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span>
 <span class="o">|--------|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|--------|</span>
 <span class="o">|</span> <span class="mh">0x55</span>   <span class="o">|</span> <span class="mh">0x11</span>   <span class="o">|</span> <span class="mh">0x29</span>   <span class="o">|</span> <span class="mh">0xA7</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x12</span>   <span class="o">|</span> <span class="mh">0x13</span>   <span class="o">|</span> <span class="mh">0x14</span>   <span class="o">|</span> <span class="mh">0x14</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x45</span>   <span class="o">|</span> <span class="mh">0x46</span>   <span class="o">|</span> <span class="mh">0x47</span>   <span class="o">|</span> <span class="mh">0x48</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span>
 </pre></div>
 </div>
-<p>Pay attention to the data of <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">2</span></code>, and <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">3</span></code> after the shuffling.
-The data increments of <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">1</span></code> are <code class="docutils literal notranslate"><span class="pre">[0x12,</span> <span class="pre">0x01,</span> <span class="pre">0x01,</span> <span class="pre">0x00]</span></code> . The data increments of <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">2</span></code> are  <code class="docutils literal notranslate"><span class="pre">[0x45,</span> <span class="pre">0x01,</span> <span class="pre">0x01,</span> <span class="pre">0x01]</span></code> .
-The data increments of <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">3</span></code> are <code class="docutils literal notranslate"><span class="pre">[0x00,</span> <span class="pre">0x00,</span> <span class="pre">0x00,</span> <span class="pre">0x00]</span></code>. From those numbers, you can see the data increments have small values and have same values in continuance.</p>
-<p>As you see these, the compression rate could be increase by combining <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_SHUFFLE</span></code> even if applying <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_BYTE_DELTA</span></code> did not change the rate.</p>
-<p>Please note that  <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_SHUFFLE</span></code> would not be effective for the 1 byte data because it is to gather the same byte from the data.
-(The 1 byte data would have same data column whether being shuffled or not.)
-Thus, in case of combining <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_BYTE_DELTA</span></code> and <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_SHUFFLE</span></code>, please do not use data in <code class="docutils literal notranslate"><span class="pre">Int8</span></code> / <code class="docutils literal notranslate"><span class="pre">UInt8</span></code>. Only use for other type.</p>
+<p>Pay attention to the data of <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">2</span></code>, and <code class="docutils literal notranslate"><span class="pre">Byte</span>
+<span class="pre">3</span></code> after the shuffling. The data increments of <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">1</span></code> are
+<code class="docutils literal notranslate"><span class="pre">[0x12,</span> <span class="pre">0x01,</span> <span class="pre">0x01,</span> <span class="pre">0x00]</span></code>. The data increments of <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">2</span></code>
+are <code class="docutils literal notranslate"><span class="pre">[0x45,</span> <span class="pre">0x01,</span> <span class="pre">0x01,</span> <span class="pre">0x01]</span></code>.  The data increments of
+<code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">3</span></code> are <code class="docutils literal notranslate"><span class="pre">[0x00,</span> <span class="pre">0x00,</span> <span class="pre">0x00,</span> <span class="pre">0x00]</span></code>. From those
+numbers, you can see the data increments have small values and
+have same values in continuance.</p>
+<p>As you see these, the compression rate could be increase by
+combining <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_SHUFFLE</span></code> even if applying
+<code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_BYTE_DELTA</span></code> did not change the rate.</p>
+<p>Please note that <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_SHUFFLE</span></code> would not be
+effective for the 1 byte data because it is to gather the same
+byte from the data. (The 1 byte data would have same data
+column whether being shuffled or not.) Thus, in case of
+combining <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_BYTE_DELTA</span></code> and
+<code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_SHUFFLE</span></code>, please do not use data in <code class="docutils literal notranslate"><span class="pre">Int8</span></code>
+/ <code class="docutils literal notranslate"><span class="pre">UInt8</span></code>. Only use for other type.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_1BYTE</span></code></p></td>
 <td><div class="versionadded">
-<p><span class="versionmodified added">New in version 13.0.8.</span></p>
+<p><span class="versionmodified added">Added in version 13.0.8.</span></p>
 </div>
 <p>These flags are to increase compression rate of <code class="docutils literal notranslate"><span class="pre">COMPRESS_ZLIB</span></code> / <code class="docutils literal notranslate"><span class="pre">COMPRESS_LZ4</span></code> / <code class="docutils literal notranslate"><span class="pre">COMPRESS_ZSTD</span></code>
 to increase by filtering the data before the compression.</p>
@@ -2500,50 +2624,65 @@ So it is advised to set suitable flags depending on the data.</p>
 However, We need to valid Blosc support explicitly when we build Groonga from source.
 Please refer <a class="reference internal" href="../../install/others.html"><span class="doc">Others</span></a> when we build Groonga from source.</p>
 <p>These flags are only available with <code class="docutils literal notranslate"><span class="pre">COLUMN_VECTOR</span></code> and are ignored with <code class="docutils literal notranslate"><span class="pre">COLUMN_SCALAR</span></code> .</p>
-<p>This flag can be used only for <code class="docutils literal notranslate"><span class="pre">Float</span></code> / <code class="docutils literal notranslate"><span class="pre">Float32</span></code>. And it is expected to be combined with  <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_SHUFFLE</span></code> .</p>
+<p>This flag can be used only for <code class="docutils literal notranslate"><span class="pre">Float</span></code> / <code class="docutils literal notranslate"><span class="pre">Float32</span></code>. And it
+is expected to be combined with <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_SHUFFLE</span></code> .</p>
 <p>Here is what kind of the data being effective for this flag.</p>
-<p>This flag would drop the 1 byte of fraction from each vector column elements of <code class="docutils literal notranslate"><span class="pre">Float</span></code> / <code class="docutils literal notranslate"><span class="pre">Float32</span></code> type.
-Dropping the fraction means making all of the lower 1 byte of the floating-point number <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
-<p>For example, <code class="docutils literal notranslate"><span class="pre">[1.25,</span> <span class="pre">3.67,</span> <span class="pre">4.55]</span></code> in <code class="docutils literal notranslate"><span class="pre">Float32</span></code> would be presented as following in the IEEE 754 format single-precision floating-point.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">仮数部</span><span class="p">(</span><span class="mi">23</span><span class="n">bit</span><span class="p">)</span>                 <span class="o">|</span> <span class="n">指数部</span><span class="p">(</span><span class="mi">8</span><span class="n">bit</span><span class="p">)</span> <span class="o">|</span> <span class="n">符号</span><span class="p">(</span><span class="mi">1</span><span class="n">bit</span><span class="p">)</span>　<span class="o">|</span>
-<span class="o">|------------------------------|-------------|------------|</span>
-<span class="o">|</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">010</span> <span class="o">|</span> <span class="mi">1111</span> <span class="mi">1110</span>   <span class="o">|</span> <span class="mi">0</span>          <span class="o">|</span>
-<span class="o">|</span> <span class="mi">0001</span> <span class="mi">0010</span> <span class="mi">1000</span> <span class="mi">0111</span> <span class="mi">0101</span> <span class="mi">011</span> <span class="o">|</span> <span class="mi">0000</span> <span class="mi">0001</span>   <span class="o">|</span> <span class="mi">0</span>          <span class="o">|</span>
-<span class="o">|</span> <span class="mi">0101</span> <span class="mi">1001</span> <span class="mi">1001</span> <span class="mi">1001</span> <span class="mi">1000</span> <span class="mi">100</span> <span class="o">|</span> <span class="mi">1000</span> <span class="mi">0001</span>   <span class="o">|</span> <span class="mi">0</span>          <span class="o">|</span>
+<p>This flag would drop the 1 byte of fraction from each vector
+column elements of <code class="docutils literal notranslate"><span class="pre">Float</span></code> / <code class="docutils literal notranslate"><span class="pre">Float32</span></code> type. Dropping the
+fraction means making all of the lower 1 byte of the
+floating-point number <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">[1.25,</span> <span class="pre">3.67,</span> <span class="pre">4.55]</span></code> in <code class="docutils literal notranslate"><span class="pre">Float32</span></code> would be
+presented as following in the IEEE 754 format single-precision
+floating-point.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">fraction</span> <span class="p">(</span><span class="mi">23</span><span class="n">bit</span><span class="p">)</span>             <span class="o">|</span> <span class="n">exponent</span> <span class="p">(</span><span class="mi">8</span><span class="n">bit</span><span class="p">)</span> <span class="o">|</span> <span class="n">sign</span> <span class="p">(</span><span class="mi">1</span><span class="n">bit</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">|------------------------------|-----------------|-------------|</span>
+<span class="o">|</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">010</span> <span class="o">|</span> <span class="mi">1111</span> <span class="mi">1110</span>       <span class="o">|</span> <span class="mi">0</span>           <span class="o">|</span>
+<span class="o">|</span> <span class="mi">0001</span> <span class="mi">0010</span> <span class="mi">1000</span> <span class="mi">0111</span> <span class="mi">0101</span> <span class="mi">011</span> <span class="o">|</span> <span class="mi">0000</span> <span class="mi">0001</span>       <span class="o">|</span> <span class="mi">0</span>           <span class="o">|</span>
+<span class="o">|</span> <span class="mi">0101</span> <span class="mi">1001</span> <span class="mi">1001</span> <span class="mi">1001</span> <span class="mi">1000</span> <span class="mi">100</span> <span class="o">|</span> <span class="mi">1000</span> <span class="mi">0001</span>       <span class="o">|</span> <span class="mi">0</span>           <span class="o">|</span>
 </pre></div>
 </div>
-<p>Applying this flag make all lower 1 byte <code class="docutils literal notranslate"><span class="pre">0</span></code>. And the data would be as below.
-Pay attention to all <code class="docutils literal notranslate"><span class="pre">0</span></code> for lower 1byte of fixed-point part.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">仮数部</span><span class="p">(</span><span class="mi">23</span><span class="n">bit</span><span class="p">)</span>                 <span class="o">|</span> <span class="n">指数部</span><span class="p">(</span><span class="mi">8</span><span class="n">bit</span><span class="p">)</span> <span class="o">|</span> <span class="n">符号</span><span class="p">(</span><span class="mi">1</span><span class="n">bit</span><span class="p">)</span>　<span class="o">|</span>
-<span class="o">|------------------------------|-------------|------------|</span>
-<span class="o">|</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">010</span> <span class="o">|</span> <span class="mi">1111</span> <span class="mi">1110</span>   <span class="o">|</span> <span class="mi">0</span>          <span class="o">|</span>
-<span class="o">|</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">1000</span> <span class="mi">0111</span> <span class="mi">0101</span> <span class="mi">011</span> <span class="o">|</span> <span class="mi">0000</span> <span class="mi">0001</span>   <span class="o">|</span> <span class="mi">0</span>          <span class="o">|</span>
-<span class="o">|</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">1001</span> <span class="mi">1001</span> <span class="mi">1000</span> <span class="mi">100</span> <span class="o">|</span> <span class="mi">1000</span> <span class="mi">0001</span>   <span class="o">|</span> <span class="mi">0</span>          <span class="o">|</span>
+<p>Applying this flag make all lower 1 byte <code class="docutils literal notranslate"><span class="pre">0</span></code>. And the data
+would be as below. Pay attention to all <code class="docutils literal notranslate"><span class="pre">0</span></code> for lower 1byte
+of fixed-point part.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">fraction</span> <span class="p">(</span><span class="mi">23</span><span class="n">bit</span><span class="p">)</span>             <span class="o">|</span> <span class="n">exponent</span> <span class="p">(</span><span class="mi">8</span><span class="n">bit</span><span class="p">)</span> <span class="o">|</span> <span class="n">sign</span> <span class="p">(</span><span class="mi">1</span><span class="n">bit</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">|------------------------------|-----------------|-------------|</span>
+<span class="o">|</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">010</span> <span class="o">|</span> <span class="mi">1111</span> <span class="mi">1110</span>       <span class="o">|</span> <span class="mi">0</span>           <span class="o">|</span>
+<span class="o">|</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">1000</span> <span class="mi">0111</span> <span class="mi">0101</span> <span class="mi">011</span> <span class="o">|</span> <span class="mi">0000</span> <span class="mi">0001</span>       <span class="o">|</span> <span class="mi">0</span>           <span class="o">|</span>
+<span class="o">|</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">1001</span> <span class="mi">1001</span> <span class="mi">1000</span> <span class="mi">100</span> <span class="o">|</span> <span class="mi">1000</span> <span class="mi">0001</span>       <span class="o">|</span> <span class="mi">0</span>           <span class="o">|</span>
 </pre></div>
 </div>
-<p>These actions are what would be done for single flag usage.
-As noted, this flag is expected to be combined with <code class="docutils literal notranslate"><span class="pre">COLUMN_FILTER_SHUFFLE</span></code> .
-Thus, by shuffling the data it is to expected increasing the compression rate after using the flag.</p>
-<p>Applying <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_1BYTE</span></code> then shuffling would produce data as below.</p>
+<p>These actions are what would be done for single flag usage. As
+noted, this flag is expected to be combined with
+<code class="docutils literal notranslate"><span class="pre">COLUMN_FILTER_SHUFFLE</span></code> . Thus, by shuffling the data it is
+to expected increasing the compression rate after using the
+flag.</p>
+<p>Applying <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_1BYTE</span></code> then
+shuffling would produce data as below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span>
 <span class="o">|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|</span>
 <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0xe1</span>   <span class="o">|</span> <span class="mh">0x99</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0xa0</span>   <span class="o">|</span> <span class="mh">0x6a</span>   <span class="o">|</span> <span class="mh">0x91</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x3f</span>   <span class="o">|</span> <span class="mh">0x40</span>   <span class="o">|</span> <span class="mh">0x40</span>   <span class="o">|</span>
 </pre></div>
 </div>
-<p>Pay attention to the <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">0</span></code>. You can find the value <code class="docutils literal notranslate"><span class="pre">0</span></code> in continuance for <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">0</span></code>.
-If <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_1BYTE</span></code> was not applied and shuffled, the data would be as following table, there would be no same value in continuance for any bytes.</p>
+<p>Pay attention to the <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">0</span></code>. You can find the value <code class="docutils literal notranslate"><span class="pre">0</span></code>
+in continuance for <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">0</span></code>. If
+<code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_1BYTE</span></code> was not applied
+and shuffled, the data would be as following table, there would
+be no same value in continuance for any bytes.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span>
 <span class="o">|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|</span>
 <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0x48</span>   <span class="o">|</span> <span class="mh">0x9a</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0xe1</span>   <span class="o">|</span> <span class="mh">0x99</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0xa0</span>   <span class="o">|</span> <span class="mh">0x6a</span>   <span class="o">|</span> <span class="mh">0x91</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x3f</span>   <span class="o">|</span> <span class="mh">0x40</span>   <span class="o">|</span> <span class="mh">0x40</span>   <span class="o">|</span>
 </pre></div>
 </div>
-<p>Applying <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_1BYTE</span></code> to those data can be expected to increase the compression rate even if those data cannot increase the compression rate only with shuffling.
-However, note the data may be inaccurate since the fraction of the floating-point number is dropped for 1 byte.</p>
+<p>Applying <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_1BYTE</span></code> to those
+data can be expected to increase the compression rate even if
+those data cannot increase the compression rate only with
+shuffling. However, note the data may be inaccurate since the
+fraction of the floating-point number is dropped for 1 byte.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_2BYTES</span></code></p></td>
 <td><div class="versionadded">
-<p><span class="versionmodified added">New in version 13.0.8.</span></p>
+<p><span class="versionmodified added">Added in version 13.0.8.</span></p>
 </div>
 <p>These flags are to increase compression rate of <code class="docutils literal notranslate"><span class="pre">COMPRESS_ZLIB</span></code> / <code class="docutils literal notranslate"><span class="pre">COMPRESS_LZ4</span></code> / <code class="docutils literal notranslate"><span class="pre">COMPRESS_ZSTD</span></code>
 to increase by filtering the data before the compression.</p>
@@ -2557,45 +2696,61 @@ So it is advised to set suitable flags depending on the data.</p>
 However, We need to valid Blosc support explicitly when we build Groonga from source.
 Please refer <a class="reference internal" href="../../install/others.html"><span class="doc">Others</span></a> when we build Groonga from source.</p>
 <p>These flags are only available with <code class="docutils literal notranslate"><span class="pre">COLUMN_VECTOR</span></code> and are ignored with <code class="docutils literal notranslate"><span class="pre">COLUMN_SCALAR</span></code> .</p>
-<p>This flag can be used only for <code class="docutils literal notranslate"><span class="pre">Float</span></code> / <code class="docutils literal notranslate"><span class="pre">Float32</span></code>. And it is expected to be combined with  <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_SHUFFLE</span></code>.</p>
+<p>This flag can be used only for <code class="docutils literal notranslate"><span class="pre">Float</span></code> / <code class="docutils literal notranslate"><span class="pre">Float32</span></code>. And it
+is expected to be combined with <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_SHUFFLE</span></code>.</p>
 <p>Here is what kind of the data being effective for this flag.</p>
-<p>This flag would drop the 2 bytes of fraction from each vector column elements of <code class="docutils literal notranslate"><span class="pre">Float</span></code> / <code class="docutils literal notranslate"><span class="pre">Float32</span></code> type.
-Dropping the fraction means making all of the lower 2 bytes of the floating-point number <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
-<p>For example, <code class="docutils literal notranslate"><span class="pre">[1.25,</span> <span class="pre">3.67,</span> <span class="pre">4.55]</span></code> in <code class="docutils literal notranslate"><span class="pre">Float32</span></code> would be presented as following in the IEEE 754 format single-precision floating-point.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">仮数部</span><span class="p">(</span><span class="mi">23</span><span class="n">bit</span><span class="p">)</span>                 <span class="o">|</span> <span class="n">指数部</span><span class="p">(</span><span class="mi">8</span><span class="n">bit</span><span class="p">)</span> <span class="o">|</span> <span class="n">符号</span><span class="p">(</span><span class="mi">1</span><span class="n">bit</span><span class="p">)</span>　<span class="o">|</span>
-<span class="o">|------------------------------|-------------|------------|</span>
-<span class="o">|</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">010</span> <span class="o">|</span> <span class="mi">1111</span> <span class="mi">1110</span>   <span class="o">|</span> <span class="mi">0</span>          <span class="o">|</span>
-<span class="o">|</span> <span class="mi">0001</span> <span class="mi">0010</span> <span class="mi">1000</span> <span class="mi">0111</span> <span class="mi">0101</span> <span class="mi">011</span> <span class="o">|</span> <span class="mi">0000</span> <span class="mi">0001</span>   <span class="o">|</span> <span class="mi">0</span>          <span class="o">|</span>
-<span class="o">|</span> <span class="mi">0101</span> <span class="mi">1001</span> <span class="mi">1001</span> <span class="mi">1001</span> <span class="mi">1000</span> <span class="mi">100</span> <span class="o">|</span> <span class="mi">1000</span> <span class="mi">0001</span>   <span class="o">|</span> <span class="mi">0</span>          <span class="o">|</span>
+<p>This flag would drop the 2 bytes of fraction from each vector
+column elements of <code class="docutils literal notranslate"><span class="pre">Float</span></code> / <code class="docutils literal notranslate"><span class="pre">Float32</span></code> type. Dropping the
+fraction means making all of the lower 2 bytes of the
+floating-point number <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">[1.25,</span> <span class="pre">3.67,</span> <span class="pre">4.55]</span></code> in <code class="docutils literal notranslate"><span class="pre">Float32</span></code> would be
+presented as following in the IEEE 754 format single-precision
+floating-point.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">fraction</span> <span class="p">(</span><span class="mi">23</span><span class="n">bit</span><span class="p">)</span>             <span class="o">|</span> <span class="n">exponent</span> <span class="p">(</span><span class="mi">8</span><span class="n">bit</span><span class="p">)</span> <span class="o">|</span> <span class="n">sign</span> <span class="p">(</span><span class="mi">1</span><span class="n">bit</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">|------------------------------|-----------------|-------------|</span>
+<span class="o">|</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">010</span> <span class="o">|</span> <span class="mi">1111</span> <span class="mi">1110</span>       <span class="o">|</span> <span class="mi">0</span>           <span class="o">|</span>
+<span class="o">|</span> <span class="mi">0001</span> <span class="mi">0010</span> <span class="mi">1000</span> <span class="mi">0111</span> <span class="mi">0101</span> <span class="mi">011</span> <span class="o">|</span> <span class="mi">0000</span> <span class="mi">0001</span>       <span class="o">|</span> <span class="mi">0</span>           <span class="o">|</span>
+<span class="o">|</span> <span class="mi">0101</span> <span class="mi">1001</span> <span class="mi">1001</span> <span class="mi">1001</span> <span class="mi">1000</span> <span class="mi">100</span> <span class="o">|</span> <span class="mi">1000</span> <span class="mi">0001</span>       <span class="o">|</span> <span class="mi">0</span>           <span class="o">|</span>
 </pre></div>
 </div>
-<p>Applying this flag make all lower 2 bytes <code class="docutils literal notranslate"><span class="pre">0</span></code>. And the data would be as below.
-Pay attention to all <code class="docutils literal notranslate"><span class="pre">0</span></code> for lower 2 bytes of fixed-point part.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">仮数部</span><span class="p">(</span><span class="mi">23</span><span class="n">bit</span><span class="p">)</span>                 <span class="o">|</span> <span class="n">指数部</span><span class="p">(</span><span class="mi">8</span><span class="n">bit</span><span class="p">)</span> <span class="o">|</span> <span class="n">符号</span><span class="p">(</span><span class="mi">1</span><span class="n">bit</span><span class="p">)</span>　<span class="o">|</span>
-<span class="o">|------------------------------|-------------|------------|</span>
-<span class="o">|</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">010</span> <span class="o">|</span> <span class="mi">1111</span> <span class="mi">1110</span>   <span class="o">|</span> <span class="mi">0</span>          <span class="o">|</span>
-<span class="o">|</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0101</span> <span class="mi">011</span> <span class="o">|</span> <span class="mi">0000</span> <span class="mi">0001</span>   <span class="o">|</span> <span class="mi">0</span>          <span class="o">|</span>
-<span class="o">|</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">1000</span> <span class="mi">100</span> <span class="o">|</span> <span class="mi">1000</span> <span class="mi">0001</span>   <span class="o">|</span> <span class="mi">0</span>          <span class="o">|</span>
+<p>Applying this flag make all lower 2 bytes <code class="docutils literal notranslate"><span class="pre">0</span></code>. And the data
+would be as below. Pay attention to all <code class="docutils literal notranslate"><span class="pre">0</span></code> for lower 2
+bytes of fixed-point part.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">fraction</span> <span class="p">(</span><span class="mi">23</span><span class="n">bit</span><span class="p">)</span>             <span class="o">|</span> <span class="n">exponent</span> <span class="p">(</span><span class="mi">8</span><span class="n">bit</span><span class="p">)</span> <span class="o">|</span> <span class="n">sign</span> <span class="p">(</span><span class="mi">1</span><span class="n">bit</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">|------------------------------|-----------------|-------------|</span>
+<span class="o">|</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">010</span> <span class="o">|</span> <span class="mi">1111</span> <span class="mi">1110</span>       <span class="o">|</span> <span class="mi">0</span>           <span class="o">|</span>
+<span class="o">|</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0101</span> <span class="mi">011</span> <span class="o">|</span> <span class="mi">0000</span> <span class="mi">0001</span>       <span class="o">|</span> <span class="mi">0</span>           <span class="o">|</span>
+<span class="o">|</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">0000</span> <span class="mi">1000</span> <span class="mi">100</span> <span class="o">|</span> <span class="mi">1000</span> <span class="mi">0001</span>       <span class="o">|</span> <span class="mi">0</span>           <span class="o">|</span>
 </pre></div>
 </div>
-<p>These actions are what would be done for single flag usage.
-As noted, this flag is expected to be combined with <code class="docutils literal notranslate"><span class="pre">COLUMN_FILTER_SHUFFLE</span></code> .
-Thus, by shuffling the data it is to expected increasing the compression rate after using the flag.</p>
-<p>Applying <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_2BYTE</span></code> then shuffling would produce data as below.</p>
+<p>These actions are what would be done for single flag usage. As
+noted, this flag is expected to be combined with
+<code class="docutils literal notranslate"><span class="pre">COLUMN_FILTER_SHUFFLE</span></code> . Thus, by shuffling the data it is
+to expected increasing the compression rate after using the
+flag.</p>
+<p>Applying <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_2BYTE</span></code> then
+shuffling would produce data as below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span>
 <span class="o">|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|</span>
 <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0xa0</span>   <span class="o">|</span> <span class="mh">0x6a</span>   <span class="o">|</span> <span class="mh">0x91</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x3f</span>   <span class="o">|</span> <span class="mh">0x40</span>   <span class="o">|</span> <span class="mh">0x40</span>   <span class="o">|</span>
 </pre></div>
 </div>
-<p>Pay attention to the <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">1</span></code>. You can find the value <code class="docutils literal notranslate"><span class="pre">0</span></code> in continuance for <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">Byte1</span></code>.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_2BYTE</span></code> was not applied and shuffled, the data would be as following table, there would be no same value in continuance for any bytes.</p>
+<p>Pay attention to the <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">1</span></code>. You can find
+the value <code class="docutils literal notranslate"><span class="pre">0</span></code> in continuance for <code class="docutils literal notranslate"><span class="pre">Byte</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">Byte1</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_2BYTE</span></code> was not applied
+and shuffled, the data would be as following table, there would
+be no same value in continuance for any bytes.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">0</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">1</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">2</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">Byte</span> <span class="mi">3</span> <span class="o">|</span>
 <span class="o">|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|</span>  <span class="o">|--------|--------|--------|</span>
 <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0x48</span>   <span class="o">|</span> <span class="mh">0x9a</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x00</span>   <span class="o">|</span> <span class="mh">0xe1</span>   <span class="o">|</span> <span class="mh">0x99</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0xa0</span>   <span class="o">|</span> <span class="mh">0x6a</span>   <span class="o">|</span> <span class="mh">0x91</span>   <span class="o">|</span><span class="p">,</span> <span class="o">|</span> <span class="mh">0x3f</span>   <span class="o">|</span> <span class="mh">0x40</span>   <span class="o">|</span> <span class="mh">0x40</span>   <span class="o">|</span>
 </pre></div>
 </div>
-<p>Applying <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_2BYTE</span></code> to those data can be expected to increase the compression rate even if those data cannot increase the compression rate only with shuffling.</p>
-<p>However, note the data may be inaccurate since the fraction of the floating-point number is dropped for 2 bytes.</p>
+<p>Applying <code class="docutils literal notranslate"><span class="pre">COMPRESS_FILTER_TRUNCATE_PRECISION_2BYTE</span></code> to those
+data can be expected to increase the compression rate even if
+those data cannot increase the compression rate only with
+shuffling.</p>
+<p>However, note the data may be inaccurate since the fraction of
+the floating-point number is dropped for 2 bytes.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WITH_SECTION</span></code></p></td>
@@ -2626,7 +2781,7 @@ weight support, you should not enable weight support.</p>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WEIGHT_FLOAT32</span></code></p></td>
 <td><div class="versionadded">
-<p><span class="versionmodified added">New in version 10.0.3.</span></p>
+<p><span class="versionmodified added">Added in version 10.0.3.</span></p>
 </div>
 <p>You can use 32bit floating point instead of 32bit unsigned
 integer for weight value.</p>
@@ -2654,7 +2809,7 @@ position support, you should not enable position support.</p>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">INDEX_SMALL</span></code></p></td>
 <td><div class="versionadded">
-<p><span class="versionmodified added">New in version 6.0.8.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.8.</span></p>
 </div>
 <p>It requires to create a small index column.</p>
 <p>If index target data are small, small index column is enough.
@@ -2667,7 +2822,7 @@ data” and how to use this flag.</p>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">INDEX_MEDIUM</span></code></p></td>
 <td><div class="versionadded">
-<p><span class="versionmodified added">New in version 6.0.8.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.8.</span></p>
 </div>
 <p>It requires to create a medium index column.</p>
 <p>If index target data are medium, medium index column is enough.
@@ -2679,7 +2834,7 @@ what are “medium data” and how to use this flag.</p>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">INDEX_LARGE</span></code></p></td>
 <td><div class="versionadded">
-<p><span class="versionmodified added">New in version 9.0.2.</span></p>
+<p><span class="versionmodified added">Added in version 9.0.2.</span></p>
 </div>
 <p>It requires to create a large index column.</p>
 <p>If index target data are large, you need to use large index
@@ -2692,7 +2847,7 @@ also <a class="reference internal" href="#column-create-index-large"><span class
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MISSING_ADD</span></code></p></td>
 <td><div class="versionadded">
-<p><span class="versionmodified added">New in version 12.0.2.</span></p>
+<p><span class="versionmodified added">Added in version 12.0.2.</span></p>
 </div>
 <p>You can’t specify multiple <code class="docutils literal notranslate"><span class="pre">MISSING_*</span></code> flags. They are
 exclusive.</p>
@@ -2710,7 +2865,7 @@ used as the default.</p>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MISSING_IGNORE</span></code></p></td>
 <td><div class="versionadded">
-<p><span class="versionmodified added">New in version 12.0.2.</span></p>
+<p><span class="versionmodified added">Added in version 12.0.2.</span></p>
 </div>
 <p>You can’t specify multiple <code class="docutils literal notranslate"><span class="pre">MISSING_*</span></code> flags. They are
 exclusive.</p>
@@ -2732,7 +2887,7 @@ removed from the value. For example, <code class="docutils literal notranslate">
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MISSING_NIL</span></code></p></td>
 <td><div class="versionadded">
-<p><span class="versionmodified added">New in version 12.0.2.</span></p>
+<p><span class="versionmodified added">Added in version 12.0.2.</span></p>
 </div>
 <p>You can’t specify multiple <code class="docutils literal notranslate"><span class="pre">MISSING_*</span></code> flags. They are
 exclusive.</p>
@@ -2748,7 +2903,7 @@ with <code class="docutils literal notranslate"><span class="pre">GRN_ID_NIL</sp
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">INVALID_ERROR</span></code></p></td>
 <td><div class="versionadded">
-<p><span class="versionmodified added">New in version 12.0.2.</span></p>
+<p><span class="versionmodified added">Added in version 12.0.2.</span></p>
 </div>
 <p>You can’t specify multiple <code class="docutils literal notranslate"><span class="pre">INVALID_*</span></code> flags. They are
 exclusive.</p>
@@ -2776,7 +2931,7 @@ used as the default.</p>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">INVALID_WARN</span></code></p></td>
 <td><div class="versionadded">
-<p><span class="versionmodified added">New in version 12.0.2.</span></p>
+<p><span class="versionmodified added">Added in version 12.0.2.</span></p>
 </div>
 <p>You can’t specify multiple <code class="docutils literal notranslate"><span class="pre">INVALID_*</span></code> flags. They are
 exclusive.</p>
@@ -2795,7 +2950,7 @@ depending on <code class="docutils literal notranslate"><span class="pre">MISSIN
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">INVALID_IGNORE</span></code></p></td>
 <td><div class="versionadded">
-<p><span class="versionmodified added">New in version 12.0.2.</span></p>
+<p><span class="versionmodified added">Added in version 12.0.2.</span></p>
 </div>
 <p>You can’t specify multiple <code class="docutils literal notranslate"><span class="pre">INVALID_*</span></code> flags. They are
 exclusive.</p>
@@ -2825,27 +2980,21 @@ two or more <code class="docutils literal notranslate"><span class="pre">COLUMN_
 <p>Specifies type of the column value.</p>
 <p>If the column is scalar column or vector column, here are available
 types:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><p>Builtin types described in <a class="reference internal" href="../types.html"><span class="doc">Data types</span></a></p></li>
 <li><p>Tables defined by users</p></li>
 </ul>
-</div></blockquote>
 <p>If the column is index column, here are available types:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><p>Tables defined by users</p></li>
 </ul>
-</div></blockquote>
 <p>See also the followings:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><p><a class="reference internal" href="#column-create-scalar"><span class="std std-ref">Create a scalar column</span></a></p></li>
 <li><p><a class="reference internal" href="#column-create-vector"><span class="std std-ref">Create a vector column</span></a></p></li>
 <li><p><a class="reference internal" href="#column-create-reference"><span class="std std-ref">Create a column that refers a table’s record</span></a></p></li>
 <li><p><a class="reference internal" href="#column-create-index"><span class="std std-ref">Create an index column</span></a></p></li>
 </ul>
-</div></blockquote>
 </section>
 </section>
 <section id="optional-parameters">
@@ -2865,7 +3014,7 @@ columns with <code class="docutils literal notranslate"><span class="pre">,</spa
 <section id="path">
 <h4><span class="section-number">7.3.12.4.2.2. </span><code class="docutils literal notranslate"><span class="pre">path</span></code><a class="headerlink" href="#path" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 10.0.7.</span></p>
+<p><span class="versionmodified added">Added in version 10.0.7.</span></p>
 </div>
 <p>Specifies a path for storing a column.</p>
 <p>This option is useful if you want to store a column that
@@ -2874,6 +3023,21 @@ use to slow storage (e.g. HDD).</p>
 <p>You can use a relative path or an absolute path in this option.
 If you specify a relative path, it is resolved from the current directory for the <code class="docutils literal notranslate"><span class="pre">groonga</span></code> process.</p>
 <p>The default value is none.</p>
+</section>
+<section id="generator">
+<span id="column-create-generator"></span><h4><span class="section-number">7.3.12.4.2.3. </span><code class="docutils literal notranslate"><span class="pre">generator</span></code><a class="headerlink" href="#generator" title="Link to this heading">#</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 14.1.0.</span></p>
+</div>
+<p>Specifies a generator expression in <a class="reference internal" href="../grn_expr/script_syntax.html"><span class="doc">Script syntax</span></a>
+that is used to generate column value automatically.</p>
+<p>This option is useful if you want to generate a column value from
+other column value automatically.</p>
+<p>The default value is none.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#column-create-generated-column"><span class="std std-ref">Create a generated column</span></a></p>
+</div>
 </section>
 </section>
 </section>
@@ -2938,7 +3102,8 @@ body:</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -2964,6 +3129,7 @@ body:</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-large-index-column">7.3.12.3.10. Create a large index column</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-mode">7.3.12.3.11. Missing mode</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#invalid-mode">7.3.12.3.12. Invalid mode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-generated-column">7.3.12.3.13. Create a generated column</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">7.3.12.4. Parameters</a><ul class="nav section-nav flex-column">
@@ -2977,6 +3143,7 @@ body:</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-parameters">7.3.12.4.2. Optional parameters</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#source">7.3.12.4.2.1. <code class="docutils literal notranslate"><span class="pre">source</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#path">7.3.12.4.2.2. <code class="docutils literal notranslate"><span class="pre">path</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#generator">7.3.12.4.2.3. <code class="docutils literal notranslate"><span class="pre">generator</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -3015,8 +3182,8 @@ body:</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -3041,7 +3208,7 @@ body:</p>
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.3.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>

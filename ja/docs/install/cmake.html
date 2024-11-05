@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>CMakeを使ってGroongaをビルドする方法 &#8212; Groonga v14.0.9ドキュメント</title>
+    <title>2.8. その他: CMakeを使ってビルド &#8212; Groonga v14.1.0ドキュメント</title>
   
   
   
@@ -16,29 +16,32 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../_static/documentation_options.js?v=fbc8366e"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/documentation_options.js?v=1d5d5492"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/translations.js?v=4dbe4bdc"></script>
+    <script src="../_static/translations.js?v=4755f45a"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -54,7 +57,7 @@
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'install/cmake';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'japanese';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
@@ -62,8 +65,11 @@
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="3. コミュニティ" href="../community.html" />
+    <link rel="prev" title="2.7. Docker" href="docker.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
+  <meta name="docsearch:version" content="14.1.0" />
   </head>
   
   
@@ -79,19 +85,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +94,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -107,8 +101,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -117,7 +111,7 @@
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
   </button>
   
@@ -126,7 +120,9 @@
     
       <div class="navbar-item">
 
-   
+  
+     
+  
 
 <a class="navbar-brand logo" href="https://groonga.org/ja/">
   
@@ -139,8 +135,8 @@
       
     
     
-    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.9ドキュメント - Home"/>
-    <script>document.write(`<img src="../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.9ドキュメント - Home"/>`);</script>
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.0ドキュメント - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.0ドキュメント - Home"/>
   
   
 </a></div>
@@ -155,31 +151,23 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">検索</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -190,7 +178,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -202,7 +190,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -214,34 +202,30 @@ document.write(`
           
           
           
-          <a href="/ja/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/ja/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
       
         <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-2"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-2"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-2"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-2">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
       
     </div>
     
@@ -250,20 +234,16 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">検索</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
     </button>
   
@@ -277,9 +257,8 @@ document.write(`
       
       
       
-        
-      
-      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -292,17 +271,13 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -313,7 +288,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -325,7 +300,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -337,38 +312,53 @@ document.write(`
           
           
           
-          <a href="/ja/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/ja/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
         
           <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-3"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-3"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-3"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-3">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
         
       </div>
     
   </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="windows.html">2.1. Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mac_os_x.html">2.2. macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debian.html">2.3. Debian GNU/Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ubuntu.html">2.4. Ubuntu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="almalinux.html">2.5. AlmaLinux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amazon_linux.html">2.6. Amazon Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">2.7. Docker</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2.8. その他: CMakeを使ってビルド</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
@@ -392,8 +382,6 @@ document.write(`
       
         <div class="header-article-item">
 
-
-
 <nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
@@ -402,7 +390,10 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">CMakeを使ってGro...</li>
+    
+    <li class="breadcrumb-item"><a href="../install.html" class="nav-link"><span class="section-number">2. </span>インストール</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">2.8. </span>その他: CMakeを使ってビルド</span></li>
   </ul>
 </nav>
 </div>
@@ -419,62 +410,112 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="how-to-build-groonga-with-cmake">
-<h1>CMakeを使ってGroongaをビルドする方法<a class="headerlink" href="#how-to-build-groonga-with-cmake" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="others-build-with-cmake">
+<h1><span class="section-number">2.8. </span>その他: CMakeを使ってビルド<a class="headerlink" href="#others-build-with-cmake" title="Link to this heading">#</a></h1>
 <p>このドキュメントはCMakeを使ってソースコードからGroongaをビルドする方法を説明します。</p>
-<p><a class="reference internal" href="../install.html"><span class="doc">インストール</span></a> にある特定環境用のドキュメントに、CMakeでビルドする際のその環境向けのより詳細な情報があります。特定環境用のドキュメントがある場合は、まずそちらを参照してください。</p>
 <section id="install-depended-software">
-<h2>必要なソフトウェアのインストール<a class="headerlink" href="#install-depended-software" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.8.1. </span>必要なソフトウェアのインストール<a class="headerlink" href="#install-depended-software" title="Link to this heading">#</a></h2>
 <p>以下は、GNU/Linux、UNIX、Windows向けの必要なソフトウェアの一覧です。</p>
-<p>TODO</p>
 <section id="gnu-linux-or-unix">
-<h3>GNU/LinuxまたはUNIX<a class="headerlink" href="#gnu-linux-or-unix" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference external" href="http://www.cmake.org/">CMake</a></p></li>
-</ul>
-</div></blockquote>
+<h3><span class="section-number">2.8.1.1. </span>GNU/LinuxまたはUNIX<a class="headerlink" href="#gnu-linux-or-unix" title="Link to this heading">#</a></h3>
+<p>ソースコードに含まれる<code class="docutils literal notranslate"><span class="pre">setup.sh</span></code>を実行してください。</p>
+<p><code class="docutils literal notranslate"><span class="pre">groonga-14.1.0.tar.gz</span></code>を展開した場合は<code class="docutils literal notranslate"><span class="pre">groonga-14.1.0/setup.sh</span></code>がそのスクリプトです。</p>
+<p>コマンド実行例</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>groonga-14.1.0/setup.sh
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">setup.sh</span></code>はDebian GNU/Linux、Ubuntu、AlmaLinux、Amazon Linux 2023をサポートしています。</p>
+<section id="macos">
+<h4><span class="section-number">2.8.1.1.1. </span>macOS<a class="headerlink" href="#macos" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://developer.apple.com/xcode/">Xcode</a>をインストールしてください。</p>
+<p>ソースコードに含まれる<code class="docutils literal notranslate"><span class="pre">setup.sh</span></code>を実行してください。</p>
+<p><code class="docutils literal notranslate"><span class="pre">groonga-14.1.0.tar.gz</span></code>を展開した場合は<code class="docutils literal notranslate"><span class="pre">groonga-14.1.0/setup.sh</span></code>がそのスクリプトです。</p>
+<p>コマンド実行例</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>groonga-14.1.0/setup.sh
+</pre></div>
+</div>
+</section>
 </section>
 <section id="windows">
-<h3>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.1.2. </span>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li><p><a class="reference external" href="https://visualstudio.microsoft.com/ja/vs/community/">Microsoft Visual Studio Community</a></p></li>
+</ul>
+</div></blockquote>
+<blockquote>
+<div><ul class="simple">
 <li><p><a class="reference external" href="http://www.cmake.org/">CMake</a></p></li>
 </ul>
 </div></blockquote>
 </section>
 </section>
 <section id="download-source">
-<h2>ソースコードのダウンロード<a class="headerlink" href="#download-source" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://packages.groonga.org/source/groonga">packages.groonga.org</a> から最新のソースコードをダウンロードできます。</p>
-<section id="id2">
-<h3>GNU/LinuxまたはUNIX<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>wget<span class="w"> </span>https://packages.groonga.org/source/groonga/groonga-14.0.9.tar.gz
-<span class="gp">$ </span>tar<span class="w"> </span>xvzf<span class="w"> </span>groonga-14.0.9.tar.gz
+<h2><span class="section-number">2.8.2. </span>ソースコードのダウンロード<a class="headerlink" href="#download-source" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://packages.groonga.org/source/groonga">packages.groonga.org</a>から最新のソースコードをダウンロードできます。</p>
+<section id="id1">
+<h3><span class="section-number">2.8.2.1. </span>GNU/LinuxまたはUNIX<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>wget<span class="w"> </span>https://packages.groonga.org/source/groonga/groonga-14.1.0.tar.gz
+<span class="gp">$ </span>tar<span class="w"> </span>xvzf<span class="w"> </span>groonga-14.1.0.tar.gz
 </pre></div>
 </div>
 </section>
-<section id="id3">
-<h3>Windows<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3><span class="section-number">2.8.2.2. </span>Windows<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>最新のzipアーカイブをpackages.groonga.orgからダウンロードしてください。</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><a class="reference external" href="https://packages.groonga.org/source/groonga/groonga-14.0.9.zip">https://packages.groonga.org/source/groonga/groonga-14.0.9.zip</a></p></li>
+<li><p><a class="reference external" href="https://packages.groonga.org/source/groonga/groonga-14.1.0.zip">https://packages.groonga.org/source/groonga/groonga-14.1.0.zip</a></p></li>
 </ul>
 </div></blockquote>
 <p>その後、アーカイブを展開します。</p>
 </section>
 </section>
 <section id="run-cmake">
-<span id="cmake-run"></span><h2><code class="docutils literal notranslate"><span class="pre">cmake</span></code> を実行<a class="headerlink" href="#run-cmake" title="Link to this heading">#</a></h2>
+<span id="cmake-run"></span><h2><span class="section-number">2.8.3. </span><code class="docutils literal notranslate"><span class="pre">cmake</span></code> を実行<a class="headerlink" href="#run-cmake" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Makefile</span></code> のような、あなたの環境用のビルド用ファイルを作る必要があります。</p>
 <p><code class="docutils literal notranslate"><span class="pre">cmake</span></code> へオプションを渡してビルドパラメーターをカスタマイズできます。</p>
+<p>GNU/Linux or UNIXでのコマンド例</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>-S<span class="w"> </span>&lt;Groonga<span class="w"> </span><span class="nb">source</span><span class="w"> </span>code<span class="w"> </span>directory<span class="w"> </span>path&gt;<span class="w"> </span>-B<span class="w"> </span>&lt;Build<span class="w"> </span>directory<span class="w"> </span>path&gt;<span class="w"> </span>--preset<span class="o">=</span>release-maximum
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-S</span></code>オプション</p>
+<ul>
+<li><p>Groongaのソースコードディレクトリを指定します</p></li>
+<li><p>ダウンロードして展開したディレクトリを指定します</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-B</span></code>オプション</p>
+<ul>
+<li><p>ビルドディレクトリを指定します。</p></li>
+<li><p>Groongaのソースコードディテクトリの外部にビルド専用のディレクトリを指定します</p></li>
+</ul>
+</li>
+</ul>
+<section id="cmake-presets">
+<span id="id3"></span><h3><span class="section-number">2.8.3.1. </span>CMake プリセット<a class="headerlink" href="#cmake-presets" title="Link to this heading">#</a></h3>
+<p>CMakeの3.21.0以降を使うと、ビルド用の設定をまとめたプリセットが利用できます。よく使われるCMakeのオプションの組み合わせが用意してあるので、基本的にはそれらのプリセットをご利用ください。CMakeオプションは個別に設定したい場合にご利用ください。利用できるプリセットは <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--list-presets</span></code> で確認できます。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>--list-presets
+<span class="go">Available configure presets:</span>
+
+<span class="go">  &quot;debug-default&quot;                   - Optional features may not be enabled (debug build)</span>
+<span class="go">  &quot;release-default&quot;                 - Optional features may not be enabled (release build)</span>
+<span class="go">  &quot;release-with-debug-info-default&quot; - Optional features may not be enabled (release build with debug info)</span>
+<span class="go">  &quot;debug-maximum&quot;                   - Enable all features (debug build)</span>
+<span class="go">  &quot;release-maximum&quot;                 - Enable all features (release build)</span>
+<span class="go">  &quot;release-with-debug-info-maximum&quot; - Enable all features (release build with debug info)</span>
+<span class="go">  &quot;doc&quot;                             - For documentation</span>
+<span class="go">  &quot;memory-debug&quot;                    - For memory debug</span>
+<span class="go">  &quot;benchmark&quot;                       - For benchmark</span>
+</pre></div>
+</div>
+</section>
 <section id="cmake-options">
-<span id="id4"></span><h3>CMake オプション<a class="headerlink" href="#cmake-options" title="Link to this heading">#</a></h3>
+<span id="id4"></span><h3><span class="section-number">2.8.3.2. </span>CMake オプション<a class="headerlink" href="#cmake-options" title="Link to this heading">#</a></h3>
 <p>このセクションはCMakeの重要なオプションについて記載しています。</p>
 <section id="g-generator">
-<h4><code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">GENERATOR</span></code><a class="headerlink" href="#g-generator" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.8.3.2.1. </span><code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">GENERATOR</span></code><a class="headerlink" href="#g-generator" title="Link to this heading">#</a></h4>
 <p>ジェネレータを指定します。</p>
 <p>デフォルトはシステムよって異なります。</p>
 <p><code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--help</span></code> でデフォルトのジェネレータと、利用可能なジェネレータを確認することができます。</p>
@@ -509,20 +550,20 @@ document.write(`
 </div>
 </section>
 <section id="dcmake-install-prefix">
-<h4><code class="docutils literal notranslate"><span class="pre">-DCMAKE_INSTALL_PREFIX</span></code><a class="headerlink" href="#dcmake-install-prefix" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.8.3.2.2. </span><code class="docutils literal notranslate"><span class="pre">-DCMAKE_INSTALL_PREFIX</span></code><a class="headerlink" href="#dcmake-install-prefix" title="Link to this heading">#</a></h4>
 <p>Groongaのインストール先のディレクトリ/フォルダを指定します。</p>
 <p>デフォルトはシステムにより異なります。例えば、 <code class="docutils literal notranslate"><span class="pre">/usr/local</span></code> や <code class="docutils literal notranslate"><span class="pre">C:/Program</span> <span class="pre">Files/groonga</span></code> です。</p>
-<p>以下はGNU/LinuxまたはUNIXで <cite>/tmp/local/`</cite> をインストール先として指定する例です。</p>
+<p>以下はGNU/LinuxまたはUNIXで <code class="docutils literal notranslate"><span class="pre">/tmp/local/</span></code> をインストール先として指定する例です。</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>.<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="s2">&quot;/tmp/local/&quot;</span>
 </pre></div>
 </div>
 <p>以下はWindowsで <code class="docutils literal notranslate"><span class="pre">C:\Groonga</span></code> をインストール先として指定する例です。</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">cmake</span> <span class="o">.</span> <span class="o">-</span><span class="n">DCMAKE_INSTALL_PREFIX</span><span class="o">=</span><span class="s2">&quot;C:\Groonga&quot;</span>
+<div class="highlight-pwsh-session notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">cmake</span> <span class="p">.</span> <span class="n">-DCMAKE_INSTALL_PREFIX</span><span class="p">=</span><span class="s2">&quot;C:\Groonga&quot;</span>
 </pre></div>
 </div>
 </section>
 <section id="dgrn-with-mruby">
-<h4><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_MRUBY</span></code><a class="headerlink" href="#dgrn-with-mruby" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.8.3.2.3. </span><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_MRUBY</span></code><a class="headerlink" href="#dgrn-with-mruby" title="Link to this heading">#</a></h4>
 <p>mrubyサポートを有効化します。</p>
 <p>mrubyサポートを有効にすることで <a class="reference internal" href="../reference/sharding.html"><span class="doc">シャーディング</span></a> プラグインと <a class="reference internal" href="../reference/commands/ruby_eval.html"><span class="doc">ruby_eval</span></a> が使用可能になります。</p>
 <p>デフォルトは <code class="docutils literal notranslate"><span class="pre">OFF</span></code> です。</p>
@@ -533,7 +574,7 @@ document.write(`
 </div>
 </section>
 <section id="dgrn-with-debug">
-<h4><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_DEBUG</span></code><a class="headerlink" href="#dgrn-with-debug" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.8.3.2.4. </span><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_DEBUG</span></code><a class="headerlink" href="#dgrn-with-debug" title="Link to this heading">#</a></h4>
 <p>C/C++コンパイラーのデバッグオプションを有効にします。GDBやLLDBなどのデバッガーでデバッグするときに便利です。</p>
 <p>デフォルトは <code class="docutils literal notranslate"><span class="pre">OFF</span></code> です。</p>
 <p>以下はデバッグオプションを有効にする例です。</p>
@@ -542,7 +583,7 @@ document.write(`
 </div>
 </section>
 <section id="dgrn-with-apache-arrow">
-<h4><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_APACHE_ARROW</span></code><a class="headerlink" href="#dgrn-with-apache-arrow" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.8.3.2.5. </span><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_APACHE_ARROW</span></code><a class="headerlink" href="#dgrn-with-apache-arrow" title="Link to this heading">#</a></h4>
 <p>Apache Arrowサポートを有効化します。</p>
 <p>Apache Arrowサポートを有効化すると、Apache ArrowのIPC streaming formatが使えるだけでなく、 <a class="reference internal" href="../reference/commands/select.html#select-n-workers"><span class="std std-ref">n_workers</span></a> や <a class="reference internal" href="../reference/functions/query_parallel_or.html"><span class="doc">query_parallel_or</span></a> でマルチスレッドで処理できるようになります。</p>
 <p>デフォルトは <code class="docutils literal notranslate"><span class="pre">OFF</span></code> です。</p>
@@ -557,11 +598,11 @@ document.write(`
 </div>
 </section>
 <section id="dcmake-prefix-path-paths">
-<span id="cmake-options-cmake-prefix-path"></span><h4><code class="docutils literal notranslate"><span class="pre">-DCMAKE_PREFIX_PATH=PATHS</span></code><a class="headerlink" href="#dcmake-prefix-path-paths" title="Link to this heading">#</a></h4>
+<span id="cmake-options-cmake-prefix-path"></span><h4><span class="section-number">2.8.3.2.6. </span><code class="docutils literal notranslate"><span class="pre">-DCMAKE_PREFIX_PATH=PATHS</span></code><a class="headerlink" href="#dcmake-prefix-path-paths" title="Link to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">.cmake</span></code> ファイルの検索パスを追加します。</p>
 <p>GNU/LinuxまたはUNIXでは <code class="docutils literal notranslate"><span class="pre">:</span></code> で、Windowsでは <code class="docutils literal notranslate"><span class="pre">;</span></code> 区切ることで複数のパスを指定できます。</p>
 <p>パッケージ管理システムを使用してインストールしたライブラリを使いたい場合は、 CMake のデフォルトの検索パスに <code class="docutils literal notranslate"><span class="pre">.cmake</span></code> ファイルが存在するためこのパラメータを指定する必要はありません。</p>
-<p>使用してインストールしたライブラリを使いたい場合は、 CMake のデフォルトの検索パスに <code class="docutils literal notranslate"><span class="pre">.cmake</span></code> ファイルが存在するためこのパラメータを指定する必要はありません。</p>
+<p><code class="docutils literal notranslate"><span class="pre">/usr</span></code>のようなシステム以外のディレクトリにインストールされたライブラリを使用する場合は、このパラメータでライブラリの <code class="docutils literal notranslate"><span class="pre">.cmake</span></code> ファイルパスを指定する必要があります。</p>
 <p>以下はGNU/LinuxまたはUNIXで <code class="docutils literal notranslate"><span class="pre">/tmp/arrow/cmake/arrowConfig.cmake</span></code> の <code class="docutils literal notranslate"><span class="pre">.cmake</span></code> ファイルを指定する例です。</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>.<span class="w"> </span>-DCMAKE_PREFIX_PATH<span class="o">=</span><span class="s2">&quot;/tmp/local&quot;</span>
 </pre></div>
@@ -574,20 +615,19 @@ document.write(`
 </section>
 </section>
 <section id="build-and-install-groonga">
-<span id="cmake-build-and-install"></span><h2>ビルドおよびインストール<a class="headerlink" href="#build-and-install-groonga" title="Link to this heading">#</a></h2>
+<span id="cmake-build-and-install"></span><h2><span class="section-number">2.8.4. </span>ビルドおよびインストール<a class="headerlink" href="#build-and-install-groonga" title="Link to this heading">#</a></h2>
 <p>これで、Groongaをビルドできるようになりました。</p>
 <section id="id5">
-<h3>GNU/LinuxまたはUNIX<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">make</span></code> が使用できます。</p>
-<p>以下は <code class="docutils literal notranslate"><span class="pre">make</span></code> を使ってGroongaをビルド、インストールするコマンドラインです。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/sbin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span><span class="w"> </span>sysctl<span class="w"> </span>-n<span class="w"> </span>hw.ncpu<span class="k">)</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null
-<span class="gp">$ </span>sudo<span class="w"> </span>make<span class="w"> </span>install
+<h3><span class="section-number">2.8.4.1. </span>GNU/LinuxまたはUNIX<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>以下はGroongaをビルド、インストールするコマンドラインです。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>--build<span class="w"> </span>-B<span class="w"> </span>&lt;Build<span class="w"> </span>directory<span class="w"> </span>path&gt;
+<span class="gp">$ </span>sudo<span class="w"> </span>cmake<span class="w"> </span>--install<span class="w"> </span>-B<span class="w"> </span>&lt;Build<span class="w"> </span>directory<span class="w"> </span>path&gt;
 </pre></div>
 </div>
-<p>警告メッセージとエラーメッセージだけが見えるように <code class="docutils literal notranslate"><span class="pre">make</span></code> 時に <code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">/dev/null</span></code> をつけることを推奨します。開発者は新しいコミットで警告メッセージもエラーメッセージも増やすべきではありません。</p>
 </section>
 <section id="id6">
-<h3>Windows<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.4.2. </span>Windows<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>以下は <code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">&quot;Visual</span> <span class="pre">Studio</span> <span class="pre">17</span> <span class="pre">2022&quot;</span></code> のようにジェネレーターでVisual Studioを指定したときの手順です。</p>
 <p>Visual Studioか <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span></code> を使用できます。</p>
 <p>以下は <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span></code> を使ってGroongaをビルド、インストールするコマンドラインです。</p>
 <div class="highlight-pwsh-session notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">cmake</span> <span class="p">-</span><span class="n">-build</span> <span class="p">.</span> <span class="p">-</span><span class="n">-config</span> <span class="n">Release</span>
@@ -609,6 +649,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="docker.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">前へ</p>
+        <p class="prev-next-title"><span class="section-number">2.7. </span>Docker</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../community.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">次へ</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>コミュニティ</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -616,7 +674,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -627,31 +686,35 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-depended-software">必要なソフトウェアのインストール</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gnu-linux-or-unix">GNU/LinuxまたはUNIX</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-depended-software">2.8.1. 必要なソフトウェアのインストール</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gnu-linux-or-unix">2.8.1.1. GNU/LinuxまたはUNIX</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#macos">2.8.1.1.1. macOS</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-source">ソースコードのダウンロード</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">GNU/LinuxまたはUNIX</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">2.8.1.2. Windows</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-cmake"><code class="docutils literal notranslate"><span class="pre">cmake</span></code> を実行</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cmake-options">CMake オプション</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-generator"><code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">GENERATOR</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dcmake-install-prefix"><code class="docutils literal notranslate"><span class="pre">-DCMAKE_INSTALL_PREFIX</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-mruby"><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_MRUBY</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-debug"><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_DEBUG</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-apache-arrow"><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_APACHE_ARROW</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dcmake-prefix-path-paths"><code class="docutils literal notranslate"><span class="pre">-DCMAKE_PREFIX_PATH=PATHS</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-source">2.8.2. ソースコードのダウンロード</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.8.2.1. GNU/LinuxまたはUNIX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.8.2.2. Windows</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-cmake">2.8.3. <code class="docutils literal notranslate"><span class="pre">cmake</span></code> を実行</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cmake-presets">2.8.3.1. CMake プリセット</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cmake-options">2.8.3.2. CMake オプション</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-generator">2.8.3.2.1. <code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">GENERATOR</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dcmake-install-prefix">2.8.3.2.2. <code class="docutils literal notranslate"><span class="pre">-DCMAKE_INSTALL_PREFIX</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-mruby">2.8.3.2.3. <code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_MRUBY</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-debug">2.8.3.2.4. <code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_DEBUG</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-apache-arrow">2.8.3.2.5. <code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_APACHE_ARROW</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dcmake-prefix-path-paths">2.8.3.2.6. <code class="docutils literal notranslate"><span class="pre">-DCMAKE_PREFIX_PATH=PATHS</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-and-install-groonga">ビルドおよびインストール</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">GNU/LinuxまたはUNIX</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Windows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-and-install-groonga">2.8.4. ビルドおよびインストール</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.8.4.1. GNU/LinuxまたはUNIX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2.8.4.2. Windows</a></li>
 </ul>
 </li>
 </ul>
@@ -670,8 +733,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -696,7 +759,7 @@ document.write(`
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.3.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>

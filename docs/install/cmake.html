@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>How to build Groonga with CMake &#8212; Groonga v14.0.9 documentation</title>
+    <title>2.8. Others: Build with CMake &#8212; Groonga v14.1.0 documentation</title>
   
   
   
@@ -16,27 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../_static/documentation_options.js?v=ca3fa23a"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/documentation_options.js?v=2caac0c6"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
     <script>
@@ -53,7 +56,7 @@
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'install/cmake';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'english';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
@@ -61,8 +64,11 @@
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Community" href="../community.html" />
+    <link rel="prev" title="2.7. Docker" href="docker.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="14.1.0" />
   </head>
   
   
@@ -78,19 +84,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -98,7 +93,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -106,8 +100,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -116,7 +110,7 @@
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
   </button>
   
@@ -125,7 +119,9 @@
     
       <div class="navbar-item">
 
-   
+  
+     
+  
 
 <a class="navbar-brand logo" href="https://groonga.org/">
   
@@ -138,8 +134,8 @@
       
     
     
-    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.9 documentation - Home"/>
-    <script>document.write(`<img src="../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.9 documentation - Home"/>`);</script>
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.0 documentation - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.0 documentation - Home"/>
   
   
 </a></div>
@@ -154,31 +150,23 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -189,7 +177,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -201,7 +189,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -213,34 +201,30 @@ document.write(`
           
           
           
-          <a href="/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
       
         <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-2"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-2"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-2"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-2">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
       
     </div>
     
@@ -249,20 +233,16 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
     </button>
   
@@ -276,9 +256,8 @@ document.write(`
       
       
       
-        
-      
-      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -291,17 +270,13 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -312,7 +287,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -324,7 +299,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -336,38 +311,53 @@ document.write(`
           
           
           
-          <a href="/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
         
           <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-3"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-3"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-3"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-3">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
         
       </div>
     
   </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="windows.html">2.1. Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mac_os_x.html">2.2. macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debian.html">2.3. Debian GNU/Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ubuntu.html">2.4. Ubuntu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="almalinux.html">2.5. AlmaLinux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amazon_linux.html">2.6. Amazon Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">2.7. Docker</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2.8. Others: Build with CMake</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
@@ -391,8 +381,6 @@ document.write(`
       
         <div class="header-article-item">
 
-
-
 <nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
@@ -401,7 +389,10 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">How to...</li>
+    
+    <li class="breadcrumb-item"><a href="../install.html" class="nav-link"><span class="section-number">2. </span>Install</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">2.8. </span>Others: Build with CMake</span></li>
   </ul>
 </nav>
 </div>
@@ -418,63 +409,112 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="how-to-build-groonga-with-cmake">
-<h1>How to build Groonga with CMake<a class="headerlink" href="#how-to-build-groonga-with-cmake" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="others-build-with-cmake">
+<h1><span class="section-number">2.8. </span>Others: Build with CMake<a class="headerlink" href="#others-build-with-cmake" title="Link to this heading">#</a></h1>
 <p>This document describes how to build Groonga from source with CMake.</p>
-<p>To get more details about installing Groonga from the source with CMake on a specific environment,
-find the document for the specific environment from <a class="reference internal" href="../install.html"><span class="doc">Install</span></a>.</p>
 <section id="install-depended-software">
-<h2>Install depended software<a class="headerlink" href="#install-depended-software" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.8.1. </span>Install depended software<a class="headerlink" href="#install-depended-software" title="Link to this heading">#</a></h2>
 <p>Here is depended software for GNU/Linux, UNIX and Windows.</p>
-<p>TODO</p>
 <section id="gnu-linux-or-unix">
-<h3>GNU/Linux or UNIX<a class="headerlink" href="#gnu-linux-or-unix" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference external" href="http://www.cmake.org/">CMake</a></p></li>
-</ul>
-</div></blockquote>
+<h3><span class="section-number">2.8.1.1. </span>GNU/Linux or UNIX<a class="headerlink" href="#gnu-linux-or-unix" title="Link to this heading">#</a></h3>
+<p>Execute <code class="docutils literal notranslate"><span class="pre">setup.sh</span></code> included in the source code.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">groonga-14.1.0.tar.gz</span></code> is expanded, it is <code class="docutils literal notranslate"><span class="pre">groonga-14.1.0/setup.sh</span></code>.</p>
+<p>Example of command execution.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>groonga-14.1.0/setup.sh
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">setup.sh</span></code> supports Debian GNU/Linux, Ubuntu, AlmaLinux, and Amazon Linux 2023.</p>
+<section id="macos">
+<h4><span class="section-number">2.8.1.1.1. </span>macOS<a class="headerlink" href="#macos" title="Link to this heading">#</a></h4>
+<p>Install <a class="reference external" href="https://developer.apple.com/xcode/">Xcode</a>.</p>
+<p>Execute <code class="docutils literal notranslate"><span class="pre">setup.sh</span></code> included in the source code.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">groonga-14.1.0.tar.gz</span></code> is expanded, it is <code class="docutils literal notranslate"><span class="pre">groonga-14.1.0/setup.sh</span></code>.</p>
+<p>Example of command execution.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>groonga-14.1.0/setup.sh
+</pre></div>
+</div>
+</section>
 </section>
 <section id="windows">
-<h3>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.1.2. </span>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li><p><a class="reference external" href="https://visualstudio.microsoft.com/vs/community/">Microsoft Visual Studio Community</a></p></li>
+</ul>
+</div></blockquote>
+<blockquote>
+<div><ul class="simple">
 <li><p><a class="reference external" href="http://www.cmake.org/">CMake</a></p></li>
 </ul>
 </div></blockquote>
 </section>
 </section>
 <section id="download-source">
-<h2>Download source<a class="headerlink" href="#download-source" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.8.2. </span>Download source<a class="headerlink" href="#download-source" title="Link to this heading">#</a></h2>
 <p>You can get the latest source from <a class="reference external" href="https://packages.groonga.org/source/groonga">packages.groonga.org</a>.</p>
-<section id="id2">
-<h3>GNU/Linux or UNIX<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>wget<span class="w"> </span>https://packages.groonga.org/source/groonga/groonga-14.0.9.tar.gz
-<span class="gp">$ </span>tar<span class="w"> </span>xvzf<span class="w"> </span>groonga-14.0.9.tar.gz
+<section id="id1">
+<h3><span class="section-number">2.8.2.1. </span>GNU/Linux or UNIX<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>wget<span class="w"> </span>https://packages.groonga.org/source/groonga/groonga-14.1.0.tar.gz
+<span class="gp">$ </span>tar<span class="w"> </span>xvzf<span class="w"> </span>groonga-14.1.0.tar.gz
 </pre></div>
 </div>
 </section>
-<section id="id3">
-<h3>Windows<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<p>Download the latest zipped source from packages.groonga.org.</p>
+<section id="id2">
+<h3><span class="section-number">2.8.2.2. </span>Windows<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Download the latest zipped source from <a class="reference external" href="http://packages.groonga.org">packages.groonga.org</a>.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><a class="reference external" href="https://packages.groonga.org/source/groonga/groonga-14.0.9.zip">https://packages.groonga.org/source/groonga/groonga-14.0.9.zip</a></p></li>
+<li><p><a class="reference external" href="https://packages.groonga.org/source/groonga/groonga-14.1.0.zip">https://packages.groonga.org/source/groonga/groonga-14.1.0.zip</a></p></li>
 </ul>
 </div></blockquote>
 <p>Then extract it.</p>
 </section>
 </section>
 <section id="run-cmake">
-<span id="cmake-run"></span><h2>Run <code class="docutils literal notranslate"><span class="pre">cmake</span></code><a class="headerlink" href="#run-cmake" title="Link to this heading">#</a></h2>
+<span id="cmake-run"></span><h2><span class="section-number">2.8.3. </span>Run <code class="docutils literal notranslate"><span class="pre">cmake</span></code><a class="headerlink" href="#run-cmake" title="Link to this heading">#</a></h2>
 <p>You need to generate build files such as <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> for your environment.</p>
 <p>You can custom your build configuration by passing options to <code class="docutils literal notranslate"><span class="pre">cmake</span></code>.</p>
+<p>Command example for GNU/Linux or UNIX.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>-S<span class="w"> </span>&lt;Groonga<span class="w"> </span><span class="nb">source</span><span class="w"> </span>code<span class="w"> </span>directory<span class="w"> </span>path&gt;<span class="w"> </span>-B<span class="w"> </span>&lt;Build<span class="w"> </span>directory<span class="w"> </span>path&gt;<span class="w"> </span>--preset<span class="o">=</span>release-maximum
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-S</span></code> option</p>
+<ul>
+<li><p>Specify the path of the Groonga source code directory</p></li>
+<li><p>Specify the directory from which you downloaded and extracted the files</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-B</span></code> option</p>
+<ul>
+<li><p>Specify the directory to be used for build</p></li>
+<li><p>Specify a build-only directory outside of Groonga’s source code directory</p></li>
+</ul>
+</li>
+</ul>
+<section id="cmake-presets">
+<span id="id3"></span><h3><span class="section-number">2.8.3.1. </span>CMake presets<a class="headerlink" href="#cmake-presets" title="Link to this heading">#</a></h3>
+<p>Using CMake version 3.21.0 or higher, some presets for various build configurations are provided. We have provided a combination of frequently used CMake options, so you can basically use this presets. Use CMake options only if you want to make custom settings. You can get a list of the available presets using <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--list-presets</span></code> .</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>--list-presets
+<span class="go">Available configure presets:</span>
+
+<span class="go">  &quot;debug-default&quot;                   - Optional features may not be enabled (debug build)</span>
+<span class="go">  &quot;release-default&quot;                 - Optional features may not be enabled (release build)</span>
+<span class="go">  &quot;release-with-debug-info-default&quot; - Optional features may not be enabled (release build with debug info)</span>
+<span class="go">  &quot;debug-maximum&quot;                   - Enable all features (debug build)</span>
+<span class="go">  &quot;release-maximum&quot;                 - Enable all features (release build)</span>
+<span class="go">  &quot;release-with-debug-info-maximum&quot; - Enable all features (release build with debug info)</span>
+<span class="go">  &quot;doc&quot;                             - For documentation</span>
+<span class="go">  &quot;memory-debug&quot;                    - For memory debug</span>
+<span class="go">  &quot;benchmark&quot;                       - For benchmark</span>
+</pre></div>
+</div>
+</section>
 <section id="cmake-options">
-<span id="id4"></span><h3>CMake options<a class="headerlink" href="#cmake-options" title="Link to this heading">#</a></h3>
+<span id="id4"></span><h3><span class="section-number">2.8.3.2. </span>CMake options<a class="headerlink" href="#cmake-options" title="Link to this heading">#</a></h3>
 <p>This section describes important options of CMake.</p>
 <section id="g-generator">
-<h4><code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">GENERATOR</span></code><a class="headerlink" href="#g-generator" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.8.3.2.1. </span><code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">GENERATOR</span></code><a class="headerlink" href="#g-generator" title="Link to this heading">#</a></h4>
 <p>Specify a generator.</p>
 <p>The default is depending on the system.</p>
 <p>You can check the default generator and available generators by <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--help</span></code>.</p>
@@ -510,7 +550,7 @@ You can specify a target platform name (architecture) with the <code class="docu
 </div>
 </section>
 <section id="dcmake-install-prefix">
-<h4><code class="docutils literal notranslate"><span class="pre">-DCMAKE_INSTALL_PREFIX</span></code><a class="headerlink" href="#dcmake-install-prefix" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.8.3.2.2. </span><code class="docutils literal notranslate"><span class="pre">-DCMAKE_INSTALL_PREFIX</span></code><a class="headerlink" href="#dcmake-install-prefix" title="Link to this heading">#</a></h4>
 <p>Specify a directory to install Groonga.</p>
 <p>The default is depending on the system, e.g. <code class="docutils literal notranslate"><span class="pre">/usr/local</span></code> or <code class="docutils literal notranslate"><span class="pre">C:/Program</span> <span class="pre">Files/groonga</span></code>.</p>
 <p>Here is an example how to specify <code class="docutils literal notranslate"><span class="pre">/tmp/local/</span></code> as an install directory on GNU/Linux or UNIX.</p>
@@ -518,18 +558,18 @@ You can specify a target platform name (architecture) with the <code class="docu
 </pre></div>
 </div>
 <p>Here is an example how to specify <code class="docutils literal notranslate"><span class="pre">C:\Groonga</span></code> as an install directory on Windows.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">cmake</span> <span class="o">.</span> <span class="o">-</span><span class="n">DCMAKE_INSTALL_PREFIX</span><span class="o">=</span><span class="s2">&quot;C:\Groonga&quot;</span>
+<div class="highlight-pwsh-session notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">cmake</span> <span class="p">.</span> <span class="n">-DCMAKE_INSTALL_PREFIX</span><span class="p">=</span><span class="s2">&quot;C:\Groonga&quot;</span>
 </pre></div>
 </div>
 </section>
 <section id="dgrn-with-mruby">
-<h4><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_MRUBY</span></code><a class="headerlink" href="#dgrn-with-mruby" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.8.3.2.3. </span><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_MRUBY</span></code><a class="headerlink" href="#dgrn-with-mruby" title="Link to this heading">#</a></h4>
 <p>Enables mruby support.</p>
 <p>You can use the <a class="reference internal" href="../reference/sharding.html"><span class="doc">Sharding</span></a> plugin and <a class="reference internal" href="../reference/commands/ruby_eval.html"><span class="doc">ruby_eval</span></a>
 with the mruby support.</p>
 <p>The default is <code class="docutils literal notranslate"><span class="pre">OFF</span></code>.</p>
 <p>Groonga builds bundled mruby if the mruby support is enabled. In order to build mruby, you must
-install some requierd libraries. See the <a class="reference external" href="https://github.com/mruby/mruby/blob/master/doc/guides/compile.md">mruby compile guide</a>
+install some required libraries. See the <a class="reference external" href="https://github.com/mruby/mruby/blob/master/doc/guides/compile.md">mruby compile guide</a>
 for more details.</p>
 <p>Here is an example how to enable the mruby support.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>.<span class="w"> </span>-DGRN_WITH_MRUBY<span class="o">=</span>ON
@@ -537,7 +577,7 @@ for more details.</p>
 </div>
 </section>
 <section id="dgrn-with-debug">
-<h4><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_DEBUG</span></code><a class="headerlink" href="#dgrn-with-debug" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.8.3.2.4. </span><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_DEBUG</span></code><a class="headerlink" href="#dgrn-with-debug" title="Link to this heading">#</a></h4>
 <p>Enables debug options for C/C++ compiler. It’s useful for debugging on debugger such as GDB and LLDB.</p>
 <p>The default is <code class="docutils literal notranslate"><span class="pre">OFF</span></code>.</p>
 <p>Here is an example how to enable debug options.</p>
@@ -546,7 +586,7 @@ for more details.</p>
 </div>
 </section>
 <section id="dgrn-with-apache-arrow">
-<h4><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_APACHE_ARROW</span></code><a class="headerlink" href="#dgrn-with-apache-arrow" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.8.3.2.5. </span><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_APACHE_ARROW</span></code><a class="headerlink" href="#dgrn-with-apache-arrow" title="Link to this heading">#</a></h4>
 <p>Enables Apache Arrow support.</p>
 <p>In addition to using Apache Arrow IPC streaming format output, you can also use multithreading processing that is used in <a class="reference internal" href="../reference/commands/select.html#select-n-workers"><span class="std std-ref">n_workers</span></a>
 and <a class="reference internal" href="../reference/functions/query_parallel_or.html"><span class="doc">query_parallel_or</span></a> with the Apache Arrow support.</p>
@@ -562,7 +602,7 @@ and <a class="reference internal" href="../reference/functions/query_parallel_or
 </div>
 </section>
 <section id="dcmake-prefix-path-paths">
-<span id="cmake-options-cmake-prefix-path"></span><h4><code class="docutils literal notranslate"><span class="pre">-DCMAKE_PREFIX_PATH=PATHS</span></code><a class="headerlink" href="#dcmake-prefix-path-paths" title="Link to this heading">#</a></h4>
+<span id="cmake-options-cmake-prefix-path"></span><h4><span class="section-number">2.8.3.2.6. </span><code class="docutils literal notranslate"><span class="pre">-DCMAKE_PREFIX_PATH=PATHS</span></code><a class="headerlink" href="#dcmake-prefix-path-paths" title="Link to this heading">#</a></h4>
 <p>Adds search paths for <code class="docutils literal notranslate"><span class="pre">.cmake</span></code> files.</p>
 <p>You can specify multiple path separating them with <code class="docutils literal notranslate"><span class="pre">:</span></code> on GNU/Linux or UNIX, <code class="docutils literal notranslate"><span class="pre">;</span></code> on Windows.</p>
 <p>In case of using libraries installed via a package manager, you do not need to specify this
@@ -580,21 +620,19 @@ parameter. It is because <code class="docutils literal notranslate"><span class=
 </section>
 </section>
 <section id="build-and-install-groonga">
-<span id="cmake-build-and-install"></span><h2>Build and install Groonga<a class="headerlink" href="#build-and-install-groonga" title="Link to this heading">#</a></h2>
+<span id="cmake-build-and-install"></span><h2><span class="section-number">2.8.4. </span>Build and install Groonga<a class="headerlink" href="#build-and-install-groonga" title="Link to this heading">#</a></h2>
 <p>Now, you can build Groonga.</p>
 <section id="id5">
-<h3>GNU/Linux or UNIX<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<p>You can use <code class="docutils literal notranslate"><span class="pre">make</span></code>.</p>
-<p>Here is a command line to build and install Groonga by <code class="docutils literal notranslate"><span class="pre">make</span></code>.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/sbin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span><span class="w"> </span>sysctl<span class="w"> </span>-n<span class="w"> </span>hw.ncpu<span class="k">)</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null
-<span class="gp">$ </span>sudo<span class="w"> </span>make<span class="w"> </span>install
+<h3><span class="section-number">2.8.4.1. </span>GNU/Linux or UNIX<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>Here is a command line to build and install Groonga.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>--build<span class="w"> </span>-B<span class="w"> </span>&lt;Build<span class="w"> </span>directory<span class="w"> </span>path&gt;
+<span class="gp">$ </span>sudo<span class="w"> </span>cmake<span class="w"> </span>--install<span class="w"> </span>-B<span class="w"> </span>&lt;Build<span class="w"> </span>directory<span class="w"> </span>path&gt;
 </pre></div>
 </div>
-<p>We recommend to add <code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">/deb/null</span></code> to <code class="docutils literal notranslate"><span class="pre">make</span></code> in order to see only warning and error messages.
-Developers shouldn’t add new warnings and errors in new commit.</p>
 </section>
 <section id="id6">
-<h3>Windows<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.4.2. </span>Windows<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>Here is how it is to do it when Visual Studio is specified as the generator, like <code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">&quot;Visual</span> <span class="pre">Studio</span> <span class="pre">17</span> <span class="pre">2022&quot;</span></code> .</p>
 <p>You can use Visual Studio or <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span></code>.</p>
 <p>Here is a command line to build and install Groonga by <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span></code>.</p>
 <div class="highlight-pwsh-session notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">cmake</span> <span class="p">-</span><span class="n">-build</span> <span class="p">.</span> <span class="p">-</span><span class="n">-config</span> <span class="n">Release</span>
@@ -616,6 +654,24 @@ Developers shouldn’t add new warnings and errors in new commit.</p>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="docker.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2.7. </span>Docker</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../community.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Community</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -623,7 +679,8 @@ Developers shouldn’t add new warnings and errors in new commit.</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -634,31 +691,35 @@ Developers shouldn’t add new warnings and errors in new commit.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-depended-software">Install depended software</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gnu-linux-or-unix">GNU/Linux or UNIX</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-depended-software">2.8.1. Install depended software</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gnu-linux-or-unix">2.8.1.1. GNU/Linux or UNIX</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#macos">2.8.1.1.1. macOS</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-source">Download source</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">GNU/Linux or UNIX</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">2.8.1.2. Windows</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-cmake">Run <code class="docutils literal notranslate"><span class="pre">cmake</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cmake-options">CMake options</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-generator"><code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">GENERATOR</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dcmake-install-prefix"><code class="docutils literal notranslate"><span class="pre">-DCMAKE_INSTALL_PREFIX</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-mruby"><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_MRUBY</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-debug"><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_DEBUG</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-apache-arrow"><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_APACHE_ARROW</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dcmake-prefix-path-paths"><code class="docutils literal notranslate"><span class="pre">-DCMAKE_PREFIX_PATH=PATHS</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-source">2.8.2. Download source</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.8.2.1. GNU/Linux or UNIX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.8.2.2. Windows</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-cmake">2.8.3. Run <code class="docutils literal notranslate"><span class="pre">cmake</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cmake-presets">2.8.3.1. CMake presets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cmake-options">2.8.3.2. CMake options</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-generator">2.8.3.2.1. <code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">GENERATOR</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dcmake-install-prefix">2.8.3.2.2. <code class="docutils literal notranslate"><span class="pre">-DCMAKE_INSTALL_PREFIX</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-mruby">2.8.3.2.3. <code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_MRUBY</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-debug">2.8.3.2.4. <code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_DEBUG</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-apache-arrow">2.8.3.2.5. <code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_APACHE_ARROW</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dcmake-prefix-path-paths">2.8.3.2.6. <code class="docutils literal notranslate"><span class="pre">-DCMAKE_PREFIX_PATH=PATHS</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-and-install-groonga">Build and install Groonga</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">GNU/Linux or UNIX</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Windows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-and-install-groonga">2.8.4. Build and install Groonga</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.8.4.1. GNU/Linux or UNIX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2.8.4.2. Windows</a></li>
 </ul>
 </li>
 </ul>
@@ -668,7 +729,7 @@ Developers shouldn’t add new warnings and errors in new commit.</p>
 
   
   <div class="tocsection editthispage">
-    <a href="https://github.com/groonga/groonga/edit/main/doc/source/install/cmake.rst">
+    <a href="https://github.com/groonga/groonga/edit/main/doc/source/install/cmake.md">
       <i class="fa-solid fa-pencil"></i>
       
       
@@ -693,8 +754,8 @@ Developers shouldn’t add new warnings and errors in new commit.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -719,7 +780,7 @@ Developers shouldn’t add new warnings and errors in new commit.</p>
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.3.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>

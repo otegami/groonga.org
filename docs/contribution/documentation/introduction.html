@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>12.2.1. Introduction &#8212; Groonga v14.0.9 documentation</title>
+    <title>12.2.1. Introduction &#8212; Groonga v14.1.0 documentation</title>
   
   
   
@@ -16,27 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../_static/documentation_options.js?v=ca3fa23a"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/documentation_options.js?v=2caac0c6"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
     <script>
@@ -53,7 +56,7 @@
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'contribution/documentation/introduction';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'english';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
@@ -65,6 +68,7 @@
     <link rel="prev" title="12.2. How to contribute in documentation topics" href="../documentation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="14.1.0" />
   </head>
   
   
@@ -80,19 +84,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -100,7 +93,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -108,8 +100,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,7 +110,7 @@
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
   </button>
   
@@ -127,7 +119,9 @@
     
       <div class="navbar-item">
 
-   
+  
+     
+  
 
 <a class="navbar-brand logo" href="https://groonga.org/">
   
@@ -140,8 +134,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.9 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.9 documentation - Home"/>`);</script>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.0 documentation - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.0 documentation - Home"/>
   
   
 </a></div>
@@ -156,31 +150,23 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -191,7 +177,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -203,7 +189,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -215,34 +201,30 @@ document.write(`
           
           
           
-          <a href="/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
       
         <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-2"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-2"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-2"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-2">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
       
     </div>
     
@@ -251,20 +233,16 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
     </button>
   
@@ -278,7 +256,8 @@ document.write(`
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -291,17 +270,13 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -312,7 +287,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -324,7 +299,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -336,34 +311,30 @@ document.write(`
           
           
           
-          <a href="/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
         
           <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-3"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-3"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-3"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-3">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
         
       </div>
     
@@ -385,9 +356,8 @@ document.write(`
 <li class="toctree-l1 has-children"><a class="reference internal" href="../development.html">12.3. For Groonga developers</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../development/repository.html">12.3.1. Repository</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../development/build.html">12.3.2. How to build Groonga at the repository</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../development/build/unix_autotools.html">12.3.2.1. How to build Groonga at the repository by GNU Autotools</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../development/build/unix_cmake.html">12.3.2.2. How to build Groonga at the repository by CMake on GNU/Linux or Unix</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../development/build/windows_cmake.html">12.3.2.3. How to build Groonga at the repository by CMake on Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development/build/unix_cmake.html">12.3.2.1. How to build Groonga at the repository by CMake on GNU/Linux or Unix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development/build/windows_cmake.html">12.3.2.2. How to build Groonga at the repository by CMake on Windows</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../development/com.html">12.3.3. Groonga 通信アーキテクチャ</a></li>
@@ -425,8 +395,6 @@ document.write(`
       
         <div class="header-article-item">
 
-
-
 <nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
@@ -441,7 +409,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../documentation.html" class="nav-link"><span class="section-number">12.2. </span>How to contribute in documentation topics</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span...</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">12.2.1. </span>Introduction</span></li>
   </ul>
 </nav>
 </div>
@@ -462,16 +430,6 @@ document.write(`
 <h1><span class="section-number">12.2.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
 <p>This document outlines the procedures for writing, generating, and managing Groonga’s documentation.
 By following the steps below, you can contribute to enhancing and updating Groonga’s documentation.</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#how-to-fork-and-clone-groonga-repository">How to fork and clone Groonga repository</a></p></li>
-<li><p><a class="reference internal" href="#install-dependent-software">Install dependent software</a></p></li>
-<li><p><a class="reference internal" href="#run-cmake-with-preset-doc">Run <code class="docutils literal notranslate"><span class="pre">cmake</span></code> with <code class="docutils literal notranslate"><span class="pre">--preset=doc</span></code></a></p></li>
-<li><p><a class="reference internal" href="#generate-html">Generate HTML</a></p></li>
-<li><p><a class="reference internal" href="#how-to-edit-documentation">How to edit Documentation</a></p></li>
-<li><p><a class="reference internal" href="#preview-changes-on-html-files">Preview changes on HTML files</a></p></li>
-<li><p><a class="reference internal" href="#send-patch">Send patch</a></p></li>
-<li><p><a class="reference internal" href="#optional-translate-documentation">Optional: Translate documentation</a></p></li>
-</ul>
 <section id="how-to-fork-and-clone-groonga-repository">
 <h2><span class="section-number">12.2.1.1. </span>How to fork and clone Groonga repository<a class="headerlink" href="#how-to-fork-and-clone-groonga-repository" title="Link to this heading">#</a></h2>
 <p>Contributing to Groonga’s documentation begins with forking and cloning the Groonga repository.
@@ -534,23 +492,35 @@ enable it explicitly by adding <code class="docutils literal notranslate"><span 
 Each page of the documentation corresponds to a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file or a <code class="docutils literal notranslate"><span class="pre">.md</span></code> file. By modifying the corresponding file, you can edit the target document.
 For Example, if you want to edit this <a class="reference internal" href="#"><span class="doc">Introduction</span></a> page, you should edit the <code class="docutils literal notranslate"><span class="pre">doc/source/contribution/documentation/introduction.rst</span></code> file.
 Please find the file you wish to edit and make your changes.</p>
+<!-- prettier-ignore-start -->
+</section>
+<section id="how-to-add-a-new-documentation">
+<span id="how-to-add-new-documentation"></span><h2><span class="section-number">12.2.1.6. </span>How to add a new documentation<a class="headerlink" href="#how-to-add-a-new-documentation" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
+<p>If you want to add a new documentation, you need to add the new documentation into <code class="docutils literal notranslate"><span class="pre">doc/files.am</span></code> and <code class="docutils literal notranslate"><span class="pre">doc/files.cmake</span></code> by the following command lines.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>../groonga.doc<span class="w"> </span>--preset<span class="o">=</span>doc
+<span class="gp">$ </span>cmake<span class="w"> </span>--build<span class="w"> </span>../groonga.doc
+<span class="gp">$ </span>ninja<span class="w"> </span>doc_update_files<span class="w"> </span>-C<span class="w"> </span>../groonga.doc
+</pre></div>
+</div>
+<p>Note that you need to commit not only the new documentation but also <code class="docutils literal notranslate"><span class="pre">doc/files.am</span></code> and <code class="docutils literal notranslate"><span class="pre">doc/files.cmake</span></code> in this case.</p>
 </section>
 <section id="preview-changes-on-html-files">
-<h2><span class="section-number">12.2.1.6. </span>Preview changes on HTML files<a class="headerlink" href="#preview-changes-on-html-files" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.2.1.7. </span>Preview changes on HTML files<a class="headerlink" href="#preview-changes-on-html-files" title="Link to this heading">#</a></h2>
 <p>You can preview your documentation changes in your browser in HTML format. Follow these two steps.</p>
 <ol class="arabic simple">
 <li><p>Generate the HTML files with your changes</p></li>
 <li><p>Preview the generated HTML files in your Web browser</p></li>
 </ol>
 <section id="generate-the-html-files-with-your-changes">
-<h3><span class="section-number">12.2.1.6.1. </span>Generate the HTML files with your changes<a class="headerlink" href="#generate-the-html-files-with-your-changes" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.2.1.7.1. </span>Generate the HTML files with your changes<a class="headerlink" href="#generate-the-html-files-with-your-changes" title="Link to this heading">#</a></h3>
 <p>Use the following command to generate HTML files that reflect your changes. The generated files will be located in <code class="docutils literal notranslate"><span class="pre">../groonga.doc/doc/en/html/</span></code>. Each file corresponds to a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> or <code class="docutils literal notranslate"><span class="pre">.md</span></code> file:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">% </span>cmake<span class="w"> </span>--build<span class="w"> </span>../groonga.doc
 </pre></div>
 </div>
 </section>
 <section id="preview-the-generated-html-files-in-your-web-browser">
-<h3><span class="section-number">12.2.1.6.2. </span>Preview the generated HTML files in your Web browser<a class="headerlink" href="#preview-the-generated-html-files-in-your-web-browser" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.2.1.7.2. </span>Preview the generated HTML files in your Web browser<a class="headerlink" href="#preview-the-generated-html-files-in-your-web-browser" title="Link to this heading">#</a></h3>
 <p>Open the generated file in your Web browser to preview your changes.
 For example, if you have edited this <a class="reference internal" href="#"><span class="doc">Introduction</span></a> page, you can preview it by the following command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">% </span>open<span class="w"> </span>../groonga.doc/doc/en/html/contribution/documentation/introduction.html
@@ -559,7 +529,7 @@ For example, if you have edited this <a class="reference internal" href="#"><spa
 </section>
 </section>
 <section id="send-patch">
-<h2><span class="section-number">12.2.1.7. </span>Send patch<a class="headerlink" href="#send-patch" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.2.1.8. </span>Send patch<a class="headerlink" href="#send-patch" title="Link to this heading">#</a></h2>
 <p>You can submit your patch to the Groonga repository on GitHub via a pull request.
 Feel free to send a pull request by following two steps.</p>
 <ul class="simple">
@@ -567,7 +537,7 @@ Feel free to send a pull request by following two steps.</p>
 <li><p>Submit your pull request</p></li>
 </ul>
 <section id="prepare-your-pull-request">
-<h3><span class="section-number">12.2.1.7.1. </span>Prepare your pull request<a class="headerlink" href="#prepare-your-pull-request" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.2.1.8.1. </span>Prepare your pull request<a class="headerlink" href="#prepare-your-pull-request" title="Link to this heading">#</a></h3>
 <p>Ensure your changes are committed and then push your changes to your fork repository on GitHub.
 Follow these commands:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">% </span>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>your-working-branch
@@ -578,7 +548,7 @@ Follow these commands:</p>
 </div>
 </section>
 <section id="submit-your-pull-request">
-<h3><span class="section-number">12.2.1.7.2. </span>Submit your pull request<a class="headerlink" href="#submit-your-pull-request" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.2.1.8.2. </span>Submit your pull request<a class="headerlink" href="#submit-your-pull-request" title="Link to this heading">#</a></h3>
 <p>Now you’re ready to submit a pull request to the upstream Groonga repository.
 Follow these steps:</p>
 <ol class="arabic simple">
@@ -590,7 +560,7 @@ Follow these steps:</p>
 </section>
 </section>
 <section id="optional-translate-documentation">
-<h2><span class="section-number">12.2.1.8. </span>Optional: Translate documentation<a class="headerlink" href="#optional-translate-documentation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.2.1.9. </span>Optional: Translate documentation<a class="headerlink" href="#optional-translate-documentation" title="Link to this heading">#</a></h2>
 <p>This is an optional step.</p>
 <p>After editing and previewing the Groonga documentation, the next step is to translate the documents to make them accessible to a wider range of Groonga community users. Translating into languages other than English ensures that non-English speakers can also understand the Groonga documentation. Follow these steps to translate Groonga documentation.</p>
 <ol class="arabic simple">
@@ -599,7 +569,7 @@ Follow these steps:</p>
 <li><p>Preview translations on HTML files</p></li>
 </ol>
 <section id="translate-the-documentation-in-edit-po-files">
-<h3><span class="section-number">12.2.1.8.1. </span>Translate the documentation in <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files<a class="headerlink" href="#translate-the-documentation-in-edit-po-files" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.2.1.9.1. </span>Translate the documentation in <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files<a class="headerlink" href="#translate-the-documentation-in-edit-po-files" title="Link to this heading">#</a></h3>
 <p>Use the following command to generate <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files, which are translation files, corresponding to your changes. The generated files will be located in <code class="docutils literal notranslate"><span class="pre">../groonga.doc/doc/locale/${LANGUAGE}/LC_MESSAGES</span></code>. Each file corresponds to a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> or <code class="docutils literal notranslate"><span class="pre">.md</span></code> file. Please add your translations to <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">% </span>cmake<span class="w"> </span>--build<span class="w"> </span>../groonga.doc
 </pre></div>
@@ -614,7 +584,7 @@ The method to reflect translations will be introduced in the next step.</p>
 </div>
 </section>
 <section id="reflect-translations-to-po-files">
-<h3><span class="section-number">12.2.1.8.2. </span>Reflect translations to <code class="docutils literal notranslate"><span class="pre">.po</span></code> files<a class="headerlink" href="#reflect-translations-to-po-files" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.2.1.9.2. </span>Reflect translations to <code class="docutils literal notranslate"><span class="pre">.po</span></code> files<a class="headerlink" href="#reflect-translations-to-po-files" title="Link to this heading">#</a></h3>
 <p>After adding your translations to the <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files, the next step is to reflect these translations to the <code class="docutils literal notranslate"><span class="pre">.po</span></code> files. <code class="docutils literal notranslate"><span class="pre">.po</span></code> files are the finalized translation files. These <code class="docutils literal notranslate"><span class="pre">.po</span></code> files are located in <code class="docutils literal notranslate"><span class="pre">doc/locale/${LANGUAGE}/LC_MESSAGES</span></code>. Each file corresponds to a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> or <code class="docutils literal notranslate"><span class="pre">.md</span></code> file. If you want to edit your translations, edit the corresponding <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> file and then reflect your changes to the <code class="docutils literal notranslate"><span class="pre">.po</span></code> file.</p>
 <p>To reflect translations from the <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files to the <code class="docutils literal notranslate"><span class="pre">.po</span></code> files, use the following command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">% </span>cmake<span class="w"> </span>--build<span class="w"> </span>../groonga.doc
@@ -628,7 +598,7 @@ Therefore, there’s no need to memorize different commands for generating trans
 </div>
 </section>
 <section id="preview-translations-on-html-files">
-<h3><span class="section-number">12.2.1.8.3. </span>Preview translations on HTML files<a class="headerlink" href="#preview-translations-on-html-files" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.2.1.9.3. </span>Preview translations on HTML files<a class="headerlink" href="#preview-translations-on-html-files" title="Link to this heading">#</a></h3>
 <p>You can preview your translations in your Web browser in HTML format. The step for reflecting translations into <code class="docutils literal notranslate"><span class="pre">.po</span></code> files also generates the corresponding HTML files. These files are located in <code class="docutils literal notranslate"><span class="pre">../groonga.doc/doc/${LANGUAGE}/html/</span></code>. Each file corresponds to a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> or <code class="docutils literal notranslate"><span class="pre">.md</span></code> file. Open the generated HTML file in your Web browser to review your translations.</p>
 <p>For example, to preview the Japanese translation of the <a class="reference internal" href="#"><span class="doc">Introduction</span></a> page, use the following command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">% </span>open<span class="w"> </span>../groonga.doc/doc/ja/html/contribution/documentation/introduction.html
@@ -674,7 +644,8 @@ Therefore, there’s no need to memorize different commands for generating trans
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -690,20 +661,21 @@ Therefore, there’s no need to memorize different commands for generating trans
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-cmake-with-preset-doc">12.2.1.3. Run <code class="docutils literal notranslate"><span class="pre">cmake</span></code> with <code class="docutils literal notranslate"><span class="pre">--preset=doc</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-html">12.2.1.4. Generate HTML</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-edit-documentation">12.2.1.5. How to edit documentation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-changes-on-html-files">12.2.1.6. Preview changes on HTML files</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-the-html-files-with-your-changes">12.2.1.6.1. Generate the HTML files with your changes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-the-generated-html-files-in-your-web-browser">12.2.1.6.2. Preview the generated HTML files in your Web browser</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-add-a-new-documentation">12.2.1.6. How to add a new documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-changes-on-html-files">12.2.1.7. Preview changes on HTML files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-the-html-files-with-your-changes">12.2.1.7.1. Generate the HTML files with your changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-the-generated-html-files-in-your-web-browser">12.2.1.7.2. Preview the generated HTML files in your Web browser</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#send-patch">12.2.1.7. Send patch</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-your-pull-request">12.2.1.7.1. Prepare your pull request</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-your-pull-request">12.2.1.7.2. Submit your pull request</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#send-patch">12.2.1.8. Send patch</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-your-pull-request">12.2.1.8.1. Prepare your pull request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-your-pull-request">12.2.1.8.2. Submit your pull request</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-translate-documentation">12.2.1.8. Optional: Translate documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translate-the-documentation-in-edit-po-files">12.2.1.8.1. Translate the documentation in <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflect-translations-to-po-files">12.2.1.8.2. Reflect translations to <code class="docutils literal notranslate"><span class="pre">.po</span></code> files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-translations-on-html-files">12.2.1.8.3. Preview translations on HTML files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-translate-documentation">12.2.1.9. Optional: Translate documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translate-the-documentation-in-edit-po-files">12.2.1.9.1. Translate the documentation in <code class="docutils literal notranslate"><span class="pre">.edit.po</span></code> files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflect-translations-to-po-files">12.2.1.9.2. Reflect translations to <code class="docutils literal notranslate"><span class="pre">.po</span></code> files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-translations-on-html-files">12.2.1.9.3. Preview translations on HTML files</a></li>
 </ul>
 </li>
 </ul>
@@ -738,8 +710,8 @@ Therefore, there’s no need to memorize different commands for generating trans
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -764,7 +736,7 @@ Therefore, there’s no need to memorize different commands for generating trans
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.3.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>

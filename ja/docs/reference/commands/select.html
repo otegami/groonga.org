@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.3.57. select &#8212; Groonga v14.0.9ドキュメント</title>
+    <title>7.3.57. select &#8212; Groonga v14.1.0ドキュメント</title>
   
   
   
@@ -16,29 +16,32 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../_static/documentation_options.js?v=fbc8366e"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/documentation_options.js?v=1d5d5492"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/translations.js?v=4dbe4bdc"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -54,7 +57,7 @@
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/commands/select';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'japanese';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
@@ -66,6 +69,7 @@
     <link rel="prev" title="7.3.56. schema" href="schema.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
+  <meta name="docsearch:version" content="14.1.0" />
   </head>
   
   
@@ -81,19 +85,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -101,7 +94,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -109,8 +101,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -119,7 +111,7 @@
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
   </button>
   
@@ -128,7 +120,9 @@
     
       <div class="navbar-item">
 
-   
+  
+     
+  
 
 <a class="navbar-brand logo" href="https://groonga.org/ja/">
   
@@ -141,8 +135,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.9ドキュメント - Home"/>
-    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.9ドキュメント - Home"/>`);</script>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.0ドキュメント - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.0ドキュメント - Home"/>
   
   
 </a></div>
@@ -157,31 +151,23 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">検索</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -192,7 +178,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -204,7 +190,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -216,34 +202,30 @@ document.write(`
           
           
           
-          <a href="/ja/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/ja/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
       
         <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-2"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-2"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-2"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-2">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
       
     </div>
     
@@ -252,20 +234,16 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">検索</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
     </button>
   
@@ -279,7 +257,8 @@ document.write(`
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -292,17 +271,13 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -313,7 +288,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -325,7 +300,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -337,34 +312,30 @@ document.write(`
           
           
           
-          <a href="/ja/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/ja/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
         
           <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-3"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-3"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-3"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-3">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
         
       </div>
     
@@ -474,10 +445,10 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="../types.html">7.4. データ型</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tables.html">7.5. テーブル</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../column.html">7.6. カラム</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../columns/scalar.html">7.6.1. スカラーカラム</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../columns/vector.html">7.6.2. ベクターカラム</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../columns/pseudo.html">7.6.3. 擬似カラム</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../columns/index.html">7.6.4. インデックスカラム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../columns/scalar.html">7.6.2.1. スカラーカラム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../columns/vector.html">7.6.2.2. ベクターカラム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../columns/pseudo.html">7.6.2.3. 擬似カラム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../columns/index.html">7.6.3.1. インデックスカラム</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../normalizers.html">7.7. ノーマライザー</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -550,31 +521,32 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../functions/html_untag.html">7.15.12. <code class="docutils literal notranslate"><span class="pre">html_untag</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../functions/in_records.html">7.15.13. <code class="docutils literal notranslate"><span class="pre">in_records</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../functions/in_values.html">7.15.14. <code class="docutils literal notranslate"><span class="pre">in_values</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/math_abs.html">7.15.15. <code class="docutils literal notranslate"><span class="pre">math_abs</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/now.html">7.15.16. now</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/number_classify.html">7.15.17. <code class="docutils literal notranslate"><span class="pre">number_classify</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/prefix_rk_search.html">7.15.18. <code class="docutils literal notranslate"><span class="pre">prefix_rk_search</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/query.html">7.15.19. <code class="docutils literal notranslate"><span class="pre">query</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/query_parallel_or.html">7.15.20. <code class="docutils literal notranslate"><span class="pre">query_parallel_or</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/rand.html">7.15.21. rand</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/snippet.html">7.15.22. <code class="docutils literal notranslate"><span class="pre">snippet</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/snippet_html.html">7.15.23. <code class="docutils literal notranslate"><span class="pre">snippet_html</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/string_length.html">7.15.24. <code class="docutils literal notranslate"><span class="pre">string_length</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/string_slice.html">7.15.25. <code class="docutils literal notranslate"><span class="pre">string_slice</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/string_substring.html">7.15.26. <code class="docutils literal notranslate"><span class="pre">string_substring</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/sub_filter.html">7.15.27. <code class="docutils literal notranslate"><span class="pre">sub_filter</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_day.html">7.15.28. <code class="docutils literal notranslate"><span class="pre">time_classify_day</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_day_of_week.html">7.15.29. <code class="docutils literal notranslate"><span class="pre">time_classify_day_of_week</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_hour.html">7.15.30. <code class="docutils literal notranslate"><span class="pre">time_classify_hour</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_minute.html">7.15.31. <code class="docutils literal notranslate"><span class="pre">time_classify_minute</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_month.html">7.15.32. <code class="docutils literal notranslate"><span class="pre">time_classify_month</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_second.html">7.15.33. <code class="docutils literal notranslate"><span class="pre">time_classify_second</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_week.html">7.15.34. <code class="docutils literal notranslate"><span class="pre">time_classify_week</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_year.html">7.15.35. <code class="docutils literal notranslate"><span class="pre">time_classify_year</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/vector_find.html">7.15.36. <code class="docutils literal notranslate"><span class="pre">vector_find</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/vector_new.html">7.15.37. <code class="docutils literal notranslate"><span class="pre">vector_new</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/vector_size.html">7.15.38. <code class="docutils literal notranslate"><span class="pre">vector_size</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/vector_slice.html">7.15.39. <code class="docutils literal notranslate"><span class="pre">vector_slice</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/language_model_vectorize.html">7.15.15. <code class="docutils literal notranslate"><span class="pre">language_model_vectorize</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/math_abs.html">7.15.16. <code class="docutils literal notranslate"><span class="pre">math_abs</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/now.html">7.15.17. now</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/number_classify.html">7.15.18. <code class="docutils literal notranslate"><span class="pre">number_classify</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/prefix_rk_search.html">7.15.19. <code class="docutils literal notranslate"><span class="pre">prefix_rk_search</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/query.html">7.15.20. <code class="docutils literal notranslate"><span class="pre">query</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/query_parallel_or.html">7.15.21. <code class="docutils literal notranslate"><span class="pre">query_parallel_or</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/rand.html">7.15.22. rand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/snippet.html">7.15.23. <code class="docutils literal notranslate"><span class="pre">snippet</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/snippet_html.html">7.15.24. <code class="docutils literal notranslate"><span class="pre">snippet_html</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_length.html">7.15.25. <code class="docutils literal notranslate"><span class="pre">string_length</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_slice.html">7.15.26. <code class="docutils literal notranslate"><span class="pre">string_slice</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_substring.html">7.15.27. <code class="docutils literal notranslate"><span class="pre">string_substring</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/sub_filter.html">7.15.28. <code class="docutils literal notranslate"><span class="pre">sub_filter</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_day.html">7.15.29. <code class="docutils literal notranslate"><span class="pre">time_classify_day</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_day_of_week.html">7.15.30. <code class="docutils literal notranslate"><span class="pre">time_classify_day_of_week</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_hour.html">7.15.31. <code class="docutils literal notranslate"><span class="pre">time_classify_hour</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_minute.html">7.15.32. <code class="docutils literal notranslate"><span class="pre">time_classify_minute</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_month.html">7.15.33. <code class="docutils literal notranslate"><span class="pre">time_classify_month</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_second.html">7.15.34. <code class="docutils literal notranslate"><span class="pre">time_classify_second</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_week.html">7.15.35. <code class="docutils literal notranslate"><span class="pre">time_classify_week</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_year.html">7.15.36. <code class="docutils literal notranslate"><span class="pre">time_classify_year</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/vector_find.html">7.15.37. <code class="docutils literal notranslate"><span class="pre">vector_find</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/vector_new.html">7.15.38. <code class="docutils literal notranslate"><span class="pre">vector_new</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/vector_size.html">7.15.39. <code class="docutils literal notranslate"><span class="pre">vector_size</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/vector_slice.html">7.15.40. <code class="docutils literal notranslate"><span class="pre">vector_slice</span></code></a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../window_function.html">7.16. ウィンドウ関数</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -601,35 +573,36 @@ document.write(`
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../indexing.html">7.21. インデックス構築</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sharding.html">7.22. シャーディング</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../log.html">7.23. ログ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tuning.html">7.24. チューニング</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">7.25. API</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/overview.html">7.25.1. 概要</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/global_configurations.html">7.25.2. 全体設定</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/plugin.html">7.25.3. Plugin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_cache.html">7.25.4. <code class="docutils literal notranslate"><span class="pre">grn_cache</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_column.html">7.25.5. <code class="docutils literal notranslate"><span class="pre">grn_column</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_command_version.html">7.25.6. <code class="docutils literal notranslate"><span class="pre">grn_command_version</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_content_type.html">7.25.7. <code class="docutils literal notranslate"><span class="pre">grn_content_type</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_ctx.html">7.25.8. <code class="docutils literal notranslate"><span class="pre">grn_ctx</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_db.html">7.25.9. <code class="docutils literal notranslate"><span class="pre">grn_db</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_encoding.html">7.25.10. <code class="docutils literal notranslate"><span class="pre">grn_encoding</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_expr.html">7.25.11. grn_expr</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_geo.html">7.25.12. <code class="docutils literal notranslate"><span class="pre">grn_geo</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_hook.html">7.25.13. <code class="docutils literal notranslate"><span class="pre">grn_hook</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_ii.html">7.25.14. <code class="docutils literal notranslate"><span class="pre">grn_ii</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_index_cursor.html">7.25.15. <code class="docutils literal notranslate"><span class="pre">grn_index_cursor</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_info.html">7.25.16. <code class="docutils literal notranslate"><span class="pre">grn_info</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_inspect.html">7.25.17. <code class="docutils literal notranslate"><span class="pre">grn_inspect</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_match_escalation.html">7.25.18. <code class="docutils literal notranslate"><span class="pre">grn_match_escalation</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_obj.html">7.25.19. <code class="docutils literal notranslate"><span class="pre">grn_obj</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_proc.html">7.25.20. <code class="docutils literal notranslate"><span class="pre">grn_proc</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_search.html">7.25.21. <code class="docutils literal notranslate"><span class="pre">grn_search</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_table.html">7.25.22. <code class="docutils literal notranslate"><span class="pre">grn_table</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_table_cursor.html">7.25.23. <code class="docutils literal notranslate"><span class="pre">grn_table_cursor</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_thread.html">7.25.24. <code class="docutils literal notranslate"><span class="pre">grn_thread_*</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_type.html">7.25.25. <code class="docutils literal notranslate"><span class="pre">grn_type</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_user_data.html">7.25.26. <code class="docutils literal notranslate"><span class="pre">grn_user_data</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language_model.html">7.23. 言語モデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../log.html">7.24. ログ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tuning.html">7.25. チューニング</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">7.26. API</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/overview.html">7.26.1. 概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/global_configurations.html">7.26.2. 全体設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/plugin.html">7.26.3. Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_cache.html">7.26.4. <code class="docutils literal notranslate"><span class="pre">grn_cache</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_column.html">7.26.5. <code class="docutils literal notranslate"><span class="pre">grn_column</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_command_version.html">7.26.6. <code class="docutils literal notranslate"><span class="pre">grn_command_version</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_content_type.html">7.26.7. <code class="docutils literal notranslate"><span class="pre">grn_content_type</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_ctx.html">7.26.8. <code class="docutils literal notranslate"><span class="pre">grn_ctx</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_db.html">7.26.9. <code class="docutils literal notranslate"><span class="pre">grn_db</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_encoding.html">7.26.10. <code class="docutils literal notranslate"><span class="pre">grn_encoding</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_expr.html">7.26.11. grn_expr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_geo.html">7.26.12. <code class="docutils literal notranslate"><span class="pre">grn_geo</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_hook.html">7.26.13. <code class="docutils literal notranslate"><span class="pre">grn_hook</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_ii.html">7.26.14. <code class="docutils literal notranslate"><span class="pre">grn_ii</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_index_cursor.html">7.26.15. <code class="docutils literal notranslate"><span class="pre">grn_index_cursor</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_info.html">7.26.16. <code class="docutils literal notranslate"><span class="pre">grn_info</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_inspect.html">7.26.17. <code class="docutils literal notranslate"><span class="pre">grn_inspect</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_match_escalation.html">7.26.18. <code class="docutils literal notranslate"><span class="pre">grn_match_escalation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_obj.html">7.26.19. <code class="docutils literal notranslate"><span class="pre">grn_obj</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_proc.html">7.26.20. <code class="docutils literal notranslate"><span class="pre">grn_proc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_search.html">7.26.21. <code class="docutils literal notranslate"><span class="pre">grn_search</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_table.html">7.26.22. <code class="docutils literal notranslate"><span class="pre">grn_table</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_table_cursor.html">7.26.23. <code class="docutils literal notranslate"><span class="pre">grn_table_cursor</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_thread.html">7.26.24. <code class="docutils literal notranslate"><span class="pre">grn_thread_*</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_type.html">7.26.25. <code class="docutils literal notranslate"><span class="pre">grn_type</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_user_data.html">7.26.26. <code class="docutils literal notranslate"><span class="pre">grn_user_data</span></code></a></li>
 </ul>
 </details></li>
 </ul>
@@ -659,8 +632,6 @@ document.write(`
       
         <div class="header-article-item">
 
-
-
 <nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
@@ -675,7 +646,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../command.html" class="nav-link"><span class="section-number">7.3. </span>コマンド</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span...</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">7.3.57. </span><code class="docutils literal notranslate"><span class="pre">select</span></code></span></li>
   </ul>
 </nav>
 </div>
@@ -1655,7 +1626,7 @@ document.write(`
 <span class="c1">#       [</span>
 <span class="c1">#         &quot;execute&quot;,</span>
 <span class="c1">#         &quot;lib/proc/proc_select.cpp&quot;,</span>
-<span class="c1">#         5002</span>
+<span class="c1">#         2929</span>
 <span class="c1">#       ]</span>
 <span class="c1">#     ]</span>
 <span class="c1">#   ]</span>
@@ -2155,7 +2126,7 @@ document.write(`
 <section id="load-table">
 <span id="select-load-table"></span><h4><span class="section-number">7.3.57.4.2.4. </span><code class="docutils literal notranslate"><span class="pre">load_table</span></code><a class="headerlink" href="#load-table" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 9.0.1 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 9.0.1.</span></p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">--load_table</span></code> 、 <code class="docutils literal notranslate"><span class="pre">--load_columns</span></code> 、 <code class="docutils literal notranslate"><span class="pre">--load_values</span></code> を使って、<code class="docutils literal notranslate"><span class="pre">select</span></code> の結果を指定したテーブルに格納できます。 <code class="docutils literal notranslate"><span class="pre">--load_table</span></code> は、<code class="docutils literal notranslate"><span class="pre">select</span></code> の結果を格納するテーブルの名前を指定します。</p>
 <p>既に存在するテーブルを指定する必要があります。</p>
@@ -2278,7 +2249,7 @@ document.write(`
 <section id="load-columns">
 <span id="select-load-columns"></span><h4><span class="section-number">7.3.57.4.2.5. </span><code class="docutils literal notranslate"><span class="pre">load_columns</span></code><a class="headerlink" href="#load-columns" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 9.0.1 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 9.0.1.</span></p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">--load_table</span></code> で指定したテーブルのカラムを指定します。<a class="reference internal" href="#select-load-values"><span class="std std-ref">load_values</span></a> で指定したカラムの値をこの引数で指定したカラムに格納します。既に存在するカラムを指定する必要があります。</p>
 <p>この引数は、 <a class="reference internal" href="#select-load-table"><span class="std std-ref">load_table</span></a> と <a class="reference internal" href="#select-load-values"><span class="std std-ref">load_values</span></a> と一緒に使う必要があります。</p>
@@ -2287,7 +2258,7 @@ document.write(`
 <section id="load-values">
 <span id="select-load-values"></span><h4><span class="section-number">7.3.57.4.2.6. </span><code class="docutils literal notranslate"><span class="pre">load_values</span></code><a class="headerlink" href="#load-values" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 9.0.1 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 9.0.1.</span></p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">select</span></code> の結果のカラムを指定します。 <a class="reference internal" href="#select-load-columns"><span class="std std-ref">load_columns</span></a> で指定したカラムに値を格納するカラムを指定します。既に存在するカラムを指定する必要があります。</p>
 <p>この引数は、 <a class="reference internal" href="#select-load-table"><span class="std std-ref">load_table</span></a> と <a class="reference internal" href="#select-load-columns"><span class="std std-ref">load_columns</span></a> と一緒に使う必要があります。</p>
@@ -2299,7 +2270,7 @@ document.write(`
 <section id="match-escalation-threshold">
 <span id="select-match-escalation-threshold"></span><h4><span class="section-number">7.3.57.4.3.1. </span><code class="docutils literal notranslate"><span class="pre">match_escalation_threshold</span></code><a class="headerlink" href="#match-escalation-threshold" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 8.0.1 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 8.0.1.</span></p>
 </div>
 <p>検索方法をエスカレーションするかどうかを決定するための閾値を指定します。この閾値はマッチしたレコード数との比較に使われます。マッチしたレコード数がこの閾値以下の場合は検索方法をエスカレーションします。検索方法のエスカレーションについては <a class="reference internal" href="../../spec/search.html"><span class="doc">検索</span></a> を参照してください。</p>
 <p>デフォルトの閾値は0です。これは1つもレコードがマッチしなかったときだけ検索方法をエスカレーションするということです。</p>
@@ -2815,8 +2786,8 @@ document.write(`
 <span class="c1">#     [</span>
 <span class="c1">#       [</span>
 <span class="c1">#         &quot;yy_syntax_error&quot;,</span>
-<span class="c1">#         &quot;lib/grn_ecmascript.lemon&quot;,</span>
-<span class="c1">#         168</span>
+<span class="c1">#         &quot;grn_ecmascript.lemon&quot;,</span>
+<span class="c1">#         2929</span>
 <span class="c1">#       ]</span>
 <span class="c1">#     ]</span>
 <span class="c1">#   ]</span>
@@ -3116,7 +3087,7 @@ document.write(`
 <section id="n-workers">
 <span id="select-n-workers"></span><h4><span class="section-number">7.3.57.4.3.6. </span><code class="docutils literal notranslate"><span class="pre">n_workers</span></code><a class="headerlink" href="#n-workers" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 12.0.5 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 12.0.5.</span></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
@@ -3649,7 +3620,7 @@ document.write(`
 <section id="fuzzy-query-related-parameters">
 <span id="select-fuzzy-query-related-parameters"></span><h3><span class="section-number">7.3.57.4.5. </span>あいまいクエリー関連の引数<a class="headerlink" href="#fuzzy-query-related-parameters" title="Link to this heading">#</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 13.0.8 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 13.0.8.</span></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
@@ -3661,7 +3632,7 @@ document.write(`
 <section id="fuzzy-max-distance-ratio">
 <span id="select-fuzzy-max-distance-ratio"></span><h4><span class="section-number">7.3.57.4.5.1. </span><code class="docutils literal notranslate"><span class="pre">fuzzy_max_distance_ratio</span></code><a class="headerlink" href="#fuzzy-max-distance-ratio" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 13.0.8 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 13.0.8.</span></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
@@ -3757,7 +3728,7 @@ document.write(`
 <section id="fuzzy-max-distance">
 <span id="select-fuzzy-max-distance"></span><h4><span class="section-number">7.3.57.4.5.2. </span><code class="docutils literal notranslate"><span class="pre">fuzzy_max_distance</span></code><a class="headerlink" href="#fuzzy-max-distance" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 13.0.8 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 13.0.8.</span></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
@@ -3812,7 +3783,7 @@ document.write(`
 <section id="fuzzy-max-expansions">
 <span id="select-fuzzy-max-expansions"></span><h4><span class="section-number">7.3.57.4.5.3. </span><code class="docutils literal notranslate"><span class="pre">fuzzy_max_expansions</span></code><a class="headerlink" href="#fuzzy-max-expansions" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 13.0.8 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 13.0.8.</span></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
@@ -3867,7 +3838,7 @@ document.write(`
 <section id="fuzzy-prefix-length">
 <span id="select-fuzzy-prefix-length"></span><h4><span class="section-number">7.3.57.4.5.4. </span><code class="docutils literal notranslate"><span class="pre">fuzzy_prefix_length</span></code><a class="headerlink" href="#fuzzy-prefix-length" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 13.0.8 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 13.0.8.</span></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
@@ -3919,7 +3890,7 @@ document.write(`
 <section id="fuzzy-with-transposition">
 <span id="select-fuzzy-with-transposition"></span><h4><span class="section-number">7.3.57.4.5.5. </span><code class="docutils literal notranslate"><span class="pre">fuzzy_with_transposition</span></code><a class="headerlink" href="#fuzzy-with-transposition" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 13.0.9 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 13.0.9.</span></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
@@ -3975,7 +3946,7 @@ document.write(`
 <section id="fuzzy-with-tokenize">
 <span id="select-fuzzy-tokenize"></span><h4><span class="section-number">7.3.57.4.5.6. </span><code class="docutils literal notranslate"><span class="pre">fuzzy_with_tokenize</span></code><a class="headerlink" href="#fuzzy-with-tokenize" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 13.0.9 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 13.0.9.</span></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
@@ -4025,7 +3996,7 @@ document.write(`
 <section id="dynamic-column-related-parameters">
 <span id="select-dynamic-column-related-parameters"></span><h3><span class="section-number">7.3.57.4.6. </span>動的カラム関連の引数<a class="headerlink" href="#dynamic-column-related-parameters" title="Link to this heading">#</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 6.0.6 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.6.</span></p>
 </div>
 <p>このセクションは動的カラム関連の引数について説明します。ウィンドウ関数を使うために動的カラムを使うこともできますが、このセクションではウィンドウ関数については説明しません。ウィンドウ関数については <a class="reference internal" href="#select-window-function-related-parameters"><span class="std std-ref">ウィンドウ関数関連の引数</span></a> を参照してください。</p>
 <p><code class="docutils literal notranslate"><span class="pre">select</span></code> 実行中に0個以上のカラムを作ってそこに値を入れることができます。これらのカラムのことを「動的カラム」と呼びます。動的カラムが作られた後は通常のカラムと同じように使えます。</p>
@@ -4083,7 +4054,7 @@ document.write(`
 <section id="columns-name-stage">
 <span id="select-columns-name-stage"></span><h4><span class="section-number">7.3.57.4.6.1. </span><code class="docutils literal notranslate"><span class="pre">columns[${NAME}].stage</span></code><a class="headerlink" href="#columns-name-stage" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 6.0.6 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.6.</span></p>
 </div>
 <p>どのタイミング（どのステージ）で動的カラムを作るかを指定します。動的カラムを作る場合はこのパラメーターは必須です。</p>
 <p>指定可能なステージは以下の通りです。</p>
@@ -4173,7 +4144,7 @@ document.write(`
 <section id="columns-name-flags">
 <span id="select-columns-name-flags"></span><h4><span class="section-number">7.3.57.4.6.2. </span><code class="docutils literal notranslate"><span class="pre">columns[${NAME}].flags</span></code><a class="headerlink" href="#columns-name-flags" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 6.0.6 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.6.</span></p>
 </div>
 <p>動的カラムのフラグを指定します。これは <a class="reference internal" href="column_create.html"><span class="doc">column_create</span></a> の <code class="docutils literal notranslate"><span class="pre">flags</span></code> パラメーターと同じです。利用可能なフラグは <a class="reference internal" href="column_create.html#column-create-flags"><span class="std std-ref">flags</span></a> を見てください。</p>
 <p>デフォルト値は <code class="docutils literal notranslate"><span class="pre">COLUMN_SCALAR</span></code> です。</p>
@@ -4257,7 +4228,7 @@ document.write(`
 <section id="columns-name-type">
 <span id="select-columns-name-type"></span><h4><span class="section-number">7.3.57.4.6.3. </span><code class="docutils literal notranslate"><span class="pre">columns[${NAME}].type</span></code><a class="headerlink" href="#columns-name-type" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 6.0.6 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.6.</span></p>
 </div>
 <p>動的カラムの値の型を指定します。 <a class="reference internal" href="column_create.html"><span class="doc">column_create</span></a> の <code class="docutils literal notranslate"><span class="pre">type</span></code> パラメーターと同じです。利用可能な型は <a class="reference internal" href="column_create.html#column-create-type"><span class="std std-ref">type</span></a> を見てください。</p>
 <p>必須の引数です。</p>
@@ -4327,7 +4298,7 @@ document.write(`
 <section id="columns-name-value">
 <span id="select-columns-name-value"></span><h4><span class="section-number">7.3.57.4.6.4. </span><code class="docutils literal notranslate"><span class="pre">columns[${NAME}].value</span></code><a class="headerlink" href="#columns-name-value" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 6.0.6 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.6.</span></p>
 </div>
 <p>この動的カラムの値を生成する式を指定します。式には <a class="reference internal" href="../grn_expr/script_syntax.html"><span class="doc">スクリプト構文</span></a> を使います。この構文は <a class="reference internal" href="#select-filter"><span class="std std-ref">filter</span></a> と同じです。たとえば、 <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">1</span></code> 、 <code class="docutils literal notranslate"><span class="pre">string_length(&quot;Hello&quot;)</span></code> 、 <code class="docutils literal notranslate"><span class="pre">column</span> <span class="pre">*</span> <span class="pre">1.08</span></code> などは妥当な式です。</p>
 <p>ウィンドウ関数を使う場合は、 <code class="docutils literal notranslate"><span class="pre">value</span></code> の値に <a class="reference internal" href="../window_function.html"><span class="doc">ウィンドウ関数</span></a> を指定し、他のウィンドウ関数のパラメーターも指定する必要があります。詳細は <a class="reference internal" href="#select-window-function-related-parameters"><span class="std std-ref">ウィンドウ関数関連の引数</span></a> を見てください。</p>
@@ -4401,7 +4372,7 @@ document.write(`
 <section id="window-function-related-parameters">
 <span id="select-window-function-related-parameters"></span><h3><span class="section-number">7.3.57.4.7. </span>ウィンドウ関数関連の引数<a class="headerlink" href="#window-function-related-parameters" title="Link to this heading">#</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 6.0.6 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.6.</span></p>
 </div>
 <p>このセクションはウィンドウ関数関連の引数について説明します。ウィンドウ関数を使うためには動的カラムを使う必要があります。動的カラムについては <a class="reference internal" href="#select-dynamic-column-related-parameters"><span class="std std-ref">動的カラム関連の引数</span></a> を見てください。</p>
 <p>Groongaのウィンドウ関数はSQLのウィンドウ関数と似ています。通常の関数は現在のレコードだけを使って結果を計算します。一方、ウィンドウ関数は複数のレコードを使って結果を計算します。複数のレコードを処理できるのでウィンドウ関数はデータ解析に有用です。</p>
@@ -4554,7 +4525,7 @@ document.write(`
 <section id="columns-name-window-sort-keys">
 <span id="select-columns-name-window-sort-keys"></span><h4><span class="section-number">7.3.57.4.7.1. </span><code class="docutils literal notranslate"><span class="pre">columns[${NAME}].window.sort_keys</span></code><a class="headerlink" href="#columns-name-window-sort-keys" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 6.0.6 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.6.</span></p>
 </div>
 <p>各グループでのソートキーを指定します。ウィンドウ関数は各グループのレコードを指定された順に処理します。</p>
 <p>ソートキーを <code class="docutils literal notranslate"><span class="pre">,</span></code> 区切りで指定します。それぞれのソートキーにはカラム名を指定します。これは <a class="reference internal" href="#select-sort-keys"><span class="std std-ref">sort_keys</span></a> と同じです。</p>
@@ -4638,7 +4609,7 @@ document.write(`
 <section id="columns-name-window-group-keys">
 <span id="select-columns-name-window-group-keys"></span><h4><span class="section-number">7.3.57.4.7.2. </span><code class="docutils literal notranslate"><span class="pre">columns[${NAME}].window.group_keys</span></code><a class="headerlink" href="#columns-name-window-group-keys" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 7.0.0 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 7.0.0.</span></p>
 </div>
 <p>グループキーを指定します。ウィンドウ関数は各グループのレコードを処理します。グループキーを指定しない場合はウィンドウ関数はすべてのレコードを含んだ1つのグループを処理します。</p>
 <p>グループキーを <code class="docutils literal notranslate"><span class="pre">,</span></code> 区切りで指定します。それぞれのグループキーにはカラム名を指定します。これは <a class="reference internal" href="#select-drilldown"><span class="std std-ref">drilldown</span></a> と同じです。</p>
@@ -6108,7 +6079,7 @@ document.write(`
 <section id="drilldown-calc-target">
 <span id="select-drilldown-calc-target"></span><h4><span class="section-number">7.3.57.4.8.8. </span><code class="docutils literal notranslate"><span class="pre">drilldown_calc_target</span></code><a class="headerlink" href="#drilldown-calc-target" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 6.0.3 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.3.</span></p>
 </div>
 <p><a class="reference internal" href="#select-drilldown-calc-types"><span class="std std-ref">drilldown_calc_types</span></a> の計算対象のカラムを指定します。</p>
 <p><a class="reference internal" href="#select-drilldown-calc-types"><span class="std std-ref">drilldown_calc_types</span></a> で <code class="docutils literal notranslate"><span class="pre">MAX</span></code> のように計算対象のカラムが必要な計算タイプを指定したにも関わらず <code class="docutils literal notranslate"><span class="pre">drilldown_calc_target</span></code> を省略すると、計算結果は常に <code class="docutils literal notranslate"><span class="pre">0</span></code> になります。</p>
@@ -6120,7 +6091,7 @@ document.write(`
 <section id="drilldown-filter">
 <span id="select-drilldown-filter"></span><h4><span class="section-number">7.3.57.4.8.9. </span><code class="docutils literal notranslate"><span class="pre">drilldown_filter</span></code><a class="headerlink" href="#drilldown-filter" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 6.0.3 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.3.</span></p>
 </div>
 <p>ドリルダウン結果に対するフィルター条件を指定します。</p>
 <p>構文は <a class="reference internal" href="../grn_expr/script_syntax.html"><span class="doc">スクリプト構文</span></a> です。これは <a class="reference internal" href="#select-filter"><span class="std std-ref">filter</span></a> と同じです。</p>
@@ -6205,7 +6176,7 @@ document.write(`
 <section id="drilldown-max-n-target-records">
 <span id="select-drilldown-max-n-target-records"></span><h4><span class="section-number">7.3.57.4.8.10. </span><code class="docutils literal notranslate"><span class="pre">drilldown_max_n_target_records</span></code><a class="headerlink" href="#drilldown-max-n-target-records" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 12.0.0 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 12.0.0.</span></p>
 </div>
 <p>ドリルダウン対象のテーブル（フィルター結果）の中のうち最大で何レコードをドリルダウンに使うかを指定します。もし、フィルター結果のレコード数が指定した値より大きかったらフィルターした結果内のいくつかのレコードはドリルダウンには使われません。</p>
 <p>指定した値が負の場合は <a class="reference internal" href="#select-limit"><span class="std std-ref">limit</span></a> と同じように処理されます。たとえば、 <code class="docutils literal notranslate"><span class="pre">-1</span></code> はすべてのレコードを使います。デフォルト値は <code class="docutils literal notranslate"><span class="pre">-1</span></code> です。つまり、デフォルトではフィルター結果のすべてのレコードを使ってドリルダウンを実行します。</p>
@@ -6291,7 +6262,7 @@ document.write(`
 <section id="advanced-drilldown-related-parameters">
 <span id="select-advanced-drilldown-related-parameters"></span><h3><span class="section-number">7.3.57.4.9. </span>高度なドリルダウン関連のパラメーター<a class="headerlink" href="#advanced-drilldown-related-parameters" title="Link to this heading">#</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 4.0.8 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 4.0.8.</span></p>
 </div>
 <p><a class="reference internal" href="#select-drilldown"><span class="std std-ref">drilldown</span></a> に複数のグループキーを指定することで複数のドリルダウン結果を取得できます。しかし、すべてのドリルダウンで同じ設定を使う必要があります。例えば、すべてのドリルダウンで同じ <a class="reference internal" href="#select-drilldown-output-columns"><span class="std std-ref">drilldown_output_columns</span></a> の値が使われます。</p>
 <p>以下の引数を使うことで、各ドリルダウンで別々の設定を使うことができます。</p>
@@ -6390,7 +6361,7 @@ document.write(`
 <section id="drilldowns-label-keys">
 <span id="select-drilldowns-label-keys"></span><h4><span class="section-number">7.3.57.4.9.1. </span><code class="docutils literal notranslate"><span class="pre">drilldowns[${LABEL}].keys</span></code><a class="headerlink" href="#drilldowns-label-keys" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 4.0.8 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 4.0.8.</span></p>
 </div>
 <p><a class="reference internal" href="#select-drilldown"><span class="std std-ref">drilldown</span></a> は複数のキーを指定して複数のドリルダウンを指定できます。しかし、1つのドリルダウンに複数のキーを指定することはできません。</p>
 <p><code class="docutils literal notranslate"><span class="pre">drilldowns[${LABEL}].keys</span></code> は複数のキーを指定して複数のドリルダウンを指定することはできません。しかし、1つのドリルダウンに複数のキーを指定することができます。</p>
@@ -6495,7 +6466,7 @@ document.write(`
 <section id="drilldowns-label-table">
 <span id="select-drilldowns-label-table"></span><h4><span class="section-number">7.3.57.4.9.2. </span><code class="docutils literal notranslate"><span class="pre">drilldowns[${LABEL}].table</span></code><a class="headerlink" href="#drilldowns-label-table" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 6.0.2 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.2.</span></p>
 </div>
 <p>他の <code class="docutils literal notranslate"><span class="pre">drilldowns</span></code> または <code class="docutils literal notranslate"><span class="pre">slices</span></code> の <code class="docutils literal notranslate"><span class="pre">${LABEL}</span></code> を指定します。</p>
 <p>指定した <code class="docutils literal notranslate"><span class="pre">${LABEL}</span></code> の結果をドリルダウンします。つまり、このパラメータを使うと多段ドリルダウンができます。</p>
@@ -6632,7 +6603,7 @@ document.write(`
 <section id="drilldowns-label-key-vector-expansion">
 <span id="select-drilldowns-label-key-vector-expansions"></span><h4><span class="section-number">7.3.57.4.9.3. </span><code class="docutils literal notranslate"><span class="pre">drilldowns[${LABEL}].key_vector_expansion</span></code><a class="headerlink" href="#drilldowns-label-key-vector-expansion" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 12.1.1 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 12.1.1.</span></p>
 </div>
 <p>ドリルダウン対象のキーがベクターのときの、キーの展開方法を指定します。現状は <code class="docutils literal notranslate"><span class="pre">NONE</span></code> または <code class="docutils literal notranslate"><span class="pre">POWER_SET</span></code> が指定可能です。</p>
 <p>ドリルダウン対象のキーが1つの場合にのみ使用可能です。キーが2つ以上の場合は無視されます。</p>
@@ -6972,7 +6943,7 @@ document.write(`
 <section id="drilldowns-label-output-columns">
 <span id="select-drilldowns-label-output-columns"></span><h4><span class="section-number">7.3.57.4.9.4. </span><code class="docutils literal notranslate"><span class="pre">drilldowns[${LABEL}].output_columns</span></code><a class="headerlink" href="#drilldowns-label-output-columns" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 4.0.8 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 4.0.8.</span></p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">drilldowns[${LABEL}].output_columns</span></code> はほとんど <a class="reference internal" href="#select-drilldown-output-columns"><span class="std std-ref">drilldown_output_columns</span></a> と同じです。 <a class="reference internal" href="#select-drilldown-output-columns"><span class="std std-ref">drilldown_output_columns</span></a> と <code class="docutils literal notranslate"><span class="pre">drilldowns[${LABEL}].output_columns</span></code> の違いはグループキーの参照方法です。</p>
 <p><a class="reference internal" href="#select-drilldown-output-columns"><span class="std std-ref">drilldown_output_columns</span></a> はグループキーを参照するために <code class="docutils literal notranslate"><span class="pre">_key</span></code> <a class="reference internal" href="../columns/pseudo.html"><span class="doc">擬似カラム</span></a> を使います。 <code class="docutils literal notranslate"><span class="pre">drilldowns[${LABEL}].output_columns</span></code> も <a class="reference internal" href="#select-drilldowns-label-keys"><span class="std std-ref">drilldowns[${LABEL}].keys</span></a> で1つだけしかグループキーを指定していない場合は、グループキーを参照するために <code class="docutils literal notranslate"><span class="pre">_key</span></code> <a class="reference internal" href="../columns/pseudo.html"><span class="doc">擬似カラム</span></a> を使います。</p>
@@ -7102,7 +7073,7 @@ document.write(`
 <section id="drilldowns-label-columns-name-stage">
 <span id="select-drilldowns-label-columns-name-stage"></span><h4><span class="section-number">7.3.57.4.9.5. </span><code class="docutils literal notranslate"><span class="pre">drilldowns[${LABEL}].columns[${NAME}].stage</span></code><a class="headerlink" href="#drilldowns-label-columns-name-stage" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 6.0.5 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.5.</span></p>
 </div>
 <p>どのタイミング（どのステージ）で動的カラムを作るかを指定します。動的カラムを作る場合はこのパラメーターは必須です。</p>
 <p>指定可能なステージは以下の通りです。</p>
@@ -7255,7 +7226,7 @@ document.write(`
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 4.0.8 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 4.0.8.</span></p>
 </div>
 </section>
 <section id="output-format-for-drilldowns-label-style">
@@ -7292,7 +7263,7 @@ document.write(`
 <section id="slice-related-parameters">
 <span id="select-slice-related-parameters"></span><h3><span class="section-number">7.3.57.4.10. </span>スライス関連の引数<a class="headerlink" href="#slice-related-parameters" title="Link to this heading">#</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 6.0.3 で追加.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.3.</span></p>
 </div>
 <p>このセクションではスライス関連のパラメーターについて説明します。</p>
 <p>TODO</p>
@@ -7918,7 +7889,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -8065,8 +8037,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -8091,7 +8063,7 @@ document.write(`
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.3.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>

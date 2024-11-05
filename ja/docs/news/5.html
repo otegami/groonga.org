@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>お知らせ - 5系 &#8212; Groonga v14.0.9ドキュメント</title>
+    <title>お知らせ - 5系 &#8212; Groonga v14.1.0ドキュメント</title>
   
   
   
@@ -16,29 +16,32 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../_static/documentation_options.js?v=fbc8366e"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/documentation_options.js?v=1d5d5492"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/translations.js?v=4dbe4bdc"></script>
+    <script src="../_static/translations.js?v=4755f45a"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -54,7 +57,7 @@
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'news/5';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'japanese';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
@@ -64,6 +67,7 @@
     <link rel="search" title="検索" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
+  <meta name="docsearch:version" content="14.1.0" />
   </head>
   
   
@@ -79,19 +83,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +92,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -107,8 +99,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -117,7 +109,7 @@
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
   </button>
   
@@ -126,7 +118,9 @@
     
       <div class="navbar-item">
 
-   
+  
+     
+  
 
 <a class="navbar-brand logo" href="https://groonga.org/ja/">
   
@@ -139,8 +133,8 @@
       
     
     
-    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.9ドキュメント - Home"/>
-    <script>document.write(`<img src="../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.9ドキュメント - Home"/>`);</script>
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.0ドキュメント - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.0ドキュメント - Home"/>
   
   
 </a></div>
@@ -155,31 +149,23 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">検索</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -190,7 +176,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -202,7 +188,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -214,34 +200,30 @@ document.write(`
           
           
           
-          <a href="/ja/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/ja/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
       
         <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-2"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-2"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-2"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-2">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
       
     </div>
     
@@ -250,20 +232,16 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">検索</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
     </button>
   
@@ -277,7 +255,8 @@ document.write(`
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -290,17 +269,13 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -311,7 +286,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -323,7 +298,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -335,34 +310,30 @@ document.write(`
           
           
           
-          <a href="/ja/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/ja/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
         
           <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-3"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-3"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-3"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-3">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
         
       </div>
     
@@ -399,8 +370,6 @@ document.write(`
       
         <div class="header-article-item">
 
-
-
 <nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
@@ -409,7 +378,7 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">お知らせ - 5系</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">お知らせ - 5系</span></li>
   </ul>
 </nav>
 </div>
@@ -495,7 +464,7 @@ document.write(`
 <li><p>[<a class="reference internal" href="../reference/grn_expr/script_syntax.html"><span class="doc">スクリプト構文</span></a>] 特定の等価比較をサポートしているインデックスを使った検索を指定するために <code class="docutils literal notranslate"><span class="pre">INDEX_COLUMN</span> <span class="pre">==</span> <span class="pre">VALUE</span></code> と書けるようになりました。</p></li>
 <li><p>転置インデックスモジュールから出力された連続した同じメッセージを圧縮して「○件同じメッセージが出力された」というログに変換するようにしました。</p></li>
 <li><p>別のプロセスからtruncateされたテーブルを検出できるようになりました。 [GitHub#447] [groonga-dev,03761] [Yutaro SHIMAMURAさんが報告]</p></li>
-<li><p>[<a class="reference internal" href="../reference/api/grn_db.html#c.grn_db_recover" title="grn_db_recover"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_db_recover()</span></code></a>] 壊れたオブジェクトを検出できるようになりました。</p></li>
+<li><p>[<code class="xref c c-func docutils literal notranslate"><span class="pre">grn_db_recover()</span></code>] 壊れたオブジェクトを検出できるようになりました。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">COLUMN</span> <span class="pre">&#64;~</span> <span class="pre">&quot;CONSTANT_PATTERN&quot;</span></code> のように定数のパターンを指定した <a class="reference internal" href="../reference/regular_expression.html"><span class="doc">正規表現</span></a> マッチでシーケンシャルスキャン検索になったときのパフォーマンスを改善しました。</p></li>
 </ul>
 </section>
@@ -624,7 +593,7 @@ document.write(`
 <li><p>[<a class="reference internal" href="../reference/functions/snippet_html.html"><span class="doc">snippet_html</span></a>] 性能を改善しました。</p></li>
 <li><p>[CMake] 2回同じ <code class="docutils literal notranslate"><span class="pre">pkg-config</span></code> を実行しないようにしました。 [Sergei Golubchikさんがパッチ提供]</p></li>
 <li><p>時刻に対するチェックのうち、「年」に対する不要なチェックを削除しました。この変更前は紀元前は常に不正な時刻でした。この変更後は、システム（ <code class="docutils literal notranslate"><span class="pre">mktime()</span></code> ）が紀元前をサポートしていれば、紀元前の時刻も妥当な時刻になります。</p></li>
-<li><p>[<a class="reference internal" href="../reference/api/grn_ctx.html#c.grn_ctx_is_opened" title="grn_ctx_is_opened"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_is_opened()</span></code></a>] 指定したIDのオブジェクトが開かれているかどうかをチェックするAPIを追加しました。</p></li>
+<li><p>[<code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_is_opened()</span></code>] 指定したIDのオブジェクトが開かれているかどうかをチェックするAPIを追加しました。</p></li>
 <li><p>[<code class="xref c c-func docutils literal notranslate"><span class="pre">grn_obj_remove()</span></code>] 最大メモリー使用量を減らしました。 <a class="reference internal" href="../reference/api/grn_thread.html#c.grn_thread_get_limit" title="grn_thread_get_limit"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_thread_get_limit()</span></code></a> が <code class="docutils literal notranslate"><span class="pre">1</span></code> を返す場合、一時的に開いたオブジェクトを処理が終わったら閉じるようになります。</p></li>
 <li><p>[ドキュメント][<a class="reference internal" href="../reference/commands/table_remove.html"><span class="doc">table_remove</span></a>] 説明を増やしました。</p></li>
 <li><p>[<a class="reference internal" href="../reference/executables/groonga.html"><span class="doc">groonga 実行ファイル</span></a>] スタンドアローンモードのときは <a class="reference internal" href="../reference/commands/dump.html"><span class="doc">dump</span></a> の結果の最後に改行を追加するようにしました。</p></li>
@@ -682,7 +651,7 @@ document.write(`
 <li><p>[実験的][<a class="reference internal" href="../reference/grn_expr/script_syntax.html#script-syntax-regular-expression-operator"><span class="std std-ref">正規表現演算子</span></a>] インデックスなしでもベクターカラムに対して正規表現を使えるようになりました。</p></li>
 <li><p>[<a class="reference internal" href="../reference/commands/logical_range_filter.html"><span class="doc">logical_range_filter</span></a>] <code class="docutils literal notranslate"><span class="pre">--cache</span> <span class="pre">no</span></code> オプションをサポートしました。これは、 <a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a> の <a class="reference internal" href="../reference/commands/select.html#select-cache"><span class="std std-ref">cache</span></a> オプションと同じ機能です。</p></li>
 <li><p>[<a class="reference internal" href="../reference/executables/groonga-httpd.html"><span class="doc">groonga-httpd</span></a>] <a class="reference internal" href="../reference/commands/thread_limit.html"><span class="doc">thread_limit</span></a> の最大スレッド数を返す機能に対応しました。最大スレッド数を設定することはできません。</p></li>
-<li><p>[<a class="reference internal" href="../reference/api/grn_db.html#c.grn_db_unmap" title="grn_db_unmap"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_db_unmap()</span></code></a>] 開いているすべてのテーブルとカラムをアンマップするAPIを追加しました。これはスレッドセーフではない操作です。 <a class="reference internal" href="../reference/api/grn_db.html#c.grn_db_unmap" title="grn_db_unmap"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_db_unmap()</span></code></a> 実行中はデータベースを触ることはできません。</p></li>
+<li><p>[<code class="xref c c-func docutils literal notranslate"><span class="pre">grn_db_unmap()</span></code>] 開いているすべてのテーブルとカラムをアンマップするAPIを追加しました。これはスレッドセーフではない操作です。 <code class="xref c c-func docutils literal notranslate"><span class="pre">grn_db_unmap()</span></code> 実行中はデータベースを触ることはできません。</p></li>
 <li><p>[<a class="reference internal" href="../reference/commands/database_unmap.html"><span class="doc">database_unmap</span></a>] データベース内の開いているすべてのテーブルとカラムをアンマップするコマンドを追加しました。</p></li>
 <li><p>[<a class="reference internal" href="../reference/commands/object_exist.html"><span class="doc">object_exist</span></a>] データベース内に指定された名前のオブジェクトが存在するかどうかを返すコマンドを追加しました。</p></li>
 <li><p>[<a class="reference internal" href="../reference/commands/column_copy.html"><span class="doc">column_copy</span></a>] コピー元カラムからコピー先カラムへすべての値をコピーするコマンドを追加しました。</p>
@@ -845,8 +814,8 @@ document.write(`
 <li><p>[mrb] <code class="docutils literal notranslate"><span class="pre">Table#each</span></code> を追加。</p></li>
 <li><p>[mrb] <code class="docutils literal notranslate"><span class="pre">TableCursor#key</span></code> を追加。</p></li>
 <li><p>[mrb] <code class="xref c c-func docutils literal notranslate"><span class="pre">grn_command_input_get_arguments()</span></code> を <code class="docutils literal notranslate"><span class="pre">CommandInput#arguments</span></code> にバインド。</p></li>
-<li><p>[mrb] <a class="reference internal" href="../reference/api/grn_table.html#c.grn_table_group" title="grn_table_group"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_table_group()</span></code></a> を <code class="docutils literal notranslate"><span class="pre">Table#group</span></code> にバインド。</p></li>
-<li><p>[mrb] <a class="reference internal" href="../reference/api/grn_table.html#c.grn_table_group_flags" title="grn_table_group_flags"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_table_group_flags()</span></code></a> を <code class="docutils literal notranslate"><span class="pre">TableGroupFlags</span></code> にバインド。</p></li>
+<li><p>[mrb] <code class="xref c c-func docutils literal notranslate"><span class="pre">grn_table_group()</span></code> を <code class="docutils literal notranslate"><span class="pre">Table#group</span></code> にバインド。</p></li>
+<li><p>[mrb] <code class="xref c c-func docutils literal notranslate"><span class="pre">grn_table_group_flags()</span></code> を <code class="docutils literal notranslate"><span class="pre">TableGroupFlags</span></code> にバインド。</p></li>
 <li><p>[mrb] <code class="docutils literal notranslate"><span class="pre">GRN_COMMAND_VERSION_DEFAULT</span></code> をバインド。</p></li>
 <li><p>[mrb] <code class="docutils literal notranslate"><span class="pre">grn_cache</span></code> をバインド。</p></li>
 <li><p>[mrb][estimate_size] <code class="docutils literal notranslate"><span class="pre">(...</span> <span class="pre">||</span> <span class="pre">...)</span> <span class="pre">&amp;&amp;</span> <span class="pre">(...</span> <span class="pre">||</span> <span class="pre">...)</span></code> のようなexpressionのケースをサポート。</p></li>
@@ -1118,7 +1087,7 @@ document.write(`
 <li><p>[<a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a>] ドリルダウンの引数の誤りをより厳密にチェックするようにしました。</p></li>
 <li><p><a class="reference internal" href="../reference/api/grn_ctx.html#c.grn_ctx_get_all_tables" title="grn_ctx_get_all_tables"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_get_all_tables()</span></code></a> を追加しました。 [Masatoshi Teruyaさんが提案]</p></li>
 <li><p>スコア関数のカスタマイズをサポートしました。詳細は <a class="reference internal" href="../reference/scorer.html"><span class="doc">スコアラー</span></a> を参照してください。</p></li>
-<li><p>[非互換] スコア関数の導入により、DB API層でAPIとABIの互換性がなくなりました。<a class="reference internal" href="../reference/api/grn_search.html#c.grn_search_optarg" title="grn_search_optarg"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_search_optarg</span></code></a> を使っていたら、次のようなコードで <a class="reference internal" href="../reference/api/grn_search.html#c.grn_search_optarg" title="grn_search_optarg"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_search_optarg</span></code></a> を <code class="docutils literal notranslate"><span class="pre">0</span></code> で初期化しているかチェックしてください。:</p>
+<li><p>[非互換] スコア関数の導入により、DB API層でAPIとABIの互換性がなくなりました。<code class="xref c c-type docutils literal notranslate"><span class="pre">grn_search_optarg</span></code> を使っていたら、次のようなコードで <code class="xref c c-type docutils literal notranslate"><span class="pre">grn_search_optarg</span></code> を <code class="docutils literal notranslate"><span class="pre">0</span></code> で初期化しているかチェックしてください。:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">grn_search_optarg</span><span class="w"> </span><span class="n">options</span><span class="p">;</span>
 <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">grn_search_optarg</span><span class="p">));</span>
 </pre></div>
@@ -1126,7 +1095,7 @@ document.write(`
 <p>上記のようにしていれば、あなたの書いたコードはAPIの互換性があり、ABIは互換性がない状態です。単にそのままリビルドしてください。コードの修正は不要です。</p>
 <p>もしあなたの書いたコードが上記のようにしていないなら、上記のコードを追加してください。</p>
 </li>
-<li><p>DB APIに <a class="reference internal" href="../reference/api/grn_obj.html#c.grn_obj" title="grn_obj"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_obj</span></code></a> の型をチェックするための述語関数を追加しました。</p>
+<li><p>DB APIに <code class="xref c c-type docutils literal notranslate"><span class="pre">grn_obj</span></code> の型をチェックするための述語関数を追加しました。</p>
 <ul class="simple">
 <li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_obj_is_table()</span></code></p></li>
 <li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_obj_is_proc_proc()</span></code></p></li>
@@ -1242,7 +1211,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1347,8 +1317,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1373,7 +1343,7 @@ document.write(`
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.3.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>

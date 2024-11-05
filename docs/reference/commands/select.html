@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.3.57. select &#8212; Groonga v14.0.9 documentation</title>
+    <title>7.3.57. select &#8212; Groonga v14.1.0 documentation</title>
   
   
   
@@ -16,27 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../_static/documentation_options.js?v=ca3fa23a"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/documentation_options.js?v=2caac0c6"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
     <script>
@@ -53,7 +56,7 @@
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/commands/select';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'english';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
@@ -65,6 +68,7 @@
     <link rel="prev" title="7.3.56. schema" href="schema.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="14.1.0" />
   </head>
   
   
@@ -80,19 +84,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -100,7 +93,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -108,8 +100,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,7 +110,7 @@
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
   </button>
   
@@ -127,7 +119,9 @@
     
       <div class="navbar-item">
 
-   
+  
+     
+  
 
 <a class="navbar-brand logo" href="https://groonga.org/">
   
@@ -140,8 +134,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.0.9 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/groonga.png" class="logo__image only-dark" alt="Groonga v14.0.9 documentation - Home"/>`);</script>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.0 documentation - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.0 documentation - Home"/>
   
   
 </a></div>
@@ -156,31 +150,23 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -191,7 +177,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -203,7 +189,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -215,34 +201,30 @@ document.write(`
           
           
           
-          <a href="/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
       
         <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-2"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-2"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-2"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-2">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
       
     </div>
     
@@ -251,20 +233,16 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
     </button>
   
@@ -278,7 +256,8 @@ document.write(`
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -291,17 +270,13 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -312,7 +287,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -324,7 +299,7 @@ document.write(`
           
           
           
-          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -336,34 +311,30 @@ document.write(`
           
           
           
-          <a href="/blog" title="Blog" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-blog fa-lg" aria-hidden="true"></i></span>
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Blog</span></a>
         </li>
 </ul></div>
         
           <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-3"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-3"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-3"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-3">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
         
       </div>
     
@@ -473,10 +444,10 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="../types.html">7.4. Data types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tables.html">7.5. Tables</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../column.html">7.6. Column</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../columns/scalar.html">7.6.1. Scalar column</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../columns/vector.html">7.6.2. Vector column</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../columns/pseudo.html">7.6.3. Pseudo column</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../columns/index.html">7.6.4. Index column</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../columns/scalar.html">7.6.2.1. Scalar column</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../columns/vector.html">7.6.2.2. Vector column</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../columns/pseudo.html">7.6.2.3. Pseudo column</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../columns/index.html">7.6.3.1. Index column</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../normalizers.html">7.7. Normalizers</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -549,31 +520,32 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../functions/html_untag.html">7.15.12. <code class="docutils literal notranslate"><span class="pre">html_untag</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../functions/in_records.html">7.15.13. <code class="docutils literal notranslate"><span class="pre">in_records</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../functions/in_values.html">7.15.14. <code class="docutils literal notranslate"><span class="pre">in_values</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/math_abs.html">7.15.15. <code class="docutils literal notranslate"><span class="pre">math_abs</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/now.html">7.15.16. now</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/number_classify.html">7.15.17. <code class="docutils literal notranslate"><span class="pre">number_classify</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/prefix_rk_search.html">7.15.18. <code class="docutils literal notranslate"><span class="pre">prefix_rk_search</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/query.html">7.15.19. <code class="docutils literal notranslate"><span class="pre">query</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/query_parallel_or.html">7.15.20. <code class="docutils literal notranslate"><span class="pre">query_parallel_or</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/rand.html">7.15.21. rand</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/snippet.html">7.15.22. <code class="docutils literal notranslate"><span class="pre">snippet</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/snippet_html.html">7.15.23. <code class="docutils literal notranslate"><span class="pre">snippet_html</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/string_length.html">7.15.24. <code class="docutils literal notranslate"><span class="pre">string_length</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/string_slice.html">7.15.25. <code class="docutils literal notranslate"><span class="pre">string_slice</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/string_substring.html">7.15.26. <code class="docutils literal notranslate"><span class="pre">string_substring</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/sub_filter.html">7.15.27. <code class="docutils literal notranslate"><span class="pre">sub_filter</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_day.html">7.15.28. <code class="docutils literal notranslate"><span class="pre">time_classify_day</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_day_of_week.html">7.15.29. <code class="docutils literal notranslate"><span class="pre">time_classify_day_of_week</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_hour.html">7.15.30. <code class="docutils literal notranslate"><span class="pre">time_classify_hour</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_minute.html">7.15.31. <code class="docutils literal notranslate"><span class="pre">time_classify_minute</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_month.html">7.15.32. <code class="docutils literal notranslate"><span class="pre">time_classify_month</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_second.html">7.15.33. <code class="docutils literal notranslate"><span class="pre">time_classify_second</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_week.html">7.15.34. <code class="docutils literal notranslate"><span class="pre">time_classify_week</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_year.html">7.15.35. <code class="docutils literal notranslate"><span class="pre">time_classify_year</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/vector_find.html">7.15.36. <code class="docutils literal notranslate"><span class="pre">vector_find</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/vector_new.html">7.15.37. <code class="docutils literal notranslate"><span class="pre">vector_new</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/vector_size.html">7.15.38. <code class="docutils literal notranslate"><span class="pre">vector_size</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/vector_slice.html">7.15.39. <code class="docutils literal notranslate"><span class="pre">vector_slice</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/language_model_vectorize.html">7.15.15. <code class="docutils literal notranslate"><span class="pre">language_model_vectorize</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/math_abs.html">7.15.16. <code class="docutils literal notranslate"><span class="pre">math_abs</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/now.html">7.15.17. now</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/number_classify.html">7.15.18. <code class="docutils literal notranslate"><span class="pre">number_classify</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/prefix_rk_search.html">7.15.19. <code class="docutils literal notranslate"><span class="pre">prefix_rk_search</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/query.html">7.15.20. <code class="docutils literal notranslate"><span class="pre">query</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/query_parallel_or.html">7.15.21. <code class="docutils literal notranslate"><span class="pre">query_parallel_or</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/rand.html">7.15.22. rand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/snippet.html">7.15.23. <code class="docutils literal notranslate"><span class="pre">snippet</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/snippet_html.html">7.15.24. <code class="docutils literal notranslate"><span class="pre">snippet_html</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_length.html">7.15.25. <code class="docutils literal notranslate"><span class="pre">string_length</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_slice.html">7.15.26. <code class="docutils literal notranslate"><span class="pre">string_slice</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_substring.html">7.15.27. <code class="docutils literal notranslate"><span class="pre">string_substring</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/sub_filter.html">7.15.28. <code class="docutils literal notranslate"><span class="pre">sub_filter</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_day.html">7.15.29. <code class="docutils literal notranslate"><span class="pre">time_classify_day</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_day_of_week.html">7.15.30. <code class="docutils literal notranslate"><span class="pre">time_classify_day_of_week</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_hour.html">7.15.31. <code class="docutils literal notranslate"><span class="pre">time_classify_hour</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_minute.html">7.15.32. <code class="docutils literal notranslate"><span class="pre">time_classify_minute</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_month.html">7.15.33. <code class="docutils literal notranslate"><span class="pre">time_classify_month</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_second.html">7.15.34. <code class="docutils literal notranslate"><span class="pre">time_classify_second</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_week.html">7.15.35. <code class="docutils literal notranslate"><span class="pre">time_classify_week</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/time_classify_year.html">7.15.36. <code class="docutils literal notranslate"><span class="pre">time_classify_year</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/vector_find.html">7.15.37. <code class="docutils literal notranslate"><span class="pre">vector_find</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/vector_new.html">7.15.38. <code class="docutils literal notranslate"><span class="pre">vector_new</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/vector_size.html">7.15.39. <code class="docutils literal notranslate"><span class="pre">vector_size</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/vector_slice.html">7.15.40. <code class="docutils literal notranslate"><span class="pre">vector_slice</span></code></a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../window_function.html">7.16. Window function</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -600,35 +572,36 @@ document.write(`
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../indexing.html">7.21. Indexing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sharding.html">7.22. Sharding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../log.html">7.23. Log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tuning.html">7.24. Tuning</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">7.25. API</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api/overview.html">7.25.1. Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/global_configurations.html">7.25.2. Global configurations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/plugin.html">7.25.3. Plugin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_cache.html">7.25.4. <code class="docutils literal notranslate"><span class="pre">grn_cache</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_column.html">7.25.5. <code class="docutils literal notranslate"><span class="pre">grn_column</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_command_version.html">7.25.6. <code class="docutils literal notranslate"><span class="pre">grn_command_version</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_content_type.html">7.25.7. <code class="docutils literal notranslate"><span class="pre">grn_content_type</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_ctx.html">7.25.8. <code class="docutils literal notranslate"><span class="pre">grn_ctx</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_db.html">7.25.9. <code class="docutils literal notranslate"><span class="pre">grn_db</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_encoding.html">7.25.10. <code class="docutils literal notranslate"><span class="pre">grn_encoding</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_expr.html">7.25.11. grn_expr</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_geo.html">7.25.12. <code class="docutils literal notranslate"><span class="pre">grn_geo</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_hook.html">7.25.13. <code class="docutils literal notranslate"><span class="pre">grn_hook</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_ii.html">7.25.14. <code class="docutils literal notranslate"><span class="pre">grn_ii</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_index_cursor.html">7.25.15. <code class="docutils literal notranslate"><span class="pre">grn_index_cursor</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_info.html">7.25.16. <code class="docutils literal notranslate"><span class="pre">grn_info</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_inspect.html">7.25.17. <code class="docutils literal notranslate"><span class="pre">grn_inspect</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_match_escalation.html">7.25.18. <code class="docutils literal notranslate"><span class="pre">grn_match_escalation</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_obj.html">7.25.19. <code class="docutils literal notranslate"><span class="pre">grn_obj</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_proc.html">7.25.20. <code class="docutils literal notranslate"><span class="pre">grn_proc</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_search.html">7.25.21. <code class="docutils literal notranslate"><span class="pre">grn_search</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_table.html">7.25.22. <code class="docutils literal notranslate"><span class="pre">grn_table</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_table_cursor.html">7.25.23. <code class="docutils literal notranslate"><span class="pre">grn_table_cursor</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_thread.html">7.25.24. <code class="docutils literal notranslate"><span class="pre">grn_thread_*</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_type.html">7.25.25. <code class="docutils literal notranslate"><span class="pre">grn_type</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/grn_user_data.html">7.25.26. <code class="docutils literal notranslate"><span class="pre">grn_user_data</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language_model.html">7.23. Language model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../log.html">7.24. Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tuning.html">7.25. Tuning</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">7.26. API</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/overview.html">7.26.1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/global_configurations.html">7.26.2. Global configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/plugin.html">7.26.3. Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_cache.html">7.26.4. <code class="docutils literal notranslate"><span class="pre">grn_cache</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_column.html">7.26.5. <code class="docutils literal notranslate"><span class="pre">grn_column</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_command_version.html">7.26.6. <code class="docutils literal notranslate"><span class="pre">grn_command_version</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_content_type.html">7.26.7. <code class="docutils literal notranslate"><span class="pre">grn_content_type</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_ctx.html">7.26.8. <code class="docutils literal notranslate"><span class="pre">grn_ctx</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_db.html">7.26.9. <code class="docutils literal notranslate"><span class="pre">grn_db</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_encoding.html">7.26.10. <code class="docutils literal notranslate"><span class="pre">grn_encoding</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_expr.html">7.26.11. grn_expr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_geo.html">7.26.12. <code class="docutils literal notranslate"><span class="pre">grn_geo</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_hook.html">7.26.13. <code class="docutils literal notranslate"><span class="pre">grn_hook</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_ii.html">7.26.14. <code class="docutils literal notranslate"><span class="pre">grn_ii</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_index_cursor.html">7.26.15. <code class="docutils literal notranslate"><span class="pre">grn_index_cursor</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_info.html">7.26.16. <code class="docutils literal notranslate"><span class="pre">grn_info</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_inspect.html">7.26.17. <code class="docutils literal notranslate"><span class="pre">grn_inspect</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_match_escalation.html">7.26.18. <code class="docutils literal notranslate"><span class="pre">grn_match_escalation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_obj.html">7.26.19. <code class="docutils literal notranslate"><span class="pre">grn_obj</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_proc.html">7.26.20. <code class="docutils literal notranslate"><span class="pre">grn_proc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_search.html">7.26.21. <code class="docutils literal notranslate"><span class="pre">grn_search</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_table.html">7.26.22. <code class="docutils literal notranslate"><span class="pre">grn_table</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_table_cursor.html">7.26.23. <code class="docutils literal notranslate"><span class="pre">grn_table_cursor</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_thread.html">7.26.24. <code class="docutils literal notranslate"><span class="pre">grn_thread_*</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_type.html">7.26.25. <code class="docutils literal notranslate"><span class="pre">grn_type</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_user_data.html">7.26.26. <code class="docutils literal notranslate"><span class="pre">grn_user_data</span></code></a></li>
 </ul>
 </details></li>
 </ul>
@@ -658,8 +631,6 @@ document.write(`
       
         <div class="header-article-item">
 
-
-
 <nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
@@ -674,7 +645,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../command.html" class="nav-link"><span class="section-number">7.3. </span>Command</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span...</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">7.3.57. </span><code class="docutils literal notranslate"><span class="pre">select</span></code></span></li>
   </ul>
 </nav>
 </div>
@@ -1768,7 +1739,7 @@ important. <code class="docutils literal notranslate"><span class="pre">Japanese
 <span class="c1">#       [</span>
 <span class="c1">#         &quot;execute&quot;,</span>
 <span class="c1">#         &quot;lib/proc/proc_select.cpp&quot;,</span>
-<span class="c1">#         5002</span>
+<span class="c1">#         2929</span>
 <span class="c1">#       ]</span>
 <span class="c1">#     ]</span>
 <span class="c1">#   ]</span>
@@ -2347,7 +2318,7 @@ is less than <code class="docutils literal notranslate"><span class="pre">11</sp
 <section id="load-table">
 <span id="select-load-table"></span><h4><span class="section-number">7.3.57.4.2.4. </span><code class="docutils literal notranslate"><span class="pre">load_table</span></code><a class="headerlink" href="#load-table" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.0.1.</span></p>
+<p><span class="versionmodified added">Added in version 9.0.1.</span></p>
 </div>
 <p>You can store specified a table a result of <code class="docutils literal notranslate"><span class="pre">select</span></code> with <code class="docutils literal notranslate"><span class="pre">--load_table</span></code>, <code class="docutils literal notranslate"><span class="pre">--load-columns</span></code> and <code class="docutils literal notranslate"><span class="pre">--load_values</span></code> arguments.
 <code class="docutils literal notranslate"><span class="pre">--load_table</span></code> specifies a table name for storing a result of <code class="docutils literal notranslate"><span class="pre">select</span></code>.</p>
@@ -2471,7 +2442,7 @@ is less than <code class="docutils literal notranslate"><span class="pre">11</sp
 <section id="load-columns">
 <span id="select-load-columns"></span><h4><span class="section-number">7.3.57.4.2.5. </span><code class="docutils literal notranslate"><span class="pre">load_columns</span></code><a class="headerlink" href="#load-columns" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.0.1.</span></p>
+<p><span class="versionmodified added">Added in version 9.0.1.</span></p>
 </div>
 <p>Specifies columns of a table that specifying <code class="docutils literal notranslate"><span class="pre">--load-table</span></code>.
 Stores value of columns that specified with <a class="reference internal" href="#select-load-values"><span class="std std-ref">load_values</span></a> in columns that specified with this argument.
@@ -2482,7 +2453,7 @@ You must specify columns that already exists.</p>
 <section id="load-values">
 <span id="select-load-values"></span><h4><span class="section-number">7.3.57.4.2.6. </span><code class="docutils literal notranslate"><span class="pre">load_values</span></code><a class="headerlink" href="#load-values" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.0.1.</span></p>
+<p><span class="versionmodified added">Added in version 9.0.1.</span></p>
 </div>
 <p>Specifies columns of result of <code class="docutils literal notranslate"><span class="pre">select</span></code>.
 Specifies columns for storing values into columns that specified with <a class="reference internal" href="#select-load-columns"><span class="std std-ref">load_columns</span></a>.
@@ -2496,7 +2467,7 @@ You must specify columns that already exists.</p>
 <section id="match-escalation-threshold">
 <span id="select-match-escalation-threshold"></span><h4><span class="section-number">7.3.57.4.3.1. </span><code class="docutils literal notranslate"><span class="pre">match_escalation_threshold</span></code><a class="headerlink" href="#match-escalation-threshold" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 8.0.1.</span></p>
+<p><span class="versionmodified added">Added in version 8.0.1.</span></p>
 </div>
 <p>Specifies threshold to determine whether search strategy
 escalation is used or not. The threshold is compared against the
@@ -3070,8 +3041,8 @@ in <code class="docutils literal notranslate"><span class="pre">content</span></
 <span class="c1">#     [</span>
 <span class="c1">#       [</span>
 <span class="c1">#         &quot;yy_syntax_error&quot;,</span>
-<span class="c1">#         &quot;lib/grn_ecmascript.lemon&quot;,</span>
-<span class="c1">#         168</span>
+<span class="c1">#         &quot;grn_ecmascript.lemon&quot;,</span>
+<span class="c1">#         2929</span>
 <span class="c1">#       ]</span>
 <span class="c1">#     ]</span>
 <span class="c1">#   ]</span>
@@ -3414,7 +3385,7 @@ is equal to or more than <code class="docutils literal notranslate"><span class=
 <section id="n-workers">
 <span id="select-n-workers"></span><h4><span class="section-number">7.3.57.4.3.6. </span><code class="docutils literal notranslate"><span class="pre">n_workers</span></code><a class="headerlink" href="#n-workers" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 12.0.5.</span></p>
+<p><span class="versionmodified added">Added in version 12.0.5.</span></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3985,7 +3956,7 @@ records. It’s very useful value to show all records.</p>
 <section id="fuzzy-query-related-parameters">
 <span id="select-fuzzy-query-related-parameters"></span><h3><span class="section-number">7.3.57.4.5. </span>Fuzzy query related parameters<a class="headerlink" href="#fuzzy-query-related-parameters" title="Link to this heading">#</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 13.0.8.</span></p>
+<p><span class="versionmodified added">Added in version 13.0.8.</span></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -4003,7 +3974,7 @@ match escalation methods. See also
 <section id="fuzzy-max-distance-ratio">
 <span id="select-fuzzy-max-distance-ratio"></span><h4><span class="section-number">7.3.57.4.5.1. </span><code class="docutils literal notranslate"><span class="pre">fuzzy_max_distance_ratio</span></code><a class="headerlink" href="#fuzzy-max-distance-ratio" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 13.0.8.</span></p>
+<p><span class="versionmodified added">Added in version 13.0.8.</span></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -4118,7 +4089,7 @@ typo characters for <code class="docutils literal notranslate"><span class="pre"
 <section id="fuzzy-max-distance">
 <span id="select-fuzzy-max-distance"></span><h4><span class="section-number">7.3.57.4.5.2. </span><code class="docutils literal notranslate"><span class="pre">fuzzy_max_distance</span></code><a class="headerlink" href="#fuzzy-max-distance" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 13.0.8.</span></p>
+<p><span class="versionmodified added">Added in version 13.0.8.</span></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -4178,7 +4149,7 @@ more suitable than this parameter.</p>
 <section id="fuzzy-max-expansions">
 <span id="select-fuzzy-max-expansions"></span><h4><span class="section-number">7.3.57.4.5.3. </span><code class="docutils literal notranslate"><span class="pre">fuzzy_max_expansions</span></code><a class="headerlink" href="#fuzzy-max-expansions" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 13.0.8.</span></p>
+<p><span class="versionmodified added">Added in version 13.0.8.</span></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -4238,7 +4209,7 @@ only used. <code class="docutils literal notranslate"><span class="pre">also</sp
 <section id="fuzzy-prefix-length">
 <span id="select-fuzzy-prefix-length"></span><h4><span class="section-number">7.3.57.4.5.4. </span><code class="docutils literal notranslate"><span class="pre">fuzzy_prefix_length</span></code><a class="headerlink" href="#fuzzy-prefix-length" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 13.0.8.</span></p>
+<p><span class="versionmodified added">Added in version 13.0.8.</span></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -4298,7 +4269,7 @@ term. Because <code class="docutils literal notranslate"><span class="pre">Mroon
 <section id="fuzzy-with-transposition">
 <span id="select-fuzzy-with-transposition"></span><h4><span class="section-number">7.3.57.4.5.5. </span><code class="docutils literal notranslate"><span class="pre">fuzzy_with_transposition</span></code><a class="headerlink" href="#fuzzy-with-transposition" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 13.0.9.</span></p>
+<p><span class="versionmodified added">Added in version 13.0.9.</span></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -4361,7 +4332,7 @@ because it has edit distance <code class="docutils literal notranslate"><span cl
 <section id="fuzzy-with-tokenize">
 <span id="select-fuzzy-tokenize"></span><h4><span class="section-number">7.3.57.4.5.6. </span><code class="docutils literal notranslate"><span class="pre">fuzzy_with_tokenize</span></code><a class="headerlink" href="#fuzzy-with-tokenize" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 13.0.9.</span></p>
+<p><span class="versionmodified added">Added in version 13.0.9.</span></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -4431,7 +4402,7 @@ query. In this example, you can’t use <code class="docutils literal notranslat
 <section id="dynamic-column-related-parameters">
 <span id="select-dynamic-column-related-parameters"></span><h3><span class="section-number">7.3.57.4.6. </span>Dynamic column related parameters<a class="headerlink" href="#dynamic-column-related-parameters" title="Link to this heading">#</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 6.0.6.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.6.</span></p>
 </div>
 <p>This section describes dynamic column related parameters. You can use
 dynamic column for window function but this section doesn’t describe
@@ -4512,7 +4483,7 @@ columns (<code class="docutils literal notranslate"><span class="pre">name1</spa
 <section id="columns-name-stage">
 <span id="select-columns-name-stage"></span><h4><span class="section-number">7.3.57.4.6.1. </span><code class="docutils literal notranslate"><span class="pre">columns[${NAME}].stage</span></code><a class="headerlink" href="#columns-name-stage" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 6.0.6.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.6.</span></p>
 </div>
 <p>Specifies when the dynamic column is created. This is a required
 parameter to create a dynamic column.</p>
@@ -4622,7 +4593,7 @@ and <code class="docutils literal notranslate"><span class="pre">output_columns<
 <section id="columns-name-flags">
 <span id="select-columns-name-flags"></span><h4><span class="section-number">7.3.57.4.6.2. </span><code class="docutils literal notranslate"><span class="pre">columns[${NAME}].flags</span></code><a class="headerlink" href="#columns-name-flags" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 6.0.6.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.6.</span></p>
 </div>
 <p>Specifies flags for the dynamic column. It’s the same as <code class="docutils literal notranslate"><span class="pre">flags</span></code>
 parameter for <a class="reference internal" href="column_create.html"><span class="doc">column_create</span></a>. See <a class="reference internal" href="column_create.html#column-create-flags"><span class="std std-ref">flags</span></a> for
@@ -4711,7 +4682,7 @@ function:</p>
 <section id="columns-name-type">
 <span id="select-columns-name-type"></span><h4><span class="section-number">7.3.57.4.6.3. </span><code class="docutils literal notranslate"><span class="pre">columns[${NAME}].type</span></code><a class="headerlink" href="#columns-name-type" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 6.0.6.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.6.</span></p>
 </div>
 <p>Specifies value type for the dynamic column. It’s the same as <code class="docutils literal notranslate"><span class="pre">type</span></code>
 parameter for <a class="reference internal" href="column_create.html"><span class="doc">column_create</span></a>. See <a class="reference internal" href="column_create.html#column-create-type"><span class="std std-ref">type</span></a> for
@@ -4785,7 +4756,7 @@ number is casted to <code class="docutils literal notranslate"><span class="pre"
 <section id="columns-name-value">
 <span id="select-columns-name-value"></span><h4><span class="section-number">7.3.57.4.6.4. </span><code class="docutils literal notranslate"><span class="pre">columns[${NAME}].value</span></code><a class="headerlink" href="#columns-name-value" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 6.0.6.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.6.</span></p>
 </div>
 <p>Specifies expression that generates values for the dynamic column. The
 expression uses <a class="reference internal" href="../grn_expr/script_syntax.html"><span class="doc">Script syntax</span></a>. It’s the
@@ -4871,7 +4842,7 @@ string. <a class="reference internal" href="plugin_register.html"><span class="d
 <section id="window-function-related-parameters">
 <span id="select-window-function-related-parameters"></span><h3><span class="section-number">7.3.57.4.7. </span>Window function related parameters<a class="headerlink" href="#window-function-related-parameters" title="Link to this heading">#</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 6.0.6.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.6.</span></p>
 </div>
 <p>This section describes window function related parameters. You need to
 use dynamic column for using window function. See
@@ -5056,7 +5027,7 @@ dynamic column related parameters:</p>
 <section id="columns-name-window-sort-keys">
 <span id="select-columns-name-window-sort-keys"></span><h4><span class="section-number">7.3.57.4.7.1. </span><code class="docutils literal notranslate"><span class="pre">columns[${NAME}].window.sort_keys</span></code><a class="headerlink" href="#columns-name-window-sort-keys" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 6.0.6.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.6.</span></p>
 </div>
 <p>Specifies sort keys in each group. Window function processes records
 in each group in the specified order.</p>
@@ -5144,7 +5115,7 @@ the same as <a class="reference internal" href="#select-sort-keys"><span class="
 <section id="columns-name-window-group-keys">
 <span id="select-columns-name-window-group-keys"></span><h4><span class="section-number">7.3.57.4.7.2. </span><code class="docutils literal notranslate"><span class="pre">columns[${NAME}].window.group_keys</span></code><a class="headerlink" href="#columns-name-window-group-keys" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 7.0.0.</span></p>
+<p><span class="versionmodified added">Added in version 7.0.0.</span></p>
 </div>
 <p>Specifies group keys. Window function processes records in each
 group. If you specify no group keys, window function processes one
@@ -6678,7 +6649,7 @@ that only <code class="docutils literal notranslate"><span class="pre">COUNT</sp
 <section id="drilldown-calc-target">
 <span id="select-drilldown-calc-target"></span><h4><span class="section-number">7.3.57.4.8.8. </span><code class="docutils literal notranslate"><span class="pre">drilldown_calc_target</span></code><a class="headerlink" href="#drilldown-calc-target" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 6.0.3.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.3.</span></p>
 </div>
 <p>Specifies the target column for <a class="reference internal" href="#select-drilldown-calc-types"><span class="std std-ref">drilldown_calc_types</span></a>.</p>
 <p>If you specify a calculation type that needs a target column such as
@@ -6698,7 +6669,7 @@ that no calculation target column is specified.</p>
 <section id="drilldown-filter">
 <span id="select-drilldown-filter"></span><h4><span class="section-number">7.3.57.4.8.9. </span><code class="docutils literal notranslate"><span class="pre">drilldown_filter</span></code><a class="headerlink" href="#drilldown-filter" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 6.0.3.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.3.</span></p>
 </div>
 <p>Specifies the filter condition against the drilled down result.</p>
 <p>The syntax is <a class="reference internal" href="../grn_expr/script_syntax.html"><span class="doc">Script syntax</span></a>. It’s the same
@@ -6784,7 +6755,7 @@ as <a class="reference internal" href="#select-filter"><span class="std std-ref"
 <section id="drilldown-max-n-target-records">
 <span id="select-drilldown-max-n-target-records"></span><h4><span class="section-number">7.3.57.4.8.10. </span><code class="docutils literal notranslate"><span class="pre">drilldown_max_n_target_records</span></code><a class="headerlink" href="#drilldown-max-n-target-records" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 12.0.0.</span></p>
+<p><span class="versionmodified added">Added in version 12.0.0.</span></p>
 </div>
 <p>Specifies the max number of records of the drilldown target table
 (filtered result) to use drilldown. If the number of filtered result
@@ -6880,7 +6851,7 @@ drilldown. The last 2 records, <code class="docutils literal notranslate"><span 
 <section id="advanced-drilldown-related-parameters">
 <span id="select-advanced-drilldown-related-parameters"></span><h3><span class="section-number">7.3.57.4.9. </span>Advanced drilldown related parameters<a class="headerlink" href="#advanced-drilldown-related-parameters" title="Link to this heading">#</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 4.0.8.</span></p>
+<p><span class="versionmodified added">Added in version 4.0.8.</span></p>
 </div>
 <p>You can get multiple drilldown results by specifying multiple group
 keys by <a class="reference internal" href="#select-drilldown"><span class="std std-ref">drilldown</span></a>. But you need to use the same
@@ -6993,7 +6964,7 @@ know how to use it for the following parameters:</p>
 <section id="drilldowns-label-keys">
 <span id="select-drilldowns-label-keys"></span><h4><span class="section-number">7.3.57.4.9.1. </span><code class="docutils literal notranslate"><span class="pre">drilldowns[${LABEL}].keys</span></code><a class="headerlink" href="#drilldowns-label-keys" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 4.0.8.</span></p>
+<p><span class="versionmodified added">Added in version 4.0.8.</span></p>
 </div>
 <p><a class="reference internal" href="#select-drilldown"><span class="std std-ref">drilldown</span></a> can specify multiple keys for multiple
 drilldowns. But it can’t specify multiple keys for one drilldown.</p>
@@ -7108,7 +7079,7 @@ specify one key as <code class="docutils literal notranslate"><span class="pre">
 <section id="drilldowns-label-table">
 <span id="select-drilldowns-label-table"></span><h4><span class="section-number">7.3.57.4.9.2. </span><code class="docutils literal notranslate"><span class="pre">drilldowns[${LABEL}].table</span></code><a class="headerlink" href="#drilldowns-label-table" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 6.0.2.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.2.</span></p>
 </div>
 <p>Specify <code class="docutils literal notranslate"><span class="pre">${LABEL}</span></code> of other <code class="docutils literal notranslate"><span class="pre">drilldowns</span></code> or <code class="docutils literal notranslate"><span class="pre">slices</span></code>.</p>
 <p>You can drilldown the result of specified <code class="docutils literal notranslate"><span class="pre">${LABEL}</span></code>.
@@ -7251,7 +7222,7 @@ Thus the result of <code class="docutils literal notranslate"><span class="pre">
 <section id="drilldowns-label-key-vector-expansion">
 <span id="select-drilldowns-label-key-vector-expansions"></span><h4><span class="section-number">7.3.57.4.9.3. </span><code class="docutils literal notranslate"><span class="pre">drilldowns[${LABEL}].key_vector_expansion</span></code><a class="headerlink" href="#drilldowns-label-key-vector-expansion" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 12.1.1.</span></p>
+<p><span class="versionmodified added">Added in version 12.1.1.</span></p>
 </div>
 <p>This specifies how to expand key when keys for drilldown are vector. Currently, <code class="docutils literal notranslate"><span class="pre">NONE</span></code> or <code class="docutils literal notranslate"><span class="pre">POWER_SET</span></code> are able to be specified.</p>
 <p>This work only time when one key is target for drilldown. This doesn’t work time when more than 2 keys are target for drilldown.</p>
@@ -7600,7 +7571,7 @@ For example with this sample, it can be analyzed that <code class="docutils lite
 <section id="drilldowns-label-output-columns">
 <span id="select-drilldowns-label-output-columns"></span><h4><span class="section-number">7.3.57.4.9.4. </span><code class="docutils literal notranslate"><span class="pre">drilldowns[${LABEL}].output_columns</span></code><a class="headerlink" href="#drilldowns-label-output-columns" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 4.0.8.</span></p>
+<p><span class="versionmodified added">Added in version 4.0.8.</span></p>
 </div>
 <p>It’s almost same as <a class="reference internal" href="#select-drilldown-output-columns"><span class="std std-ref">drilldown_output_columns</span></a>. The
 difference between <a class="reference internal" href="#select-drilldown-output-columns"><span class="std std-ref">drilldown_output_columns</span></a> and
@@ -7750,7 +7721,7 @@ you specify only one group key to
 <section id="drilldowns-label-columns-name-stage">
 <span id="select-drilldowns-label-columns-name-stage"></span><h4><span class="section-number">7.3.57.4.9.5. </span><code class="docutils literal notranslate"><span class="pre">drilldowns[${LABEL}].columns[${NAME}].stage</span></code><a class="headerlink" href="#drilldowns-label-columns-name-stage" title="Link to this heading">#</a></h4>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 6.0.5.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.5.</span></p>
 </div>
 <p>Specifies when the dynamic column is created. This is a required
 parameter to create a dynamic column.</p>
@@ -7922,7 +7893,7 @@ creates <code class="docutils literal notranslate"><span class="pre">is_popular<
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 4.0.8.</span></p>
+<p><span class="versionmodified added">Added in version 4.0.8.</span></p>
 </div>
 </section>
 <section id="output-format-for-drilldowns-label-style">
@@ -7963,7 +7934,7 @@ result.</p>
 <section id="slice-related-parameters">
 <span id="select-slice-related-parameters"></span><h3><span class="section-number">7.3.57.4.10. </span>Slice related parameters<a class="headerlink" href="#slice-related-parameters" title="Link to this heading">#</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 6.0.3.</span></p>
+<p><span class="versionmodified added">Added in version 6.0.3.</span></p>
 </div>
 <p>This section describes slice related parameters.</p>
 <p>TODO</p>
@@ -8635,7 +8606,8 @@ pairs):</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -8798,8 +8770,8 @@ pairs):</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -8824,7 +8796,7 @@ pairs):</p>
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.3.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>
