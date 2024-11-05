@@ -10,7 +10,7 @@ description: Groongaソースコード読書会（仮）の開催に協力して
 
 <blockquote class="twitter-tweet" lang="ja">
 <p>そういえば、先週末のgroonga talknizer talk でのgroonga内部のデータ構造の話を聞いて、groongaソースコード読書会的なものがあったらちょっと行ってみたいなーと思いました。</p>
-&mdash; のらぬこ (@noranuk0) <a href="https://twitter.com/noranuk0/status/579828683512287232">2015, 3月 23</a>
+&#8212; のらぬこ (@noranuk0) <a href="https://twitter.com/noranuk0/status/579828683512287232">2015, 3月 23</a>
 </blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
