@@ -17,5 +17,5 @@
 
 require_relative "release_task"
 
-release_task = ReleaseTask.new("groonga")
+release_task = ReleaseTask.new("Groonga", __dir__)
 release_task.define

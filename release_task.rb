@@ -15,11 +15,19 @@
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
+require "date"
+require "yaml"
+
 class ReleaseTask
   include Rake::DSL
 
-  def initialize(package)
-    @package = package
+  def initialize(product, jekyll_path)
+    @product = product
+    @product_id = product.downcase
+    @jekyll_path = jekyll_path
+    @jekyll_config = load_jekyll_config
+    @version = detect_version
+    @release_date = detect_release_date
   end
 
   def define
@@ -28,13 +36,43 @@ class ReleaseTask
 
   private
 
+  def load_jekyll_config
+    YAML.safe_load_file(File.join(@jekyll_path, "_config.yml"), permitted_classes: [Date])
+  end
+
+  def detect_version
+    @jekyll_config["#{@product_id}_version"]
+  end
+
+  def detect_release_date
+    @jekyll_config["#{@product_id}_release_date"]
+  end
+
   def define_generate_blog_task
     namespace :release do
       namespace :blog do
         desc "Generate release announce posts from a release note"
         task :generate do
-          puts "TODO: Generate release announce posts for #{@package}"
+          generate_blog_posts
         end
+      end
+    end
+  end
+
+  def post_filename
+    "#{@release_date.strftime("%F")}-#{@product_id}-#{@version}.md"
+  end
+
+  def post_content(locale)
+    # TODO: We will write blog post contents here.
+    # After writing contents, we will remove this TODO comment.
+    "#{locale}, #{@product}, #{@version}"
+  end
+
+  def generate_blog_posts
+    ["ja", "en"].each do |locale|
+      File.open("#{@jekyll_path}/#{locale}/_posts/#{post_filename}", "w") do |post|
+        post.write(post_content(locale))
       end
     end
   end
