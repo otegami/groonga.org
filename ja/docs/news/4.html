@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>お知らせ - 4系 &#8212; Groonga v14.1.0ドキュメント</title>
+    <title>お知らせ - 4系 &#8212; Groonga v14.1.1 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../_static/documentation_options.js?v=1d5d5492"></script>
+    <script src="../_static/documentation_options.js?v=799284d6"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/translations.js?v=4755f45a"></script>
@@ -67,7 +67,7 @@
     <link rel="search" title="検索" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
-  <meta name="docsearch:version" content="14.1.0" />
+  <meta name="docsearch:version" content="14.1.1" />
   </head>
   
   
@@ -133,8 +133,8 @@
       
     
     
-    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.0ドキュメント - Home"/>
-    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.0ドキュメント - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.1 documentation - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.1 documentation - Home"/>
   
   
 </a></div>
@@ -482,7 +482,7 @@
 <li><p>[<a class="reference internal" href="../reference/token_filters/token_filter_stem.html#token-filter-stem"><span class="std std-ref">TokenFilterStem</span></a>] 大文字アルファベット、数字、 <code class="docutils literal notranslate"><span class="pre">-</span></code> 、 <code class="docutils literal notranslate"><span class="pre">'</span></code> だけで構成されているトークンに対応しました。これにより、 <a class="reference internal" href="../reference/token_filters/token_filter_stem.html#token-filter-stem"><span class="std std-ref">TokenFilterStem</span></a> はMySQL互換ノーマライザーと一緒に使うことができるようになりました。</p></li>
 <li><p>[<a class="reference internal" href="../reference/commands/truncate.html"><span class="doc">truncate</span></a>] カラムに対応しました。</p></li>
 <li><p>[<a class="reference internal" href="../reference/commands/truncate.html"><span class="doc">truncate</span></a>] パラメーター名を <code class="docutils literal notranslate"><span class="pre">table</span></code> から <code class="docutils literal notranslate"><span class="pre">target_name</span></code> に変更しました。後方互換性のために <code class="docutils literal notranslate"><span class="pre">table</span></code> パラメーターも使うことはできますが、新しく書くコードでは使わないでください。</p></li>
-<li><p><a class="reference internal" href="../reference/api/grn_column.html#c.grn_column_truncate" title="grn_column_truncate"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_column_truncate()</span></code></a> を公開しました。</p></li>
+<li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_column_truncate()</span></code> を公開しました。</p></li>
 <li><p><a class="reference internal" href="../reference/commands/lock_clear.html"><span class="doc">lock_clear</span></a> を追加しました。</p></li>
 <li><p><a class="reference internal" href="../reference/commands/clearlock.html"><span class="doc">clearlock</span></a> を非推奨扱いにしました。</p></li>
 <li><p>[後方非互換] デーモンモードの <a class="reference internal" href="../reference/executables/groonga-httpd.html"><span class="doc">groonga-httpd</span></a> のように <code class="docutils literal notranslate"><span class="pre">umask(0)</span></code> 環境で新しく作るファイルのパーミッションを誰でも書き込めるパーミッションにすることを止めました。これは後方非互換な変更ですが、以前の挙動はセキュリティーリスクがあるため変更します。</p></li>
@@ -674,7 +674,7 @@
 <h3>修正<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>[php] <code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_recv()</span></code> を呼び出したときのメモリリークを修正しました。[GitHub#184] [&#64;do-akiさんがパッチ提供]</p></li>
-<li><p>[php] <a class="reference internal" href="../reference/api/grn_ctx.html#c.grn_ctx_close" title="grn_ctx_close"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_close()</span></code></a> を呼んだときにメモリを二重に解放しないようにしました。[GitHub#184] [&#64;do-akiさんがパッチ提供]</p></li>
+<li><p>[php] <code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_close()</span></code> を呼んだときにメモリを二重に解放しないようにしました。[GitHub#184] [&#64;do-akiさんがパッチ提供]</p></li>
 <li><p>ツリー外でのビルドを再度サポートしました。</p></li>
 <li><p>[httpd] バンドルしているnginxのバージョンを1.7.4に更新しました。セキュリティーに関する修正を含んでいます。</p></li>
 <li><p>インデックス更新の際に無限ループが発生することがある問題を修正しました。[groonga-dev,02673] [皆川さんが報告]</p></li>

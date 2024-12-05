@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.1.3. groonga 実行ファイル &#8212; Groonga v14.1.0ドキュメント</title>
+    <title>7.1.3. groonga 実行ファイル &#8212; Groonga v14.1.1 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../_static/documentation_options.js?v=1d5d5492"></script>
+    <script src="../../_static/documentation_options.js?v=799284d6"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/translations.js?v=4755f45a"></script>
@@ -69,7 +69,7 @@
     <link rel="prev" title="7.1.2. grnslap" href="grnslap.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
-  <meta name="docsearch:version" content="14.1.0" />
+  <meta name="docsearch:version" content="14.1.1" />
   </head>
   
   
@@ -135,8 +135,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.0ドキュメント - Home"/>
-    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.0ドキュメント - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.1 documentation - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.1 documentation - Home"/>
   
   
 </a></div>
@@ -942,32 +942,57 @@ is running at <code class="docutils literal notranslate"><span class="pre">192.1
 <dd><div class="versionadded">
 <p><span class="versionmodified added">Added in version 8.1.1.</span></p>
 </div>
-<p>ログフラグを指定します。デフォルト値は <code class="docutils literal notranslate"><span class="pre">time|message</span></code> です。</p>
-<p><code class="docutils literal notranslate"><span class="pre">+</span></code> 接頭辞は、フラグを追加します。</p>
-<p><code class="docutils literal notranslate"><span class="pre">-</span></code> 接頭辞は、フラグを削除します。</p>
-<p>接頭辞無しは、既存のフラグを置き換えます。</p>
+<p>ログフラグを指定します。デフォルト値は <code class="docutils literal notranslate"><span class="pre">time|+message</span></code> です。</p>
+<p>フラグの前に <code class="docutils literal notranslate"><span class="pre">+</span></code> をつけると現在のフラグにこのフラグを追加します。たとえば、 <code class="docutils literal notranslate"><span class="pre">+process_id</span></code> は現在のフラグに <code class="docutils literal notranslate"><span class="pre">process_id</span></code> フラグを追加します。</p>
+<p>フラグの前に <code class="docutils literal notranslate"><span class="pre">-</span></code> をつけると現在のフラグからこのフラグを削除します。たとえば、 <code class="docutils literal notranslate"><span class="pre">-time</span></code> は現在のフラグから <code class="docutils literal notranslate"><span class="pre">time</span></code> フラグを削除します。</p>
+<p>フラグの前になにもつけないと現在のフラグを指定したフラグで置き換えます。たとえば、 <code class="docutils literal notranslate"><span class="pre">time|message</span></code> は <code class="docutils literal notranslate"><span class="pre">message`</span> <span class="pre">と同じです。なぜなら最初の</span> <span class="pre">``time</span></code> フラグは次の <code class="docutils literal notranslate"><span class="pre">message</span></code> フラグで置き換えられるからです。</p>
 <p><code class="docutils literal notranslate"><span class="pre">|</span></code> でフラグを区切ることで、複数のログフラグを指定できます。</p>
-<p>指定できるフラグは以下の通りです。</p>
-<dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">none</span></code></dt><dd><p>ログに何も出力しません。</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">time</span></code></dt><dd><p>タイムスタンプをログに出力します。</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">message</span></code></dt><dd><p>ログメッセージをログに出力します。</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">location</span></code></dt><dd><p>プロセスIDとログの出力場所(ファイル名、行数、関数名)をログに出力します。</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">process_id</span></code></dt><dd><p>プロセスIDをログに出力します。</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">pid</span></code></dt><dd><p>このフラグは、 <code class="docutils literal notranslate"><span class="pre">process_id</span></code> の別名です。</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">thread_id</span></code></dt><dd><p>スレッドIDををログに出力します。</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">all</span></code></dt><dd><p>このフラグは、 <code class="docutils literal notranslate"><span class="pre">none</span></code> と <code class="docutils literal notranslate"><span class="pre">default</span></code> フラグ以外の全てのフラグを指定します。</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">default</span></code></dt><dd><p>タイムスタンプとログメッセージをログに出力します。</p>
-</dd>
-</dl>
+<p>利用可能なフラグは次のとおりです。</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>名前</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">none</span></code></p></td>
+<td><p>ログに何も出力しません。</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">time</span></code></p></td>
+<td><p>タイムスタンプをログに出力します。</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
+<td><p>メッセージをログに出力します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">location</span></code></p></td>
+<td><p>プロセスIDとログを出力した場所の情報（ファイル名・行数・関数名）をログに出力します。</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">process_id</span></code></p></td>
+<td><p>プロセスIDをログに出力します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pid</span></code></p></td>
+<td><p>このフラグは <code class="docutils literal notranslate"><span class="pre">process_id</span></code> の別名です。</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">thread_id</span></code></p></td>
+<td><p>スレッドIDをログに出力します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">context_id</span></code></p></td>
+<td><div class="versionadded">
+<p><span class="versionmodified added">Added in version 14.1.1.</span></p>
+</div>
+<p>コンテキストIDをログに出力します。</p>
+<p>コンテキストIDは <a class="reference internal" href="../log.html#query-log"><span class="std std-ref">クエリーログ</span></a> にも出力されます。そのため、このフラグを使うと <a class="reference internal" href="../log.html#process-log"><span class="std std-ref">プロセスログ</span></a> と <a class="reference internal" href="../log.html#query-log"><span class="std std-ref">クエリーログ</span></a> にある同一コンテキストのログを関連付けやすくなります。</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">all</span></code></p></td>
+<td><p>このフラグは、 <code class="docutils literal notranslate"><span class="pre">none</span></code> と <code class="docutils literal notranslate"><span class="pre">default</span></code> フラグ以外の全てのフラグを指定します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">default</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">time|+message</span></code> と同じです。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </dd></dl>
 
 <dl class="std option">

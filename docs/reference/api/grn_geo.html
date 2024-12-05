@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.26.12. grn_geo &#8212; Groonga v14.1.0 documentation</title>
+    <title>7.26.12. grn_geo &#8212; Groonga v14.1.1 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../_static/documentation_options.js?v=2caac0c6"></script>
+    <script src="../../_static/documentation_options.js?v=48651082"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
@@ -68,7 +68,7 @@
     <link rel="prev" title="7.26.11. grn_expr" href="grn_expr.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="14.1.0" />
+  <meta name="docsearch:version" content="14.1.1" />
   </head>
   
   
@@ -134,8 +134,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.0 documentation - Home"/>
-    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.0 documentation - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.1 documentation - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.1 documentation - Home"/>
   
   
 </a></div>
@@ -674,73 +674,10 @@
 </section>
 <section id="reference">
 <h2><span class="section-number">7.26.12.3. </span>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
-<dl class="c type">
-<dt class="sig sig-object c" id="c.grn_geo_point">
-<span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_geo_point</span></span></span><a class="headerlink" href="#c.grn_geo_point" title="Link to this definition">#</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_geo_select_in_rectangle">
-<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_geo_select_in_rectangle</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <span class="n"><span class="pre">grn_obj</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">index</span></span>, <span class="n"><span class="pre">grn_obj</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">top_left_point</span></span>, <span class="n"><span class="pre">grn_obj</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">bottom_right_point</span></span>, <span class="n"><span class="pre">grn_obj</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">res</span></span>, <span class="n"><span class="pre">grn_operator</span></span><span class="w"> </span><span class="n"><span class="pre">op</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_geo_select_in_rectangle" title="Link to this definition">#</a><br /></dt>
-<dd><p>It selects records that are in the rectangle specified by top_left_point parameter and bottom_right_point parameter. Records are searched by index parameter. Found records are added to res parameter table with op parameter operation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>index</strong> – the index column for TokyoGeoPoint or WGS84GeoPpoint type.</p></li>
-<li><p><strong>top_left_point</strong> – the top left point of the target rectangle. (ShortText, Text, LongText, TokyoGeoPoint or  WGS84GeoPoint)</p></li>
-<li><p><strong>bottom_right_point</strong> – the bottom right point of the target rectangle. (ShortText, Text, LongText, TokyoGeoPoint or WGS84GeoPoint)</p></li>
-<li><p><strong>res</strong> – the table to store found record IDs. It must be <code class="docutils literal notranslate"><span class="pre">GRN_TABLE_HASH_KEY</span></code> type table.</p></li>
-<li><p><strong>op</strong> – the operator for matched records.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_geo_estimate_in_rectangle">
-<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_geo_estimate_in_rectangle</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <span class="n"><span class="pre">grn_obj</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">index</span></span>, <span class="n"><span class="pre">grn_obj</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">top_left_point</span></span>, <span class="n"><span class="pre">grn_obj</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">bottom_right_point</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_geo_estimate_in_rectangle" title="Link to this definition">#</a><br /></dt>
-<dd><p>It estimates number of records in the rectangle specified by top_left_point parameter and bottom_right_point parameter. Number of records is estimated by index parameter. If an error is occurred, -1 is returned.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>index</strong> – the index column for TokyoGeoPoint or WGS84GeoPpoint type.</p></li>
-<li><p><strong>top_left_point</strong> – the top left point of the target rectangle. (ShortText, Text, LongText, TokyoGeoPoint or WGS84GeoPoint)</p></li>
-<li><p><strong>bottom_right_point</strong> – the bottom right point of the target rectangle. (ShortText, Text, LongText, TokyoGeoPoint or WGS84GeoPoint)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_geo_cursor_open_in_rectangle">
-<span class="n"><span class="pre">grn_obj</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">grn_geo_cursor_open_in_rectangle</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <span class="n"><span class="pre">grn_obj</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">index</span></span>, <span class="n"><span class="pre">grn_obj</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">top_left_point</span></span>, <span class="n"><span class="pre">grn_obj</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">bottom_right_point</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">offset</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">limit</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_geo_cursor_open_in_rectangle" title="Link to this definition">#</a><br /></dt>
-<dd><p>It opens a cursor to get records in the rectangle specified by top_left_point parameter and bottom_right_point parameter.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>index</strong> – the index column for TokyoGeoPoint or WGS84GeoPpoint type.</p></li>
-<li><p><strong>top_left_point</strong> – the top left point of the target rectangle. (ShortText, Text, LongText, TokyoGeoPoint or WGS84GeoPoint)</p></li>
-<li><p><strong>bottom_right_point</strong> – the bottom right point of the target rectangle. (ShortText, Text, LongText, TokyoGeoPoint or WGS84GeoPoint)</p></li>
-<li><p><strong>offset</strong> – the cursor returns records from offset parameter position. offset parameter is based on 0.</p></li>
-<li><p><strong>limit</strong> – the cursor returns at most limit parameter records. -1 means no limit.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_geo_cursor_next">
-<span class="n"><span class="pre">grn_posting</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">grn_geo_cursor_next</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="grn_ctx.html#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <span class="n"><span class="pre">grn_obj</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">cursor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_geo_cursor_next" title="Link to this definition">#</a><br /></dt>
-<dd><p>It returns the next posting that has record ID. It returns NULL after all records are returned.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>cursor</strong> – the geo cursor.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We are currently switching to automatic generation using Doxygen.</p>
+</div>
 </section>
 </section>
 

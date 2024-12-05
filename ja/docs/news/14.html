@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>お知らせ - 14系 &#8212; Groonga v14.1.0ドキュメント</title>
+    <title>お知らせ - 14系 &#8212; Groonga v14.1.1 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../_static/documentation_options.js?v=1d5d5492"></script>
+    <script src="../_static/documentation_options.js?v=799284d6"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/translations.js?v=4755f45a"></script>
@@ -67,7 +67,7 @@
     <link rel="search" title="検索" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
-  <meta name="docsearch:version" content="14.1.0" />
+  <meta name="docsearch:version" content="14.1.1" />
   </head>
   
   
@@ -133,8 +133,8 @@
       
     
     
-    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.0ドキュメント - Home"/>
-    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.0ドキュメント - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.1 documentation - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.1 documentation - Home"/>
   
   
 </a></div>
@@ -398,11 +398,75 @@
   <section class="tex2jax_ignore mathjax_ignore" id="news-14-series">
 <h1>お知らせ - 14系<a class="headerlink" href="#news-14-series" title="Link to this heading">#</a></h1>
 <!-- prettier-ignore-start -->
-<section id="release-14-1-0-2024-11-05">
-<span id="release-14-1-0"></span><h2>14.1.0リリース - 2024-11-05<a class="headerlink" href="#release-14-1-0-2024-11-05" title="Link to this heading">#</a></h2>
+<section id="release-14-1-1-2024-12-03">
+<span id="release-14-1-1"></span><h2>14.1.1リリース - 2024-12-03<a class="headerlink" href="#release-14-1-1-2024-12-03" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
 <section id="improvements">
 <h3>改良<a class="headerlink" href="#improvements" title="Link to this heading">#</a></h3>
+<section id="stopped-vendoring-rapidjson">
+<h4>RapidJSONの同梱を終了<a class="headerlink" href="#stopped-vendoring-rapidjson" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://github.com/groonga/groonga/issues/1462">GH-1462</a></p>
+<p>14.0.7でsimdjsonをサポートしました。これによりRapidJSONを同梱する必要がなくなりました。RapidJSONにはJSONライセンスのファイルが含まれていました。JSONライセンスはフリーソフトウェアライセンス・オープンソースライセンスではありません。そのため、RapidJSONの同梱をやめたかったのです。</p>
+<p>RapidJSONはまだサポートしています。別途RapidJSONをインストールすることで引き続きRapidJSONを使うことができます。しかし、RapidJSONよりsimdjsonを使うことをオススメします。</p>
+</section>
+<section id="made-llama-cpp-initialization-lazy">
+<h4>llama.cppの初期化処理を遅延化<a class="headerlink" href="#made-llama-cpp-initialization-lazy" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://github.com/groonga/groonga/issues/2078">GH-2078</a></p>
+<p>llama.cppは最近のSIMD機能を必要とします。llama.cppを常に初期化すると、古いCPUを使っていて、かつ、llama.cppの機能を使っていないユーザーが公式のGroongaパッケージを使えません。そのため、llama.cppの初期化を遅延させることにしました。llama.cpp関連の機能を使っているユーザーは引き続き最近のCPUが必要ですが、llama.cpp関連の機能を使っていないユーザーはこれまで通り古いCPUを使えます。</p>
+</section>
+<section id="normalizernfkc-added-support-for-mixing-unify-middle-dot-and-remove-symbol">
+<h4><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code>: <code class="docutils literal notranslate"><span class="pre">unify_middle_dot</span></code>と<code class="docutils literal notranslate"><span class="pre">remove_symbol</span></code>を同時使用をサポート<a class="headerlink" href="#normalizernfkc-added-support-for-mixing-unify-middle-dot-and-remove-symbol" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://github.com/groonga/groonga/issues/1538">GH-1538</a></p>
+<p><a class="reference internal" href="../reference/normalizers/normalizer_nfkc150.html"><span class="doc">NormalizerNFKC150</span></a>のような<code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code>関連のノーマライザーで<a class="reference internal" href="../reference/normalizers/normalizer_nfkc150.html#normalizer-nfkc150-unify-middle-dot"><span class="std std-ref">unify_middle_dot</span></a>オプションと<a class="reference internal" href="../reference/normalizers/normalizer_nfkc150.html#normalizer-nfkc150-remove-symbol"><span class="std std-ref">remove_symbol</span></a>オプションを一緒に使えるようになりました。</p>
+</section>
+<section id="reference-commands-defrag-added-support-for-table-pat-key">
+<h4><a class="reference internal" href="../reference/commands/defrag.html"><span class="doc">defrag</span></a>: <a class="reference internal" href="../reference/tables.html#table-pat-key"><span class="std std-ref">TABLE_PAT_KEY</span></a>をサポート<a class="headerlink" href="#reference-commands-defrag-added-support-for-table-pat-key" title="Link to this heading">#</a></h4>
+<p><a class="reference internal" href="../reference/tables.html#table-pat-key"><span class="std std-ref">TABLE_PAT_KEY</span></a>テーブルは削除されたキーの領域を再利用できませんでした。この領域は引き続き自動では再利用されませんが、このリリースからは明示的に<a class="reference internal" href="../reference/commands/defrag.html"><span class="doc">defrag</span></a>を実行することで再利用できるようになりました。</p>
+</section>
+<section id="reference-commands-load-improved-error-handling">
+<h4><a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a>: エラー処理を改良<a class="headerlink" href="#reference-commands-load-improved-error-handling" title="Link to this heading">#</a></h4>
+<p><a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a>中にクリティカルなエラーが発生したときは後続のデータを待たないようにしました。このようなケースではクライアントは後続のデータを送らないかもしれません。</p>
+</section>
+<section id="reference-executables-groonga-added-context-id-log-flag">
+<h4><a class="reference internal" href="../reference/executables/groonga.html"><span class="doc">groonga 実行ファイル</span></a>: <code class="docutils literal notranslate"><span class="pre">context_id</span></code>ログフラグを追加<a class="headerlink" href="#reference-executables-groonga-added-context-id-log-flag" title="Link to this heading">#</a></h4>
+<p><a class="reference internal" href="../reference/log.html#query-log"><span class="std std-ref">クエリーログ</span></a>も使っている場合に便利です。<a class="reference internal" href="../reference/log.html#query-log"><span class="std std-ref">クエリーログ</span></a>ではコンテキストIDが記録されています。<a class="reference internal" href="../reference/log.html#process-log"><span class="std std-ref">プロセスログ</span></a>と<a class="reference internal" href="../reference/log.html#query-log"><span class="std std-ref">クエリーログ</span></a>の中にコンテキストIDが記録されていると、これらのログをより簡単に紐付けられるようになります。</p>
+</section>
+<section id="reference-executables-groonga-improved-error-handling">
+<h4><a class="reference internal" href="../reference/executables/groonga.html"><span class="doc">groonga 実行ファイル</span></a>: エラー処理を改良<a class="headerlink" href="#reference-executables-groonga-improved-error-handling" title="Link to this heading">#</a></h4>
+<p><a class="reference internal" href="../reference/command/request_timeout.html"><span class="doc">リクエストタイムアウト</span></a> 内部的にロックしています。場合によっては失敗することがあります。このようなケースを想定していくつかエラーチェックを追加しました。</p>
+</section>
+<section id="table-pat-key-improved-key-space-efficiency">
+<h4><a class="reference internal" href="../reference/tables.html#table-pat-key"><span class="std std-ref">TABLE_PAT_KEY</span></a>: キー領域を効率化<a class="headerlink" href="#table-pat-key-improved-key-space-efficiency" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://github.com/groonga/groonga/issues/2104">GH-2104</a></p>
+<p>キー領域を無駄使いするケースがありました。このケースを改良して、できるだけ効率よくキー領域を使えるようにしました。</p>
+</section>
+</section>
+<section id="fixes">
+<h3>修正<a class="headerlink" href="#fixes" title="Link to this heading">#</a></h3>
+<section id="grn-pat-size-fixed-a-bug-that-0-may-not-be-returned-on-error">
+<h4><code class="docutils literal notranslate"><span class="pre">grn_pat_size()</span></code>: エラー時に<code class="docutils literal notranslate"><span class="pre">0</span></code>を返さない問題を修正<a class="headerlink" href="#grn-pat-size-fixed-a-bug-that-0-may-not-be-returned-on-error" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://github.com/groonga/groonga/issues/2097">GH-2097</a></p>
+<p>指定された<code class="docutils literal notranslate"><span class="pre">pat</span></code>が<code class="docutils literal notranslate"><span class="pre">NULL</span></code>の場合、<code class="docutils literal notranslate"><span class="pre">-22</span></code>を返していました。しかし、エラーの場合は<code class="docutils literal notranslate"><span class="pre">0</span></code>を返して、<code class="docutils literal notranslate"><span class="pre">ctx-&gt;rc</span></code>にエラー情報を設定するべきでした。</p>
+<p>Groongaが期待した挙動をするようになりました。</p>
+</section>
+<section id="reference-regular-expression-fixed-a-bug-with-an-empty-pattern">
+<h4><a class="reference internal" href="../reference/regular_expression.html"><span class="doc">正規表現</span></a>: 空のパターンのときの問題を修正<a class="headerlink" href="#reference-regular-expression-fixed-a-bug-with-an-empty-pattern" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://github.com/groonga/groonga/issues/2121">GH-2121</a></p>
+<p>指定されたパターンが空文字列の場合、いくつかも問題がありました。</p>
+<ul class="simple">
+<li><p>正規表現用のインデックスがある場合、Groongaがクラッシュしていました。</p></li>
+<li><p>正規表現用のインデックスがない場合、Groongaはすべてのレコードを返していました。</p></li>
+</ul>
+<p>空のパターンのときは空の結果を返すようにしました。</p>
+<!-- prettier-ignore-start -->
+</section>
+</section>
+</section>
+<section id="release-14-1-0-2024-11-05">
+<span id="release-14-1-0"></span><h2>14.1.0リリース - 2024-11-05<a class="headerlink" href="#release-14-1-0-2024-11-05" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
+<section id="id1">
+<h3>改良<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <section id="reference-commands-status-added-features-llama-cpp-entry">
 <h4>[<a class="reference internal" href="../reference/commands/status.html"><span class="doc">status</span></a>] <code class="docutils literal notranslate"><span class="pre">.[&quot;features&quot;][&quot;llama.cpp&quot;]</span></code>エントリーを追加<a class="headerlink" href="#reference-commands-status-added-features-llama-cpp-entry" title="Link to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">.[&quot;features&quot;]</span></code>エントリーは次のように各機能が有効かどうかを示しています。</p>
@@ -438,7 +502,7 @@
 </pre></div>
 </div>
 <p><a class="reference external" href="https://github.com/ggerganov/llama.cpp">llama.cpp</a>が有効になっているかどうかを確認するために<code class="docutils literal notranslate"><span class="pre">.[&quot;features&quot;][&quot;llama.cpp&quot;]</span></code>を使うことができます。</p>
-<p>次で紹介する[<a class="reference internal" href="../reference/functions/language_model_vectorize.html"><span class="doc">language_model_vectorize</span></a>]を使うためにはllama.cppサポートが必要です。</p>
+<p>次で紹介する<a class="reference internal" href="../reference/functions/language_model_vectorize.html"><span class="doc">language_model_vectorize</span></a>を使うためにはllama.cppサポートが必要です。</p>
 </section>
 <section id="reference-functions-language-model-vectorize-added-experimental">
 <h4>[<a class="reference internal" href="../reference/functions/language_model_vectorize.html"><span class="doc">language_model_vectorize</span></a>] 追加（実験的）<a class="headerlink" href="#reference-functions-language-model-vectorize-added-experimental" title="Link to this heading">#</a></h4>
@@ -461,8 +525,8 @@
 <p>この機能により、検索対象のテキストを<a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a>するだけで、同時に対応するエンべディングも保存できます。</p>
 </section>
 </section>
-<section id="fixes">
-<h3>修正<a class="headerlink" href="#fixes" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>修正<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <section id="server-gqtp-fixed-a-bug-that-wrong-return-code-is-returned">
 <h4>[<a class="reference internal" href="../server/gqtp.html"><span class="doc">GQTP</span></a>] 間違ったリターンコードが返される問題を修正<a class="headerlink" href="#server-gqtp-fixed-a-bug-that-wrong-return-code-is-returned" title="Link to this heading">#</a></h4>
 <p>これはクライアント側の問題です。この問題は14.0.0から存在します。</p>
@@ -522,8 +586,8 @@
 <section id="release-14-0-9-2024-09-27">
 <span id="release-14-0-9"></span><h2>14.0.9リリース - 2024-09-27<a class="headerlink" href="#release-14-0-9-2024-09-27" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id1">
-<h3>修正<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>修正<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Alpine Linux 3.20上でソースからビルドする時にビルドエラーになる問題を修正しました。</p></li>
 </ul>
@@ -533,8 +597,8 @@
 <section id="release-14-0-8-2024-09-25">
 <span id="release-14-0-8"></span><h2>14.0.8リリース - 2024-09-25<a class="headerlink" href="#release-14-0-8-2024-09-25" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id2">
-<h3>改良<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>改良<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[Amazon Linux 2023] Amazon Linux 2023 をサポートしました。 [GH-1845][takoyaki-nyokkiさんとWatsonさんの報告]</p>
 <p>今の所、Amazon Linux 2023のaarch64版はサポートしていません。パッケージのビルドに時間がかかりすぎるため、メンテナンスコストが高いためです。</p>
@@ -542,8 +606,8 @@
 </li>
 </ul>
 </section>
-<section id="id3">
-<h3>修正<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>修正<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Windows版のPGroongaで<code class="docutils literal notranslate"><span class="pre">pgroonga.log_type</span></code>を指定するとクラッシュする問題を修正しました。</p></li>
 </ul>
@@ -560,8 +624,8 @@
 <section id="release-14-0-7-2024-09-03">
 <span id="release-14-0-7"></span><h2>14.0.7リリース - 2024-09-03<a class="headerlink" href="#release-14-0-7-2024-09-03" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id4">
-<h3>改良<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>改良<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[NormalizerNFKC] 新しいオプション <code class="docutils literal notranslate"><span class="pre">unify_latin_alphabet_with</span></code> を追加しました。[pgroonga/pgroonga#418][Man Hoangさんの報告]</p>
 <p>このオプションは、以下のように発音記号付きの文字と発音記号なしの文字を同じ文字とみなすことができます。</p>
@@ -641,8 +705,8 @@
 </li>
 </ul>
 </section>
-<section id="id5">
-<h3>修正<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3>修正<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[status] &quot;h3&quot;が<code class="docutils literal notranslate"><span class="pre">groonga</span> <span class="pre">--version</span></code>や<code class="docutils literal notranslate"><span class="pre">status</span></code>で表示されない問題を修正しました。</p></li>
 <li><p>ログローテートが有効な時にクラッシュする問題を修正しました。</p>
@@ -670,8 +734,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">GRN_WITH_BUNDLED_ONIGMO=OFF</span></code>を指定しているにも関わらず、GroongaがバンドルされているOnigmoを使う問題を修正しました。[termux/termux-packages#21252][Biswapriyo Nathさんがパッチ提供]</p></li>
 </ul>
 </section>
-<section id="id6">
-<h3>感謝<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h3>感謝<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Man Hoangさん</p></li>
 <li><p>Biswapriyo Nathさん</p></li>
@@ -682,8 +746,8 @@
 <section id="release-14-0-6-2024-07-29">
 <span id="release-14-0-6"></span><h2>14.0.6リリース - 2024-07-29<a class="headerlink" href="#release-14-0-6-2024-07-29" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id7">
-<h3>改良<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h3>改良<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>インデックスを設定していないベクターカラムに対して、前方一致検索ができるようになりました。</p>
 <p>すでに、インデックスを設定したベクターカラムに対しては前方一致検索できますが、インデックスを設定していないベクターカラムに対しては、今まで前方一致検索できませんでした。</p>
@@ -749,8 +813,8 @@
 <section id="release-14-0-5-2024-07-04">
 <span id="release-14-0-5"></span><h2>14.0.5リリース - 2024-07-04<a class="headerlink" href="#release-14-0-5-2024-07-04" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id8">
-<h3>改良<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id10">
+<h3>改良<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>CentOS 7のサポートをやめました。</p>
 <p>CentOS 7はEOLになったためです。</p>
@@ -761,8 +825,8 @@
 </li>
 </ul>
 </section>
-<section id="id9">
-<h3>修正<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<section id="id11">
+<h3>修正<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[<a class="reference internal" href="../reference/functions/query.html"><span class="doc">query</span></a>] <code class="docutils literal notranslate"><span class="pre">query()</span></code>の<code class="docutils literal notranslate"><span class="pre">AND</span></code>検索と<code class="docutils literal notranslate"><span class="pre">OR</span></code>検索検索を <code class="docutils literal notranslate"><span class="pre">'A</span> <span class="pre">||</span> <span class="pre">query(&quot;...&quot;,</span> <span class="pre">&quot;B</span> <span class="pre">C&quot;)'</span></code> の順で組み合わせたときに、誤った順序で評価される問題を修正しました</p>
 <p>以下の例では、<code class="docutils literal notranslate"><span class="pre">memo</span> <span class="pre">&#64;</span> <span class="pre">&quot;Groonga</span></code>の条件がマッチする<code class="docutils literal notranslate"><span class="pre">{&quot;name&quot;:</span> <span class="pre">&quot;Alice&quot;,</span> <span class="pre">&quot;memo&quot;:</span> <span class="pre">&quot;Groonga</span> <span class="pre">user&quot;}</span></code>がヒットするはずですが、 この問題が発生した場合はヒットしません。したがって、下記の例では何もヒットしません。</p>
@@ -877,8 +941,8 @@
 <section id="release-14-0-4-2024-05-29">
 <span id="release-14-0-4"></span><h2>14.0.4リリース - 2024-05-29<a class="headerlink" href="#release-14-0-4-2024-05-29" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id10">
-<h3>修正<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<section id="id12">
+<h3>修正<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[<a class="reference internal" href="../reference/functions/query_parallel_or.html"><span class="doc">query_parallel_or</span></a>] <code class="docutils literal notranslate"><span class="pre">query_parallel_or()</span></code>を使用すると、<a class="reference internal" href="../reference/commands/select.html#select-match-escalation-threshold"><span class="std std-ref">match_escalation_threshold</span></a> または <code class="docutils literal notranslate"><span class="pre">force_match_escalation</span></code> オプションが無視される問題を修正しました。</p>
 <p>修正前は、検索エスカレーションを無効にしても、<code class="docutils literal notranslate"><span class="pre">query_parallel_or()</span></code>使用時はエスカレーションされていました。この問題は、<code class="docutils literal notranslate"><span class="pre">query_parallel_or()</span></code>でのみ発生します。<a class="reference internal" href="../reference/functions/query.html"><span class="doc">query</span></a>では発生しません。</p>
@@ -975,8 +1039,8 @@
 <section id="release-14-0-3-2024-05-09">
 <span id="release-14-0-3"></span><h2>14.0.3リリース - 2024-05-09<a class="headerlink" href="#release-14-0-3-2024-05-09" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id11">
-<h3>改良<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<section id="id13">
+<h3>改良<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>以下の最適化を行いました。</p>
 <ul class="simple">
@@ -1061,8 +1125,8 @@
 <li><p>[<a class="reference internal" href="../install/ubuntu.html"><span class="doc">Ubuntu</span></a>] Ubuntu 24.04 LTS (Noble Numbat) をサポートしました。</p></li>
 </ul>
 </section>
-<section id="id12">
-<h3>修正<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<section id="id14">
+<h3>修正<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[<a class="reference internal" href="../reference/commands/request_cancel.html"><span class="doc">request_cancel</span></a>] <code class="docutils literal notranslate"><span class="pre">request_cancel</span></code>コマンドで実行中のクエリーを中断した時にGroongaがクラッシュすることがある問題を修正しました。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">--post_filter</span></code>使用時に、<code class="docutils literal notranslate"><span class="pre">--offset</span></code>の値が<code class="docutils literal notranslate"><span class="pre">--post_filter</span></code>の結果より大きい場合に予期しないエラーになる問題を修正しました。</p>
@@ -1337,8 +1401,8 @@
 <section id="release-14-0-2-2024-03-29">
 <span id="release-14-0-2"></span><h2>14.0.2リリース - 2024-03-29<a class="headerlink" href="#release-14-0-2-2024-03-29" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id13">
-<h3>改良<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<section id="id15">
+<h3>改良<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>一時テーブルに対して、normalizers/tokenizer/token_filtersを設定したときに出力されるログのログレベルを下げました。</p>
 <p>例えば、この変更の対象のログは以下のようなログです。</p>
@@ -1355,8 +1419,8 @@
 <section id="release-14-0-1-2024-03-14">
 <span id="release-14-0-1"></span><h2>14.0.1リリース - 2024-03-14<a class="headerlink" href="#release-14-0-1-2024-03-14" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id14">
-<h3>改良<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<section id="id16">
+<h3>改良<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[<a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a>] ノーマライズによって空のキーとなったキーを<code class="docutils literal notranslate"><span class="pre">load</span></code>する時のエラーを止めました。</p>
 <p><code class="docutils literal notranslate"><span class="pre">&quot;-&quot;</span></code> は、<code class="docutils literal notranslate"><span class="pre">NormalizerNFKC150(&quot;remove_symbol&quot;,</span> <span class="pre">true)</span></code> によって <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> になります。そのため、以下のケースでは&quot;empty key&quot;エラーが報告されます。</p>
@@ -1375,8 +1439,8 @@
 </li>
 </ul>
 </section>
-<section id="id15">
-<h3>修正<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<section id="id17">
+<h3>修正<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
 <ul>
 <li><p><a class="reference internal" href="../reference/functions/between.html"><span class="doc">between</span></a> または、範囲検索時にリクエストキャンセルするとGroongaがクラッシュする問題を修正しました。</p>
 <p>この問題は必ず発生するわけではありません。特定のタイミングでリクエストキャンセルをすると発生します。シーケンシャルサーチなどの検索時間が長い場合に発生しやすいです。</p>
@@ -1448,8 +1512,8 @@
 <li><p><a class="reference external" href="https://clang.llvm.org/"><code class="docutils literal notranslate"><span class="pre">clang</span></code></a> を使ってソースからビルドした時にビルドエラーになる問題を修正しました。 [GitHub#1738][Reported by windymelt]</p></li>
 </ul>
 </section>
-<section id="id16">
-<h3>感謝<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<section id="id18">
+<h3>感謝<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>windymeltさん</p></li>
 </ul>
@@ -1460,8 +1524,8 @@
 <span id="release-14-0-0"></span><h2>14.0.0リリース - 2024-02-29<a class="headerlink" href="#release-14-0-0-2024-02-29" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
 <p>メジャーバージョンアップです! メジャーバージョンアップですが、互換性は壊れていないので、データベースを再構築することなく14.0.0へアップグレードできます。</p>
-<section id="id17">
-<h3>改良<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<section id="id19">
+<h3>改良<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>新しいトークナイザー<code class="docutils literal notranslate"><span class="pre">TokenH3Index</span></code>を追加しました。（実験的）</p>
 <p><code class="docutils literal notranslate"><span class="pre">TokenH3Index</span></code>は、<code class="docutils literal notranslate"><span class="pre">WGS84GetPoint</span></code> を <code class="docutils literal notranslate"><span class="pre">UInt64</span></code>(H3 index)に変換します。</p>
@@ -1498,8 +1562,8 @@
 <li><p>[<a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a>] <code class="docutils literal notranslate"><span class="pre">output_type=apache-arrow</span></code>の時に、<code class="docutils literal notranslate"><span class="pre">_key</span></code>が<code class="docutils literal notranslate"><span class="pre">Int64</span></code>型のテーブルへの参照カラムを表示できるようにしました。</p></li>
 </ul>
 </section>
-<section id="id18">
-<h3>修正<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<section id="id20">
+<h3>修正<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[Windows] Windows向けパッケージ内の<code class="docutils literal notranslate"><span class="pre">groonga-normalizer-mysql</span></code>のドキュメントのパスを修正しました。</p>
 <p>今回のリリースから、<code class="docutils literal notranslate"><span class="pre">groonga-normalizer-mysql</span></code>のドキュメントは<code class="docutils literal notranslate"><span class="pre">share/</span></code>以下に格納されます。</p>
@@ -1539,14 +1603,33 @@
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-1-0-2024-11-05">14.1.0リリース - 2024-11-05</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-1-1-2024-12-03">14.1.1リリース - 2024-12-03</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#improvements">改良</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#stopped-vendoring-rapidjson">RapidJSONの同梱を終了</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#made-llama-cpp-initialization-lazy">llama.cppの初期化処理を遅延化</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizernfkc-added-support-for-mixing-unify-middle-dot-and-remove-symbol"><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code>: <code class="docutils literal notranslate"><span class="pre">unify_middle_dot</span></code>と<code class="docutils literal notranslate"><span class="pre">remove_symbol</span></code>を同時使用をサポート</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-defrag-added-support-for-table-pat-key"><span class="xref std std-doc">/reference/commands/defrag</span>: <span class="xref std std-ref">table-pat-key</span>をサポート</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-load-improved-error-handling"><span class="xref std std-doc">/reference/commands/load</span>: エラー処理を改良</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-executables-groonga-added-context-id-log-flag"><span class="xref std std-doc">/reference/executables/groonga</span>: <code class="docutils literal notranslate"><span class="pre">context_id</span></code>ログフラグを追加</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-executables-groonga-improved-error-handling"><span class="xref std std-doc">/reference/executables/groonga</span>: エラー処理を改良</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#table-pat-key-improved-key-space-efficiency"><span class="xref std std-ref">table-pat-key</span>: キー領域を効率化</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixes">修正</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#grn-pat-size-fixed-a-bug-that-0-may-not-be-returned-on-error"><code class="docutils literal notranslate"><span class="pre">grn_pat_size()</span></code>: エラー時に<code class="docutils literal notranslate"><span class="pre">0</span></code>を返さない問題を修正</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-regular-expression-fixed-a-bug-with-an-empty-pattern"><span class="xref std std-doc">/reference/regular_expression</span>: 空のパターンのときの問題を修正</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-1-0-2024-11-05">14.1.0リリース - 2024-11-05</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">改良</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-status-added-features-llama-cpp-entry">[<span class="xref std std-doc">/reference/commands/status</span>] <code class="docutils literal notranslate"><span class="pre">.["features"]["llama.cpp"]</span></code>エントリーを追加</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-functions-language-model-vectorize-added-experimental">[<span class="xref std std-doc">/reference/functions/language_model_vectorize</span>] 追加（実験的）</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-column-create-added-the-column-create-generator-parameter">[<span class="xref std std-doc">/reference/commands/column_create</span>] <span class="xref std std-ref">column-create-generator</span>引数を追加</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixes">修正</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">修正</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#server-gqtp-fixed-a-bug-that-wrong-return-code-is-returned">[<span class="xref std std-doc">/server/gqtp</span>] 間違ったリターンコードが返される問題を修正</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-logical-range-filter-fixed-a-bug-that-invalid-json-format-response-may-be-returned">[<span class="xref std std-doc">/reference/commands/logical_range_filter</span>] 不正なJSONフォーマットのレスポンスが返されることがある問題を修正</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-request-cancel-fixed-a-bug-that-invalid-json-format-response-may-be-returned">[<span class="xref std std-doc">/reference/commands/logical_range_filter</span>] 不正なJSONフォーマットのレスポンスが返されることがある問題を修正</a></li>
@@ -1556,52 +1639,52 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-9-2024-09-27">14.0.9リリース - 2024-09-27</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">修正</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">修正</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-8-2024-09-25">14.0.8リリース - 2024-09-25</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">改良</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">修正</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">修正</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thanks">感謝</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-7-2024-09-03">14.0.7リリース - 2024-09-03</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">改良</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">修正</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">感謝</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">修正</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">感謝</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-6-2024-07-29">14.0.6リリース - 2024-07-29</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">改良</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-5-2024-07-04">14.0.5リリース - 2024-07-04</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">改良</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">修正</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">修正</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-4-2024-05-29">14.0.4リリース - 2024-05-29</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">修正</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-3-2024-05-09">14.0.3リリース - 2024-05-09</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">改良</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">修正</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-2-2024-03-29">14.0.2リリース - 2024-03-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-3-2024-05-09">14.0.3リリース - 2024-05-09</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">修正</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-2-2024-03-29">14.0.2リリース - 2024-03-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">改良</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-1-2024-03-14">14.0.1リリース - 2024-03-14</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">改良</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">修正</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">感謝</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">修正</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">感謝</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-0-2024-02-29">14.0.0リリース - 2024-02-29</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">改良</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">修正</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">修正</a></li>
 </ul>
 </li>
 </ul>

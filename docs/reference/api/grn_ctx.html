@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.26.8. grn_ctx &#8212; Groonga v14.1.0 documentation</title>
+    <title>7.26.8. grn_ctx &#8212; Groonga v14.1.1 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../_static/documentation_options.js?v=2caac0c6"></script>
+    <script src="../../_static/documentation_options.js?v=48651082"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
@@ -68,7 +68,7 @@
     <link rel="prev" title="7.26.7. grn_content_type" href="grn_content_type.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="14.1.0" />
+  <meta name="docsearch:version" content="14.1.1" />
   </head>
   
   
@@ -134,8 +134,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.0 documentation - Home"/>
-    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.0 documentation - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.1 documentation - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.1 documentation - Home"/>
   
   
 </a></div>
@@ -666,24 +666,6 @@
 <h1><span class="section-number">7.26.8. </span><code class="docutils literal notranslate"><span class="pre">grn_ctx</span></code><a class="headerlink" href="#grn-ctx" title="Link to this heading">#</a></h1>
 <section id="summary">
 <h2><span class="section-number">7.26.8.1. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> is the most important object. <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a>
-keeps the current information such as:</p>
-<ul class="simple">
-<li><p>The last occurred error.</p></li>
-<li><p>The current encoding.</p></li>
-<li><p>The default thresholds. (e.g. <a class="reference internal" href="../commands/select.html#select-match-escalation-threshold"><span class="std std-ref">match_escalation_threshold</span></a>)</p></li>
-<li><p>The default command version. (See <a class="reference internal" href="../command/command_version.html"><span class="doc">Command version</span></a>)</p></li>
-</ul>
-<p><a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> provides platform features such as:</p>
-<ul class="simple">
-<li><p>Memory management.</p></li>
-<li><p>Logging.</p></li>
-</ul>
-<p>Most APIs receive <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> as the first argument.</p>
-<p>You can’t use the same <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> from two or more threads. You
-need to create a <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> for a thread. You can use two or
-more <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> in a thread but it is not needed for usual
-use-case.</p>
 </section>
 <section id="example">
 <h2><span class="section-number">7.26.8.2. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
@@ -695,133 +677,6 @@ use-case.</p>
 <dt class="sig sig-object c" id="c.grn_ctx">
 <span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_ctx</span></span></span><a class="headerlink" href="#c.grn_ctx" title="Link to this definition">#</a><br /></dt>
 <dd><p>TODO…</p>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_ctx_init">
-<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_ctx_init</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">flags</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_ctx_init" title="Link to this definition">#</a><br /></dt>
-<dd><p>ctxを初期化します。</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ctx</strong> – 初期化するctx構造体へのポインタを指定します。</p></li>
-<li><p><strong>flags</strong> – 初期化する <code class="docutils literal notranslate"><span class="pre">ctx</span></code> のオプションを指定します。</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">GRN_SUCCESS</span></code> on success, not <code class="docutils literal notranslate"><span class="pre">GRN_SUCCESS</span></code> on error.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_ctx_fin">
-<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_ctx_fin</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_ctx_fin" title="Link to this definition">#</a><br /></dt>
-<dd><p>ctxの管理するメモリを解放し、使用を終了します。</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">ctx</span></code> is initialized by <a class="reference internal" href="#c.grn_ctx_open" title="grn_ctx_open"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_open()</span></code></a> not
-<a class="reference internal" href="#c.grn_ctx_init" title="grn_ctx_init"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_init()</span></code></a>, you need to use
-<a class="reference internal" href="#c.grn_ctx_close" title="grn_ctx_close"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_close()</span></code></a> instead of <a class="reference internal" href="#c.grn_ctx_fin" title="grn_ctx_fin"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_fin()</span></code></a>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ctx</strong> – 解放するctx構造体へのポインタを指定します。</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">GRN_SUCCESS</span></code> on success, not <code class="docutils literal notranslate"><span class="pre">GRN_SUCCESS</span></code> on error.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_ctx_open">
-<a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">grn_ctx_open</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">flags</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_ctx_open" title="Link to this definition">#</a><br /></dt>
-<dd><p>初期化された <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> オブジェクトを返します。</p>
-<p><a class="reference internal" href="#c.grn_ctx_init" title="grn_ctx_init"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_init()</span></code></a> で初期化された <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> オブジェクトは構造体の実体をAPIの呼び元で確保するのに対して、 <a class="reference internal" href="#c.grn_ctx_open" title="grn_ctx_open"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_open()</span></code></a> ではGroongaライブラリの内部で、実体を確保します。
-どちらで初期化された <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> も、 <a class="reference internal" href="#c.grn_ctx_fin" title="grn_ctx_fin"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_fin()</span></code></a> で解放できます。
-<a class="reference internal" href="#c.grn_ctx_open" title="grn_ctx_open"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_open()</span></code></a> で確保した <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> 構造体に関しては、<a class="reference internal" href="#c.grn_ctx_fin" title="grn_ctx_fin"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_fin()</span></code></a> で解放した後に、その <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> で作成した <code class="xref c c-type docutils literal notranslate"><span class="pre">grn_obj</span></code> を <code class="xref c c-func docutils literal notranslate"><span class="pre">grn_obj_close()</span></code> によって解放しても問題ありません。</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>flags</strong> – 初期化する <code class="docutils literal notranslate"><span class="pre">ctx</span></code> のオプションを指定します。</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>初期化された <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> オブジェクトを返します。</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_ctx_close">
-<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_ctx_close</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_ctx_close" title="Link to this definition">#</a><br /></dt>
-<dd><p>It calls <a class="reference internal" href="#c.grn_ctx_fin" title="grn_ctx_fin"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_fin()</span></code></a> and frees allocated memory for <code class="docutils literal notranslate"><span class="pre">ctx</span></code> by <a class="reference internal" href="#c.grn_ctx_open" title="grn_ctx_open"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_open()</span></code></a>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ctx</strong> – no longer needed <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a>.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">GRN_SUCCESS</span></code> on success, not <code class="docutils literal notranslate"><span class="pre">GRN_SUCCESS</span></code> on error.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_ctx_set_finalizer">
-<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_ctx_set_finalizer</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <span class="n"><span class="pre">grn_proc_func</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">func</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_ctx_set_finalizer" title="Link to this definition">#</a><br /></dt>
-<dd><p>ctxを破棄するときに呼ばれる関数を設定します。</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ctx</strong> – 対象ctxを指定します。</p></li>
-<li><p><strong>func</strong> – <code class="docutils literal notranslate"><span class="pre">ctx</span></code> を破棄するときに呼ばれる関数を指定します。</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">GRN_SUCCESS</span></code> on success, not <code class="docutils literal notranslate"><span class="pre">GRN_SUCCESS</span></code> on error.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_ctx_get_command_version">
-<span class="n"><span class="pre">grn_command_version</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_ctx_get_command_version</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_ctx_get_command_version" title="Link to this definition">#</a><br /></dt>
-<dd><p>command_versionを返します。</p>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_ctx_set_command_version">
-<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_ctx_set_command_version</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <span class="n"><span class="pre">grn_command_version</span></span><span class="w"> </span><span class="n"><span class="pre">version</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_ctx_set_command_version" title="Link to this definition">#</a><br /></dt>
-<dd><p>command_versionを変更します。</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>version</strong> – 変更後のcommand_versionを指定します。</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_ctx_use">
-<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_ctx_use</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <span class="n"><span class="pre">grn_obj</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">db</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_ctx_use" title="Link to this definition">#</a><br /></dt>
-<dd><p>ctxが操作対象とするdbを指定します。NULLを指定した場合は、dbを操作しない状態(init直後の状態)になります。</p>
-<p>Don’t use it with <a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">grn_ctx</span></code></a> that has <code class="docutils literal notranslate"><span class="pre">GRN_CTX_PER_DB</span></code> flag.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>db</strong> – ctxが使用するdbを指定します。</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_ctx_db">
-<span class="n"><span class="pre">grn_obj</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">grn_ctx_db</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_ctx_db" title="Link to this definition">#</a><br /></dt>
-<dd><p>ctxが現在操作対象としているdbを返します。dbを使用していない場合はNULLを返します。</p>
 </dd></dl>
 
 <dl class="c function">
@@ -891,45 +746,6 @@ use-case.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ctx</strong> – The context object.</p></li>
 <li><p><strong>table_buffer</strong> – The output buffer to store tables.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">GRN_SUCCESS</span></code> on success, not <code class="docutils literal notranslate"><span class="pre">GRN_SUCCESS</span></code> on error.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_ctx_get_output_type">
-<a class="reference internal" href="grn_content_type.html#c.grn_content_type" title="grn_content_type"><span class="n"><span class="pre">grn_content_type</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_ctx_get_output_type</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_ctx_get_output_type" title="Link to this definition">#</a><br /></dt>
-<dd><p>Gets the current output type of the context.</p>
-<p>Normally, this function isn’t needed.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ctx</strong> – The context object.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The output type of the context.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_ctx_set_output_type">
-<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_ctx_set_output_type</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.grn_ctx" title="grn_ctx"><span class="n"><span class="pre">grn_ctx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="grn_content_type.html#c.grn_content_type" title="grn_content_type"><span class="n"><span class="pre">grn_content_type</span></span></a><span class="w"> </span><span class="n"><span class="pre">type</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_ctx_set_output_type" title="Link to this definition">#</a><br /></dt>
-<dd><p>Sets the new output type to the context. It is used by executing a
-command by <a class="reference internal" href="grn_expr.html#c.grn_expr_exec" title="grn_expr_exec"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_expr_exec()</span></code></a>. If you use
-<code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_send()</span></code>, the new output type isn’t
-used. <code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_send()</span></code> sets output type from command line
-internally.</p>
-<p>Normally, this function isn’t needed.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ctx</strong> – The context object.</p></li>
-<li><p><strong>type</strong> – The new output type.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>

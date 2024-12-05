@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.7.2.5. NormalizerNFKC150 &#8212; Groonga v14.1.0ドキュメント</title>
+    <title>7.7.2.5. NormalizerNFKC150 &#8212; Groonga v14.1.1 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../_static/documentation_options.js?v=1d5d5492"></script>
+    <script src="../../_static/documentation_options.js?v=799284d6"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/translations.js?v=4755f45a"></script>
@@ -69,7 +69,7 @@
     <link rel="prev" title="7.7.2.4. NormalizerNFKC130" href="normalizer_nfkc130.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
-  <meta name="docsearch:version" content="14.1.0" />
+  <meta name="docsearch:version" content="14.1.1" />
   </head>
   
   
@@ -135,8 +135,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.0ドキュメント - Home"/>
-    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.0ドキュメント - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.1 documentation - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.1 documentation - Home"/>
   
   
 </a></div>
@@ -1115,6 +1115,7 @@
 </pre></div>
 </div>
 <p>以下は、 <a class="reference internal" href="#normalizer-nfkc150-unify-middle-dot"><span class="std std-ref">unify_middle_dot</span></a> オプションの使用例です。このオプションは、中点を&quot;·&quot; (U+00B7 MIDDLE DOT)に正規化します。</p>
+<p><a class="reference internal" href="#normalizer-nfkc150-remove-symbol"><span class="std std-ref">remove_symbol</span></a> と一緒に使うと中点のような文字をすべて削除できます。</p>
 <p>Execution example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_middle_dot&quot;, true)&#39;</span>   <span class="s2">&quot;·ᐧ•∙⋅⸱・･&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
@@ -1798,6 +1799,7 @@
 <li><p>&quot;・&quot; (U+30FB KATAKANA MIDDLE DOT)</p></li>
 <li><p>&quot;･&quot; (U+FF65 HALFWIDTH KATAKANA MIDDLE DOT)</p></li>
 </ul>
+<p><a class="reference internal" href="#normalizer-nfkc150-remove-symbol"><span class="std std-ref">remove_symbol</span></a> と一緒に使うと中点のような文字をすべて削除できます。</p>
 </section>
 <section id="unify-katakana-v-sounds">
 <span id="normalizer-nfkc150-unify-katakana-v-sounds"></span><h4><span class="section-number">7.7.2.5.4.1.8. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_v_sounds</span></code><a class="headerlink" href="#unify-katakana-v-sounds" title="Link to this heading">#</a></h4>
