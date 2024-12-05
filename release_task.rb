@@ -63,16 +63,55 @@ class ReleaseTask
     "#{@release_date.strftime("%F")}-#{@product_id}-#{@version}.md"
   end
 
-  def post_content(locale)
-    # TODO: We will write blog post contents here.
-    # After writing contents, we will remove this TODO comment.
-    "#{locale}, #{@product}, #{@version}"
+  def product_install_url
+    "/docs/install.html"
+  end
+
+  def product_release_note_url
+    major_version = @version.split(".")[0]
+    "/docs/news/#{major_version}.html#release-#{@version.gsub(".", "-")}"
+  end
+
+  def post_content_ja
+    <<-CONTENT
+---
+layout: post.ja
+title: #{@product} #{@version}リリース
+description: #{@product} #{@version}をリリースしました！
+---
+
+## #{@product} #{@version}リリース
+
+#{@product} #{@version}をリリースしました！
+
+それぞれの環境毎のインストール方法は、[インストール](/ja#{product_install_url})をご確認ください。
+
+主な変更点は、[リリースノート](/ja#{product_release_note_url})をご確認ください。
+    CONTENT
+  end
+
+  def post_content_en
+    <<-CONTENT
+---
+layout: post.en
+title: #{@product} #{@version} has been released
+description: #{@product} #{@version} has been released!
+---
+
+## #{@product} #{@version} has been released
+
+#{@product} #{@version} has been released!
+
+For installation instructions on your environments, please see the [Installation Guide](#{product_install_url}).
+
+For the information on the changes in this release, please see the [Release Note](#{product_release_note_url}).
+    CONTENT
   end
 
   def generate_blog_posts
     ["ja", "en"].each do |locale|
       File.open("#{@jekyll_path}/#{locale}/_posts/#{post_filename}", "w") do |post|
-        post.write(post_content(locale))
+        post.write(__send__("post_content_#{locale}"))
       end
     end
   end
