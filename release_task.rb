@@ -16,6 +16,8 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
 require "date"
+require "json"
+require "open-uri"
 require "yaml"
 
 class ReleaseTask
@@ -24,20 +26,24 @@ class ReleaseTask
   def initialize(product, jekyll_path)
     @product = product
     @product_id = product.downcase
+    @github_repository = "#{@product}/#{@product}"
     @jekyll_path = jekyll_path
+    @jekyll_config_path = File.join(@jekyll_path, "_config.yml")
     @jekyll_config = load_jekyll_config
     @version = detect_version
     @release_date = detect_release_date
   end
 
   def define
-    define_generate_blog_task
+    namespace :release do
+      define_generate_blog_task
+      define_version_update_task
+    end
   end
 
   private
-
   def load_jekyll_config
-    YAML.safe_load_file(File.join(@jekyll_path, "_config.yml"), permitted_classes: [Date])
+    YAML.safe_load_file(@jekyll_config_path, permitted_classes: [Date])
   end
 
   def detect_version
@@ -49,12 +55,10 @@ class ReleaseTask
   end
 
   def define_generate_blog_task
-    namespace :release do
-      namespace :blog do
-        desc "Generate release announce posts from a release note"
-        task :generate do
-          generate_blog_posts
-        end
+    namespace :blog do
+      desc "Generate release announce posts from a release note"
+      task :generate do
+        generate_blog_posts
       end
     end
   end
@@ -112,6 +116,42 @@ For the information on the changes in this release, please see the [Release Note
     ["ja", "en"].each do |locale|
       File.open("#{@jekyll_path}/#{locale}/_posts/#{post_filename}", "w") do |post|
         post.write(__send__("post_content_#{locale}"))
+      end
+    end
+  end
+
+  def github_api_uri(path)
+    URI("https://api.github.com/repos/#{@github_repository}/#{path}")
+  end
+
+  def define_version_update_task
+    namespace :version do
+      desc "Update version"
+      task :update do
+        github_api_uri("releases").open do |input|
+          latest_release = JSON.parse(input.read)[0]
+          # "Groonga 14.1.1 - 2024-12-03"
+          release_name = latest_release["name"]
+          # "14.1.1"
+          latest_version = release_name[/\d+\.\d+\.\d+/, 0]
+          # "2024-12-03"
+          latest_release_date = release_name[/\d+-\d+-\d+/, 0]
+          jekyll_config = File.read(@jekyll_config_path)
+          escaped_product_id = Regexp.escape(@product_id)
+          jekyll_config.gsub!(/^(#{escaped_product_id}_version: ).+$/) do
+            "#{$1}#{latest_version}"
+          end
+          jekyll_config.gsub!(/^(#{escaped_product_id}_release_date: ).+$/) do
+            "#{$1}#{latest_release_date}"
+          end
+          File.write(@jekyll_config_path, jekyll_config)
+          sh("git", "add", @jekyll_config_path)
+          message = "#{@product} #{latest_version} has been released!!!"
+          sh("git", "commit", "-m", message)
+          sh("git", "tag", "-a", latest_version, "-m", message)
+          sh("git", "push")
+          sh("git", "push", "--tags")
+        end
       end
     end
   end
