@@ -28,6 +28,7 @@ jobs:
   blog:
     name: Blog
     runs-on: ubuntu-latest
+    needs: documents
     steps:
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
