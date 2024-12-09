@@ -21,12 +21,29 @@ require "open-uri"
 require "yaml"
 
 class ReleaseTask
+  class GitHubClient
+    def initialize(user, repository)
+      @user = user
+      @repository = repository
+    end
+
+    def latest_release
+      api_uri("releases").open do |input|
+        JSON.parse(input.read)[0]
+      end
+    end
+
+    private
+    def api_uri(path)
+      URI("https://api.github.com/repos/#{@user}/#{@repository}/#{path}")
+    end
+  end
+
   include Rake::DSL
 
   def initialize(product, jekyll_path)
     @product = product
     @product_id = product.downcase
-    @github_repository = "#{@product}/#{@product}"
     @jekyll_path = jekyll_path
     @jekyll_config_path = File.join(@jekyll_path, "_config.yml")
     @jekyll_config = load_jekyll_config
@@ -120,38 +137,32 @@ For the information on the changes in this release, please see the [Release Note
     end
   end
 
-  def github_api_uri(path)
-    URI("https://api.github.com/repos/#{@github_repository}/#{path}")
-  end
-
   def define_version_update_task
     namespace :version do
       desc "Update version"
       task :update do
-        github_api_uri("releases").open do |input|
-          latest_release = JSON.parse(input.read)[0]
-          # "Groonga 14.1.1 - 2024-12-03"
-          release_name = latest_release["name"]
-          # "14.1.1"
-          latest_version = release_name[/\d+\.\d+\.\d+/, 0]
-          # "2024-12-03"
-          latest_release_date = release_name[/\d+-\d+-\d+/, 0]
-          jekyll_config = File.read(@jekyll_config_path)
-          escaped_product_id = Regexp.escape(@product_id)
-          jekyll_config.gsub!(/^(#{escaped_product_id}_version: ).+$/) do
-            "#{$1}#{latest_version}"
-          end
-          jekyll_config.gsub!(/^(#{escaped_product_id}_release_date: ).+$/) do
-            "#{$1}#{latest_release_date}"
-          end
-          File.write(@jekyll_config_path, jekyll_config)
-          sh("git", "add", @jekyll_config_path)
-          message = "#{@product} #{latest_version} has been released!!!"
-          sh("git", "commit", "-m", message)
-          sh("git", "tag", "-a", latest_version, "-m", message)
-          sh("git", "push")
-          sh("git", "push", "--tags")
+        latest_release = GitHubClient.new(@product, @product).latest_release
+        # "Groonga 14.1.1 - 2024-12-03"
+        release_name = latest_release["name"]
+        # "14.1.1"
+        latest_version = release_name[/\d+\.\d+\.\d+/, 0]
+        # "2024-12-03"
+        latest_release_date = release_name[/\d+-\d+-\d+/, 0]
+        jekyll_config = File.read(@jekyll_config_path)
+        escaped_product_id = Regexp.escape(@product_id)
+        jekyll_config.gsub!(/^(#{escaped_product_id}_version: ).+$/) do
+          "#{$1}#{latest_version}"
         end
+        jekyll_config.gsub!(/^(#{escaped_product_id}_release_date: ).+$/) do
+          "#{$1}#{latest_release_date}"
+        end
+        File.write(@jekyll_config_path, jekyll_config)
+        sh("git", "add", @jekyll_config_path)
+        message = "#{@product} #{latest_version} has been released!!!"
+        sh("git", "commit", "-m", message)
+        sh("git", "tag", "-a", latest_version, "-m", message)
+        sh("git", "push")
+        sh("git", "push", "--tags")
       end
     end
   end
