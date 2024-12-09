@@ -59,7 +59,11 @@ namespace :pgroonga do
           File.open(path, "w") do |post|
             post.write(content)
           end
+          sh("git", "add", path)
         end
+
+        sh("git", "commit", "-m", "PGroonga #{version} has been released!!!")
+        sh("git", "push")
       end
     end
   end
