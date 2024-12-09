@@ -56,7 +56,7 @@ class ReleaseTask
 
   def define_generate_blog_task
     namespace :blog do
-      desc "Generate release announce posts from a release note"
+      desc "Generate release announce posts"
       task :generate do
         generate_blog_posts
       end
