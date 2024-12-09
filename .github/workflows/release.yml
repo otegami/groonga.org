@@ -14,7 +14,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-      # todo: Wait for the archive file to be uploaded to Groonga's release page.
+      - name: Wait for upload of `groonga/groonga` asset
+        run: |
+          run_id=$(gh run list \
+                     --repo groonga/groonga \
+                     --workflow=document.yml \
+                     --json "databaseId,event,headBranch" \
+                     --jq ".[] | select(.event == \"push\" and .headBranch == \"v${GITHUB_REF_NAME}\") | .databaseId")
+          gh run watch "${run_id}" --repo groonga/groonga --exit-status
       - name: Update docs
         run: |
           set -x
