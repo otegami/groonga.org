@@ -108,6 +108,8 @@ description: #{@product} #{@version}をリリースしました！
 それぞれの環境毎のインストール方法は、[インストール](/ja#{product_install_url})をご確認ください。
 
 主な変更点は、[リリースノート](/ja#{product_release_note_url})をご確認ください。
+
+開発者がGroonga・PGroonga・Mroongaのリリース内容について自慢する動画配信、[Groonga リリース自慢会](https://www.youtube.com/playlist?list=PLLwHraQ4jf7PnA3GjI9v90DZq8ikLk0iN)もあわせてご覧ください。
     CONTENT
   end
 
