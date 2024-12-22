@@ -1,0 +1,709 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4.2. Remote access &#8212; Groonga v14.1.2 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=e535604e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-7532323-1');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-7532323-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/network';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'english';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.3. Various data types" href="data.html" />
+    <link rel="prev" title="4.1. Basic operations" href="introduction.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="14.1.2" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+     
+  
+
+<a class="navbar-brand logo" href="https://groonga.org/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.2 documentation - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.2 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Blog</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Blog</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">4.1. Basic operations</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4.2. Remote access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">4.3. Various data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="search.html">4.4. Various search conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drilldown.html">4.5. Drilldown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">4.6. Tag search and reverse resolution of reference relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="match_columns.html">4.7. match_columns parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patricia_trie.html">4.8. Prefix search with patricia trie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lexicon.html">4.9. Additional information about lexicon for full text search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="micro_blog.html">4.10. Let’s create micro-blog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query_expansion.html">4.11. Query expansion</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../tutorial.html" class="nav-link"><span class="section-number">4. </span>Tutorial</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">4.2. </span>Remote access</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="remote-access">
+<h1><span class="section-number">4.2. </span>Remote access<a class="headerlink" href="#remote-access" title="Link to this heading">#</a></h1>
+<p>You can use Groonga as a server which allows remote access. Groonga supports the original protocol (GQTP), the memcached binary protocol and HTTP.</p>
+<section id="hypertext-transfer-protocol-http">
+<h2><span class="section-number">4.2.1. </span>Hypertext transfer protocol (HTTP)<a class="headerlink" href="#hypertext-transfer-protocol-http" title="Link to this heading">#</a></h2>
+<section id="how-to-run-an-http-server">
+<h3><span class="section-number">4.2.1.1. </span>How to run an HTTP server<a class="headerlink" href="#how-to-run-an-http-server" title="Link to this heading">#</a></h3>
+<p>Groonga supports the hypertext transfer protocol (HTTP). The following form shows how to run Groonga as an HTTP server daemon.</p>
+<p>Form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">groonga</span> <span class="p">[</span><span class="o">-</span><span class="n">p</span> <span class="n">PORT_NUMBER</span><span class="p">]</span> <span class="o">-</span><span class="n">d</span> <span class="o">--</span><span class="n">protocol</span> <span class="n">http</span> <span class="n">DB_PATH</span>
+</pre></div>
+</div>
+<p>The <cite>–protocol</cite> option and its argument specify the protocol of the server. “http” specifies to use HTTP. If the <cite>-p</cite> option is not specified, Groonga uses the default port number 10041.</p>
+<p>The following command runs an HTTP server that listens on the port number 80.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="n">groonga</span> <span class="o">-</span><span class="n">p</span> <span class="mi">80</span> <span class="o">-</span><span class="n">d</span> <span class="o">--</span><span class="n">protocol</span> <span class="n">http</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">groonga</span><span class="o">-</span><span class="n">databases</span><span class="o">/</span><span class="n">introduction</span><span class="o">.</span><span class="n">db</span>
+<span class="o">%</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You must have root privileges if you listen on the port number 80 (well known port).
+There is no such a limitation about the port number 1024 or over.</p>
+</div>
+</section>
+<section id="how-to-send-a-command-to-an-http-server">
+<h3><span class="section-number">4.2.1.2. </span>How to send a command to an HTTP server<a class="headerlink" href="#how-to-send-a-command-to-an-http-server" title="Link to this heading">#</a></h3>
+<p>You can send a command to an HTTP server by sending a GET request to /d/COMMAND_NAME. Command parameters can be passed as parameters of the GET request. The format is “?NAME_1=VALUE_1&amp;NAME_2=VALUE_2&amp;…”.</p>
+<p>The following example shows how to send commands to an HTTP server.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://HOST_NAME_OR_IP_ADDRESS[:PORT_NUMBER]/d/status
+Executed command:
+status
+# [
+#   [
+#     0,
+#     1337566253.89858,
+#     0.000355720520019531
+#   ],
+#   {
+#     &quot;alloc_count&quot;: 29,
+#     &quot;starttime&quot;: 1696558618,
+#     &quot;start_time&quot;: 1696558618,
+#     &quot;uptime&quot;: 0,
+#     &quot;version&quot;: &quot;2.9.1&quot;,
+#     &quot;n_queries&quot;: 0,
+#     &quot;cache_hit_rate&quot;: 0.0,
+#     &quot;command_version&quot;: 1,
+#     &quot;default_command_version&quot;: 1,
+#     &quot;max_command_version&quot;: 3,
+#     &quot;n_jobs&quot;: 0,
+#     &quot;features&quot;: {
+#       &quot;nfkc&quot;: true,
+#       &quot;mecab&quot;: true,
+#       &quot;message_pack&quot;: true,
+#       &quot;mruby&quot;: true,
+#       &quot;onigmo&quot;: true,
+#       &quot;zlib&quot;: true,
+#       &quot;lz4&quot;: true,
+#       &quot;zstandard&quot;: true,
+#       &quot;kqueue&quot;: false,
+#       &quot;epoll&quot;: true,
+#       &quot;poll&quot;: false,
+#       &quot;rapidjson&quot;: false,
+#       &quot;apache_arrow&quot;: true,
+#       &quot;xxhash&quot;: true,
+#       &quot;blosc&quot;: true,
+#       &quot;bfloat16&quot;: true,
+#       &quot;h3&quot;: true,
+#       &quot;simdjson&quot;: true,
+#       &quot;llama.cpp&quot;: true,
+#       &quot;back_trace&quot;: true,
+#       &quot;reference_count&quot;: false
+#     },
+#     &quot;apache_arrow&quot;: {
+#       &quot;version_major&quot;: 2,
+#       &quot;version_minor&quot;: 9,
+#       &quot;version_patch&quot;: 1,
+#       &quot;version&quot;: &quot;2.9.1&quot;
+#     },
+#     &quot;memory_map_size&quot;: 2929,
+#     &quot;n_workers&quot;: 0,
+#     &quot;default_n_workers&quot;: 0,
+#     &quot;os&quot;: &quot;Linux&quot;,
+#     &quot;cpu&quot;: &quot;x86_64&quot;
+#   }
+# ]
+http://HOST_NAME_OR_IP_ADDRESS[:PORT_NUMBER]/d/select?table=Site&amp;query=title:@this
+Executed command:
+select --table Site --query title:@this
+# [
+#   [
+#     0,
+#     1337566253.89858,
+#     0.000355720520019531
+#   ],
+#   [
+#     [
+#       [
+#         1
+#       ],
+#       [
+#         [
+#           &quot;_id&quot;,
+#           &quot;UInt32&quot;
+#         ],
+#         [
+#           &quot;_key&quot;,
+#           &quot;ShortText&quot;
+#         ],
+#         [
+#           &quot;country&quot;,
+#           &quot;SiteCountry&quot;
+#         ],
+#         [
+#           &quot;domain&quot;,
+#           &quot;SiteDomain&quot;
+#         ],
+#         [
+#           &quot;link&quot;,
+#           &quot;Site&quot;
+#         ],
+#         [
+#           &quot;links&quot;,
+#           &quot;Site&quot;
+#         ],
+#         [
+#           &quot;location&quot;,
+#           &quot;WGS84GeoPoint&quot;
+#         ],
+#         [
+#           &quot;title&quot;,
+#           &quot;ShortText&quot;
+#         ]
+#       ],
+#       [
+#         1,
+#         &quot;http://example.org/&quot;,
+#         &quot;japan&quot;,
+#         &quot;.org&quot;,
+#         &quot;http://example.net/&quot;,
+#         [
+#           &quot;http://example.net/&quot;,
+#           &quot;http://example.org/&quot;,
+#           &quot;http://example.com/&quot;
+#         ],
+#         &quot;128452975x503157902&quot;,
+#         &quot;This is test record 1!&quot;
+#       ]
+#     ]
+#   ]
+# ]
+</pre></div>
+</div>
+</section>
+</section>
+<section id="administration-tool-http">
+<h2><span class="section-number">4.2.2. </span>Administration tool (HTTP)<a class="headerlink" href="#administration-tool-http" title="Link to this heading">#</a></h2>
+<p>An HTTP server of Groonga provides a browser based administration tool that makes database management easy. After starting an HTTP server, you can use the administration tool by accessing <code class="docutils literal notranslate"><span class="pre">http://HOST_NAME_OR_IP_ADDRESS[:PORT_NUMBER]/</span></code>. Note that JavaScript must be enabled for the tool to work properly.</p>
+</section>
+<section id="security-issues">
+<h2><span class="section-number">4.2.3. </span>Security issues<a class="headerlink" href="#security-issues" title="Link to this heading">#</a></h2>
+<p>Groonga servers don’t support user authentication. Everyone can view and modify databases hosted by Groonga servers. You are recommended to restrict IP addresses that can access Groonga servers. You can use iptables or similar for this purpose.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="introduction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4.1. </span>Basic operations</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4.3. </span>Various data types</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypertext-transfer-protocol-http">4.2.1. Hypertext transfer protocol (HTTP)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-run-an-http-server">4.2.1.1. How to run an HTTP server</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-send-a-command-to-an-http-server">4.2.1.2. How to send a command to an HTTP server</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#administration-tool-http">4.2.2. Administration tool (HTTP)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#security-issues">4.2.3. Security issues</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/groonga/groonga/edit/main/doc/source/tutorial/network.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2009-2024 Groonga Project.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

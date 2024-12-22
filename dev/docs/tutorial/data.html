@@ -1,0 +1,974 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4.3. Various data types &#8212; Groonga v14.1.2 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=e535604e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-7532323-1');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-7532323-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/data';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'english';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.4. Various search conditions" href="search.html" />
+    <link rel="prev" title="4.2. Remote access" href="network.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="14.1.2" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+     
+  
+
+<a class="navbar-brand logo" href="https://groonga.org/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.2 documentation - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.2 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Blog</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Blog</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">4.1. Basic operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network.html">4.2. Remote access</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4.3. Various data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="search.html">4.4. Various search conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drilldown.html">4.5. Drilldown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">4.6. Tag search and reverse resolution of reference relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="match_columns.html">4.7. match_columns parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patricia_trie.html">4.8. Prefix search with patricia trie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lexicon.html">4.9. Additional information about lexicon for full text search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="micro_blog.html">4.10. Let’s create micro-blog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query_expansion.html">4.11. Query expansion</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../tutorial.html" class="nav-link"><span class="section-number">4. </span>Tutorial</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">4.3. </span>Various data types</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="various-data-types">
+<h1><span class="section-number">4.3. </span>Various data types<a class="headerlink" href="#various-data-types" title="Link to this heading">#</a></h1>
+<p>Groonga is a full text search engine but also serves as a column-oriented data store. Groonga supports various data types, such as numeric types, string types, date and time type, longitude and latitude types, etc. This tutorial shows a list of data types and explains how to use them.</p>
+<section id="overview">
+<h2><span class="section-number">4.3.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>The basic data types of Groonga are roughly divided into 5 groups — boolean type, numeric types, string types, date/time type and longitude/latitude types. The numeric types are further divided according to whether integer or floating point number, signed or unsigned and the number of bits allocated to each integer. The string types are further divided according to the maximum length. The longitude/latitude types are further divided according to the geographic coordinate system. For more details, see <a class="reference internal" href="../reference/types.html"><span class="doc">Data types</span></a>.</p>
+<p>In addition, Groonga supports reference types and vector types. Reference types are designed for accessing other tables. Vector types are designed for storing a variable number of values in one element.</p>
+<p>First, let’s create a table for this tutorial.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="o">--</span><span class="n">name</span> <span class="n">ToyBox</span> <span class="o">--</span><span class="n">flags</span> <span class="n">TABLE_HASH_KEY</span> <span class="o">--</span><span class="n">key_type</span> <span class="n">ShortText</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],true]</span>
+</pre></div>
+</div>
+</section>
+<section id="boolean-type">
+<h2><span class="section-number">4.3.2. </span>Boolean type<a class="headerlink" href="#boolean-type" title="Link to this heading">#</a></h2>
+<p>The boolean type is used to store true or false. To create a boolean type column, specify Bool to the <cite>type</cite> parameter of <a class="reference internal" href="../reference/commands/column_create.html"><span class="doc">column_create</span></a> command. The default value of the boolean type is false.</p>
+<p>The following example creates a boolean type column and adds three records. Note that the third record has the default value because no value is specified.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">column_create</span> <span class="o">--</span><span class="n">table</span> <span class="n">ToyBox</span> <span class="o">--</span><span class="n">name</span> <span class="n">is_animal</span> <span class="o">--</span><span class="nb">type</span> <span class="n">Bool</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],true]</span>
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">ToyBox</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;Monkey&quot;</span><span class="p">,</span><span class="s2">&quot;is_animal&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;Flower&quot;</span><span class="p">,</span><span class="s2">&quot;is_animal&quot;</span><span class="p">:</span><span class="n">false</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;Block&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],3]</span>
+<span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">ToyBox</span> <span class="o">--</span><span class="n">output_columns</span> <span class="n">_key</span><span class="p">,</span><span class="n">is_animal</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         3</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;is_animal&quot;,</span>
+<span class="c1">#           &quot;Bool&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;Monkey&quot;,</span>
+<span class="c1">#         true</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;Flower&quot;,</span>
+<span class="c1">#         false</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;Block&quot;,</span>
+<span class="c1">#         false</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+</section>
+<section id="numeric-types">
+<h2><span class="section-number">4.3.3. </span>Numeric types<a class="headerlink" href="#numeric-types" title="Link to this heading">#</a></h2>
+<p>The numeric types are divided into integer types and a floating point number type. The integer types are further divided into the signed integer types and unsigned integer types. In addition, you can choose the number of bits allocated to each integer. For more details, see <a class="reference internal" href="../reference/types.html"><span class="doc">Data types</span></a>. The default value of the numeric types is 0.</p>
+<p>The following example creates an Int8 column and a Float column, and then updates existing records. The <a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a> command updates the weight column as expected. On the other hand, the price column values are different from the specified values because 15.9 is not an integer and 200 is too large. 15.9 is converted to 15 by removing the fractional part. 200 causes an overflow and the result becomes -56. Note that the result of an overflow/underflow is undefined.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">column_create</span> <span class="o">--</span><span class="n">table</span> <span class="n">ToyBox</span> <span class="o">--</span><span class="n">name</span> <span class="n">price</span> <span class="o">--</span><span class="nb">type</span> <span class="n">Int8</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],true]</span>
+<span class="n">column_create</span> <span class="o">--</span><span class="n">table</span> <span class="n">ToyBox</span> <span class="o">--</span><span class="n">name</span> <span class="n">weight</span> <span class="o">--</span><span class="nb">type</span> <span class="n">Float</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],true]</span>
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">ToyBox</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;Monkey&quot;</span><span class="p">,</span><span class="s2">&quot;price&quot;</span><span class="p">:</span><span class="mf">15.9</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;Flower&quot;</span><span class="p">,</span><span class="s2">&quot;price&quot;</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="s2">&quot;weight&quot;</span><span class="p">:</span><span class="mf">0.13</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;Block&quot;</span><span class="p">,</span><span class="s2">&quot;weight&quot;</span><span class="p">:</span><span class="mf">25.7</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],3]</span>
+<span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">ToyBox</span> <span class="o">--</span><span class="n">output_columns</span> <span class="n">_key</span><span class="p">,</span><span class="n">price</span><span class="p">,</span><span class="n">weight</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         3</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;price&quot;,</span>
+<span class="c1">#           &quot;Int8&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;weight&quot;,</span>
+<span class="c1">#           &quot;Float&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;Monkey&quot;,</span>
+<span class="c1">#         15,</span>
+<span class="c1">#         0.0</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;Flower&quot;,</span>
+<span class="c1">#         -56,</span>
+<span class="c1">#         0.13</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;Block&quot;,</span>
+<span class="c1">#         0,</span>
+<span class="c1">#         25.7</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+</section>
+<section id="string-types">
+<h2><span class="section-number">4.3.4. </span>String types<a class="headerlink" href="#string-types" title="Link to this heading">#</a></h2>
+<p>The string types are divided according to the maximum length. For more details, see <a class="reference internal" href="../reference/types.html"><span class="doc">Data types</span></a>. The default value is the zero-length string.</p>
+<p>The following example creates a <code class="docutils literal notranslate"><span class="pre">ShortText</span></code> column and updates
+existing records. The third record (<code class="docutils literal notranslate"><span class="pre">&quot;Block&quot;</span></code> key record) has the
+default value (zero-length string) because it’s not updated.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">column_create</span> <span class="o">--</span><span class="n">table</span> <span class="n">ToyBox</span> <span class="o">--</span><span class="n">name</span> <span class="n">name</span> <span class="o">--</span><span class="nb">type</span> <span class="n">ShortText</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],true]</span>
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">ToyBox</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;Monkey&quot;</span><span class="p">,</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Grease&quot;</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;Flower&quot;</span><span class="p">,</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Rose&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],2]</span>
+<span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">ToyBox</span> <span class="o">--</span><span class="n">output_columns</span> <span class="n">_key</span><span class="p">,</span><span class="n">name</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         3</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;name&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;Monkey&quot;,</span>
+<span class="c1">#         &quot;Grease&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;Flower&quot;,</span>
+<span class="c1">#         &quot;Rose&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;Block&quot;,</span>
+<span class="c1">#         &quot;&quot;</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+</section>
+<section id="date-and-time-type">
+<h2><span class="section-number">4.3.5. </span>Date and time type<a class="headerlink" href="#date-and-time-type" title="Link to this heading">#</a></h2>
+<p>The date and time type of Groonga is Time. Actually, a Time column stores a date and time as the number of microseconds since the Epoch, 1970-01-01 00:00:00. A Time value can represent a date and time before the Epoch because the actual data type is a signed integer. Note that <a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a> and <a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a> commands use a decimal number to represent a data and time in seconds. The default value is 0.0, which means the Epoch.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Groonga internally holds the value of Epoch as pair of integer. The first integer represents the value of seconds, on the other hand, the second integer represents the value of micro seconds.
+So, Groonga shows the value of Epoch as floating point. Integral part means the value of seconds, fraction part means the value of micro seconds.</p>
+</div>
+<p>The following example creates a <code class="docutils literal notranslate"><span class="pre">Time</span></code> column and updates existing
+records. The first record (<code class="docutils literal notranslate"><span class="pre">&quot;Monkey&quot;</span></code> key record) has the default
+value (<code class="docutils literal notranslate"><span class="pre">0.0</span></code>) because it’s not updated.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">column_create</span> <span class="o">--</span><span class="n">table</span> <span class="n">ToyBox</span> <span class="o">--</span><span class="n">name</span> <span class="n">time</span> <span class="o">--</span><span class="nb">type</span> <span class="n">Time</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],true]</span>
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">ToyBox</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;Flower&quot;</span><span class="p">,</span><span class="s2">&quot;time&quot;</span><span class="p">:</span><span class="mf">1234567890.1234569999</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;Block&quot;</span><span class="p">,</span><span class="s2">&quot;time&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">1234567890</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],2]</span>
+<span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">ToyBox</span> <span class="o">--</span><span class="n">output_columns</span> <span class="n">_key</span><span class="p">,</span><span class="n">time</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         3</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;time&quot;,</span>
+<span class="c1">#           &quot;Time&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;Monkey&quot;,</span>
+<span class="c1">#         0.0</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;Flower&quot;,</span>
+<span class="c1">#         1234567890.123457</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;Block&quot;,</span>
+<span class="c1">#         -1234567890.0</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+</section>
+<section id="longitude-and-latitude-types">
+<h2><span class="section-number">4.3.6. </span>Longitude and latitude types<a class="headerlink" href="#longitude-and-latitude-types" title="Link to this heading">#</a></h2>
+<p>The longitude and latitude types are divided according to the geographic coordinate system. For more details, see <a class="reference internal" href="../reference/types.html"><span class="doc">Data types</span></a>. To represent a longitude and latitude, Groonga uses a string formatted as follows:</p>
+<ul class="simple">
+<li><p>“longitude x latitude” in milliseconds (e.g.: “128452975x503157902”)</p></li>
+<li><p>“longitude x latitude” in degrees (e.g.: “35.6813819x139.7660839”)</p></li>
+</ul>
+<p>A number with/without a decimal point represents a longitude or latitude in milliseconds/degrees respectively. Note that a combination of a number with a decimal point and a number without a decimal point (e.g. 35.1x139) must not be used. A comma (‘,’) is also available as a delimiter. The default value is “0x0”.</p>
+<p>The following example creates a <code class="docutils literal notranslate"><span class="pre">WGS84GeoPoint</span></code> column and updates
+existing records. The second record (<code class="docutils literal notranslate"><span class="pre">&quot;Flower&quot;</span></code> key record) has the
+default value (<code class="docutils literal notranslate"><span class="pre">&quot;0x0&quot;</span></code>) because it’s not updated.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">column_create</span> <span class="o">--</span><span class="n">table</span> <span class="n">ToyBox</span> <span class="o">--</span><span class="n">name</span> <span class="n">location</span> <span class="o">--</span><span class="nb">type</span> <span class="n">WGS84GeoPoint</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],true]</span>
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">ToyBox</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;Monkey&quot;</span><span class="p">,</span><span class="s2">&quot;location&quot;</span><span class="p">:</span><span class="s2">&quot;128452975x503157902&quot;</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;Block&quot;</span><span class="p">,</span><span class="s2">&quot;location&quot;</span><span class="p">:</span><span class="s2">&quot;35.6813819x139.7660839&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],2]</span>
+<span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">ToyBox</span> <span class="o">--</span><span class="n">output_columns</span> <span class="n">_key</span><span class="p">,</span><span class="n">location</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         3</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;location&quot;,</span>
+<span class="c1">#           &quot;WGS84GeoPoint&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;Monkey&quot;,</span>
+<span class="c1">#         &quot;128452975x503157902&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;Flower&quot;,</span>
+<span class="c1">#         &quot;0x0&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;Block&quot;,</span>
+<span class="c1">#         &quot;128452975x503157902&quot;</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+</section>
+<section id="reference-types">
+<h2><span class="section-number">4.3.7. </span>Reference types<a class="headerlink" href="#reference-types" title="Link to this heading">#</a></h2>
+<p>Groonga supports a reference column, which stores references to records in its associated table. In practice, a reference column stores the IDs of the referred records in the associated table and enables access to those records.</p>
+<p>You can specify a column in the associated table to the <code class="docutils literal notranslate"><span class="pre">output_columns</span></code> parameter of a <a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a> command. The format is <code class="docutils literal notranslate"><span class="pre">Src.Dest</span></code> where Src is the name of the reference column and Dest is the name of the target column. If only the reference column is specified, it is handled as <code class="docutils literal notranslate"><span class="pre">Src._key</span></code>. Note that if a reference does not point to a valid record, a <a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a> command outputs the default value of the target column.</p>
+<p>The following example adds a reference column to the <code class="docutils literal notranslate"><span class="pre">Site</span></code> table
+that was created in <a class="reference internal" href="introduction.html#tutorial-introduction-create-table"><span class="std std-ref">Create a table</span></a>. The new
+column, named <code class="docutils literal notranslate"><span class="pre">link</span></code>, is designed for storing links among records in
+the <code class="docutils literal notranslate"><span class="pre">Site</span></code> table.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">column_create</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span> <span class="o">--</span><span class="n">name</span> <span class="n">link</span> <span class="o">--</span><span class="nb">type</span> <span class="n">Site</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],true]</span>
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;http://example.org/&quot;</span><span class="p">,</span><span class="s2">&quot;link&quot;</span><span class="p">:</span><span class="s2">&quot;http://example.net/&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],1]</span>
+<span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span> <span class="o">--</span><span class="n">output_columns</span> <span class="n">_key</span><span class="p">,</span><span class="n">title</span><span class="p">,</span><span class="n">link</span><span class="o">.</span><span class="n">_key</span><span class="p">,</span><span class="n">link</span><span class="o">.</span><span class="n">title</span> <span class="o">--</span><span class="n">query</span> <span class="n">title</span><span class="p">:</span><span class="nd">@this</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         1</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;title&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;link._key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;link.title&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;http://example.org/&quot;,</span>
+<span class="c1">#         &quot;This is test record 1!&quot;,</span>
+<span class="c1">#         &quot;http://example.net/&quot;,</span>
+<span class="c1">#         &quot;test record 2.&quot;</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+<p>The <cite>type</cite> parameter of the <a class="reference internal" href="../reference/commands/column_create.html"><span class="doc">column_create</span></a> command specifies the table to be associated with the reference column. In this example, the reference column is associated with the own table. Then, the <a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a> command registers a link from “<a class="reference external" href="http://example.org">http://example.org</a>” to “<a class="reference external" href="http://example.net">http://example.net</a>”. Note that a reference column requires the primary key, not the ID, of the record to be referred to. After that, the link is confirmed by the <a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a> command. In this case, the primary key and the title of the referred record are output because link._key and link.title are specified to the <cite>output_columns</cite> parameter.</p>
+</section>
+<section id="vector-types">
+<h2><span class="section-number">4.3.8. </span>Vector types<a class="headerlink" href="#vector-types" title="Link to this heading">#</a></h2>
+<p>Groonga supports a vector column, in which each element can store a variable number of values. To create a vector column, specify the COLUMN_VECTOR flag to the <cite>flags</cite> parameter of a <a class="reference internal" href="../reference/commands/column_create.html"><span class="doc">column_create</span></a> command. A vector column is useful to represent a many-to-many relationship.</p>
+<p>The previous example used a regular column, so each record could have at most one link. Obviously, the specification is insufficient because a site usually has more than one links. To solve this problem, the following example uses a vector column.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">column_create</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span> <span class="o">--</span><span class="n">name</span> <span class="n">links</span> <span class="o">--</span><span class="n">flags</span> <span class="n">COLUMN_VECTOR</span> <span class="o">--</span><span class="nb">type</span> <span class="n">Site</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],true]</span>
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;http://example.org/&quot;</span><span class="p">,</span><span class="s2">&quot;links&quot;</span><span class="p">:[</span><span class="s2">&quot;http://example.net/&quot;</span><span class="p">,</span><span class="s2">&quot;http://example.org/&quot;</span><span class="p">,</span><span class="s2">&quot;http://example.com/&quot;</span><span class="p">]},</span>
+<span class="p">]</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],1]</span>
+<span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span> <span class="o">--</span><span class="n">output_columns</span> <span class="n">_key</span><span class="p">,</span><span class="n">title</span><span class="p">,</span><span class="n">links</span><span class="o">.</span><span class="n">_key</span><span class="p">,</span><span class="n">links</span><span class="o">.</span><span class="n">title</span> <span class="o">--</span><span class="n">query</span> <span class="n">title</span><span class="p">:</span><span class="nd">@this</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         1</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;title&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;links._key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;links.title&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;http://example.org/&quot;,</span>
+<span class="c1">#         &quot;This is test record 1!&quot;,</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;http://example.net/&quot;,</span>
+<span class="c1">#           &quot;http://example.org/&quot;,</span>
+<span class="c1">#           &quot;http://example.com/&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;test record 2.&quot;,</span>
+<span class="c1">#           &quot;This is test record 1!&quot;,</span>
+<span class="c1">#           &quot;test test record three.&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+<p>The only difference at the first step is the <cite>flags</cite> parameter that specifies to create a vector column. The <cite>type</cite> parameter of the <a class="reference internal" href="../reference/commands/column_create.html"><span class="doc">column_create</span></a> command is the same as in the previous example. Then, the <a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a> command registers three links from “<a class="reference external" href="http://example.org/">http://example.org/</a>” to “<a class="reference external" href="http://example.net/">http://example.net/</a>”, “<a class="reference external" href="http://example.org/">http://example.org/</a>” and “<a class="reference external" href="http://example.com/">http://example.com/</a>”. After that, the links are confirmed by the <a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a> command. In this case, the primary keys and the titles are output as arrays because links._key and links.title are specified to the <cite>output_columns</cite> parameter.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="network.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4.2. </span>Remote access</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="search.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4.4. </span>Various search conditions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">4.3.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-type">4.3.2. Boolean type</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-types">4.3.3. Numeric types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-types">4.3.4. String types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#date-and-time-type">4.3.5. Date and time type</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#longitude-and-latitude-types">4.3.6. Longitude and latitude types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-types">4.3.7. Reference types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-types">4.3.8. Vector types</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/groonga/groonga/edit/main/doc/source/tutorial/data.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2009-2024 Groonga Project.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

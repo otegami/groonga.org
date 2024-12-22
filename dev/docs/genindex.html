@@ -1,0 +1,1194 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; Groonga v14.1.2 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=e535604e"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-7532323-1');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-7532323-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'english';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="14.1.2" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+     
+  
+
+<a class="navbar-brand logo" href="https://groonga.org/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.2 documentation - Home"/>
+    <img src="_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.2 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Blog</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Blog</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#Symbols"><strong>Symbols</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ 
+</div>
+<h2 id="Symbols">Symbols</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    --address
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-a">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --bind-address
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-bind-address">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --cache-base-path
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-cache-base-path">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --cache-limit
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-cache-limit">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --config-path
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-config-path">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --daemon
+
+      <ul>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-d">groonga-suggest-httpd command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-d">groonga-suggest-learner command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --default-match-escalation-threshold
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-default-match-escalation-threshold">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --default-n-workers
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-default-n-workers">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --default-request-timeout
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-default-request-timeout">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --dir
+
+      <ul>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-dir">groonga-benchmark command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --disable-max-fd-check
+
+      <ul>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-disable-max-fd-check">groonga-suggest-httpd command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --document-root
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-document-root">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --encoding
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-e">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --ftp
+
+      <ul>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-ftp">groonga-benchmark command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --groonga
+
+      <ul>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-groonga">groonga-benchmark command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --help
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-h">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --host
+
+      <ul>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-i">groonga-benchmark command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --log-base-path
+
+      <ul>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-l">groonga-suggest-httpd command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-l">groonga-suggest-learner command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --log-flags
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-log-flags">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --log-level
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-l">groonga command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-log-level">groonga-suggest-learner command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --log-output-dir
+
+      <ul>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-log-output-dir">groonga-benchmark command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --log-path
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-log-path">groonga command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-log-path">groonga-suggest-learner command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --log-rotate-threshold-size
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-log-rotate-threshold-size">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --max-threads
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-t">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --n-lines-per-log-file
+
+      <ul>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-n-lines-per-log-file">groonga-suggest-httpd command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --n-threads
+
+      <ul>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-t">groonga-suggest-httpd command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --pid-path
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-pid-path">groonga command line option</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    --port
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-p">groonga command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-p">groonga-benchmark command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-p">groonga-suggest-httpd command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --protocol
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-protocol">groonga command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-protocol">groonga-benchmark command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --query-log-path
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-query-log-path">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --query-log-rotate-threshold-size
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-query-log-rotate-threshold-size">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --receive-endpoint
+
+      <ul>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-r">groonga-suggest-httpd command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-r">groonga-suggest-learner command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --send-endpoint
+
+      <ul>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-s">groonga-suggest-httpd command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-s">groonga-suggest-learner command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --server-id
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-i">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    -a
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-a">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    -c
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-c">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    -d
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-d">groonga command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-d">groonga-suggest-httpd command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-d">groonga-suggest-learner command line option</a>
+</li>
+      </ul></li>
+      <li>
+    -e
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-e">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    -h
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-h">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    -i
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-i">groonga command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-i">groonga-benchmark command line option</a>
+</li>
+      </ul></li>
+      <li>
+    -l
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-l">groonga command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-l">groonga-suggest-httpd command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-l">groonga-suggest-learner command line option</a>
+</li>
+      </ul></li>
+      <li>
+    -m
+
+      <ul>
+        <li><a href="reference/executables/grnslap.html#cmdoption-grnslap-m">grnslap command line option</a>
+</li>
+      </ul></li>
+      <li>
+    -n
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-n">groonga command line option</a>
+</li>
+      </ul></li>
+      <li>
+    -P
+
+      <ul>
+        <li><a href="reference/executables/grnslap.html#cmdoption-grnslap-P">grnslap command line option</a>
+</li>
+      </ul></li>
+      <li>
+    -p
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-p">groonga command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-p">groonga-benchmark command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-p">groonga-suggest-httpd command line option</a>
+</li>
+      </ul></li>
+      <li>
+    -r
+
+      <ul>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-r">groonga-suggest-httpd command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-r">groonga-suggest-learner command line option</a>
+</li>
+      </ul></li>
+      <li>
+    -s
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-s">groonga command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-s">groonga-suggest-httpd command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-s">groonga-suggest-learner command line option</a>
+</li>
+      </ul></li>
+      <li>
+    -t
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-t">groonga command line option</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-t">groonga-suggest-httpd command line option</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    command
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-arg-command">groonga command line option</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    db
+
+      <ul>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-arg-db">groonga-benchmark command line option</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    dest
+
+      <ul>
+        <li><a href="reference/executables/grnslap.html#cmdoption-grnslap-arg-dest">grnslap command line option</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-arg-dest">groonga command line option</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/api/grn_cache.html#c.grn_cache">grn_cache (C type)</a>
+</li>
+      <li><a href="reference/api/grn_cache.html#c.grn_cache_close">grn_cache_close (C function)</a>
+</li>
+      <li><a href="reference/api/grn_cache.html#c.grn_cache_current_get">grn_cache_current_get (C function)</a>
+</li>
+      <li><a href="reference/api/grn_cache.html#c.grn_cache_current_set">grn_cache_current_set (C function)</a>
+</li>
+      <li><a href="reference/api/grn_cache.html#c.grn_cache_get_max_n_entries">grn_cache_get_max_n_entries (C function)</a>
+</li>
+      <li><a href="reference/api/grn_cache.html#c.grn_cache_open">grn_cache_open (C function)</a>
+</li>
+      <li><a href="reference/api/grn_cache.html#c.grn_cache_set_max_n_entries">grn_cache_set_max_n_entries (C function)</a>
+</li>
+      <li><a href="reference/api/grn_content_type.html#c.grn_content_type">grn_content_type (C type)</a>
+</li>
+      <li><a href="reference/api/grn_expr.html#c.grn_expr_add_var">grn_expr_add_var (C function)</a>
+</li>
+      <li><a href="reference/api/grn_expr.html#c.grn_expr_alloc">grn_expr_alloc (C function)</a>
+</li>
+      <li><a href="reference/api/grn_expr.html#c.grn_expr_append_const">grn_expr_append_const (C function)</a>
+</li>
+      <li><a href="reference/api/grn_expr.html#c.grn_expr_append_const_int">grn_expr_append_const_int (C function)</a>
+</li>
+      <li><a href="reference/api/grn_expr.html#c.grn_expr_append_const_str">grn_expr_append_const_str (C function)</a>
+</li>
+      <li><a href="reference/api/grn_expr.html#c.grn_expr_append_obj">grn_expr_append_obj (C function)</a>
+</li>
+      <li><a href="reference/api/grn_expr.html#c.grn_expr_append_op">grn_expr_append_op (C function)</a>
+</li>
+      <li><a href="reference/api/grn_expr.html#c.grn_expr_close">grn_expr_close (C function)</a>
+</li>
+      <li><a href="reference/api/grn_expr.html#c.grn_expr_compile">grn_expr_compile (C function)</a>
+</li>
+      <li><a href="reference/api/grn_expr.html#c.grn_expr_create">grn_expr_create (C function)</a>
+</li>
+      <li><a href="reference/api/grn_expr.html#c.grn_expr_exec">grn_expr_exec (C function)</a>
+</li>
+      <li><a href="reference/api/grn_expr.html#c.grn_expr_get_keywords">grn_expr_get_keywords (C function)</a>
+</li>
+      <li><a href="reference/api/grn_expr.html#c.grn_expr_get_var_by_offset">grn_expr_get_var_by_offset (C function)</a>
+</li>
+      <li><a href="reference/api/grn_expr.html#c.grn_expr_syntax_escape">grn_expr_syntax_escape (C function)</a>
+</li>
+      <li><a href="reference/api/grn_expr.html#c.grn_expr_syntax_escape_query">grn_expr_syntax_escape_query (C function)</a>
+</li>
+      <li><a href="reference/api/overview.html#c.grn_fin">grn_fin (C function)</a>
+</li>
+      <li><a href="reference/api/grn_ii.html#c.grn_ii">grn_ii (C type)</a>
+</li>
+      <li><a href="reference/api/grn_ii.html#c.grn_ii_buffer">grn_ii_buffer (C type)</a>
+</li>
+      <li><a href="reference/api/grn_ii.html#c.grn_ii_buffer_append">grn_ii_buffer_append (C function)</a>
+</li>
+      <li><a href="reference/api/grn_ii.html#c.grn_ii_buffer_close">grn_ii_buffer_close (C function)</a>
+</li>
+      <li><a href="reference/api/grn_ii.html#c.grn_ii_buffer_commit">grn_ii_buffer_commit (C function)</a>
+</li>
+      <li><a href="reference/api/grn_ii.html#c.grn_ii_buffer_open">grn_ii_buffer_open (C function)</a>
+</li>
+      <li><a href="reference/api/overview.html#c.grn_init">grn_init (C function)</a>
+</li>
+      <li><a href="reference/api/grn_inspect.html#c.grn_inspect">grn_inspect (C function)</a>
+</li>
+      <li><a href="reference/api/grn_inspect.html#c.grn_inspect_encoding">grn_inspect_encoding (C function)</a>
+</li>
+      <li><a href="reference/api/grn_inspect.html#c.grn_inspect_indented">grn_inspect_indented (C function)</a>
+</li>
+      <li><a href="reference/api/grn_inspect.html#c.grn_inspect_limited">grn_inspect_limited (C function)</a>
+</li>
+      <li><a href="reference/api/grn_inspect.html#c.grn_inspect_name">grn_inspect_name (C function)</a>
+</li>
+      <li><a href="reference/api/grn_inspect.html#c.grn_inspect_query_log_flags">grn_inspect_query_log_flags (C function)</a>
+</li>
+      <li><a href="reference/api/grn_inspect.html#c.grn_inspect_type">grn_inspect_type (C function)</a>
+</li>
+      <li><a href="reference/api/grn_inspect.html#c.grn_p">grn_p (C function)</a>
+</li>
+      <li><a href="reference/api/grn_inspect.html#c.grn_p_geo_point">grn_p_geo_point (C function)</a>
+</li>
+      <li><a href="reference/api/grn_inspect.html#c.grn_p_ii_values">grn_p_ii_values (C function)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.grn_plugin_charlen">grn_plugin_charlen (C function)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.grn_plugin_command_create">grn_plugin_command_create (C function)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.GRN_PLUGIN_ERROR">GRN_PLUGIN_ERROR (C macro)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.grn_plugin_expr_var_init">grn_plugin_expr_var_init (C function)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.GRN_PLUGIN_FIN">GRN_PLUGIN_FIN (C function)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.GRN_PLUGIN_FREE">GRN_PLUGIN_FREE (C macro)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.GRN_PLUGIN_INIT">GRN_PLUGIN_INIT (C function)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.grn_plugin_isspace">grn_plugin_isspace (C function)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.GRN_PLUGIN_LOG">GRN_PLUGIN_LOG (C macro)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.GRN_PLUGIN_MALLOC">GRN_PLUGIN_MALLOC (C macro)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.grn_plugin_mutex">grn_plugin_mutex (C type)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.grn_plugin_mutex_close">grn_plugin_mutex_close (C function)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.grn_plugin_mutex_lock">grn_plugin_mutex_lock (C function)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.grn_plugin_mutex_open">grn_plugin_mutex_open (C function)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.grn_plugin_mutex_unlock">grn_plugin_mutex_unlock (C function)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.grn_plugin_proc_alloc">grn_plugin_proc_alloc (C function)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.grn_plugin_proc_get_var">grn_plugin_proc_get_var (C function)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.grn_plugin_proc_get_var_by_offset">grn_plugin_proc_get_var_by_offset (C function)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.GRN_PLUGIN_REALLOC">GRN_PLUGIN_REALLOC (C macro)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.GRN_PLUGIN_REGISTER">GRN_PLUGIN_REGISTER (C function)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.grn_plugin_win32_base_dir">grn_plugin_win32_base_dir (C function)</a>
+</li>
+      <li><a href="reference/api/plugin.html#c.grn_plugin_windows_base_dir">grn_plugin_windows_base_dir (C function)</a>
+</li>
+      <li><a href="reference/api/grn_thread.html#c.grn_thread_get_limit">grn_thread_get_limit (C function)</a>
+</li>
+      <li><a href="reference/api/grn_thread.html#c.grn_thread_get_limit_func">grn_thread_get_limit_func (C type)</a>
+</li>
+      <li><a href="reference/api/grn_thread.html#c.grn_thread_set_get_limit_func">grn_thread_set_get_limit_func (C function)</a>
+</li>
+      <li><a href="reference/api/grn_thread.html#c.grn_thread_set_limit">grn_thread_set_limit (C function)</a>
+</li>
+      <li><a href="reference/api/grn_thread.html#c.grn_thread_set_limit_func">grn_thread_set_limit_func (C type)</a>
+</li>
+      <li><a href="reference/api/grn_thread.html#c.grn_thread_set_set_limit_func">grn_thread_set_set_limit_func (C function)</a>
+</li>
+      <li>
+    grnslap command line option
+
+      <ul>
+        <li><a href="reference/executables/grnslap.html#cmdoption-grnslap-m">-m</a>
+</li>
+        <li><a href="reference/executables/grnslap.html#cmdoption-grnslap-P">-P</a>
+</li>
+        <li><a href="reference/executables/grnslap.html#cmdoption-grnslap-arg-dest">dest</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    groonga command line option
+
+      <ul>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-a">--address</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-bind-address">--bind-address</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-cache-base-path">--cache-base-path</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-cache-limit">--cache-limit</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-config-path">--config-path</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-default-match-escalation-threshold">--default-match-escalation-threshold</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-default-n-workers">--default-n-workers</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-default-request-timeout">--default-request-timeout</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-document-root">--document-root</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-e">--encoding</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-h">--help</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-log-flags">--log-flags</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-l">--log-level</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-log-path">--log-path</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-log-rotate-threshold-size">--log-rotate-threshold-size</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-t">--max-threads</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-pid-path">--pid-path</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-p">--port</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-protocol">--protocol</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-query-log-path">--query-log-path</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-query-log-rotate-threshold-size">--query-log-rotate-threshold-size</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-i">--server-id</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-a">-a</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-c">-c</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-d">-d</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-e">-e</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-h">-h</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-i">-i</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-l">-l</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-n">-n</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-p">-p</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-s">-s</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-t">-t</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-arg-command">command</a>
+</li>
+        <li><a href="reference/executables/groonga.html#cmdoption-groonga-arg-dest">dest</a>
+</li>
+      </ul></li>
+      <li>
+    groonga-benchmark command line option
+
+      <ul>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-dir">--dir</a>
+</li>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-ftp">--ftp</a>
+</li>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-groonga">--groonga</a>
+</li>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-i">--host</a>
+</li>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-log-output-dir">--log-output-dir</a>
+</li>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-p">--port</a>
+</li>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-protocol">--protocol</a>
+</li>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-i">-i</a>
+</li>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-p">-p</a>
+</li>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-arg-db">db</a>
+</li>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-arg-script">script</a>
+</li>
+      </ul></li>
+      <li>
+    groonga-suggest-httpd command line option
+
+      <ul>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-d">--daemon</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-disable-max-fd-check">--disable-max-fd-check</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-l">--log-base-path</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-n-lines-per-log-file">--n-lines-per-log-file</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-t">--n-threads</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-p">--port</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-r">--receive-endpoint</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-s">--send-endpoint</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-d">-d</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-l">-l</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-p">-p</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-r">-r</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-s">-s</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-httpd.html#cmdoption-groonga-suggest-httpd-t">-t</a>
+</li>
+      </ul></li>
+      <li>
+    groonga-suggest-learner command line option
+
+      <ul>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-d">--daemon</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-l">--log-base-path</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-log-level">--log-level</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-log-path">--log-path</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-r">--receive-endpoint</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-s">--send-endpoint</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-d">-d</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-l">-l</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-r">-r</a>
+</li>
+        <li><a href="reference/executables/groonga-suggest-learner.html#cmdoption-groonga-suggest-learner-s">-s</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    script
+
+      <ul>
+        <li><a href="reference/executables/groonga-benchmark.html#cmdoption-groonga-benchmark-arg-script">groonga-benchmark command line option</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2009-2024 Groonga Project.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,766 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>12.2.2. I18N &#8212; Groonga v14.1.2 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=e535604e"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-7532323-1');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-7532323-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contribution/documentation/i18n';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'english';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="12.2.3. C API" href="c-api.html" />
+    <link rel="prev" title="12.2.1. Introduction" href="introduction.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="14.1.2" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+     
+  
+
+<a class="navbar-brand logo" href="https://groonga.org/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.2 documentation - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.2 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Blog</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Blog</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../report.html">12.1. How to report a bug</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../documentation.html">12.2. How to contribute in documentation topics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">12.2.1. Introduction</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">12.2.2. I18N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c-api.html">12.2.3. C API</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../development.html">12.3. For Groonga developers</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../development/repository.html">12.3.1. Repository</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../development/build.html">12.3.2. How to build Groonga at the repository</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../development/build/unix_cmake.html">12.3.2.1. How to build Groonga at the repository by CMake on GNU/Linux or Unix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development/build/windows_cmake.html">12.3.2.2. How to build Groonga at the repository by CMake on Windows</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/com.html">12.3.3. Groonga 通信アーキテクチャ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/cooperation.html">12.3.4. ユーザーと協力して開発をうまく進めていくための指針</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/query.html">12.3.5. クエリの実現</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../development/release.html">12.3.7. リリース手順</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development/test.html">12.3.8. テスト方法</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../contribution.html" class="nav-link"><span class="section-number">12. </span>How to contribute to groonga</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../documentation.html" class="nav-link"><span class="section-number">12.2. </span>How to contribute in documentation topics</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">12.2.2. </span>I18N</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="i18n">
+<h1><span class="section-number">12.2.2. </span>I18N<a class="headerlink" href="#i18n" title="Link to this heading">#</a></h1>
+<p>We only had documentation in Japanese.  We start to support
+I18N documentation by gettext based <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/advanced/intl.html">Sphinx I18N feature</a>.
+We’ll use English as base language and translate
+English into other languages such as Japanese. We’ll put
+all documentations into doc/source/ and process them by
+Sphinx.</p>
+<p>But we still use Japanese in doc/source/ for now. We need to
+translate Japanese documentation in doc/source/ into
+English. We welcome to you help us by translating
+documentation.</p>
+<section id="translation-flow">
+<h2><span class="section-number">12.2.2.1. </span>Translation flow<a class="headerlink" href="#translation-flow" title="Link to this heading">#</a></h2>
+<p>After doc/source/*.txt are updated, we can start translation.</p>
+<p>Here is a translation flow:</p>
+<ol class="arabic simple">
+<li><p>Install Sphinx, if it is not installed.</p></li>
+<li><p>Clone Groonga repository.</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">.edit</span></code> files</p></li>
+<li><p>Edit <code class="docutils literal notranslate"><span class="pre">.edit</span></code> files</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">.po</span></code> files.</p></li>
+<li><p>Generate HTML files.</p></li>
+<li><p>Confirm HTML output.</p></li>
+<li><p>Repeat 3.-7. until you finish to translate.</p></li>
+<li><p>Send your works to us!</p></li>
+</ol>
+<p>Here are command lines to do the above flow. Following
+sections describes details.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Please fork https://github.com/groonga/groonga on GitHub
+% git clone https://github.com/${YOUR_GITHUB_ACCOUNT}/groonga.git
+% ./autogen.sh
+% ./configure --enable-document
+% cd doc/locale/${LANGUAGE}/LC_MESSAGES # ${LANGUAGE} is language code such as &#39;ja&#39;.
+% make # *.edit are updated
+% editor *.edit # translate *.edit # you can use your favorite editor
+% make # *.po are updated
+% cd ..
+% make html
+% browser html/index.html # confirm translation
+% git add LC_MESSAGES/*.po
+% git commit
+% git push
+</pre></div>
+</div>
+</section>
+<section id="how-to-install-sphinx">
+<h2><span class="section-number">12.2.2.2. </span>How to install Sphinx<a class="headerlink" href="#how-to-install-sphinx" title="Link to this heading">#</a></h2>
+<p>See the <a class="reference internal" href="introduction.html"><span class="doc">Introduction</span></a>.</p>
+</section>
+<section id="how-to-clone-groonga-repository">
+<h2><span class="section-number">12.2.2.3. </span>How to clone Groonga repository<a class="headerlink" href="#how-to-clone-groonga-repository" title="Link to this heading">#</a></h2>
+<p>First, please fork Groonga repository on GitHub. You
+just access <a class="github reference external" href="https://github.com/groonga/groonga">groonga/groonga</a> and press
+<cite>Fork</cite> button. Now you can clone your Groonga repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>% git clone https://github.com/${YOUR_GITHUB_ACCOUNT}/groonga.git
+</pre></div>
+</div>
+<p>Then you need to configure your cloned repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">groonga</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">autogen</span><span class="o">.</span><span class="n">sh</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">configure</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">document</span>
+</pre></div>
+</div>
+<p>The above steps are just needed at the first setup.</p>
+<p>If you have troubles on the above steps, you can use source
+files available on <a class="reference external" href="https://packages.groonga.org/source/groonga/">https://packages.groonga.org/source/groonga/</a> .</p>
+</section>
+<section id="how-to-update-edit-files">
+<h2><span class="section-number">12.2.2.4. </span>How to update <code class="docutils literal notranslate"><span class="pre">.edit</span></code> files<a class="headerlink" href="#how-to-update-edit-files" title="Link to this heading">#</a></h2>
+<p>You can update <code class="docutils literal notranslate"><span class="pre">.edit</span></code> files by running <code class="docutils literal notranslate"><span class="pre">make</span></code> on
+<code class="docutils literal notranslate"><span class="pre">doc/locale/${LANGUAGE}/LC_MESSAGES</span></code>. (Please replace
+<cite>${LANGUAGE}</cite> with your language code such as ‘ja’.):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">doc</span><span class="o">/</span><span class="n">locale</span><span class="o">/</span><span class="n">ja</span><span class="o">/</span><span class="n">LC_MESSAGES</span>
+<span class="o">%</span> <span class="n">make</span>
+</pre></div>
+</div>
+</section>
+<section id="how-to-edit-edit">
+<h2><span class="section-number">12.2.2.5. </span>How to edit <code class="docutils literal notranslate"><span class="pre">.edit</span></code><a class="headerlink" href="#how-to-edit-edit" title="Link to this heading">#</a></h2>
+<p>Both of <code class="docutils literal notranslate"><span class="pre">.edit</span></code> files and <code class="docutils literal notranslate"><span class="pre">.po</span></code> files are <a class="reference external" href="https://www.gnu.org/software/gettext/manual/html_node/PO-Files.html">PO files</a>.
+<code class="docutils literal notranslate"><span class="pre">.edit</span></code> files are for editing and <code class="docutils literal notranslate"><span class="pre">.po</span></code> files are for versioning.</p>
+<p>In order to edit <code class="docutils literal notranslate"><span class="pre">.edit</span></code> files, there are some tools to edit.
+<code class="docutils literal notranslate"><span class="pre">.edit</span></code> files are just text, so you can use your favorite editor.</p>
+<p>Here is a list of editors specialized for editing <code class="docutils literal notranslate"><span class="pre">.po</span></code> files.
+You can use these editors to edit <code class="docutils literal notranslate"><span class="pre">.edit</span></code> files because they are actually
+<code class="docutils literal notranslate"><span class="pre">.po</span></code> files.</p>
+<dl class="simple">
+<dt>Emacs’s <a class="reference external" href="http://www.gnu.org/s/hello/manual/gettext/PO-Mode.html">po-mode</a></dt><dd><p>It is bundled in gettext.</p>
+</dd>
+<dt><a class="reference external" href="http://www.poedit.net/">Poedit</a></dt><dd><p>It is a <code class="docutils literal notranslate"><span class="pre">.po</span></code> editor and works on many platform.</p>
+</dd>
+<dt>gted</dt><dd><p>It is also a <code class="docutils literal notranslate"><span class="pre">.po</span></code> editor and is implemented as Eclipse plugin.</p>
+</dd>
+</dl>
+</section>
+<section id="how-to-update-po-files">
+<h2><span class="section-number">12.2.2.6. </span>How to update <code class="docutils literal notranslate"><span class="pre">.po</span></code> files<a class="headerlink" href="#how-to-update-po-files" title="Link to this heading">#</a></h2>
+<p>After editing <code class="docutils literal notranslate"><span class="pre">.edit</span></code> files, you can update <code class="docutils literal notranslate"><span class="pre">.po</span></code> files by running <code class="docutils literal notranslate"><span class="pre">make</span></code> on
+<code class="docutils literal notranslate"><span class="pre">doc/locale/${LANGUAGE}/LC_MESSAGES</span></code>. (Please replace
+<cite>${LANGUAGE}</cite> with your language code such as ‘ja’.)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">doc</span><span class="o">/</span><span class="n">locale</span><span class="o">/</span><span class="n">ja</span><span class="o">/</span><span class="n">LC_MESSAGES</span>
+<span class="o">%</span> <span class="n">make</span>
+</pre></div>
+</div>
+</section>
+<section id="how-to-generate-html-files">
+<h2><span class="section-number">12.2.2.7. </span>How to generate HTML files<a class="headerlink" href="#how-to-generate-html-files" title="Link to this heading">#</a></h2>
+<p>You can generate HTML files with updated <code class="docutils literal notranslate"><span class="pre">.po</span></code> files by
+running <cite>make html</cite> on doc/locale/${LANGUAGE}. (Please
+substitute <cite>${LANGUAGE}</cite> with your language code such as
+‘ja’.):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">doc</span><span class="o">/</span><span class="n">locale</span><span class="o">/</span><span class="n">ja</span><span class="o">/</span>
+<span class="o">%</span> <span class="n">make</span> <span class="n">html</span>
+</pre></div>
+</div>
+<p>You can also generate HTML files for all languages by
+running <cite>make html</cite> on doc/locale:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">doc</span><span class="o">/</span><span class="n">locale</span>
+<span class="o">%</span> <span class="n">make</span> <span class="n">html</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>.mo files are updated automatically by <cite>make html</cite>. So
+you don’t care about .mo files.</p>
+</div>
+</section>
+<section id="how-to-confirm-html-output">
+<h2><span class="section-number">12.2.2.8. </span>How to confirm HTML output<a class="headerlink" href="#how-to-confirm-html-output" title="Link to this heading">#</a></h2>
+<p>HTML files are generated in
+doc/locale/${LANGUAGE}/html/. (Please substitute
+<cite>${LANGUAGE}</cite> with your language code such as ‘ja’.) You can
+confirm HTML output by your favorite browser:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">firefox</span> <span class="n">doc</span><span class="o">/</span><span class="n">locale</span><span class="o">/</span><span class="n">ja</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+</section>
+<section id="how-to-send-your-works">
+<h2><span class="section-number">12.2.2.9. </span>How to send your works<a class="headerlink" href="#how-to-send-your-works" title="Link to this heading">#</a></h2>
+<p>We can receive your works via pull request on GitHub or
+E-mail attachment patch or <code class="docutils literal notranslate"><span class="pre">.po</span></code> files themselves.</p>
+<section id="how-to-send-pull-request">
+<h3><span class="section-number">12.2.2.9.1. </span>How to send pull request<a class="headerlink" href="#how-to-send-pull-request" title="Link to this heading">#</a></h3>
+<p>Here are command lines to send pull request:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">git</span> <span class="n">add</span> <span class="n">doc</span><span class="o">/</span><span class="n">locale</span><span class="o">/</span><span class="n">ja</span><span class="o">/</span><span class="n">LC_MESSAGES</span><span class="o">/*.</span><span class="n">po</span>
+<span class="o">%</span> <span class="n">git</span> <span class="n">commit</span>
+<span class="o">%</span> <span class="n">git</span> <span class="n">push</span>
+</pre></div>
+</div>
+<p>Now you can send pull request on GitHub. You just access
+your repository page on GitHub and press <cite>Pull Request</cite>
+button.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="http://help.github.com/pull-requests/">Help.GitHub - Sending pull requests</a>.</p>
+</div>
+</section>
+<section id="how-to-send-patch">
+<h3><span class="section-number">12.2.2.9.2. </span>How to send patch<a class="headerlink" href="#how-to-send-patch" title="Link to this heading">#</a></h3>
+<p>Here are command lines to create patch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">git</span> <span class="n">add</span> <span class="n">doc</span><span class="o">/</span><span class="n">locale</span><span class="o">/</span><span class="n">ja</span><span class="o">/</span><span class="n">LC_MESSAGES</span><span class="o">/*.</span><span class="n">po</span>
+<span class="o">%</span> <span class="n">git</span> <span class="n">commit</span>
+<span class="o">%</span> <span class="n">git</span> <span class="nb">format</span><span class="o">-</span><span class="n">patch</span> <span class="n">origin</span><span class="o">/</span><span class="n">main</span>
+</pre></div>
+</div>
+<p>You can find 000X-YYY.patch files in the current
+directory. Please send those files to us!</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../../community.html"><span class="doc">Community</span></a> describes our contact information.</p>
+</div>
+</section>
+<section id="how-to-send-po-files">
+<h3><span class="section-number">12.2.2.9.3. </span>How to send <code class="docutils literal notranslate"><span class="pre">.po</span></code> files<a class="headerlink" href="#how-to-send-po-files" title="Link to this heading">#</a></h3>
+<p>Please archive doc/locale/${LANGUAGE}/LC_MESSAGES/ (Please
+substitute <cite>${LANGUAGE}</cite> with your language code such as
+‘ja’.) and send it to us! We extract and merge them to the
+Groonga repository.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../../community.html"><span class="doc">Community</span></a> describes our contact information.</p>
+</div>
+</section>
+</section>
+<section id="how-to-add-new-language">
+<h2><span class="section-number">12.2.2.10. </span>How to add new language<a class="headerlink" href="#how-to-add-new-language" title="Link to this heading">#</a></h2>
+<p>Here are command lines to add new translation language:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>% cd doc/locale
+% make add LOCALE=${LANGUAGE} # specify your language code such as &#39;de&#39;.
+</pre></div>
+</div>
+<p>Please substitute <cite>${LANGUAGE}</cite> with your language code such
+as ‘ja’.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="http://www.loc.gov/standards/iso639-2/php/English_list.php">Codes for the Representation of Names of Languages</a>.</p>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="introduction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">12.2.1. </span>Introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="c-api.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">12.2.3. </span>C API</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#translation-flow">12.2.2.1. Translation flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-install-sphinx">12.2.2.2. How to install Sphinx</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-clone-groonga-repository">12.2.2.3. How to clone Groonga repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-update-edit-files">12.2.2.4. How to update <code class="docutils literal notranslate"><span class="pre">.edit</span></code> files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-edit-edit">12.2.2.5. How to edit <code class="docutils literal notranslate"><span class="pre">.edit</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-update-po-files">12.2.2.6. How to update <code class="docutils literal notranslate"><span class="pre">.po</span></code> files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-generate-html-files">12.2.2.7. How to generate HTML files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-confirm-html-output">12.2.2.8. How to confirm HTML output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-send-your-works">12.2.2.9. How to send your works</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-send-pull-request">12.2.2.9.1. How to send pull request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-send-patch">12.2.2.9.2. How to send patch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-send-po-files">12.2.2.9.3. How to send <code class="docutils literal notranslate"><span class="pre">.po</span></code> files</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-add-new-language">12.2.2.10. How to add new language</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/groonga/groonga/edit/main/doc/source/contribution/documentation/i18n.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2009-2024 Groonga Project.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

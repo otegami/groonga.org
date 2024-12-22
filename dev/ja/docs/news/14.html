@@ -1,0 +1,1748 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ja" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>お知らせ - 14系 &#8212; Groonga v14.1.2 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=d4c2f41a"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/translations.js?v=4755f45a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-7532323-1');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-7532323-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'news/14';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'japanese';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  <meta name="docsearch:version" content="14.1.2" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">本文へスキップ</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>トップに戻る</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="バージョン警告"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="サイトナビゲーション">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+     
+  
+
+<a class="navbar-brand logo" href="https://groonga.org/ja/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.2 documentation - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.2 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="ライト"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="ダーク"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/ja/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Blog</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="このページでは">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="ライト"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="ダーク"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/ja/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Blog</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="セクションナビゲーション">
+  <p class="bd-links__title" role="heading" aria-level="1">セクションナビゲーション</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="パンくずリスト" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="ホーム">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">お知らせ - 14系</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="news-14-series">
+<h1>お知らせ - 14系<a class="headerlink" href="#news-14-series" title="Link to this heading">#</a></h1>
+<!-- prettier-ignore-start -->
+<section id="release-14-1-1-2024-12-03">
+<span id="release-14-1-1"></span><h2>14.1.1リリース - 2024-12-03<a class="headerlink" href="#release-14-1-1-2024-12-03" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
+<section id="improvements">
+<h3>改良<a class="headerlink" href="#improvements" title="Link to this heading">#</a></h3>
+<section id="stopped-vendoring-rapidjson">
+<h4>RapidJSONの同梱を終了<a class="headerlink" href="#stopped-vendoring-rapidjson" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://github.com/groonga/groonga/issues/1462">GH-1462</a></p>
+<p>14.0.7でsimdjsonをサポートしました。これによりRapidJSONを同梱する必要がなくなりました。RapidJSONにはJSONライセンスのファイルが含まれていました。JSONライセンスはフリーソフトウェアライセンス・オープンソースライセンスではありません。そのため、RapidJSONの同梱をやめたかったのです。</p>
+<p>RapidJSONはまだサポートしています。別途RapidJSONをインストールすることで引き続きRapidJSONを使うことができます。しかし、RapidJSONよりsimdjsonを使うことをオススメします。</p>
+</section>
+<section id="made-llama-cpp-initialization-lazy">
+<h4>llama.cppの初期化処理を遅延化<a class="headerlink" href="#made-llama-cpp-initialization-lazy" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://github.com/groonga/groonga/issues/2078">GH-2078</a></p>
+<p>llama.cppは最近のSIMD機能を必要とします。llama.cppを常に初期化すると、古いCPUを使っていて、かつ、llama.cppの機能を使っていないユーザーが公式のGroongaパッケージを使えません。そのため、llama.cppの初期化を遅延させることにしました。llama.cpp関連の機能を使っているユーザーは引き続き最近のCPUが必要ですが、llama.cpp関連の機能を使っていないユーザーはこれまで通り古いCPUを使えます。</p>
+</section>
+<section id="normalizernfkc-added-support-for-mixing-unify-middle-dot-and-remove-symbol">
+<h4><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code>: <code class="docutils literal notranslate"><span class="pre">unify_middle_dot</span></code>と<code class="docutils literal notranslate"><span class="pre">remove_symbol</span></code>を同時使用をサポート<a class="headerlink" href="#normalizernfkc-added-support-for-mixing-unify-middle-dot-and-remove-symbol" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://github.com/groonga/groonga/issues/1538">GH-1538</a></p>
+<p><a class="reference internal" href="../reference/normalizers/normalizer_nfkc150.html"><span class="doc">NormalizerNFKC150</span></a>のような<code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code>関連のノーマライザーで<a class="reference internal" href="../reference/normalizers/normalizer_nfkc150.html#normalizer-nfkc150-unify-middle-dot"><span class="std std-ref">unify_middle_dot</span></a>オプションと<a class="reference internal" href="../reference/normalizers/normalizer_nfkc150.html#normalizer-nfkc150-remove-symbol"><span class="std std-ref">remove_symbol</span></a>オプションを一緒に使えるようになりました。</p>
+</section>
+<section id="reference-commands-defrag-added-support-for-table-pat-key">
+<h4><a class="reference internal" href="../reference/commands/defrag.html"><span class="doc">defrag</span></a>: <a class="reference internal" href="../reference/tables.html#table-pat-key"><span class="std std-ref">TABLE_PAT_KEY</span></a>をサポート<a class="headerlink" href="#reference-commands-defrag-added-support-for-table-pat-key" title="Link to this heading">#</a></h4>
+<p><a class="reference internal" href="../reference/tables.html#table-pat-key"><span class="std std-ref">TABLE_PAT_KEY</span></a>テーブルは削除されたキーの領域を再利用できませんでした。この領域は引き続き自動では再利用されませんが、このリリースからは明示的に<a class="reference internal" href="../reference/commands/defrag.html"><span class="doc">defrag</span></a>を実行することで再利用できるようになりました。</p>
+</section>
+<section id="reference-commands-load-improved-error-handling">
+<h4><a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a>: エラー処理を改良<a class="headerlink" href="#reference-commands-load-improved-error-handling" title="Link to this heading">#</a></h4>
+<p><a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a>中にクリティカルなエラーが発生したときは後続のデータを待たないようにしました。このようなケースではクライアントは後続のデータを送らないかもしれません。</p>
+</section>
+<section id="reference-executables-groonga-added-context-id-log-flag">
+<h4><a class="reference internal" href="../reference/executables/groonga.html"><span class="doc">groonga 実行ファイル</span></a>: <code class="docutils literal notranslate"><span class="pre">context_id</span></code>ログフラグを追加<a class="headerlink" href="#reference-executables-groonga-added-context-id-log-flag" title="Link to this heading">#</a></h4>
+<p><a class="reference internal" href="../reference/log.html#query-log"><span class="std std-ref">クエリーログ</span></a>も使っている場合に便利です。<a class="reference internal" href="../reference/log.html#query-log"><span class="std std-ref">クエリーログ</span></a>ではコンテキストIDが記録されています。<a class="reference internal" href="../reference/log.html#process-log"><span class="std std-ref">プロセスログ</span></a>と<a class="reference internal" href="../reference/log.html#query-log"><span class="std std-ref">クエリーログ</span></a>の中にコンテキストIDが記録されていると、これらのログをより簡単に紐付けられるようになります。</p>
+</section>
+<section id="reference-executables-groonga-improved-error-handling">
+<h4><a class="reference internal" href="../reference/executables/groonga.html"><span class="doc">groonga 実行ファイル</span></a>: エラー処理を改良<a class="headerlink" href="#reference-executables-groonga-improved-error-handling" title="Link to this heading">#</a></h4>
+<p><a class="reference internal" href="../reference/command/request_timeout.html"><span class="doc">リクエストタイムアウト</span></a> 内部的にロックしています。場合によっては失敗することがあります。このようなケースを想定していくつかエラーチェックを追加しました。</p>
+</section>
+<section id="table-pat-key-improved-key-space-efficiency">
+<h4><a class="reference internal" href="../reference/tables.html#table-pat-key"><span class="std std-ref">TABLE_PAT_KEY</span></a>: キー領域を効率化<a class="headerlink" href="#table-pat-key-improved-key-space-efficiency" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://github.com/groonga/groonga/issues/2104">GH-2104</a></p>
+<p>キー領域を無駄使いするケースがありました。このケースを改良して、できるだけ効率よくキー領域を使えるようにしました。</p>
+</section>
+</section>
+<section id="fixes">
+<h3>修正<a class="headerlink" href="#fixes" title="Link to this heading">#</a></h3>
+<section id="grn-pat-size-fixed-a-bug-that-0-may-not-be-returned-on-error">
+<h4><code class="docutils literal notranslate"><span class="pre">grn_pat_size()</span></code>: エラー時に<code class="docutils literal notranslate"><span class="pre">0</span></code>を返さない問題を修正<a class="headerlink" href="#grn-pat-size-fixed-a-bug-that-0-may-not-be-returned-on-error" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://github.com/groonga/groonga/issues/2097">GH-2097</a></p>
+<p>指定された<code class="docutils literal notranslate"><span class="pre">pat</span></code>が<code class="docutils literal notranslate"><span class="pre">NULL</span></code>の場合、<code class="docutils literal notranslate"><span class="pre">-22</span></code>を返していました。しかし、エラーの場合は<code class="docutils literal notranslate"><span class="pre">0</span></code>を返して、<code class="docutils literal notranslate"><span class="pre">ctx-&gt;rc</span></code>にエラー情報を設定するべきでした。</p>
+<p>Groongaが期待した挙動をするようになりました。</p>
+</section>
+<section id="reference-regular-expression-fixed-a-bug-with-an-empty-pattern">
+<h4><a class="reference internal" href="../reference/regular_expression.html"><span class="doc">正規表現</span></a>: 空のパターンのときの問題を修正<a class="headerlink" href="#reference-regular-expression-fixed-a-bug-with-an-empty-pattern" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://github.com/groonga/groonga/issues/2121">GH-2121</a></p>
+<p>指定されたパターンが空文字列の場合、いくつかも問題がありました。</p>
+<ul class="simple">
+<li><p>正規表現用のインデックスがある場合、Groongaがクラッシュしていました。</p></li>
+<li><p>正規表現用のインデックスがない場合、Groongaはすべてのレコードを返していました。</p></li>
+</ul>
+<p>空のパターンのときは空の結果を返すようにしました。</p>
+<!-- prettier-ignore-start -->
+</section>
+</section>
+</section>
+<section id="release-14-1-0-2024-11-05">
+<span id="release-14-1-0"></span><h2>14.1.0リリース - 2024-11-05<a class="headerlink" href="#release-14-1-0-2024-11-05" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
+<section id="id1">
+<h3>改良<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="reference-commands-status-added-features-llama-cpp-entry">
+<h4>[<a class="reference internal" href="../reference/commands/status.html"><span class="doc">status</span></a>] <code class="docutils literal notranslate"><span class="pre">.[&quot;features&quot;][&quot;llama.cpp&quot;]</span></code>エントリーを追加<a class="headerlink" href="#reference-commands-status-added-features-llama-cpp-entry" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">.[&quot;features&quot;]</span></code>エントリーは次のように各機能が有効かどうかを示しています。</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">  </span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;features&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;nfkc&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;mecab&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>このリリースは<code class="docutils literal notranslate"><span class="pre">.[&quot;features&quot;]</span></code>エントリーに<code class="docutils literal notranslate"><span class="pre">llama.cpp</span></code>を追加しました。</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">  </span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;features&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;nfkc&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;mecab&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;llama.cpp&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://github.com/ggerganov/llama.cpp">llama.cpp</a>が有効になっているかどうかを確認するために<code class="docutils literal notranslate"><span class="pre">.[&quot;features&quot;][&quot;llama.cpp&quot;]</span></code>を使うことができます。</p>
+<p>次で紹介する<a class="reference internal" href="../reference/functions/language_model_vectorize.html"><span class="doc">language_model_vectorize</span></a>を使うためにはllama.cppサポートが必要です。</p>
+</section>
+<section id="reference-functions-language-model-vectorize-added-experimental">
+<h4>[<a class="reference internal" href="../reference/functions/language_model_vectorize.html"><span class="doc">language_model_vectorize</span></a>] 追加（実験的）<a class="headerlink" href="#reference-functions-language-model-vectorize-added-experimental" title="Link to this heading">#</a></h4>
+<p>この機能はまだ実験的で安定していません。</p>
+<p>この機能は従来よりも多くのCPUとメモリーを使うかもしれません。</p>
+<p>この関数は、与えられたテキストの正規化されたエンべディング（ベクトル表現）を返します。エンべディングとは、与えられたテキストの意味情報をベクトルとして表現したものです。意味をベクトルとして表現することで、全文検索ではなくセマンティックサーチができるようになります。</p>
+<p>例えば、「牛乳」と「ミルク」は字面は全然違いますが、同じ意味を持つ言葉です。従来でも同義語展開を使えば「牛乳」と「ミルク」のような字面の異なる意味が同じ言葉を検索できますが、同義語展開用のテーブルをメンテナンスしなければなりません。</p>
+<p>セマンティックサーチができるようになると、同義語展開用のテーブルを準備、メンテナンスせずに意味の近い言葉を検索できるようになります。</p>
+</section>
+<section id="reference-commands-column-create-added-the-column-create-generator-parameter">
+<h4>[<a class="reference internal" href="../reference/commands/column_create.html"><span class="doc">column_create</span></a>] <a class="reference internal" href="../reference/commands/column_create.html#column-create-generator"><span class="std std-ref">generator</span></a>引数を追加<a class="headerlink" href="#reference-commands-column-create-added-the-column-create-generator-parameter" title="Link to this heading">#</a></h4>
+<p>このリリースでは<a class="reference internal" href="../reference/column.html#generated-column"><span class="std std-ref">生成カラム</span></a>機能を追加しました。この機能を使うと、他のカラムの値を使ってカラムの値を自動生成できます。</p>
+<p><a class="reference internal" href="../reference/commands/column_create.html"><span class="doc">column_create</span></a>と<a class="reference internal" href="../reference/commands/column_create.html#column-create-generator"><span class="std std-ref">generator</span></a>を使うと生成カラムを作ることができます。詳細は<a class="reference internal" href="../reference/commands/column_create.html#column-create-generated-column"><span class="std std-ref">自動生成カラムを作成</span></a>を参照してください。</p>
+<p>この機能のメリットは次のとおりです。</p>
+<ol class="arabic simple">
+<li><p>生成処理を手動で管理する必要がない</p></li>
+<li><p>生成元のカラムだけあればよいので、ロードするデータ量を減らせる</p></li>
+</ol>
+<p>たとえば、他のカラムの値のエンべディングを生成するために<a class="reference internal" href="../reference/functions/language_model_vectorize.html"><span class="doc">language_model_vectorize</span></a>を使うことができます。エンべディングは小さくないかもしれません。もし、エンべディングが1024次元の32-bit浮動小数点数で表現されている場合、エンべディングのサイズは4KiBになります。<a class="reference internal" href="../reference/functions/language_model_vectorize.html"><span class="doc">language_model_vectorize</span></a>と<a class="reference internal" href="../reference/column.html#generated-column"><span class="std std-ref">生成カラム</span></a>でエンべディングを自動で生成すると4KiBのエンべディング一式をGroongaに送る必要はありません。</p>
+<p>この機能により、検索対象のテキストを<a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a>するだけで、同時に対応するエンべディングも保存できます。</p>
+</section>
+</section>
+<section id="id2">
+<h3>修正<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="server-gqtp-fixed-a-bug-that-wrong-return-code-is-returned">
+<h4>[<a class="reference internal" href="../server/gqtp.html"><span class="doc">GQTP</span></a>] 間違ったリターンコードが返される問題を修正<a class="headerlink" href="#server-gqtp-fixed-a-bug-that-wrong-return-code-is-returned" title="Link to this heading">#</a></h4>
+<p>これはクライアント側の問題です。この問題は14.0.0から存在します。</p>
+<p>GQTPクライアントはサーバーから受け取った<a class="reference internal" href="../reference/command/return_code.html"><span class="doc">リターンコード</span></a>を間違って変換していました。たとえば、<code class="docutils literal notranslate"><span class="pre">INVALID_ARGUMENT</span></code>の値は<code class="docutils literal notranslate"><span class="pre">-22</span></code>ですが、これを<code class="docutils literal notranslate"><span class="pre">65514</span></code>に変換していました。</p>
+<p>GQTPクライアントを利用していないユーザーには影響ありません。</p>
+</section>
+<section id="reference-commands-logical-range-filter-fixed-a-bug-that-invalid-json-format-response-may-be-returned">
+<h4>[<a class="reference internal" href="../reference/commands/logical_range_filter.html"><span class="doc">logical_range_filter</span></a>] 不正なJSONフォーマットのレスポンスが返されることがある問題を修正<a class="headerlink" href="#reference-commands-logical-range-filter-fixed-a-bug-that-invalid-json-format-response-may-be-returned" title="Link to this heading">#</a></h4>
+<p>この問題は<a class="reference internal" href="../reference/command/command_version.html"><span class="doc">コマンドバージョン</span></a> 3でのみ発生します。デフォルトのコマンドバージョンは1です。</p>
+<p>あなたのGroongaのデフォルトのコマンドバージョンは<a class="reference internal" href="../reference/commands/status.html"><span class="doc">status</span></a>コマンドで確認できます。</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">  </span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;command_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;default_command_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>以下が不正なJSONフォーマットのレスポンス例です。実際の<code class="docutils literal notranslate"><span class="pre">&quot;records:</span> <span class="pre">[...]&quot;</span></code>の前に不要な<code class="docutils literal notranslate"><span class="pre">&quot;records&quot;:</span> <span class="pre">[]</span></code>があります。</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;body&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;records&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nt">&quot;records&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;The first post!&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;Welcome! This is my first post!&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="mf">1436313600.0</span><span class="p">,</span>
+<span class="w">        </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;Hello&quot;</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="s2">&quot;...&quot;</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;header&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="reference-commands-request-cancel-fixed-a-bug-that-invalid-json-format-response-may-be-returned">
+<h4>[<a class="reference internal" href="../reference/commands/logical_range_filter.html"><span class="doc">logical_range_filter</span></a>] 不正なJSONフォーマットのレスポンスが返されることがある問題を修正<a class="headerlink" href="#reference-commands-request-cancel-fixed-a-bug-that-invalid-json-format-response-may-be-returned" title="Link to this heading">#</a></h4>
+<p><a class="reference internal" href="../reference/commands/request_cancel.html"><span class="doc">request_cancel</span></a>で実行中のコマンドを止めることができます。</p>
+<p>コマンドをキャンセルすると不正なJSONフォーマットのレスポンスを受け取ることがありました。これはキャンセルのタイミングによって発生したりしなかったりします。</p>
+<p>このリリースではキャンセル処理時の出力処理を改良しました。コマンドをキャンセルしたときでも不正なJSONフォーマットのレスポンスを受け取ることはなくなるはずです。</p>
+</section>
+<section id="reference-commands-index-column-diff-fixed-a-bug-that-false-positive-diff-may-be-reported">
+<h4>[<a class="reference internal" href="../reference/commands/index_column_diff.html"><span class="doc">index_column_diff</span></a>] 擬陽性の差分が報告されるかもしれない問題を修正<a class="headerlink" href="#reference-commands-index-column-diff-fixed-a-bug-that-false-positive-diff-may-be-reported" title="Link to this heading">#</a></h4>
+<p><a class="reference internal" href="../reference/commands/index_column_diff.html"><span class="doc">index_column_diff</span></a>を使うとインデックスの破損を検出できます。</p>
+<p>1つのレコード中に同じトークンが131,072個以上含まれている場合、<a class="reference internal" href="../reference/commands/index_column_diff.html"><span class="doc">index_column_diff</span></a>は本来インデックス内にあるべきレコードが含まれていないと報告します。このリリースではこの問題を修正しました。</p>
+<!-- prettier-ignore-start -->
+</section>
+</section>
+</section>
+<section id="release-14-0-9-2024-09-27">
+<span id="release-14-0-9"></span><h2>14.0.9リリース - 2024-09-27<a class="headerlink" href="#release-14-0-9-2024-09-27" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
+<section id="id3">
+<h3>修正<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Alpine Linux 3.20上でソースからビルドする時にビルドエラーになる問題を修正しました。</p></li>
+</ul>
+<!-- prettier-ignore-start -->
+</section>
+</section>
+<section id="release-14-0-8-2024-09-25">
+<span id="release-14-0-8"></span><h2>14.0.8リリース - 2024-09-25<a class="headerlink" href="#release-14-0-8-2024-09-25" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
+<section id="id4">
+<h3>改良<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>[Amazon Linux 2023] Amazon Linux 2023 をサポートしました。 [GH-1845][takoyaki-nyokkiさんとWatsonさんの報告]</p>
+<p>今の所、Amazon Linux 2023のaarch64版はサポートしていません。パッケージのビルドに時間がかかりすぎるため、メンテナンスコストが高いためです。</p>
+<p>Amazon Linux 2023版のGroongaではTokenMecabが使えません。Amazon Linux 2023がMecabパッケージを提供していないためです。</p>
+</li>
+</ul>
+</section>
+<section id="id5">
+<h3>修正<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Windows版のPGroongaで<code class="docutils literal notranslate"><span class="pre">pgroonga.log_type</span></code>を指定するとクラッシュする問題を修正しました。</p></li>
+</ul>
+</section>
+<section id="thanks">
+<h3>感謝<a class="headerlink" href="#thanks" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>takoyaki-nyokkiさん</p></li>
+<li><p>Watsonさん</p></li>
+</ul>
+<!-- prettier-ignore-start -->
+</section>
+</section>
+<section id="release-14-0-7-2024-09-03">
+<span id="release-14-0-7"></span><h2>14.0.7リリース - 2024-09-03<a class="headerlink" href="#release-14-0-7-2024-09-03" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
+<section id="id6">
+<h3>改良<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>[NormalizerNFKC] 新しいオプション <code class="docutils literal notranslate"><span class="pre">unify_latin_alphabet_with</span></code> を追加しました。[pgroonga/pgroonga#418][Man Hoangさんの報告]</p>
+<p>このオプションは、以下のように発音記号付きの文字と発音記号なしの文字を同じ文字とみなすことができます。</p>
+<p>ただし、この機能は <code class="docutils literal notranslate"><span class="pre">LATIN</span> <span class="pre">(SMALL|CAPITAL)</span> <span class="pre">LETTER</span> <span class="pre">X</span> <span class="pre">WITH</span> <span class="pre">XXX</span></code> にのみフォーカスしています。 <code class="docutils literal notranslate"><span class="pre">LATIN</span> <span class="pre">(SMALL|CAPITAL)</span> <span class="pre">LETTER</span> <span class="pre">X</span></code> + <code class="docutils literal notranslate"><span class="pre">COMBINING</span> <span class="pre">XXX</span></code> はサポートしていません。</p>
+<p>以下の例で、<code class="docutils literal notranslate"><span class="pre">ngoan</span></code>で<code class="docutils literal notranslate"><span class="pre">ngoằn</span></code>を取得できることが確認できます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="o">--</span><span class="n">name</span> <span class="n">Contents</span> <span class="o">--</span><span class="n">flags</span> <span class="n">TABLE_HASH_KEY</span> <span class="o">--</span><span class="n">key_type</span> <span class="n">ShortText</span>
+<span class="n">column_create</span> <span class="o">--</span><span class="n">table</span> <span class="n">Contents</span> <span class="o">--</span><span class="n">name</span> <span class="n">content</span> <span class="o">--</span><span class="nb">type</span> <span class="n">ShortText</span>
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Contents</span>
+<span class="p">[</span>
+  <span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span><span class="s2">&quot;con đường ngoằn nghoèo&quot;</span><span class="p">},</span>
+<span class="p">]</span>
+
+<span class="n">table_create</span> \
+  <span class="o">--</span><span class="n">name</span> <span class="n">Terms</span> \
+  <span class="o">--</span><span class="n">flags</span> <span class="n">TABLE_PAT_KEY</span> \
+  <span class="o">--</span><span class="n">key_type</span> <span class="n">ShortText</span> \
+  <span class="o">--</span><span class="n">default_tokenizer</span> <span class="n">TokenBigram</span> \
+  <span class="o">--</span><span class="n">normalizer</span> <span class="s1">&#39;NormalizerNFKC150(&quot;unify_latin_alphabet_with&quot;, true)&#39;</span>
+<span class="n">column_create</span> \
+  <span class="o">--</span><span class="n">table</span> <span class="n">Terms</span> \
+  <span class="o">--</span><span class="n">name</span> <span class="n">index_content</span> \
+  <span class="o">--</span><span class="n">flags</span> <span class="n">COLUMN_INDEX</span><span class="o">|</span><span class="n">WITH_POSITION</span> \
+  <span class="o">--</span><span class="nb">type</span> <span class="n">Contents</span> \
+  <span class="o">--</span><span class="n">source</span> <span class="n">content</span>
+
+<span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Contents</span> <span class="o">--</span><span class="n">query</span> <span class="n">content</span><span class="p">:</span><span class="nd">@ngoan</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">0.0</span><span class="p">,</span>
+    <span class="mf">0.0</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="mi">1</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;_id&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;UInt32&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;_key&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;ShortText&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;content&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;ShortText&quot;</span>
+        <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;con đường ngoằn nghoèo&quot;</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>現在のノーマライザーには、以下の問題があります。</p>
+<p>小文字の <code class="docutils literal notranslate"><span class="pre">U+0130</span> <span class="pre">LATIN</span> <span class="pre">CAPITAL</span> <span class="pre">LETTER</span> <span class="pre">I</span> <span class="pre">WITH</span> <span class="pre">DOT</span> <span class="pre">ABOVE</span></code> は <code class="docutils literal notranslate"><span class="pre">U+0069</span> <span class="pre">LATIN</span> <span class="pre">SMALL</span> <span class="pre">LETTER</span> <span class="pre">I</span></code> でなければなりませんが、現在の実装では、 <code class="docutils literal notranslate"><span class="pre">U+0069</span> <span class="pre">LATIN</span> <span class="pre">SMALL</span> <span class="pre">LETTER</span> <span class="pre">I</span></code> + <code class="docutils literal notranslate"><span class="pre">U+0307</span> <span class="pre">COMBINING</span> <span class="pre">DOT</span> <span class="pre">ABOVE</span></code> を使ってしまいます。</p>
+<p>この問題は、NormalizerNFKC160から修正する予定です。</p>
+</div>
+</li>
+<li><p><a class="reference external" href="https://simdjson.org/">simdjson</a> をサポートしました。</p>
+<p>現状、RapidJSONのサポートも維持しますが、RapidJSONは今後サポートをやめる予定です。</p>
+</li>
+<li><p>[<a class="reference internal" href="../install/ubuntu.html"><span class="doc">Ubuntu</span></a>] Ubuntu 23.10 (Mantic Minotaur)のサポートをやめました。</p>
+<p>Ubuntu 23.10 は 2024-07-11 にEOLになったためです。</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">libedit</span></code>を有効にしたパッケージを配布するようにしました。</p>
+<p>Groonga REPLで↑キーを使ってコマンド履歴を参照できるようになりました。</p>
+</li>
+</ul>
+</section>
+<section id="id7">
+<h3>修正<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>[status] &quot;h3&quot;が<code class="docutils literal notranslate"><span class="pre">groonga</span> <span class="pre">--version</span></code>や<code class="docutils literal notranslate"><span class="pre">status</span></code>で表示されない問題を修正しました。</p></li>
+<li><p>ログローテートが有効な時にクラッシュする問題を修正しました。</p>
+<p>この問題は、以下の条件で発生します。</p>
+<ol class="arabic simple">
+<li><p>以下のオプションを指定して、ファイルにロギングする時。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--log-path</span> <span class="pre">&lt;path&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--query-log-path</span> <span class="pre">&lt;path&gt;</span></code></p></li>
+</ul>
+</li>
+<li><p>以下のオプションを指定して、ログローテートが有効な時。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--log-rotate-threshold-size</span> <span class="pre">&lt;threshold&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--query-log-rotate-threshold-size</span> <span class="pre">&lt;threshold&gt;</span></code></p></li>
+</ul>
+</li>
+<li><p>以下のオプションを指定して、プロセスIDの出力が有効な時。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--log-flags</span> <span class="pre">process_id</span></code></p></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GRN_WITH_BUNDLED_ONIGMO=OFF</span></code>を指定しているにも関わらず、GroongaがバンドルされているOnigmoを使う問題を修正しました。[termux/termux-packages#21252][Biswapriyo Nathさんがパッチ提供]</p></li>
+</ul>
+</section>
+<section id="id8">
+<h3>感謝<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Man Hoangさん</p></li>
+<li><p>Biswapriyo Nathさん</p></li>
+</ul>
+<!-- prettier-ignore-start -->
+</section>
+</section>
+<section id="release-14-0-6-2024-07-29">
+<span id="release-14-0-6"></span><h2>14.0.6リリース - 2024-07-29<a class="headerlink" href="#release-14-0-6-2024-07-29" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
+<section id="id9">
+<h3>改良<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>インデックスを設定していないベクターカラムに対して、前方一致検索ができるようになりました。</p>
+<p>すでに、インデックスを設定したベクターカラムに対しては前方一致検索できますが、インデックスを設定していないベクターカラムに対しては、今まで前方一致検索できませんでした。</p>
+<p>このリリースから、以下のようにインデックスを設定していないベクターカラムに対しても前方一致検索ができます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">Users</span> <span class="n">TABLE_NO_KEY</span>
+<span class="n">column_create</span> <span class="n">Users</span> <span class="n">name</span> <span class="n">COLUMN_VECTOR</span> <span class="n">ShortText</span>
+
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Users</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;alice&quot;</span><span class="p">]},</span>
+<span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bob&quot;</span><span class="p">]},</span>
+<span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;callum&quot;</span><span class="p">]},</span>
+<span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;elly&quot;</span><span class="p">,</span> <span class="s2">&quot;alice&quot;</span><span class="p">]},</span>
+<span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;marshal&quot;</span><span class="p">]}</span>
+<span class="p">]</span>
+
+<span class="n">select</span> <span class="n">Users</span> <span class="o">--</span><span class="n">query</span> <span class="s1">&#39;name:^al&#39;</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">0.0</span><span class="p">,</span>
+    <span class="mf">0.0</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="mi">2</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;_id&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;UInt32&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;ShortText&quot;</span>
+        <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="mi">1</span><span class="p">,</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;alice&quot;</span>
+        <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="mi">4</span><span class="p">,</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;elly&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;alice&quot;</span>
+        <span class="p">]</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>[<a class="reference internal" href="../install/debian.html"><span class="doc">Debian GNU/Linux</span></a>] Debian 11 (bullseye) のサポートをやめました。</p></li>
+</ul>
+<!-- prettier-ignore-start -->
+</section>
+</section>
+<section id="release-14-0-5-2024-07-04">
+<span id="release-14-0-5"></span><h2>14.0.5リリース - 2024-07-04<a class="headerlink" href="#release-14-0-5-2024-07-04" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
+<section id="id10">
+<h3>改良<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>CentOS 7のサポートをやめました。</p>
+<p>CentOS 7はEOLになったためです。</p>
+</li>
+<li><p>可能な限りオブジェクト（テーブルやカラム）を削除する機能を追加しました。</p>
+<p>この機能は主にPGroongaのクラッシュセーフ機能で使います。</p>
+<p>PGroongaは<a class="reference external" href="https://www.postgresql.jp/document/16/html/custom-rmgr.html"><code class="docutils literal notranslate"><span class="pre">Custom</span> <span class="pre">WAL</span> <span class="pre">Resource</span> <span class="pre">Managers</span></code></a>を使うことで、PGroongaのWALをスタンバイへ自動で適用できるようになります。ただ、<code class="docutils literal notranslate"><span class="pre">Custom</span> <span class="pre">WAL</span> <span class="pre">Resource</span> <span class="pre">Managers</span></code>を使用していると、オブジェクトの破損などでPGroongaのWALの適用に失敗した場合にすべてのレプリケーションが停止します。そのため、壊れたオブジェクトがデータベース内に存在する場合、Groongaはこの機能を使って、できる限り壊れたオブジェクトを削除しようとします。</p>
+</li>
+</ul>
+</section>
+<section id="id11">
+<h3>修正<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>[<a class="reference internal" href="../reference/functions/query.html"><span class="doc">query</span></a>] <code class="docutils literal notranslate"><span class="pre">query()</span></code>の<code class="docutils literal notranslate"><span class="pre">AND</span></code>検索と<code class="docutils literal notranslate"><span class="pre">OR</span></code>検索検索を <code class="docutils literal notranslate"><span class="pre">'A</span> <span class="pre">||</span> <span class="pre">query(&quot;...&quot;,</span> <span class="pre">&quot;B</span> <span class="pre">C&quot;)'</span></code> の順で組み合わせたときに、誤った順序で評価される問題を修正しました</p>
+<p>以下の例では、<code class="docutils literal notranslate"><span class="pre">memo</span> <span class="pre">&#64;</span> <span class="pre">&quot;Groonga</span></code>の条件がマッチする<code class="docutils literal notranslate"><span class="pre">{&quot;name&quot;:</span> <span class="pre">&quot;Alice&quot;,</span> <span class="pre">&quot;memo&quot;:</span> <span class="pre">&quot;Groonga</span> <span class="pre">user&quot;}</span></code>がヒットするはずですが、 この問題が発生した場合はヒットしません。したがって、下記の例では何もヒットしません。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">Users</span> <span class="n">TABLE_NO_KEY</span>
+<span class="n">column_create</span> <span class="n">Users</span> <span class="n">name</span> <span class="n">COLUMN_SCALAR</span> <span class="n">ShortText</span>
+<span class="n">column_create</span> <span class="n">Users</span> <span class="n">memo</span> <span class="n">COLUMN_SCALAR</span> <span class="n">ShortText</span>
+
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Users</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;memo&quot;</span><span class="p">:</span> <span class="s2">&quot;Groonga user&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>   <span class="s2">&quot;memo&quot;</span><span class="p">:</span> <span class="s2">&quot;Rroonga user&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="n">select</span> <span class="n">Users</span> \
+  <span class="o">--</span><span class="n">output_columns</span> <span class="s1">&#39;name, memo, _score&#39;</span> \
+  <span class="o">--</span><span class="nb">filter</span> <span class="s1">&#39;memo @ &quot;Groonga&quot; || query(&quot;name&quot;, &quot;Bob Rroonga&quot;)&#39;</span>
+<span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">],[[[</span><span class="mi">0</span><span class="p">],[[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;ShortText&quot;</span><span class="p">],[</span><span class="s2">&quot;memo&quot;</span><span class="p">,</span><span class="s2">&quot;ShortText&quot;</span><span class="p">],[</span><span class="s2">&quot;_score&quot;</span><span class="p">,</span><span class="s2">&quot;Int32&quot;</span><span class="p">]]]]]</span>
+</pre></div>
+</div>
+<p>修正後は、以下のように<code class="docutils literal notranslate"><span class="pre">{&quot;name&quot;:</span> <span class="pre">&quot;Alice&quot;,</span> <span class="pre">&quot;memo&quot;:</span> <span class="pre">&quot;Groonga</span> <span class="pre">user&quot;}</span></code>がヒットします。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="n">Users</span> \
+  <span class="o">--</span><span class="n">output_columns</span> <span class="s1">&#39;name, memo, _score&#39;</span> \
+  <span class="o">--</span><span class="nb">filter</span> <span class="s1">&#39;memo @ &quot;Groonga&quot; || query(&quot;name&quot;, &quot;Bob Rroonga&quot;)&#39;</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">1719376617.537505</span><span class="p">,</span>
+    <span class="mf">0.002481460571289062</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="mi">1</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;ShortText&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;memo&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;ShortText&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;_score&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Int32&quot;</span>
+        <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Groonga user&quot;</span><span class="p">,</span>
+        <span class="mi">1</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>この問題の発生条件は下記の通りです。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OR</span></code>検索と<code class="docutils literal notranslate"><span class="pre">query()</span></code>を組み合わせて使っていること。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">query()</span></code>内で<code class="docutils literal notranslate"><span class="pre">AND</span></code>検索していること。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'A</span> <span class="pre">||</span> <span class="pre">query(&quot;...&quot;,</span> <span class="pre">&quot;B</span> <span class="pre">C&quot;)'</span></code>の順序で条件式が記述されていること。</p></li>
+</ul>
+<p>そのため、<code class="docutils literal notranslate"><span class="pre">query()</span></code>を単独で使用している場合や、<code class="docutils literal notranslate"><span class="pre">query()</span></code>内で<code class="docutils literal notranslate"><span class="pre">AND</span></code>検索をしていない場合は問題ありません。</p>
+</li>
+<li><p>[<a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a>] <code class="docutils literal notranslate"><span class="pre">--query</span> <span class="pre">&quot;A*</span> <span class="pre">OR</span> <span class="pre">B&quot;</span></code>のように先に前方一致検索を評価する条件が、誤った検索結果を返すことがある問題を修正しました</p>
+<p>この問題は先に前方一致検索を評価する条件の時に発生する可能性があります。 <code class="docutils literal notranslate"><span class="pre">--query</span> <span class="pre">A</span> <span class="pre">OR</span> <span class="pre">B*</span></code>のように最後に前方一致検索を評価するケースでは発生しません。</p>
+<p>この問題が発生すると、以下の<code class="docutils literal notranslate"><span class="pre">--query</span> <span class="pre">&quot;Bo*</span> <span class="pre">OR</span> <span class="pre">li&quot;</span></code>という条件が、<code class="docutils literal notranslate"><span class="pre">Bo</span></code>も<code class="docutils literal notranslate"><span class="pre">li</span></code>も前方一致検索として評価されてしまい<code class="docutils literal notranslate"><span class="pre">li</span></code>の検索結果が誤ったものになります。 <code class="docutils literal notranslate"><span class="pre">Alice</span></code>がヒットするのが期待値ですが、以下のように何もヒットしません。これは、前述の通り<code class="docutils literal notranslate"><span class="pre">li</span></code>が前方一致検索として評価されてしまうためです。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">Users</span> <span class="n">TABLE_NO_KEY</span>
+<span class="n">column_create</span> <span class="n">Users</span> <span class="n">name</span> <span class="n">COLUMN_SCALAR</span> <span class="n">ShortText</span>
+
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Users</span>
+<span class="p">[</span>
+<span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+<span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="n">select</span> <span class="n">Users</span> \
+  <span class="o">--</span><span class="n">match_columns</span> <span class="n">name</span> \
+  <span class="o">--</span><span class="n">query</span> <span class="s2">&quot;Bo* OR li&quot;</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">1719377505.628048</span><span class="p">,</span>
+    <span class="mf">0.0007376670837402344</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="mi">0</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;_id&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;UInt32&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;ShortText&quot;</span>
+        <span class="p">]</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<!-- prettier-ignore-start -->
+</section>
+</section>
+<section id="release-14-0-4-2024-05-29">
+<span id="release-14-0-4"></span><h2>14.0.4リリース - 2024-05-29<a class="headerlink" href="#release-14-0-4-2024-05-29" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
+<section id="id12">
+<h3>修正<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>[<a class="reference internal" href="../reference/functions/query_parallel_or.html"><span class="doc">query_parallel_or</span></a>] <code class="docutils literal notranslate"><span class="pre">query_parallel_or()</span></code>を使用すると、<a class="reference internal" href="../reference/commands/select.html#select-match-escalation-threshold"><span class="std std-ref">match_escalation_threshold</span></a> または <code class="docutils literal notranslate"><span class="pre">force_match_escalation</span></code> オプションが無視される問題を修正しました。</p>
+<p>修正前は、検索エスカレーションを無効にしても、<code class="docutils literal notranslate"><span class="pre">query_parallel_or()</span></code>使用時はエスカレーションされていました。この問題は、<code class="docutils literal notranslate"><span class="pre">query_parallel_or()</span></code>でのみ発生します。<a class="reference internal" href="../reference/functions/query.html"><span class="doc">query</span></a>では発生しません。</p>
+<p>一般的には、ヒット数が0件になってしまうのは嬉しくありません。何かしらの検索結果を得たいことが多いです。したがって、通常、検索エスカレーションは無効にしません。そのため、この問題は多くのユーザーには影響がありませんが、以下のようにストップワードを利用しているユーザーには影響があります。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plugin_register</span> <span class="n">token_filters</span><span class="o">/</span><span class="n">stop_word</span>
+
+<span class="n">table_create</span> <span class="n">Memos</span> <span class="n">TABLE_NO_KEY</span>
+<span class="n">column_create</span> <span class="n">Memos</span> <span class="n">content</span> <span class="n">COLUMN_SCALAR</span> <span class="n">ShortText</span>
+
+<span class="n">table_create</span> <span class="n">Terms</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">ShortText</span> \
+  <span class="o">--</span><span class="n">default_tokenizer</span> <span class="n">TokenBigram</span> \
+  <span class="o">--</span><span class="n">normalizer</span> <span class="n">NormalizerAuto</span> \
+  <span class="o">--</span><span class="n">token_filters</span> <span class="n">TokenFilterStopWord</span>
+<span class="n">column_create</span> <span class="n">Terms</span> <span class="n">memos_content</span> <span class="n">COLUMN_INDEX</span><span class="o">|</span><span class="n">WITH_POSITION</span> <span class="n">Memos</span> <span class="n">content</span>
+<span class="n">column_create</span> <span class="n">Terms</span> <span class="n">is_stop_word</span> <span class="n">COLUMN_SCALAR</span> <span class="n">Bool</span>
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Terms</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span> <span class="s2">&quot;and&quot;</span><span class="p">,</span> <span class="s2">&quot;is_stop_word&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Memos</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello and Good-bye&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Good-bye&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">select</span> <span class="n">Memos</span> \
+  <span class="o">--</span><span class="nb">filter</span> <span class="s1">&#39;query_parallel_or([&quot;content&quot;, &quot;content&quot;, &quot;content&quot;, &quot;content&quot;], </span><span class="se">\</span>
+<span class="s1">            &quot;and&quot;, </span><span class="se">\</span>
+<span class="s1">            {&quot;options&quot;: {&quot;TokenFilterStopWord.enable&quot;: true}})&#39;</span> \
+  <span class="o">--</span><span class="n">match_escalation_threshold</span> <span class="o">-</span><span class="mi">1</span> \
+  <span class="o">--</span><span class="n">sort_keys</span> <span class="o">-</span><span class="n">_score</span>
+</pre></div>
+</div>
+<p>ストップワードとして登録したキーワードではマッチしてほしくありません。そのため、上記の例では、<code class="docutils literal notranslate"><span class="pre">match_escalation_threshold</span></code>に<code class="docutils literal notranslate"><span class="pre">-1</span></code>を設定しています。エスカレーションが無効でかつ、ストップワードに検索キーワード（<code class="docutils literal notranslate"><span class="pre">and</span></code>）が登録されているため、上記の例では、Groongaは何もレコードを返さないことが期待値です。しかし、この問題が発生すると、Groongaはマッチしたレコードを返却してしまいます。<code class="docutils literal notranslate"><span class="pre">query_parallel_or()</span></code>を使うと、<code class="docutils literal notranslate"><span class="pre">match_escalation_threshold</span></code>が効かないためです。</p>
+</li>
+<li><p>参照ベクターカラムに対する全文検索が動作しない問題を修正しました。</p>
+<p>この問題は、Groonga v14.0.0以降で発生します。また、この問題は、参照ベクターカラムに対して全文検索を実行している場合に影響があります。</p>
+<p>以下の例では、Groongaが<code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">&quot;Linux</span> <span class="pre">MySQL&quot;]</span></code> と <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">&quot;MySQL</span> <span class="pre">Groonga&quot;]</span></code>を返すことが期待ですが、修正前は、以下のように常に0件ヒットになっていました。参照ベクターカラムに対して全文検索しているためです。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">bugs</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">UInt32</span>
+
+<span class="n">table_create</span> <span class="n">tags</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">ShortText</span> <span class="o">--</span><span class="n">default_tokenizer</span> <span class="n">TokenDelimit</span>
+<span class="n">column_create</span> <span class="n">tags</span> <span class="n">name</span> <span class="n">COLUMN_SCALAR</span> <span class="n">ShortText</span>
+
+<span class="n">column_create</span> <span class="n">bugs</span> <span class="n">tags</span> <span class="n">COLUMN_VECTOR</span> <span class="n">tags</span>
+
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">bugs</span>
+<span class="p">[</span>
+<span class="p">[</span><span class="s2">&quot;_key&quot;</span><span class="p">,</span> <span class="s2">&quot;tags&quot;</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Linux MySQL&quot;</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;MySQL Groonga&quot;</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Mroonga&quot;</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="n">column_create</span> <span class="n">tags</span> <span class="n">bugs_tags_index</span> <span class="n">COLUMN_INDEX</span> <span class="n">bugs</span> <span class="n">tags</span>
+
+<span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">bugs</span> <span class="o">--</span><span class="nb">filter</span> <span class="s1">&#39;tags @ &quot;MySQL&quot;&#39;</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">0.0</span><span class="p">,</span>
+    <span class="mf">0.0</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="mi">0</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;_id&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;UInt32&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;_key&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;UInt32&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;tags&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;tags&quot;</span>
+        <span class="p">]</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<!-- prettier-ignore-start -->
+</section>
+</section>
+<section id="release-14-0-3-2024-05-09">
+<span id="release-14-0-3"></span><h2>14.0.3リリース - 2024-05-09<a class="headerlink" href="#release-14-0-3-2024-05-09" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
+<section id="id13">
+<h3>改良<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>以下の最適化を行いました。</p>
+<ul class="simple">
+<li><p>ヒット数が多いときの<code class="docutils literal notranslate"><span class="pre">OR</span></code>検索と<code class="docutils literal notranslate"><span class="pre">AND</span></code>検索のパフォーマンスを向上しました。</p></li>
+<li><p>前方一致検索(<code class="docutils literal notranslate"><span class="pre">&#64;^</span></code>)のパフォーマンスを向上しました。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">AND</span> <span class="pre">B</span></code>という条件で、<code class="docutils literal notranslate"><span class="pre">B</span></code>より<code class="docutils literal notranslate"><span class="pre">A</span></code>のレコード数が多い場合の<code class="docutils literal notranslate"><span class="pre">AND</span></code>検索のパフォーマンスを向上しました。</p></li>
+<li><p>多くの動的カラムを設定している場合の検索パフォーマンスを向上しました。</p></li>
+</ul>
+</li>
+<li><p>[<a class="reference internal" href="../reference/tokenizers/token_ngram.html"><span class="doc">TokenNgram</span></a>] 新しいオプション<code class="docutils literal notranslate"><span class="pre">ignore_blank</span></code>を追加しました。</p>
+<p>以下のように<code class="docutils literal notranslate"><span class="pre">TokenBigramIgnoreBlank</span></code>を<code class="docutils literal notranslate"><span class="pre">TokenNgram(&quot;ignore_blank&quot;,</span> <span class="pre">true)</span></code>で置き換えることができます。</p>
+<p><code class="docutils literal notranslate"><span class="pre">TokenBigram</span></code>を使う例です。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tokenize</span> <span class="n">TokenBigram</span> <span class="s2">&quot;! ! !&quot;</span> <span class="n">NormalizerAuto</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">1715155644.64263</span><span class="p">,</span>
+    <span class="mf">0.001013517379760742</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;!&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix_search&quot;</span><span class="p">:</span> <span class="n">false</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;!&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix_search&quot;</span><span class="p">:</span> <span class="n">false</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;!&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix_search&quot;</span><span class="p">:</span> <span class="n">false</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">TokenBigramIgnoreBlank</span></code>を使う例です。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tokenize</span> <span class="n">TokenBigramIgnoreBlank</span> <span class="s2">&quot;! ! !&quot;</span> <span class="n">NormalizerAuto</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">1715155680.323451</span><span class="p">,</span>
+    <span class="mf">0.0009913444519042969</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;!!!&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix_search&quot;</span><span class="p">:</span> <span class="n">false</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">TokenNgram(&quot;ignore_blank&quot;,</span> <span class="pre">true)</span></code>を使う例です。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tokenize</span> <span class="s1">&#39;TokenNgram(&quot;ignore_blank&quot;, true)&#39;</span> <span class="s2">&quot;! ! !&quot;</span> <span class="n">NormalizerAuto</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">1715155762.340685</span><span class="p">,</span>
+    <span class="mf">0.001041412353515625</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;!!!&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+      <span class="s2">&quot;force_prefix_search&quot;</span><span class="p">:</span> <span class="n">false</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>[<a class="reference internal" href="../install/ubuntu.html"><span class="doc">Ubuntu</span></a>] Ubuntu 24.04 LTS (Noble Numbat) をサポートしました。</p></li>
+</ul>
+</section>
+<section id="id14">
+<h3>修正<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>[<a class="reference internal" href="../reference/commands/request_cancel.html"><span class="doc">request_cancel</span></a>] <code class="docutils literal notranslate"><span class="pre">request_cancel</span></code>コマンドで実行中のクエリーを中断した時にGroongaがクラッシュすることがある問題を修正しました。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--post_filter</span></code>使用時に、<code class="docutils literal notranslate"><span class="pre">--offset</span></code>の値が<code class="docutils literal notranslate"><span class="pre">--post_filter</span></code>の結果より大きい場合に予期しないエラーになる問題を修正しました。</p>
+<p><code class="docutils literal notranslate"><span class="pre">--filter</span></code> と <code class="docutils literal notranslate"><span class="pre">--offset</span></code>の組み合わせで、同様のケースになった場合はエラーは発生しません。<code class="docutils literal notranslate"><span class="pre">--filter</span></code> と <code class="docutils literal notranslate"><span class="pre">--post-filter</span></code>の挙動を合わせました。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">Users</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">ShortText</span>
+<span class="n">column_create</span> <span class="n">Users</span> <span class="n">age</span> <span class="n">COLUMN_SCALAR</span> <span class="n">UInt32</span>
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Users</span>
+<span class="p">[</span>
+  <span class="p">[</span><span class="s2">&quot;_key&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">21</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">22</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">&quot;Chris&quot;</span><span class="p">,</span> <span class="mi">23</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">&quot;Diana&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">&quot;Emily&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+<span class="p">]</span>
+<span class="n">select</span> <span class="n">Users</span> \
+  <span class="o">--</span><span class="nb">filter</span> <span class="s1">&#39;age &gt;= 22&#39;</span> \
+  <span class="o">--</span><span class="n">post_filter</span> <span class="s1">&#39;age &lt;= 24&#39;</span> \
+  <span class="o">--</span><span class="n">offset</span> <span class="mi">3</span> \
+  <span class="o">--</span><span class="n">sort_keys</span> <span class="o">-</span><span class="n">age</span> <span class="o">--</span><span class="n">output_pretty</span> <span class="n">yes</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="o">-</span><span class="mi">68</span><span class="p">,</span>
+    <span class="mf">1715224057.317582</span><span class="p">,</span>
+    <span class="mf">0.001833438873291016</span><span class="p">,</span>
+    <span class="s2">&quot;[table][sort] grn_output_range_normalize failed&quot;</span><span class="p">,</span>
+    <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;grn_table_sort&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;/home/horimoto/Work/free-software/groonga.tag/lib/sort.c&quot;</span><span class="p">,</span>
+        <span class="mi">1052</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>近傍フレーズ直積検索で<code class="docutils literal notranslate"><span class="pre">(...)</span></code>内のすべてのフレーズがマッチしない場合に、誤った検索結果を返す場合がある問題を修正しました。</p>
+<p>例えば以下の、<code class="docutils literal notranslate"><span class="pre">--query</span> <span class="pre">'*NPP1&quot;(a)</span> <span class="pre">(2)&quot;'</span></code>で指定している<code class="docutils literal notranslate"><span class="pre">(2)</span></code>にマッチするレコードはありません。この場合は、何もヒットしないのが正しい挙動ですが、<code class="docutils literal notranslate"><span class="pre">--query</span> <span class="pre">'*NPP1&quot;(a)</span></code>相当の挙動になっていました。つまり、<code class="docutils literal notranslate"><span class="pre">(2)</span></code>にマッチするレコードが無いにも関わらず、<code class="docutils literal notranslate"><span class="pre">ax1</span></code>と<code class="docutils literal notranslate"><span class="pre">axx1</span></code>がヒットしていました。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">Entries</span> <span class="n">TABLE_NO_KEY</span>
+<span class="n">column_create</span> <span class="n">Entries</span> <span class="n">content</span> <span class="n">COLUMN_SCALAR</span> <span class="n">Text</span>
+
+<span class="n">table_create</span> <span class="n">Terms</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">ShortText</span>   <span class="o">--</span><span class="n">default_tokenizer</span> <span class="n">TokenNgram</span>
+<span class="n">column_create</span> <span class="n">Terms</span> <span class="n">entries_content</span> <span class="n">COLUMN_INDEX</span><span class="o">|</span><span class="n">WITH_POSITION</span> <span class="n">Entries</span> <span class="n">content</span>
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Entries</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ax1&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;axx1&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">select</span> <span class="n">Entries</span> \
+  <span class="o">--</span><span class="n">match_columns</span> <span class="n">content</span> \
+  <span class="o">--</span><span class="n">query</span> <span class="s1">&#39;*NPP1&quot;(a) (2)&quot;&#39;</span> \
+  <span class="o">--</span><span class="n">output_columns</span> <span class="s1">&#39;content&#39;</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">1715224211.050228</span><span class="p">,</span>
+    <span class="mf">0.001366376876831055</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="mi">2</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;content&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Text&quot;</span>
+        <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;ax1&quot;</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;axx1&quot;</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TABLE_HASH_KEY</span></code>のテーブルに2^28以上のレコードが存在する時にリハッシュが発生すると、リハッシュが失敗するかテーブル内のデータが壊れる問題を修正しました。</p></li>
+<li><p>以下のケースでハイライト位置がずれる問題を修正しました。</p>
+<ul>
+<li><p>以下のようにハイライト対象の文字の前に全角スペースがある場合。</p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;Groonga　&lt;span</span> <span class="pre">class=\&quot;keyword\&quot;&gt;高&lt;/span&gt;速！&quot;</span></code>となることが期待値ですが、以下のように<code class="docutils literal notranslate"><span class="pre">&quot;Groonga　&lt;span</span> <span class="pre">class=\&quot;keyword\&quot;&gt;高速&lt;/span&gt;！&quot;</span></code>となっていました。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">Entries</span> <span class="n">TABLE_NO_KEY</span>
+<span class="n">column_create</span> <span class="n">Entries</span> <span class="n">body</span> <span class="n">COLUMN_SCALAR</span> <span class="n">ShortText</span>
+
+<span class="n">table_create</span> <span class="n">Terms</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">ShortText</span> \
+  <span class="o">--</span><span class="n">default_tokenizer</span> <span class="s1">&#39;TokenNgram(&quot;report_source_location&quot;, true)&#39;</span> \
+  <span class="o">--</span><span class="n">normalizer</span> <span class="s1">&#39;NormalizerNFKC150(&quot;report_source_offset&quot;, true)&#39;</span>
+<span class="n">column_create</span> <span class="n">Terms</span> <span class="n">document_index</span> <span class="n">COLUMN_INDEX</span><span class="o">|</span><span class="n">WITH_POSITION</span> <span class="n">Entries</span> <span class="n">body</span>
+
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Entries</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="s2">&quot;Groonga　高速！&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="n">select</span> <span class="n">Entries</span> \
+  <span class="o">--</span><span class="n">output_columns</span> \
+  <span class="o">--</span><span class="n">match_columns</span> <span class="n">body</span> \
+  <span class="o">--</span><span class="n">query</span> <span class="s1">&#39;高&#39;</span> \
+  <span class="o">--</span><span class="n">output_columns</span> <span class="s1">&#39;highlight_html(body, Terms)&#39;</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">1715215640.979517</span><span class="p">,</span>
+    <span class="mf">0.001608610153198242</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="mi">1</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;highlight_html&quot;</span><span class="p">,</span>
+          <span class="n">null</span>
+        <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;Groonga　&lt;span class=</span><span class="se">\&quot;</span><span class="s2">keyword</span><span class="se">\&quot;</span><span class="s2">&gt;高速&lt;/span&gt;！&quot;</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">以下のように</span></code>TokenNgram(&quot;loose_blank&quot;, true)`を使っていて、ハイライト対象の文字が全角スペースを含んでいる場合。</p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;&lt;span</span> <span class="pre">class=\&quot;keyword\&quot;&gt;山田</span> <span class="pre">太郎&lt;/span&gt;&quot;</span></code>となることが期待値ですが、以下のように<code class="docutils literal notranslate"><span class="pre">&quot;&lt;span</span> <span class="pre">class=\&quot;keyword\&quot;&gt;山田</span> <span class="pre">太&lt;/span&gt;&quot;</span></code>となっていました。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">Entries</span> <span class="n">TABLE_NO_KEY</span>
+<span class="n">column_create</span> <span class="n">Entries</span> <span class="n">body</span> <span class="n">COLUMN_SCALAR</span> <span class="n">ShortText</span>
+
+<span class="n">table_create</span> <span class="n">Terms</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">ShortText</span> \
+  <span class="o">--</span><span class="n">default_tokenizer</span> <span class="s1">&#39;TokenNgram(&quot;loose_blank&quot;, true, &quot;report_source_location&quot;, true)&#39;</span> \
+  <span class="o">--</span><span class="n">normalizer</span> <span class="s1">&#39;NormalizerNFKC150(&quot;report_source_offset&quot;, true)&#39;</span>
+<span class="n">column_create</span> <span class="n">Terms</span> <span class="n">document_index</span> <span class="n">COLUMN_INDEX</span><span class="o">|</span><span class="n">WITH_POSITION</span> <span class="n">Entries</span> <span class="n">body</span>
+
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Entries</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="s2">&quot;山田 太郎&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">select</span> <span class="n">Entries</span> <span class="o">--</span><span class="n">output_columns</span> \
+  <span class="o">--</span><span class="n">match_columns</span> <span class="n">body</span> <span class="o">--</span><span class="n">query</span> <span class="s1">&#39;山田太郎&#39;</span> \
+  <span class="o">--</span><span class="n">output_columns</span> <span class="s1">&#39;highlight_html(body, Terms)&#39;</span> <span class="o">--</span><span class="n">output_pretty</span> <span class="n">yes</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">1715220409.096246</span><span class="p">,</span>
+    <span class="mf">0.0004854202270507812</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="mi">1</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;highlight_html&quot;</span><span class="p">,</span>
+          <span class="n">null</span>
+        <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;&lt;span class=</span><span class="se">\&quot;</span><span class="s2">keyword</span><span class="se">\&quot;</span><span class="s2">&gt;山田 太&lt;/span&gt;&quot;</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>以下のようにハイライト対象の文字の先頭に空白スペースがある場合。</p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">&lt;span</span> <span class="pre">class=\&quot;keyword\&quot;&gt;山&lt;/span&gt;田太郎&quot;</span></code>となることが期待値ですが、以下のように<code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">&lt;span</span> <span class="pre">class=\&quot;keyword\&quot;&gt;山&lt;/span&gt;&quot;</span></code>となっていました。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">Entries</span> <span class="n">TABLE_NO_KEY</span>
+<span class="n">column_create</span> <span class="n">Entries</span> <span class="n">body</span> <span class="n">COLUMN_SCALAR</span> <span class="n">ShortText</span>
+
+<span class="n">table_create</span> <span class="n">Terms</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">ShortText</span> \
+  <span class="o">--</span><span class="n">default_tokenizer</span> <span class="s1">&#39;TokenNgram(&quot;report_source_location&quot;, true)&#39;</span> \
+  <span class="o">--</span><span class="n">normalizer</span> <span class="s1">&#39;NormalizerNFKC150(&quot;report_source_offset&quot;, true)&#39;</span>
+<span class="n">column_create</span> <span class="n">Terms</span> <span class="n">document_index</span> <span class="n">COLUMN_INDEX</span><span class="o">|</span><span class="n">WITH_POSITION</span> <span class="n">Entries</span> <span class="n">body</span>
+
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Entries</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="s2">&quot; 山田太郎&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">select</span> <span class="n">Entries</span> \
+  <span class="o">--</span><span class="n">output_columns</span> \
+  <span class="o">--</span><span class="n">match_columns</span> <span class="n">body</span> \
+  <span class="o">--</span><span class="n">query</span> <span class="s1">&#39;山&#39;</span> \
+  <span class="o">--</span><span class="n">output_columns</span> <span class="s1">&#39;highlight_html(body, Terms)&#39;</span> <span class="o">--</span><span class="n">output_pretty</span> <span class="n">yes</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">1715221627.002193</span><span class="p">,</span>
+    <span class="mf">0.001977920532226562</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="mi">1</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;highlight_html&quot;</span><span class="p">,</span>
+          <span class="n">null</span>
+        <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="s2">&quot; &lt;span class=</span><span class="se">\&quot;</span><span class="s2">keyword</span><span class="se">\&quot;</span><span class="s2">&gt;山&lt;/span&gt;&quot;</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>以下のようにハイライト対象の２番めの文字が全角スペースの場合。</p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;&lt;span</span> <span class="pre">class=\&quot;keyword\&quot;&gt;山　田&lt;/span&gt;太郎&quot;</span></code>となるのが期待値ですが、以下のように<code class="docutils literal notranslate"><span class="pre">&quot;&lt;span</span> <span class="pre">class=\&quot;keyword\&quot;&gt;山　田太&lt;/span&gt;郎&quot;</span></code>となっていました。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">Entries</span> <span class="n">TABLE_NO_KEY</span>
+<span class="n">column_create</span> <span class="n">Entries</span> <span class="n">body</span> <span class="n">COLUMN_SCALAR</span> <span class="n">ShortText</span>
+
+<span class="n">table_create</span> <span class="n">Terms</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">ShortText</span> \
+  <span class="o">--</span><span class="n">default_tokenizer</span> <span class="s1">&#39;TokenNgram(&quot;report_source_location&quot;, true)&#39;</span> \
+  <span class="o">--</span><span class="n">normalizer</span> <span class="s1">&#39;NormalizerNFKC150(&quot;report_source_offset&quot;, true)&#39;</span>
+<span class="n">column_create</span> <span class="n">Terms</span> <span class="n">document_index</span> <span class="n">COLUMN_INDEX</span><span class="o">|</span><span class="n">WITH_POSITION</span> <span class="n">Entries</span> <span class="n">body</span>
+
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Entries</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="s2">&quot;山　田太郎&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">select</span> <span class="n">Entries</span> \
+  <span class="o">--</span><span class="n">output_columns</span> \
+  <span class="o">--</span><span class="n">match_columns</span> <span class="n">body</span> \
+  <span class="o">--</span><span class="n">query</span> <span class="s1">&#39;山　田&#39;</span> \
+  <span class="o">--</span><span class="n">output_columns</span> <span class="s1">&#39;highlight_html(body, Terms)&#39;</span>
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">1715222501.496007</span><span class="p">,</span>
+    <span class="mf">0.0005536079406738281</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="mi">0</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;highlight_html&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;&lt;span class=</span><span class="se">\&quot;</span><span class="s2">keyword</span><span class="se">\&quot;</span><span class="s2">&gt;山　田太&lt;/span&gt;郎&quot;</span>
+        <span class="p">]</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<!-- prettier-ignore-start -->
+</section>
+</section>
+<section id="release-14-0-2-2024-03-29">
+<span id="release-14-0-2"></span><h2>14.0.2リリース - 2024-03-29<a class="headerlink" href="#release-14-0-2-2024-03-29" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
+<section id="id15">
+<h3>改良<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>一時テーブルに対して、normalizers/tokenizer/token_filtersを設定したときに出力されるログのログレベルを下げました。</p>
+<p>例えば、この変更の対象のログは以下のようなログです。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DDL</span><span class="p">:</span><span class="mi">1234567890</span><span class="p">:</span><span class="n">set_normalizers</span> <span class="n">NormalizerAuto</span>
+</pre></div>
+</div>
+<p>PGroongaは起動時に一時テーブルに対してノーマライザーを設定するため、このログがノイズになっていました。このログのログレベルは<code class="docutils literal notranslate"><span class="pre">notice</span></code>なので、PGroonga起動時にこのログが出力されてしまうためです。</p>
+<p>そのため、今回のリリースからこのようなログのログレベルを<code class="docutils literal notranslate"><span class="pre">debug</span></code>にしました。これにより、デフォルトでは、PGroonga起動時にこのログが出力されないようになります。</p>
+</li>
+</ul>
+<!-- prettier-ignore-start -->
+</section>
+</section>
+<section id="release-14-0-1-2024-03-14">
+<span id="release-14-0-1"></span><h2>14.0.1リリース - 2024-03-14<a class="headerlink" href="#release-14-0-1-2024-03-14" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
+<section id="id16">
+<h3>改良<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>[<a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a>] ノーマライズによって空のキーとなったキーを<code class="docutils literal notranslate"><span class="pre">load</span></code>する時のエラーを止めました。</p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;-&quot;</span></code> は、<code class="docutils literal notranslate"><span class="pre">NormalizerNFKC150(&quot;remove_symbol&quot;,</span> <span class="pre">true)</span></code> によって <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> になります。そのため、以下のケースでは&quot;empty key&quot;エラーが報告されます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">Values</span> <span class="n">TABLE_HASH_KEY</span> <span class="n">ShortText</span> \
+  <span class="o">--</span><span class="n">normalizers</span> <span class="s1">&#39;NormalizerNFKC150(&quot;remove_symbol&quot;, true)&#39;</span>
+<span class="n">table_create</span> <span class="n">Data</span> <span class="n">TABLE_NO_KEY</span>
+<span class="n">column_create</span> <span class="n">Data</span> <span class="n">value</span> <span class="n">COLUMN_SCALAR</span> <span class="n">Values</span>
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Data</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;-&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>しかし、このようなデータを大量に<code class="docutils literal notranslate"><span class="pre">load</span></code>した場合、多くのエラーログが生成されます。Groongaは空の文字列をインデックスに登録できないため、&quot;empty key&quot;エラーを大量に出力するためです。</p>
+<p>ただ、このようなケースで空の文字列がインデックスへ登録できなくても問題ありません。空の文字列で検索しても何も一致しないためです。そのため、このようなケースの時に&quot;empty key&quot;エラーを報告するのを止めました。</p>
+</li>
+</ul>
+</section>
+<section id="id17">
+<h3>修正<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<ul>
+<li><p><a class="reference internal" href="../reference/functions/between.html"><span class="doc">between</span></a> または、範囲検索時にリクエストキャンセルするとGroongaがクラッシュする問題を修正しました。</p>
+<p>この問題は必ず発生するわけではありません。特定のタイミングでリクエストキャンセルをすると発生します。シーケンシャルサーチなどの検索時間が長い場合に発生しやすいです。</p>
+</li>
+<li><p>以下の条件を満たした時に <a class="reference internal" href="../reference/functions/highlight_html.html"><span class="doc">highlight_html</span></a> が正しくない結果を返すことがあります。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">NormalizerTable</span></code> and <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC150</span></code>のように複数のノーマライザーを使っている。</p></li>
+<li><p>空白を含む文字列をハイライトする。</p></li>
+</ul>
+<p>例えば、以下のようなケースでこの問題は発生します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">NormalizationsIndex</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">ShortText</span> <span class="o">--</span><span class="n">normalizer</span> <span class="n">NormalizerAuto</span>
+
+<span class="n">table_create</span> <span class="n">Normalizations</span> <span class="n">TABLE_HASH_KEY</span> <span class="n">UInt64</span>
+<span class="n">column_create</span> <span class="n">Normalizations</span> <span class="n">normalized</span> <span class="n">COLUMN_SCALAR</span> <span class="n">LongText</span>
+<span class="n">column_create</span> <span class="n">Normalizations</span> <span class="n">target</span> <span class="n">COLUMN_SCALAR</span> <span class="n">NormalizationsIndex</span>
+
+<span class="n">column_create</span> <span class="n">NormalizationsIndex</span> <span class="n">index</span> <span class="n">COLUMN_INDEX</span> <span class="n">Normalizations</span> <span class="n">target</span>
+
+
+<span class="n">table_create</span> <span class="n">Lexicon</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">ShortText</span> \
+  <span class="o">--</span><span class="n">normalizers</span> <span class="s1">&#39;NormalizerTable(&quot;normalized&quot;, </span><span class="se">\</span>
+<span class="s1">                                 &quot;Normalizations.normalized&quot;, </span><span class="se">\</span>
+<span class="s1">                                 &quot;target&quot;, </span><span class="se">\</span>
+<span class="s1">                                 &quot;target&quot;), NormalizerNFKC150&#39;</span>
+
+<span class="n">table_create</span> <span class="n">Names</span> <span class="n">TABLE_HASH_KEY</span> <span class="n">UInt64</span>
+<span class="n">column_create</span> <span class="n">Names</span> <span class="n">name</span> <span class="n">COLUMN_SCALAR</span> <span class="n">Lexicon</span>
+
+<span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Names</span>
+<span class="p">[</span>
+<span class="p">[</span><span class="s2">&quot;_key&quot;</span><span class="p">,</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;Sato Toshio&quot;</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="n">select</span> <span class="n">Names</span> \
+  <span class="o">--</span><span class="n">query</span> <span class="s1">&#39;_key:1 OR name._key:@&quot;Toshio&quot;&#39;</span> \
+  <span class="o">--</span><span class="n">output_columns</span> <span class="s1">&#39;highlight_html(name._key, Lexicon)</span>
+
+<span class="p">[</span>
+  <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mf">1710401574.332274</span><span class="p">,</span>
+    <span class="mf">0.001911401748657227</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="mi">1</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;highlight_html&quot;</span><span class="p">,</span>
+          <span class="n">null</span>
+        <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;sato &lt;span class=</span><span class="se">\&quot;</span><span class="s2">keyword</span><span class="se">\&quot;</span><span class="s2">&gt;toshi&lt;/span&gt;o&quot;</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>[<a class="reference internal" href="../install/ubuntu.html"><span class="doc">Ubuntu</span></a>] Ubuntu向けパッケージを提供できるようになりました。</p>
+<p>Groonga 14.0.0では、GroongaのUbuntu向けパッケージを提供していませんでした。Ubuntu向けパッケージのビルド環境の問題で、パッケージを作るのに失敗したためです。</p>
+<p>14.0.1でこの問題を修正したので、今回のリリースからGroongaのUbuntu向けパッケージを提供できるようになりました。</p>
+</li>
+<li><p><a class="reference external" href="https://clang.llvm.org/"><code class="docutils literal notranslate"><span class="pre">clang</span></code></a> を使ってソースからビルドした時にビルドエラーになる問題を修正しました。 [GitHub#1738][Reported by windymelt]</p></li>
+</ul>
+</section>
+<section id="id18">
+<h3>感謝<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>windymeltさん</p></li>
+</ul>
+<!-- prettier-ignore-start -->
+</section>
+</section>
+<section id="release-14-0-0-2024-02-29">
+<span id="release-14-0-0"></span><h2>14.0.0リリース - 2024-02-29<a class="headerlink" href="#release-14-0-0-2024-02-29" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
+<p>メジャーバージョンアップです! メジャーバージョンアップですが、互換性は壊れていないので、データベースを再構築することなく14.0.0へアップグレードできます。</p>
+<section id="id19">
+<h3>改良<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>新しいトークナイザー<code class="docutils literal notranslate"><span class="pre">TokenH3Index</span></code>を追加しました。（実験的）</p>
+<p><code class="docutils literal notranslate"><span class="pre">TokenH3Index</span></code>は、<code class="docutils literal notranslate"><span class="pre">WGS84GetPoint</span></code> を <code class="docutils literal notranslate"><span class="pre">UInt64</span></code>(H3 index)に変換します。</p>
+</li>
+<li><p>非テキストベースのトークナイザーを使ったインデックスのオンライン構築とオフライン構築をサポートしました。（実験的）</p>
+<p><code class="docutils literal notranslate"><span class="pre">TokenH3Index</span></code> は、非テキストベースのトークナイザーの一つです。</p>
+</li>
+<li><p>[<a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a>] 非テキストベースのトークナイザーを使ったインデックスでの検索をサポートしました。（実験的）.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TokenH3Index</span></code> は、非テキストベースのトークナイザーの一つです。</p>
+</li>
+<li><p>新しい関数 <code class="docutils literal notranslate"><span class="pre">distance_cosine()</span></code>, <code class="docutils literal notranslate"><span class="pre">distance_inner_product()</span></code>, <code class="docutils literal notranslate"><span class="pre">distance_l2_norm_squared()</span></code>, <code class="docutils literal notranslate"><span class="pre">distance_l1_norm()</span></code> を追加しました。</p>
+<p>これらの関数と<code class="docutils literal notranslate"><span class="pre">limit</span> <span class="pre">N</span></code>を使うことで、ベクトル的に距離の近いレコードのみを取得することができます。</p>
+<p>これらの関数は、<code class="docutils literal notranslate"><span class="pre">output</span></code>ステージで距離を計算します。</p>
+<p>ただ、これらの関数はまだ最適化できていません。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">distance_cosine()</span></code>: コサイン類似度を計算します。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distance_inner_product()</span></code>: 内積を計算します。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distance_l2_norm_squared()</span></code>: ユークリッド距離を計算します。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distance_l1_norm()</span></code>: マンハッタン距離を計算します。</p></li>
+</ul>
+</li>
+<li><p>新しい関数<code class="docutils literal notranslate"><span class="pre">number_round()</span></code>を追加しました。</p></li>
+<li><p>[<a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a>] <code class="docutils literal notranslate"><span class="pre">load</span></code>を並列に実行できるようになりました。</p>
+<p>この機能は、<code class="docutils literal notranslate"><span class="pre">load</span></code>の<code class="docutils literal notranslate"><span class="pre">input_type</span></code>が<code class="docutils literal notranslate"><span class="pre">apache-arrow</span></code>の時のみ有効です。</p>
+<p>この機能は、一つのカラムに対し一つのスレッドを割り当てます。対象のカラムがたくさんある時に、ロード時間の短縮が期待できます。</p>
+</li>
+<li><p>[<a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a>] <code class="docutils literal notranslate"><span class="pre">--filter</span></code>内で配列リテラルをなるべく、uvectorとして使えるようにしました。</p>
+<p>uvectorは、要素が固定長サイズのベクターです。</p>
+<p>すべての要素の型が同じ場合、ベクターの変わりにuvactorを使えます。</p>
+</li>
+<li><p>[<a class="reference internal" href="../reference/commands/status.html"><span class="doc">status</span></a>] <code class="docutils literal notranslate"><span class="pre">status</span></code>の結果に<code class="docutils literal notranslate"><span class="pre">n_workers</span></code>を追加しました。</p></li>
+<li><p>動的カラムの作成を最適化しました。</p></li>
+<li><p>[WAL] 壊れたインデックスの再構築を並列で実行できるようになりました。</p></li>
+<li><p>[<a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a>] <code class="docutils literal notranslate"><span class="pre">output_type=apache-arrow</span></code>の時に、<code class="docutils literal notranslate"><span class="pre">_key</span></code>が<code class="docutils literal notranslate"><span class="pre">Int64</span></code>型のテーブルへの参照カラムを表示できるようにしました。</p></li>
+</ul>
+</section>
+<section id="id20">
+<h3>修正<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>[Windows] Windows向けパッケージ内の<code class="docutils literal notranslate"><span class="pre">groonga-normalizer-mysql</span></code>のドキュメントのパスを修正しました。</p>
+<p>今回のリリースから、<code class="docutils literal notranslate"><span class="pre">groonga-normalizer-mysql</span></code>のドキュメントは<code class="docutils literal notranslate"><span class="pre">share/</span></code>以下に格納されます。</p>
+</li>
+<li><p>[<a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a>] ビットごとの演算を行うとGroongaがクラッシュすることがある問題を修正しました。</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> このページでは
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-1-1-2024-12-03">14.1.1リリース - 2024-12-03</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#improvements">改良</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#stopped-vendoring-rapidjson">RapidJSONの同梱を終了</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#made-llama-cpp-initialization-lazy">llama.cppの初期化処理を遅延化</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizernfkc-added-support-for-mixing-unify-middle-dot-and-remove-symbol"><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code>: <code class="docutils literal notranslate"><span class="pre">unify_middle_dot</span></code>と<code class="docutils literal notranslate"><span class="pre">remove_symbol</span></code>を同時使用をサポート</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-defrag-added-support-for-table-pat-key"><span class="xref std std-doc">/reference/commands/defrag</span>: <span class="xref std std-ref">table-pat-key</span>をサポート</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-load-improved-error-handling"><span class="xref std std-doc">/reference/commands/load</span>: エラー処理を改良</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-executables-groonga-added-context-id-log-flag"><span class="xref std std-doc">/reference/executables/groonga</span>: <code class="docutils literal notranslate"><span class="pre">context_id</span></code>ログフラグを追加</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-executables-groonga-improved-error-handling"><span class="xref std std-doc">/reference/executables/groonga</span>: エラー処理を改良</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#table-pat-key-improved-key-space-efficiency"><span class="xref std std-ref">table-pat-key</span>: キー領域を効率化</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixes">修正</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#grn-pat-size-fixed-a-bug-that-0-may-not-be-returned-on-error"><code class="docutils literal notranslate"><span class="pre">grn_pat_size()</span></code>: エラー時に<code class="docutils literal notranslate"><span class="pre">0</span></code>を返さない問題を修正</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-regular-expression-fixed-a-bug-with-an-empty-pattern"><span class="xref std std-doc">/reference/regular_expression</span>: 空のパターンのときの問題を修正</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-1-0-2024-11-05">14.1.0リリース - 2024-11-05</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">改良</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-status-added-features-llama-cpp-entry">[<span class="xref std std-doc">/reference/commands/status</span>] <code class="docutils literal notranslate"><span class="pre">.["features"]["llama.cpp"]</span></code>エントリーを追加</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-functions-language-model-vectorize-added-experimental">[<span class="xref std std-doc">/reference/functions/language_model_vectorize</span>] 追加（実験的）</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-column-create-added-the-column-create-generator-parameter">[<span class="xref std std-doc">/reference/commands/column_create</span>] <span class="xref std std-ref">column-create-generator</span>引数を追加</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">修正</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#server-gqtp-fixed-a-bug-that-wrong-return-code-is-returned">[<span class="xref std std-doc">/server/gqtp</span>] 間違ったリターンコードが返される問題を修正</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-logical-range-filter-fixed-a-bug-that-invalid-json-format-response-may-be-returned">[<span class="xref std std-doc">/reference/commands/logical_range_filter</span>] 不正なJSONフォーマットのレスポンスが返されることがある問題を修正</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-request-cancel-fixed-a-bug-that-invalid-json-format-response-may-be-returned">[<span class="xref std std-doc">/reference/commands/logical_range_filter</span>] 不正なJSONフォーマットのレスポンスが返されることがある問題を修正</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-index-column-diff-fixed-a-bug-that-false-positive-diff-may-be-reported">[<span class="xref std std-doc">/reference/commands/index_column_diff</span>] 擬陽性の差分が報告されるかもしれない問題を修正</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-9-2024-09-27">14.0.9リリース - 2024-09-27</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">修正</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-8-2024-09-25">14.0.8リリース - 2024-09-25</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">修正</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thanks">感謝</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-7-2024-09-03">14.0.7リリース - 2024-09-03</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">修正</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">感謝</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-6-2024-07-29">14.0.6リリース - 2024-07-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">改良</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-5-2024-07-04">14.0.5リリース - 2024-07-04</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">修正</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-4-2024-05-29">14.0.4リリース - 2024-05-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">修正</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-3-2024-05-09">14.0.3リリース - 2024-05-09</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">修正</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-2-2024-03-29">14.0.2リリース - 2024-03-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">改良</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-1-2024-03-14">14.0.1リリース - 2024-03-14</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">修正</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">感謝</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-0-2024-02-29">14.0.0リリース - 2024-02-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">修正</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2009-2024 Groonga Project.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1 で構築されています。
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

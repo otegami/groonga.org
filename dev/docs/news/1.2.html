@@ -1,0 +1,960 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>News - 1.2.x &#8212; Groonga v14.1.2 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=e535604e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-7532323-1');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-7532323-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'news/1.2';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'english';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="14.1.2" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+     
+  
+
+<a class="navbar-brand logo" href="https://groonga.org/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.2 documentation - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.2 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Blog</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Blog</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">News - 1.2.x</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="news-1-2-x">
+<h1>News - 1.2.x<a class="headerlink" href="#news-1-2-x" title="Link to this heading">#</a></h1>
+<section id="release-1-2-9-2011-12-29">
+<span id="release-1-2-9"></span><h2>Release 1.2.9 - 2011-12-29<a class="headerlink" href="#release-1-2-9-2011-12-29" title="Link to this heading">#</a></h2>
+<section id="improvements">
+<h3>Improvements<a class="headerlink" href="#improvements" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Supported Fedora 16.</p></li>
+<li><p>Dropped Fedora 15 support.</p></li>
+<li><p>[groonga] Improved the default server ID address to work
+on unresolved host name environment. [Reported by &#64;uzulla]</p></li>
+<li><p>Supported MAP_HUGETLB.</p></li>
+<li><p>[admin] Supported throughput chart.</p></li>
+<li><p>Stopped adding nul character in <code class="docutils literal notranslate"><span class="pre">grn_itoh()</span></code>. [#1194]
+[Reported by SHIDARA Yoji]</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">grn_obj_get_values()</span></code>.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">grn_obj_delete_by_id()</span></code>.</p></li>
+<li><p>Supported string vector column for query expansion. [#1216]</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">--filter</span></code> option to <a class="reference internal" href="../reference/commands/delete.html"><span class="doc">delete</span></a> to delete
+many record at once. [#1225]</p></li>
+<li><p>Supported approximate type customization for
+<a class="reference internal" href="../reference/functions/geo_in_circle.html"><span class="doc">geo_in_circle</span></a> and <a class="reference internal" href="../reference/functions/geo_distance.html"><span class="doc">geo_distance</span></a>. [#1226]</p></li>
+<li><p>Made <code class="docutils literal notranslate"><span class="pre">geo_distance2()</span></code> and <code class="docutils literal notranslate"><span class="pre">geo_distance3()</span></code> are deprecated.</p></li>
+<li><p>Changed to use <code class="docutils literal notranslate"><span class="pre">null</span></code> instead of <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> for empty geo
+point value in JSON output.</p></li>
+<li><p>Almost supported MessagePack output. [#1215] [Worked by SHIDARA Yoji]</p></li>
+<li><p>Added missing newlines after drilldown result tags in XML output.</p></li>
+<li><p>Supported truncate for grn_dat.</p></li>
+<li><p>Supported longest common prefix search by grn_dat.</p></li>
+</ul>
+</section>
+<section id="fixes">
+<h3>Fixes<a class="headerlink" href="#fixes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>[windows] Fixed inverted map type.</p></li>
+<li><p>Fixed -Wno- compiler flag detection. [Patch by Arnaud Fontaine]</p></li>
+<li><p>Fixed a problem that <code class="docutils literal notranslate"><span class="pre">groonga</span> <span class="pre">--version</span></code> reports wrongly
+about MeCab. [#1209] [Patch by SHIDARA Yoji]</p></li>
+<li><p>Added missing lock into <code class="docutils literal notranslate"><span class="pre">grn_obj_remove()</span></code>.</p></li>
+<li><p>Fixed Content-Type on error. [#1220] [Patch by SHIDARA Yoji]</p></li>
+<li><p>Fixed a problem that deleting SIS (Semi Infinite String)
+may keep a garbage.</p></li>
+</ul>
+</section>
+<section id="thanks">
+<h3>Thanks<a class="headerlink" href="#thanks" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>&#64;uzulla</p></li>
+<li><p>Arnaud Fontaine</p></li>
+<li><p>SHIDARA Yoji</p></li>
+</ul>
+</section>
+</section>
+<section id="release-1-2-8-2011-11-29">
+<span id="release-1-2-8"></span><h2>Release 1.2.8 - 2011-11-29<a class="headerlink" href="#release-1-2-8-2011-11-29" title="Link to this heading">#</a></h2>
+<p>Object, table and column renamings are supported! These
+features require database re-creation. You can re-create your
+database by the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">groonga</span> <span class="n">YOUR_DB</span> <span class="n">dump</span> <span class="o">&gt;</span> <span class="n">db</span><span class="o">.</span><span class="n">dump</span>
+<span class="o">%</span> <span class="n">groonga</span> <span class="o">-</span><span class="n">n</span> <span class="n">YOUR_NEW_DB</span> <span class="o">&lt;</span> <span class="n">db</span><span class="o">.</span><span class="n">dump</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Groonga 1.2.8 can open databases created by groonga 1.2.7
+or earlier. But groonga 1.2.7 or earlier can’t open
+databases created by groonga 1.2.8 or later.</p>
+</div>
+<section id="id1">
+<h3>Improvements<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>[grntest] Removed the upper limit to the number of bytes in one line.</p></li>
+<li><p>[grntest] Added <code class="docutils literal notranslate"><span class="pre">--pid-path</span></code> option.</p></li>
+<li><p>[deb] Enabled experimental zlib and lzo support.</p></li>
+<li><p>[rpm] Enabled experimental zlib and lzo support.</p></li>
+<li><p>Supports truncation. [#892]</p></li>
+<li><p>Enabled grn_dat that is a read lock free double array implementation.</p></li>
+<li><p>[pkg-config] Added groonga_version variable to groonga.pc.</p></li>
+<li><p>Re-supported <code class="docutils literal notranslate"><span class="pre">--disable-static</span></code>. [groonga-dev,00612]
+[Suggested by Kenichi Aramaki]</p></li>
+<li><p>[munin] Stopped to install Munin plugins by default.</p></li>
+<li><p>Stopped to install RedHat platform related files by default.</p></li>
+<li><p>Supports object renaming. This requires DB re-creation. [#1167]</p></li>
+<li><p>[munin] Added a Munin plugin that measures throughput. [#1171]</p></li>
+<li><p>[geo] Improved geo_in_rectangle performance. The new
+implementation will be 2x faster than the old
+implementation in many cases. [#1173]</p></li>
+<li><p>[macports] Moved groonga’s MacPorts to the official
+repository. [Imported by Hiroshi Umemoto]</p></li>
+<li><p>[geo] Changed the geo literal degree-to-msec conversion algorithm
+to round-off from truncation.</p></li>
+<li><p>Supports a table defrag. It defrags variable size value columns in
+the table. [#1175]</p></li>
+<li><p>Removed associated path on remove. [#1180]</p></li>
+<li><p>[deb] Supports i386.</p></li>
+<li><p>[rpm] Supports i386.</p></li>
+<li><p>[windows] Supports x86.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Fixes<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixed a bug that groonga crashes when accessing a zlib/lzo compressed
+column. Note that a compressed column access causes a memory leak. To
+resolve this, we need to improve API. We will do it in the future.
+[GtiHub#5][GtiHub#6] [Reported by Takayuki Yamaguchi]</p></li>
+<li><p>Fixed a bug that unrelated column values are cleared in deletion.</p></li>
+<li><p>Fixed a bug that a wrong index is used in sorting. [#766]
+[Reported by Horikoshi Yuki]</p></li>
+<li><p>[libedit] Fixed a bug that necessary initialization is
+omitted. [GitHub#7] [Patch by SHIDARA Yoji]</p></li>
+<li><p>[doc] Fixed a typo in documentation. [GitHub#8] [Patch by zunda]</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>Thanks<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Takayuki Yamaguchi</p></li>
+<li><p>SHIDARA Yoji</p></li>
+<li><p>Horikoshi Yuki</p></li>
+<li><p>zunda</p></li>
+<li><p>Hiroshi Umemoto</p></li>
+</ul>
+</section>
+</section>
+<section id="release-1-2-7-2011-10-29">
+<span id="release-1-2-7"></span><h2>Release 1.2.7 - 2011-10-29<a class="headerlink" href="#release-1-2-7-2011-10-29" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h3>Improvements<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>[libedit] Added error check for wide character to
+multibyte sequence conversion. [Reported by SHIDARA Yoji]</p></li>
+<li><p>Added grn_geo_estimate_in_rectangle().</p></li>
+<li><p>Added cursor API to geo search in rectangle.</p></li>
+<li><p>Improved geo search in rectangle speed.</p></li>
+<li><p>Added packages for Ubuntu 11.10 Oneiric Ocelot</p></li>
+<li><p>[experimental] Supported Oracle Solaris 10 8/11. (just buildable with system gcc.)</p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>Fixes<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixed a typo in document. [Reported by &#64;soundkitchen]</p></li>
+</ul>
+</section>
+<section id="id6">
+<h3>Thanks<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>SHIDARA Yoji</p></li>
+<li><p>&#64;soundkitchen</p></li>
+</ul>
+</section>
+</section>
+<section id="release-1-2-6-2011-09-29">
+<span id="release-1-2-6"></span><h2>Release 1.2.6 - 2011-09-29<a class="headerlink" href="#release-1-2-6-2011-09-29" title="Link to this heading">#</a></h2>
+<section id="id7">
+<h3>Improvements<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Improved error message on type cast.</p></li>
+<li><p>Added geo point value validation on type cast.</p></li>
+<li><p>Supported <a class="reference internal" href="../tutorial/query_expansion.html"><span class="doc">Query expansion</span></a>.</p></li>
+<li><p>Added <cite>–query_expansion</cite> option to
+<a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a> for query expansion.</p></li>
+<li><p>Added geometry conversion macro between degree and msec.</p></li>
+<li><p>Supported type cast in <a class="reference internal" href="../reference/functions/geo_distance.html"><span class="doc">geo_distance</span></a> ().</p></li>
+<li><p>Don’t split tokens with full width space in command line. #986</p></li>
+<li><p>Supported conversion between TokyoGeoPoint and WGS84GeoPoint.</p></li>
+<li><p>Exported grn_geo_select_in_circle() and grn_geo_select_in_rectangle().</p></li>
+<li><p>Supported CentOS 6.</p></li>
+<li><p>Supported the current Debian GNU/Linux sid.
+Patch by SATOH Fumiyasu. GitHub#3</p></li>
+</ul>
+</section>
+<section id="id8">
+<h3>Fixes<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixed a bug that geo point is loaded as broken value.</p></li>
+</ul>
+</section>
+<section id="id9">
+<h3>Thanks<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>SATOH Fumiyasu</p></li>
+</ul>
+</section>
+</section>
+<section id="release-1-2-5-2011-08-29">
+<span id="release-1-2-5"></span><h2>Release 1.2.5 - 2011-08-29<a class="headerlink" href="#release-1-2-5-2011-08-29" title="Link to this heading">#</a></h2>
+<section id="id10">
+<h3>Improvements<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added experimental Windows installer support.</p></li>
+<li><p>Accepted “#” and “-” as a valid name characters. #1043</p></li>
+<li><p>Accepted all valid characters except “_” as the first character. #1043</p></li>
+<li><p>Supported <cite>–each</cite> for <cite>[…]</cite> form <a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a>. #1044</p></li>
+<li><p>Added documentation for <a class="reference internal" href="../reference/suggest.html"><span class="doc">Suggest</span></a>.</p></li>
+<li><p>Supported threshold as <cite>–frequency_threshold</cite> and
+<cite>–conditional_probability_threshold</cite> options in all
+<a class="reference internal" href="../reference/commands/suggest.html"><span class="doc">suggest</span></a> types. #1042</p></li>
+<li><p>[groonga-suggest-httpd] Supported log reopen by SIGUSR1. #1048</p></li>
+<li><p>Supported string input for reference vector column value. #1051</p></li>
+<li><p>[groonga-suggest-httpd] Added <cite>–n-lines-per-log-file</cite>
+option that changes log line limitation for a file.</p></li>
+<li><p>[groonga-suggest-httpd] Added <cite>p</cite> parameter for
+<cite>–conditional_probability_threshold</cite>.</p></li>
+<li><p>Added GRN_CTX_PER_DB flag for grn_ctx_init() and grn_ctx_open(). #1053</p></li>
+<li><p>Exported grn_ctx_close(). #1035</p></li>
+</ul>
+</section>
+<section id="id11">
+<h3>Fixes<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixed a crash bug that invalid value is passed as match expression
+argument in <a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a>. #1047</p></li>
+<li><p>Fixed a bug that hash table cursor returns garbage records.</p></li>
+</ul>
+</section>
+</section>
+<section id="release-1-2-4-2011-07-29">
+<span id="release-1-2-4"></span><h2>Release 1.2.4 - 2011-07-29<a class="headerlink" href="#release-1-2-4-2011-07-29" title="Link to this heading">#</a></h2>
+<section id="id12">
+<h3>Improvements<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Re-supported <code class="docutils literal notranslate"><span class="pre">*BSD</span></code>. (Reported by OBATA Akio)</p></li>
+<li><p>Improved sed related portability. (Suggested by OBATA Akio)</p></li>
+<li><p>Re-supported Visual C++ 2008.</p></li>
+<li><p>Supported <a class="reference internal" href="../reference/commands/check.html"><span class="doc">check</span></a> for hash table.</p></li>
+<li><p>Ignored invalid _score in –sortby of <a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a>
+for convenience. #1030</p></li>
+<li><p>Added document about <a class="reference internal" href="../reference/log.html"><span class="doc">Log</span></a>.</p></li>
+<li><p>Supported ~/.editrc.</p></li>
+<li><p>Supported ~/.groonga-history.</p></li>
+</ul>
+</section>
+<section id="id13">
+<h3>Fixes<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixed broken libedit support. (Reported by Daiki Ueno)</p></li>
+<li><p>Fixed source URL in <code class="docutils literal notranslate"><span class="pre">*.spec</span></code> (Reported by Daiki Ueno)</p></li>
+<li><p>Fixed patricia trie cursor returns wrong records.</p></li>
+<li><p>Added missing database lock clear for grn_obj_clear_lock()
+for database.</p></li>
+<li><p>Fixed wrong record’s column values deletion possible on
+record deletion.</p></li>
+</ul>
+</section>
+<section id="id14">
+<h3>Thanks<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>OBATA Akio</p></li>
+<li><p>Daiki Ueno</p></li>
+</ul>
+</section>
+</section>
+<section id="release-1-2-3-2011-06-29">
+<span id="release-1-2-3"></span><h2>Release 1.2.3 - 2011-06-29<a class="headerlink" href="#release-1-2-3-2011-06-29" title="Link to this heading">#</a></h2>
+<section id="id15">
+<h3>Improvements<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added invalid table name check. #912</p></li>
+<li><p>Added groonga-query-log-analyzer that analyze query log.</p></li>
+<li><p>groonga command shows failed command on error.</p></li>
+<li><p>groonga command shows file name and line no on error.</p></li>
+<li><p>Improved error message of <a class="reference internal" href="../reference/commands/column_create.html"><span class="doc">column_create</span></a>. #952</p></li>
+<li><p>Added GRN_OBJ_TABLE_DAT_KEY, double array trie, table. (experimental)</p></li>
+</ul>
+</section>
+<section id="id16">
+<h3>Fixes<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>fix get command crash. (Reported by OBATA Akio)</p></li>
+<li><p>fix elapsed time overflow in query log. #944</p></li>
+</ul>
+</section>
+<section id="id17">
+<h3>Thanks<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>OBATA Akio</p></li>
+</ul>
+</section>
+</section>
+<section id="release-1-2-2-2011-05-29">
+<span id="release-1-2-2"></span><h2>Release 1.2.2 - 2011-05-29<a class="headerlink" href="#release-1-2-2-2011-05-29" title="Link to this heading">#</a></h2>
+<section id="id18">
+<h3>Improvements<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added packages for Ubuntu 11.04 Natty Narwhal.</p></li>
+<li><p>Removed packages for Ubuntu 10.10 Maverick Meerkat.</p></li>
+<li><p>RPM: Split server related packages to groonga-server package.</p></li>
+<li><p>suggest: Added target object name into error messages.</p></li>
+<li><p>document: Started English support. (not completed yet.)</p></li>
+<li><p>groonga-suggest-httpd: Added –disable-max-fd-check option.</p></li>
+<li><p>groonga: Renamed <a class="reference internal" href="../reference/executables/groonga.html#cmdoption-groonga-a"><code class="xref std std-option docutils literal notranslate"><span class="pre">groonga</span> <span class="pre">-a</span></code></a> and <a class="reference internal" href="../reference/executables/groonga.html#cmdoption-groonga-a"><code class="xref std std-option docutils literal notranslate"><span class="pre">groonga</span>
+<span class="pre">--address</span></code></a> options to <a class="reference internal" href="../reference/executables/groonga.html#cmdoption-groonga-bind-address"><code class="xref std std-option docutils literal notranslate"><span class="pre">groonga</span> <span class="pre">--bind-address</span></code></a> option.</p></li>
+<li><p>groonga-suggest-httpd: Renamed –address option to –bind-address.</p></li>
+<li><p>Changed admin HTML install directory to
+$PREFIX/share/groonga/html/admin/ from
+$PREFIX/share/groonga/admin_html/.</p></li>
+<li><p>groonga-suggest-httpd: Used “application/json” for JSON response
+instead of “text/javascript”.</p></li>
+<li><p>Windows: Used DLL relative path instead of executable file
+relative path.</p></li>
+<li><p>MeCab: Added error message from MeCab on MeCab initialize error.</p></li>
+<li><p>suggest: Added prefix_search parameter to suggest
+command. #909</p></li>
+<li><p>plugin: Added grn_plugin_get_system_plugins_dir() and
+grn_plugin_get_suffix() API.</p></li>
+<li><p>Added grn_obj_is_builtin() API.</p></li>
+<li><p><a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a>: Added table name check. #934</p></li>
+<li><p>Showed invalid name context in error message. #935</p></li>
+</ul>
+</section>
+<section id="id19">
+<h3>Fixes<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixed a data breaking bug on multi process update. #890</p></li>
+</ul>
+</section>
+</section>
+<section id="id20">
+<h2>1.2.1リリース - 2011-04-29<a class="headerlink" href="#id20" title="Link to this heading">#</a></h2>
+<section id="id21">
+<h3>改良<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>suggestコマンドにthresholdパラメーターを追加。#895</p></li>
+<li><p>suggestのHTTPサーバにlimitパラメーターを追加。#899</p></li>
+<li><p>grntest: SIGINTでの中断に対応。</p></li>
+</ul>
+</section>
+<section id="id22">
+<h3>修正<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>同時に複数のデータベースを開いているとき、1つでもデータベー
+スを閉じると関連するプラグインも閉じられてしまう問題を修正。 #894</p></li>
+<li><p>configureの–helpで出力される–with-deafult-encodingの値が
+間違っていた問題を修正。（ICHII Takashiさんが報告）</p></li>
+<li><p>チュートリアル中のtypoを修正。（moozさんが修正）</p></li>
+</ul>
+</section>
+<section id="id23">
+<h3>感謝<a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>ICHII Takashiさん</p></li>
+<li><p>moozさん</p></li>
+</ul>
+</section>
+</section>
+<section id="id24">
+<h2>1.2.0リリース - 2011-03-29<a class="headerlink" href="#id24" title="Link to this heading">#</a></h2>
+<section id="id25">
+<h3>改良<a class="headerlink" href="#id25" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>MacPortsでのインストールドキュメントを追加。</p></li>
+<li><p>Homebrewでのインストールドキュメントを追加。</p></li>
+<li><p>WindowsではMinGWでもpthreadを使わないようにした。</p></li>
+<li><p>オーバーフローチェックを強化。</p></li>
+<li><p>位置情報の入力値チェックを強化。</p></li>
+<li><p>インデックスを用いたジオサーチの例をチュートリアルに追加。 #438</p></li>
+<li><p>Debian GNU/Linux wheezyのパッケージを追加。</p></li>
+<li><p>Debian GNU/Linux lennyのパッケージを削除。</p></li>
+<li><p>Debianパッケージをcdbsベースからdebhelperベースへ移行。
+パッケージ名の変更あり。 #887</p></li>
+<li><p>MeCabトークナイザーの読み込みエラーを無視するようにした。た
+だし、ログには残る。 #893</p></li>
+</ul>
+</section>
+<section id="id26">
+<h3>修正<a class="headerlink" href="#id26" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>autoconf 2.59環境において、ファイルシステムのルート直下に
+groongaディレクトリを作成しようとする問題を修正。 #833</p></li>
+<li><p>JSONPが動作しなくなっていた問題を修正。</p></li>
+<li><p>MeCabトークナイザーの読み込みに失敗したときにクラッシュする問題を修正。
+（&#64;tomotaka_itoさんが報告）</p></li>
+<li><p>[非互換] 位置情報の小数表記からミリ秒への変換誤差が大きい問題を修正。</p></li>
+<li><p><a class="reference internal" href="../reference/functions/geo_in_rectangle.html"><span class="doc">geo_in_rectangle</span></a> の <code class="docutils literal notranslate"><span class="pre">top_left</span></code> と
+<code class="docutils literal notranslate"><span class="pre">bottom_right</span></code> に同じ位置を指定するとクラッシュする問題を修正。</p></li>
+<li><p>メモリリークを修正。</p></li>
+<li><p>小数形式のTimeリテラルをロードするとミリ秒情報が落ちる問題を修正。 #880</p></li>
+<li><p><a class="reference internal" href="../reference/commands/column_list.html"><span class="doc">column_list</span></a> のドキュメントを修正。 #758</p></li>
+<li><p><a class="reference internal" href="../reference/commands/table_list.html"><span class="doc">table_list</span></a> のドキュメントを修正。</p></li>
+<li><p><a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a> で_valueを指定するとメモリリークする問題を修正。 #878</p></li>
+<li><p><a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a> でクラッシュする問題を修正。 #661</p></li>
+</ul>
+</section>
+<section id="id27">
+<h3>実験的<a class="headerlink" href="#id27" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>grn_table_truncate()を追加。（実験的。問題あり）</p></li>
+<li><p>truncateコマンドを追加。（実験的。問題あり） #888</p></li>
+</ul>
+</section>
+<section id="id28">
+<h3>感謝<a class="headerlink" href="#id28" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>&#64;tomotaka_itoさん</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-1-2-9-2011-12-29">Release 1.2.9 - 2011-12-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#improvements">Improvements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixes">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thanks">Thanks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-1-2-8-2011-11-29">Release 1.2.8 - 2011-11-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Improvements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Thanks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-1-2-7-2011-10-29">Release 1.2.7 - 2011-10-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Improvements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Thanks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-1-2-6-2011-09-29">Release 1.2.6 - 2011-09-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Improvements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Thanks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-1-2-5-2011-08-29">Release 1.2.5 - 2011-08-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Improvements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Fixes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-1-2-4-2011-07-29">Release 1.2.4 - 2011-07-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Improvements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Thanks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-1-2-3-2011-06-29">Release 1.2.3 - 2011-06-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Improvements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Thanks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-1-2-2-2011-05-29">Release 1.2.2 - 2011-05-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Improvements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Fixes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">1.2.1リリース - 2011-04-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">修正</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">感謝</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">1.2.0リリース - 2011-03-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">改良</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">修正</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">実験的</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">感謝</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/groonga/groonga/edit/main/doc/source/news/1.2.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2009-2024 Groonga Project.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

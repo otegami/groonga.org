@@ -1,0 +1,635 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ja" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>10.1. 同じ検索キーワードなのに全文検索結果が異なる &#8212; Groonga v14.1.2 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=d4c2f41a"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/translations.js?v=4755f45a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-7532323-1');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-7532323-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'troubleshooting/different_results_with_the_same_keyword';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'japanese';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="10.2. エラーメッセージの解析方法" href="how_to_analyze_error_message.html" />
+    <link rel="prev" title="10. トラブルシューティング" href="../troubleshooting.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  <meta name="docsearch:version" content="14.1.2" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">本文へスキップ</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>トップに戻る</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="バージョン警告"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="サイトナビゲーション">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+     
+  
+
+<a class="navbar-brand logo" href="https://groonga.org/ja/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.2 documentation - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.2 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="ライト"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="ダーク"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/ja/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Blog</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="このページでは">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="ライト"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="ダーク"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/ja/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Blog</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="セクションナビゲーション">
+  <p class="bd-links__title" role="heading" aria-level="1">セクションナビゲーション</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10.1. 同じ検索キーワードなのに全文検索結果が異なる</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_analyze_error_message.html">10.2. エラーメッセージの解析方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mmap_cannot_allocate_memory.html">10.3. mmap Cannot allocate memoryエラーを回避するには</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="パンくずリスト" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="ホーム">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../troubleshooting.html" class="nav-link"><span class="section-number">10. </span>トラブルシューティング</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">10.1. </span>同じ検索キーワードなのに全文検索結果が異なる</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="id1">
+<h1><span class="section-number">10.1. </span>同じ検索キーワードなのに全文検索結果が異なる<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>同じ検索キーワードでも一緒に指定するクエリによっては全文検索の結果が異なることがあります。ここでは、その原因と対策方法を説明します。</p>
+<section id="id2">
+<h2><span class="section-number">10.1.1. </span>例<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>まず、実際に検索結果が異なる例を説明します。</p>
+<p>DDLは以下の通りです。BlogsテーブルのbodyカラムをTokenMecabトークナイザーを使ってトークナイズしてからインデックスを作成しています。:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">Blogs</span> <span class="n">TABLE_NO_KEY</span>
+<span class="n">column_create</span> <span class="n">Blogs</span> <span class="n">body</span> <span class="n">COLUMN_SCALAR</span> <span class="n">ShortText</span>
+<span class="n">column_create</span> <span class="n">Blogs</span> <span class="n">updated_at</span> <span class="n">COLUMN_SCALAR</span> <span class="n">Time</span>
+<span class="n">table_create</span> <span class="n">Terms</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">ShortText</span> <span class="o">--</span><span class="n">default_tokenizer</span> <span class="n">TokenMecab</span>  <span class="o">--</span><span class="n">normalizer</span> <span class="n">NormalizerAuto</span>
+<span class="n">column_create</span> <span class="n">Terms</span> <span class="n">blog_body</span> <span class="n">COLUMN_INDEX</span><span class="o">|</span><span class="n">WITH_POSITION</span> <span class="n">Blogs</span> <span class="n">body</span>
+</pre></div>
+</div>
+<p>テスト用のデータは1件だけ投入します。:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Blogs</span>
+<span class="p">[</span>
+  <span class="p">[</span><span class="s2">&quot;body&quot;</span><span class="p">,</span> <span class="s2">&quot;updated_at&quot;</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">&quot;東京都民に深刻なダメージを与えました。&quot;</span><span class="p">,</span> <span class="s2">&quot;2010/9/21 10:18:34&quot;</span><span class="p">],</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>まず、全文検索のみで検索します。この場合ヒットします。:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">select</span> <span class="n">Blogs</span> <span class="o">--</span><span class="nb">filter</span> <span class="s1">&#39;body @ &quot;東京都&quot;&#39;</span>
+<span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mf">4102.268052438</span><span class="p">,</span><span class="mf">0.000743783</span><span class="p">],[[[</span><span class="mi">1</span><span class="p">],[[</span><span class="s2">&quot;_id&quot;</span><span class="p">,</span><span class="s2">&quot;UInt32&quot;</span><span class="p">],[</span><span class="s2">&quot;updated_at&quot;</span><span class="p">,</span><span class="s2">&quot;Time&quot;</span><span class="p">],[</span><span class="s2">&quot;body&quot;</span><span class="p">,</span><span class="s2">&quot;ShortText&quot;</span><span class="p">]],[</span><span class="mi">1</span><span class="p">,</span><span class="mf">1285031914.0</span><span class="p">,</span><span class="s2">&quot;東京都民に深刻なダメージを与えました。&quot;</span><span class="p">]]]]</span>
+</pre></div>
+</div>
+<p>続いて、範囲指定と全文検索を組み合わせて検索します（1285858800は2010/10/1 0:0:0の秒表記）。この場合もヒットします。:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">select</span> <span class="n">Blogs</span> <span class="o">--</span><span class="nb">filter</span> <span class="s1">&#39;body @ &quot;東京都&quot; &amp;&amp; updated_at &lt; 1285858800&#39;</span>
+<span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mf">4387.524084839</span><span class="p">,</span><span class="mf">0.001525487</span><span class="p">],[[[</span><span class="mi">1</span><span class="p">],[[</span><span class="s2">&quot;_id&quot;</span><span class="p">,</span><span class="s2">&quot;UInt32&quot;</span><span class="p">],[</span><span class="s2">&quot;updated_at&quot;</span><span class="p">,</span><span class="s2">&quot;Time&quot;</span><span class="p">],[</span><span class="s2">&quot;body&quot;</span><span class="p">,</span><span class="s2">&quot;ShortText&quot;</span><span class="p">]],[</span><span class="mi">1</span><span class="p">,</span><span class="mf">1285031914.0</span><span class="p">,</span><span class="s2">&quot;東京都民に深刻なダメージを与えました。&quot;</span><span class="p">]]]]</span>
+</pre></div>
+</div>
+<p>最後に、範囲指定と全文検索の順番を入れ替えて検索します。個々の条件は同じですが、この場合はヒットしません。:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">select</span> <span class="n">Blogs</span> <span class="o">--</span><span class="nb">filter</span> <span class="s1">&#39;updated_at &lt; 1285858800 &amp;&amp; body @ &quot;東京都&quot;&#39;</span>
+<span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mf">4400.292570838</span><span class="p">,</span><span class="mf">0.000647716</span><span class="p">],[[[</span><span class="mi">0</span><span class="p">],[[</span><span class="s2">&quot;_id&quot;</span><span class="p">,</span><span class="s2">&quot;UInt32&quot;</span><span class="p">],[</span><span class="s2">&quot;updated_at&quot;</span><span class="p">,</span><span class="s2">&quot;Time&quot;</span><span class="p">],[</span><span class="s2">&quot;body&quot;</span><span class="p">,</span><span class="s2">&quot;ShortText&quot;</span><span class="p">]]]]]</span>
+</pre></div>
+</div>
+<p>どうしてこのような挙動になるかを説明します。</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">10.1.2. </span>原因<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>このような挙動になるのは全文検索時に複数の検索の挙動を使い分けているからです。ここでは簡単に説明するので、詳細は <a class="reference internal" href="../spec/search.html"><span class="doc">検索</span></a> を参照してください。</p>
+<p>検索の挙動には以下の3種類があります。</p>
+<ol class="arabic simple">
+<li><p>完全一致検索</p></li>
+<li><p>非わかち書き検索</p></li>
+<li><p>部分一致検索</p></li>
+</ol>
+<p>Groongaは基本的に完全一致検索のみを行います。上記の例では「東京都民に深刻なダメージを与えました。」を「東京都」というクエリで検索していますが、TokenMecabトークナイザーを使っている場合はこのクエリはマッチしません。</p>
+<p>検索対象の「東京都民に深刻なダメージを与えました。」は</p>
+<blockquote>
+<div><p>東京 / 都民 / に / 深刻 / な / ダメージ / を / 与え / まし / た / 。</p>
+</div></blockquote>
+<p>とトークナイズされますが、クエリの「東京都」は</p>
+<blockquote>
+<div><p>東京 / 都</p>
+</div></blockquote>
+<p>とトークナイズされるため、完全一致しません。</p>
+<p>Groongaは完全一致検索した結果のヒット件数が所定の閾値を超えない場合に限り、非わかち書き検索を行い、それでもヒット件数が閾値を超えない場合は部分一致検索を行います（閾値は1がデフォルト値となっています）。このケースのデータは部分一致検索ではヒットするので、「東京都」クエリのみを指定するとヒットします。</p>
+<p>しかし、以下のように全文検索前にすでに閾値が越えている場合（「updated_at &lt; 1285858800」で1件ヒットし、閾値を越える）は、たとえ完全一致検索で1件もヒットしない場合でも部分一致検索などを行いません。:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="n">Blogs</span> <span class="o">--</span><span class="nb">filter</span> <span class="s1">&#39;updated_at &lt; 1285858800 &amp;&amp; body @ &quot;東京都&quot;&#39;</span>
+</pre></div>
+</div>
+<p>そのため、条件の順序を変えると検索結果が変わるという状況が発生します。以下で、この情報を回避する方法を2種類紹介しますが、それぞれトレードオフとなる条件があるので採用するかどうかを十分検討してください。</p>
+</section>
+<section id="id4">
+<h2><span class="section-number">10.1.3. </span>対策方法1: トークナイザーを変更する<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>TokenMecabトークナイザーは事前に準備した辞書を用いてトークナイズするため、再現率よりも適合率を重視したトークナイザーと言えます。一方、TokenBigramなど、N-gram系のトークナイザーは適合率を重視したトークナイザーと言えます。例えば、TokenMecabの場合「東京都」で「京都」に完全一致することはありませんが、TokenBigramでは完全一致します。一方、TokenMecabでは「東京都民」に完全一致しませんが、TokenBigramでは完全一致します。</p>
+<p>このようにN-gram系のトークナイザーを指定することにより再現率をあげることができますが、適合率が下がり検索ノイズが含まれる可能性が高くなります。この度合いを調整するためには <a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a> のmatch_columnsで使用する索引毎に重み付けを指定します。</p>
+<p>ここでも、前述の例を使って具体例を示します。まず、TokenBigramを用いた索引を追加します。:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">Bigram</span> <span class="n">TABLE_PAT_KEY</span> <span class="n">ShortText</span> <span class="o">--</span><span class="n">default_tokenizer</span> <span class="n">TokenBigram</span>  <span class="o">--</span><span class="n">normalizer</span> <span class="n">NormalizerAuto</span>
+<span class="n">column_create</span> <span class="n">Bigram</span> <span class="n">blog_body</span> <span class="n">COLUMN_INDEX</span><span class="o">|</span><span class="n">WITH_POSITION</span> <span class="n">Blogs</span> <span class="n">body</span>
+</pre></div>
+</div>
+<p>この状態でも以前はマッチしなかったレコードがヒットするようになります。:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">select</span> <span class="n">Blogs</span> <span class="o">--</span><span class="nb">filter</span> <span class="s1">&#39;updated_at &lt; 1285858800 &amp;&amp; body @ &quot;東京都&quot;&#39;</span>
+<span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mf">7163.448064902</span><span class="p">,</span><span class="mf">0.000418127</span><span class="p">],[[[</span><span class="mi">1</span><span class="p">],[[</span><span class="s2">&quot;_id&quot;</span><span class="p">,</span><span class="s2">&quot;UInt32&quot;</span><span class="p">],[</span><span class="s2">&quot;updated_at&quot;</span><span class="p">,</span><span class="s2">&quot;Time&quot;</span><span class="p">],[</span><span class="s2">&quot;body&quot;</span><span class="p">,</span><span class="s2">&quot;ShortText&quot;</span><span class="p">]],[</span><span class="mi">1</span><span class="p">,</span><span class="mf">1285031914.0</span><span class="p">,</span><span class="s2">&quot;東京都民に深刻なダメージを与えました。&quot;</span><span class="p">]]]]</span>
+</pre></div>
+</div>
+<p>しかし、N-gram系のトークナイザーの方がTokenMecabトークナイザーよりも語のヒット数が多いため、N-gram系のヒットスコアの方が重く扱われてしまいます。N-gram系のトークナイザーの方がTokenMecabトークナイザーよりも適合率の低い場合が多いので、このままでは検索ノイズが上位に表示される可能性が高くなります。</p>
+<p>そこで、TokenMecabトークナイザーを使って作った索引の方をTokenBigramトークナイザーを使って作った索引よりも重視するように重み付けを指定します。これは、match_columnsオプションで指定できます。:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">select</span> <span class="n">Blogs</span> <span class="o">--</span><span class="n">match_columns</span> <span class="s1">&#39;Terms.blog_body * 10 || Bigram.blog_body * 3&#39;</span> <span class="o">--</span><span class="n">query</span> <span class="s1">&#39;東京都&#39;</span> <span class="o">--</span><span class="n">output_columns</span> <span class="s1">&#39;_score, body&#39;</span>
+<span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mf">8167.364602632</span><span class="p">,</span><span class="mf">0.000647003</span><span class="p">],[[[</span><span class="mi">1</span><span class="p">],[[</span><span class="s2">&quot;_score&quot;</span><span class="p">,</span><span class="s2">&quot;Int32&quot;</span><span class="p">],[</span><span class="s2">&quot;body&quot;</span><span class="p">,</span><span class="s2">&quot;ShortText&quot;</span><span class="p">]],[</span><span class="mi">13</span><span class="p">,</span><span class="s2">&quot;東京都民に深刻なダメージを与えました。&quot;</span><span class="p">]]]]</span>
+</pre></div>
+</div>
+<p>この場合はスコアが11になっています。内訳は、Terms.blog_body索引（TokenMecabトークナイザーを使用）でマッチしたので10、Bigram.blog_body索引（TokenBigramトークナイザーを使用）でマッチしたので3、これらを合計して13になっています。このようにTokenMecabトークナイザーの重みを高くすることにより、検索ノイズが上位にくることを抑えつつ再現率を上げることができます。</p>
+<p>この例は日本語だったのでTokenBigramトークナイザーでよかったのですが、アルファベットの場合はTokenBigramSplitSymbolAlphaトークナイザーなども利用する必要があります。例えば、「楽しいbilliard」はTokenBigramトークナイザーでは</p>
+<blockquote>
+<div><p>楽し / しい / billiard</p>
+</div></blockquote>
+<p>となり、「bill」では完全一致しません。一方、TokenBigramSplitSymbolAlphaトークナイザーを使うと</p>
+<blockquote>
+<div><p>楽し / しい / いb / bi / il / ll / li / ia / ar / rd / d</p>
+</div></blockquote>
+<p>となり、「bill」でも完全一致します。</p>
+<p>TokenBigramSplitSymbolAlphaトークナイザーを使う場合も重み付けを考慮する必要があることはかわりありません。</p>
+<p>利用できるバイグラム系のトークナイザーの一覧は以下の通りです。</p>
+<ul class="simple">
+<li><p>TokenBigram: バイグラムでトークナイズする。連続する記号・アルファベット・数字は一語として扱う。</p></li>
+<li><p>TokenBigramSplitSymbol: 記号もバイグラムでトークナイズする。連続するアルファベット・数字は一語として扱う。</p></li>
+<li><p>TokenBigramSplitSymbolAlpha: 記号とアルファベットもバイグラムでトークナイズする。連続する数字は一語として扱う。</p></li>
+<li><p>TokenBigramSplitSymbolAlphaDigit: 記号・アルファベット・数字もバイグラムでトークナイズする。</p></li>
+<li><p>TokenBigramIgnoreBlank: バイグラムでトークナイズする。連続する記号・アルファベット・数字は一語として扱う。空白は無視する。</p></li>
+<li><p>TokenBigramIgnoreBlankSplitSymbol: 記号もバイグラムでトークナイズする。連続するアルファベット・数字は一語として扱う。空白は無視する。</p></li>
+<li><p>TokenBigramIgnoreBlankSplitSymbolAlpha: 記号とアルファベットもバイグラムでトークナイズする。連続する数字は一語として扱う。空白は無視する。</p></li>
+<li><p>TokenBigramIgnoreBlankSplitSymbolAlphaDigit: 記号・アルファベット・数字もバイグラムでトークナイズする。空白は無視する。</p></li>
+</ul>
+</section>
+<section id="id5">
+<h2><span class="section-number">10.1.4. </span>対策方法2: 閾値をあげる<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>非わかち書き検索・部分一致検索を利用するかどうかの閾値は <code class="docutils literal notranslate"><span class="pre">--default-match-escalation-threshold</span></code> オプションで変更することができます。以下のように指定すると、100件以下のヒット数であれば、たとえ完全一致検索でヒットしても、非わかち書き検索・部分一致検索を行います。:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ groonga --default-match-escalation-threshold 100
+</pre></div>
+</div>
+<p>この場合も対策方法1同様、検索ノイズが上位に現れる可能性が高くなることに注意してください。検索ノイズが多くなった場合は指定する値を低くする必要があります。</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../troubleshooting.html"
+       title="前のページ">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">前へ</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>トラブルシューティング</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="how_to_analyze_error_message.html"
+       title="次ページ">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">次へ</p>
+        <p class="prev-next-title"><span class="section-number">10.2. </span>エラーメッセージの解析方法</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> このページでは
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">10.1.1. 例</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">10.1.2. 原因</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">10.1.3. 対策方法1: トークナイザーを変更する</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">10.1.4. 対策方法2: 閾値をあげる</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2009-2024 Groonga Project.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1 で構築されています。
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

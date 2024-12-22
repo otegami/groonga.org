@@ -1,0 +1,1521 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4.1. Basic operations &#8212; Groonga v14.1.2 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=e535604e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-7532323-1');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-7532323-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/introduction';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'english';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.2. Remote access" href="network.html" />
+    <link rel="prev" title="4. Tutorial" href="../tutorial.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="14.1.2" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+     
+  
+
+<a class="navbar-brand logo" href="https://groonga.org/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.2 documentation - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.2 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Blog</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Blog</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4.1. Basic operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network.html">4.2. Remote access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">4.3. Various data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="search.html">4.4. Various search conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drilldown.html">4.5. Drilldown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">4.6. Tag search and reverse resolution of reference relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="match_columns.html">4.7. match_columns parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patricia_trie.html">4.8. Prefix search with patricia trie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lexicon.html">4.9. Additional information about lexicon for full text search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="micro_blog.html">4.10. Let’s create micro-blog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query_expansion.html">4.11. Query expansion</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../tutorial.html" class="nav-link"><span class="section-number">4. </span>Tutorial</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">4.1. </span>Basic operations</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="basic-operations">
+<h1><span class="section-number">4.1. </span>Basic operations<a class="headerlink" href="#basic-operations" title="Link to this heading">#</a></h1>
+<p>A Groonga package provides a C library (libgroonga) and a command line tool (groonga). This tutorial explains how to use the command line tool, with which you can create/operate databases, start a server, establish a connection with a server, etc.</p>
+<section id="create-a-database">
+<h2><span class="section-number">4.1.1. </span>Create a database<a class="headerlink" href="#create-a-database" title="Link to this heading">#</a></h2>
+<p>The first step to using Groonga is to create a new database. The following shows how to do it.</p>
+<p>Form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">groonga</span> <span class="o">-</span><span class="n">n</span> <span class="n">DB_PATH</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">-n</span></code> option specifies to create a new database and DB_PATH specifies the path of the new database. Actually, a database consists of a series of files and DB_PATH specifies the file which will be the entrance to the new database. DB_PATH also specifies the path prefix for other files. Note that database creation fails if DB_PATH points to an existing file (For example, <code class="docutils literal notranslate"><span class="pre">db</span> <span class="pre">open</span> <span class="pre">failed</span> <span class="pre">(DB_PATH):</span> <span class="pre">syscall</span> <span class="pre">error</span> <span class="pre">'DB_PATH'</span> <span class="pre">(File</span> <span class="pre">exists)</span></code>. You can operate an existing database in a way that is in the next chapter).</p>
+<p>This command creates a new database and then enters into interactive mode in which Groonga prompts you to enter commands for operating that database. You can terminate this mode with Ctrl-d.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">groonga</span> <span class="o">-</span><span class="n">n</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">groonga</span><span class="o">-</span><span class="n">databases</span><span class="o">/</span><span class="n">introduction</span><span class="o">.</span><span class="n">db</span>
+</pre></div>
+</div>
+<p>After this database creation, you can find a series of files in /tmp/groonga-databases.</p>
+</section>
+<section id="operate-a-database">
+<h2><span class="section-number">4.1.2. </span>Operate a database<a class="headerlink" href="#operate-a-database" title="Link to this heading">#</a></h2>
+<p>The following shows how to operate an existing database.</p>
+<p>Form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">groonga</span> <span class="n">DB_PATH</span> <span class="p">[</span><span class="n">COMMAND</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>DB_PATH specifies the path of a target database. This command fails if the specified database does not exist.</p>
+<p>If COMMAND is specified, Groonga executes COMMAND and returns the result. Otherwise, Groonga starts in interactive mode that reads commands from the standard input and executes them one by one. This tutorial focuses on the interactive mode.</p>
+<p>Let’s see the status of a Groonga process by using a <a class="reference internal" href="../reference/commands/status.html"><span class="doc">status</span></a> command.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">groonga</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">groonga</span><span class="o">-</span><span class="n">databases</span><span class="o">/</span><span class="n">introduction</span><span class="o">.</span><span class="n">db</span>
+<span class="n">status</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   {</span>
+<span class="c1">#     &quot;alloc_count&quot;: 29,</span>
+<span class="c1">#     &quot;starttime&quot;: 1696558618,</span>
+<span class="c1">#     &quot;start_time&quot;: 1696558618,</span>
+<span class="c1">#     &quot;uptime&quot;: 0,</span>
+<span class="c1">#     &quot;version&quot;: &quot;2.9.1&quot;,</span>
+<span class="c1">#     &quot;n_queries&quot;: 0,</span>
+<span class="c1">#     &quot;cache_hit_rate&quot;: 0.0,</span>
+<span class="c1">#     &quot;command_version&quot;: 1,</span>
+<span class="c1">#     &quot;default_command_version&quot;: 1,</span>
+<span class="c1">#     &quot;max_command_version&quot;: 3,</span>
+<span class="c1">#     &quot;n_jobs&quot;: 0,</span>
+<span class="c1">#     &quot;features&quot;: {</span>
+<span class="c1">#       &quot;nfkc&quot;: true,</span>
+<span class="c1">#       &quot;mecab&quot;: true,</span>
+<span class="c1">#       &quot;message_pack&quot;: true,</span>
+<span class="c1">#       &quot;mruby&quot;: true,</span>
+<span class="c1">#       &quot;onigmo&quot;: true,</span>
+<span class="c1">#       &quot;zlib&quot;: true,</span>
+<span class="c1">#       &quot;lz4&quot;: true,</span>
+<span class="c1">#       &quot;zstandard&quot;: true,</span>
+<span class="c1">#       &quot;kqueue&quot;: false,</span>
+<span class="c1">#       &quot;epoll&quot;: true,</span>
+<span class="c1">#       &quot;poll&quot;: false,</span>
+<span class="c1">#       &quot;rapidjson&quot;: false,</span>
+<span class="c1">#       &quot;apache_arrow&quot;: true,</span>
+<span class="c1">#       &quot;xxhash&quot;: true,</span>
+<span class="c1">#       &quot;blosc&quot;: true,</span>
+<span class="c1">#       &quot;bfloat16&quot;: true,</span>
+<span class="c1">#       &quot;h3&quot;: true,</span>
+<span class="c1">#       &quot;simdjson&quot;: true,</span>
+<span class="c1">#       &quot;llama.cpp&quot;: true,</span>
+<span class="c1">#       &quot;back_trace&quot;: true,</span>
+<span class="c1">#       &quot;reference_count&quot;: false</span>
+<span class="c1">#     },</span>
+<span class="c1">#     &quot;apache_arrow&quot;: {</span>
+<span class="c1">#       &quot;version_major&quot;: 2,</span>
+<span class="c1">#       &quot;version_minor&quot;: 9,</span>
+<span class="c1">#       &quot;version_patch&quot;: 1,</span>
+<span class="c1">#       &quot;version&quot;: &quot;2.9.1&quot;</span>
+<span class="c1">#     },</span>
+<span class="c1">#     &quot;memory_map_size&quot;: 2929,</span>
+<span class="c1">#     &quot;n_workers&quot;: 0,</span>
+<span class="c1">#     &quot;default_n_workers&quot;: 0,</span>
+<span class="c1">#     &quot;os&quot;: &quot;Linux&quot;,</span>
+<span class="c1">#     &quot;cpu&quot;: &quot;x86_64&quot;</span>
+<span class="c1">#   }</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+<p>As shown in the above example, a command returns a JSON array. The first element contains an error code, execution time, etc. The second element is the result of an operation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can format a JSON using additional tools. For example, <a class="reference external" href="https://github.com/michisu/grnwrap">grnwrap</a>, <a class="reference external" href="https://github.com/yoshihara/grnline">Grnline</a>, <a class="reference external" href="http://stedolan.github.io/jq/">jq</a> and so on.</p>
+</div>
+</section>
+<section id="command-format">
+<h2><span class="section-number">4.1.3. </span>Command format<a class="headerlink" href="#command-format" title="Link to this heading">#</a></h2>
+<p>Commands for operating a database accept arguments as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Form_1</span><span class="p">:</span> <span class="n">COMMAND</span> <span class="n">VALUE_1</span> <span class="n">VALUE_2</span> <span class="o">..</span>
+
+<span class="n">Form_2</span><span class="p">:</span> <span class="n">COMMAND</span> <span class="o">--</span><span class="n">NAME_1</span> <span class="n">VALUE_1</span> <span class="o">--</span><span class="n">NAME_2</span> <span class="n">VALUE_2</span> <span class="o">..</span>
+</pre></div>
+</div>
+<p>In the first form, arguments must be passed in order. This kind of arguments are called positional arguments because the position of each argument determines its meaning.</p>
+<p>In the second form, you can specify a parameter name with its value. So, the order of arguments is not defined. This kind of arguments are known as named parameters or keyword arguments.</p>
+<p>If you want to specify a value which contains white-spaces or special characters, such as quotes and parentheses, please enclose the value with single-quotes or double-quotes.</p>
+<p>For details, see also the paragraph of “command” in <a class="reference internal" href="../reference/executables/groonga.html"><span class="doc">groonga executable file</span></a>.</p>
+</section>
+<section id="basic-commands">
+<h2><span class="section-number">4.1.4. </span>Basic commands<a class="headerlink" href="#basic-commands" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt><a class="reference internal" href="../reference/commands/status.html"><span class="doc">status</span></a></dt><dd><p>shows status of a Groonga process.</p>
+</dd>
+<dt><a class="reference internal" href="../reference/commands/table_list.html"><span class="doc">table_list</span></a></dt><dd><p>shows a list of tables in a database.</p>
+</dd>
+<dt><a class="reference internal" href="../reference/commands/column_list.html"><span class="doc">column_list</span></a></dt><dd><p>shows a list of columns in a table.</p>
+</dd>
+<dt><a class="reference internal" href="../reference/commands/table_create.html"><span class="doc">table_create</span></a></dt><dd><p>adds a table to a database.</p>
+</dd>
+<dt><a class="reference internal" href="../reference/commands/column_create.html"><span class="doc">column_create</span></a></dt><dd><p>adds a column to a table.</p>
+</dd>
+<dt><a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a></dt><dd><p>searches records from a table and shows the result.</p>
+</dd>
+<dt><a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a></dt><dd><p>inserts records to a table.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="create-a-table">
+<span id="tutorial-introduction-create-table"></span><h2><span class="section-number">4.1.5. </span>Create a table<a class="headerlink" href="#create-a-table" title="Link to this heading">#</a></h2>
+<p>A <a class="reference internal" href="../reference/commands/table_create.html"><span class="doc">table_create</span></a> command creates a new table.</p>
+<p>In most cases, a table has a primary key which must be specified with its data type and index type.</p>
+<p>There are various data types such as integers, strings, etc. See also <a class="reference internal" href="../reference/types.html"><span class="doc">Data types</span></a> for more details. The index type determines the search performance and the availability of prefix searches. The details will be described later.</p>
+<p>Let’s create a table. The following example creates a table with a primary key. The <code class="docutils literal notranslate"><span class="pre">name</span></code> parameter specifies the name of the table. The <code class="docutils literal notranslate"><span class="pre">flags</span></code> parameter specifies the index type for the primary key. The <code class="docutils literal notranslate"><span class="pre">key_type</span></code> parameter specifies the data type of the primary key.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="o">--</span><span class="n">name</span> <span class="n">Site</span> <span class="o">--</span><span class="n">flags</span> <span class="n">TABLE_HASH_KEY</span> <span class="o">--</span><span class="n">key_type</span> <span class="n">ShortText</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],true]</span>
+</pre></div>
+</div>
+<p>The second element of the result indicates that the operation succeeded.</p>
+</section>
+<section id="view-a-table">
+<h2><span class="section-number">4.1.6. </span>View a table<a class="headerlink" href="#view-a-table" title="Link to this heading">#</a></h2>
+<p>A <a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a> command can enumerate records in a table.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         0</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_id&quot;,</span>
+<span class="c1">#           &quot;UInt32&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+<p>When only a table name is specified with a <code class="docutils literal notranslate"><span class="pre">table</span></code> parameter, a <a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a> command returns the first (at most) 10 records in the table. [0] in the result shows the number of records in the table. The next array is a list of columns. [“_id”,”Uint32”] is a column of UInt32, named _id. [“_key”,”ShortText”] is a column of ShortText, named _key.</p>
+<p>The above two columns, _id and _key, are the necessary columns. The _id column stores IDs those are automatically allocated by Groonga. The _key column is associated with the primary key. You are not allowed to rename these columns.</p>
+</section>
+<section id="create-a-column">
+<h2><span class="section-number">4.1.7. </span>Create a column<a class="headerlink" href="#create-a-column" title="Link to this heading">#</a></h2>
+<p>A <a class="reference internal" href="../reference/commands/column_create.html"><span class="doc">column_create</span></a> command creates a new column.</p>
+<p>Let’s add a column. The following example adds a column to the Site table. The <code class="docutils literal notranslate"><span class="pre">table</span></code> parameter specifies the target table. The <code class="docutils literal notranslate"><span class="pre">name</span></code> parameter specifies the name of the column. The <code class="docutils literal notranslate"><span class="pre">type</span></code> parameter specifies the data type of the column.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">column_create</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span> <span class="o">--</span><span class="n">name</span> <span class="n">title</span> <span class="o">--</span><span class="nb">type</span> <span class="n">ShortText</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],true]</span>
+<span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         0</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_id&quot;,</span>
+<span class="c1">#           &quot;UInt32&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;title&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+</section>
+<section id="load-records">
+<h2><span class="section-number">4.1.8. </span>Load records<a class="headerlink" href="#load-records" title="Link to this heading">#</a></h2>
+<p>A <a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a> command loads JSON-formatted records into a table.</p>
+<p>The following example loads nine records into the Site table.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;http://example.org/&quot;</span><span class="p">,</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;This is test record 1!&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;http://example.net/&quot;</span><span class="p">,</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;test record 2.&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;http://example.com/&quot;</span><span class="p">,</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;test test record three.&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;http://example.net/afr&quot;</span><span class="p">,</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;test record four.&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;http://example.org/aba&quot;</span><span class="p">,</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;test test test record five.&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;http://example.com/rab&quot;</span><span class="p">,</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;test test test test record six.&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;http://example.net/atv&quot;</span><span class="p">,</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;test test test record seven.&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;http://example.org/gat&quot;</span><span class="p">,</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;test test record eight.&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">:</span><span class="s2">&quot;http://example.com/vdw&quot;</span><span class="p">,</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;test test record nine.&quot;</span><span class="p">},</span>
+<span class="p">]</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],9]</span>
+</pre></div>
+</div>
+<p>The second element of the result indicates how many records were successfully loaded. In this case, all the records are successfully loaded.</p>
+<p>Let’s make sure that these records are correctly stored.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         9</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_id&quot;,</span>
+<span class="c1">#           &quot;UInt32&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;title&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         1,</span>
+<span class="c1">#         &quot;http://example.org/&quot;,</span>
+<span class="c1">#         &quot;This is test record 1!&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         2,</span>
+<span class="c1">#         &quot;http://example.net/&quot;,</span>
+<span class="c1">#         &quot;test record 2.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         3,</span>
+<span class="c1">#         &quot;http://example.com/&quot;,</span>
+<span class="c1">#         &quot;test test record three.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         4,</span>
+<span class="c1">#         &quot;http://example.net/afr&quot;,</span>
+<span class="c1">#         &quot;test record four.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         5,</span>
+<span class="c1">#         &quot;http://example.org/aba&quot;,</span>
+<span class="c1">#         &quot;test test test record five.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         6,</span>
+<span class="c1">#         &quot;http://example.com/rab&quot;,</span>
+<span class="c1">#         &quot;test test test test record six.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         7,</span>
+<span class="c1">#         &quot;http://example.net/atv&quot;,</span>
+<span class="c1">#         &quot;test test test record seven.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         8,</span>
+<span class="c1">#         &quot;http://example.org/gat&quot;,</span>
+<span class="c1">#         &quot;test test record eight.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         9,</span>
+<span class="c1">#         &quot;http://example.com/vdw&quot;,</span>
+<span class="c1">#         &quot;test test record nine.&quot;</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+</section>
+<section id="get-a-record">
+<h2><span class="section-number">4.1.9. </span>Get a record<a class="headerlink" href="#get-a-record" title="Link to this heading">#</a></h2>
+<p>A <a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a> command can search records in a table.</p>
+<p>If a search condition is specified with a <code class="docutils literal notranslate"><span class="pre">query</span></code> parameter, a <a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a> command searches records matching the search condition and returns the matched records.</p>
+<p>Let’s get a record having a specified record ID. The following example gets the first record in the Site table. More precisely, the <code class="docutils literal notranslate"><span class="pre">query</span></code> parameter specifies a record whose _id column stores 1.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span> <span class="o">--</span><span class="n">query</span> <span class="n">_id</span><span class="p">:</span><span class="mi">1</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         1</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_id&quot;,</span>
+<span class="c1">#           &quot;UInt32&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;title&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         1,</span>
+<span class="c1">#         &quot;http://example.org/&quot;,</span>
+<span class="c1">#         &quot;This is test record 1!&quot;</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+<p>Next, let’s get a record having a specified key. The following example gets the record whose primary key is “<a class="reference external" href="http://example.org/">http://example.org/</a>”. More precisely, the <code class="docutils literal notranslate"><span class="pre">query</span></code> parameter specifies a record whose _key column stores “<a class="reference external" href="http://example.org/">http://example.org/</a>”.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span> <span class="o">--</span><span class="n">query</span> <span class="s1">&#39;_key:&quot;http://example.org/&quot;&#39;</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         1</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_id&quot;,</span>
+<span class="c1">#           &quot;UInt32&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;title&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         1,</span>
+<span class="c1">#         &quot;http://example.org/&quot;,</span>
+<span class="c1">#         &quot;This is test record 1!&quot;</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+</section>
+<section id="create-a-lexicon-table-for-full-text-search">
+<h2><span class="section-number">4.1.10. </span>Create a lexicon table for full text search<a class="headerlink" href="#create-a-lexicon-table-for-full-text-search" title="Link to this heading">#</a></h2>
+<p>Let’s go on to how to make full text search.</p>
+<p>Groonga uses an inverted index to provide fast full text search. So, the first step is to create a lexicon table which stores an inverted index, also known as postings lists. The primary key of this table is associated with a vocabulary made up of index terms and each record stores postings lists for one index term.</p>
+<p>The following shows a command which creates a lexicon table named Terms. The data type of its primary key is ShortText.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="o">--</span><span class="n">name</span> <span class="n">Terms</span> <span class="o">--</span><span class="n">flags</span> <span class="n">TABLE_PAT_KEY</span> <span class="o">--</span><span class="n">key_type</span> <span class="n">ShortText</span> <span class="o">--</span><span class="n">default_tokenizer</span> <span class="n">TokenBigram</span> <span class="o">--</span><span class="n">normalizer</span> <span class="n">NormalizerAuto</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],true]</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="../reference/commands/table_create.html"><span class="doc">table_create</span></a> command takes many parameters but you don’t need to understand all of them. Please skip the next paragraph if you are not interested in how it works.</p>
+<p>The TABLE_PAT_KEY flag specifies to store index terms in a patricia trie. The <code class="docutils literal notranslate"><span class="pre">default_tokenizer</span></code> parameter specifies the method for tokenizing text. This example uses TokenBigram that is generally called N-gram.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">normalizer</span></code> parameter specifies to normalize index terms.</p>
+</section>
+<section id="create-an-index-column-for-full-text-search">
+<h2><span class="section-number">4.1.11. </span>Create an index column for full text search<a class="headerlink" href="#create-an-index-column-for-full-text-search" title="Link to this heading">#</a></h2>
+<p>The second step is to create an index column, which allows you to search records from its associated column. That is to say this step specifies which column needs an index.</p>
+<p>Let’s create an index column. The following example creates an index column for a column in the Site table.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">column_create</span> <span class="o">--</span><span class="n">table</span> <span class="n">Terms</span> <span class="o">--</span><span class="n">name</span> <span class="n">blog_title</span> <span class="o">--</span><span class="n">flags</span> <span class="n">COLUMN_INDEX</span><span class="o">|</span><span class="n">WITH_POSITION</span> <span class="o">--</span><span class="nb">type</span> <span class="n">Site</span> <span class="o">--</span><span class="n">source</span> <span class="n">title</span>
+<span class="c1"># [[0,1337566253.89858,0.000355720520019531],true]</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">table</span></code> parameter specifies the index table and the <code class="docutils literal notranslate"><span class="pre">name</span></code> parameter specifies the index column. The <code class="docutils literal notranslate"><span class="pre">type</span></code> parameter specifies the target table and the <code class="docutils literal notranslate"><span class="pre">source</span></code> parameter specifies the target column. The COLUMN_INDEX flag specifies to create an index column and the WITH_POSITION flag specifies to create a full inverted index, which contains the positions of each index term. This combination, COLUMN_INDEX|WITH_POSITION, is recommended for the general purpose.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can create a lexicon table and index columns before/during/after loading records. If a target column already has records, Groonga creates an inverted index in a static manner. In contrast, if you load records into an already indexed column, Groonga updates the inverted index in a dynamic manner.</p>
+</div>
+</section>
+<section id="full-text-search">
+<h2><span class="section-number">4.1.12. </span>Full text search<a class="headerlink" href="#full-text-search" title="Link to this heading">#</a></h2>
+<p>It’s time. You can make full text search with a <a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a> command.</p>
+<p>A query for full text search is specified with a <code class="docutils literal notranslate"><span class="pre">query</span></code> parameter. The following example searches records whose “title” column contains “this”. The ‘&#64;’ specifies to make full text search. Note that a lower case query matches upper case and capitalized terms in a record if NormalizerAuto was specified when creating a lexcon table.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span> <span class="o">--</span><span class="n">query</span> <span class="n">title</span><span class="p">:</span><span class="nd">@this</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         1</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_id&quot;,</span>
+<span class="c1">#           &quot;UInt32&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;title&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         1,</span>
+<span class="c1">#         &quot;http://example.org/&quot;,</span>
+<span class="c1">#         &quot;This is test record 1!&quot;</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+<p>In this example, the first record matches the query because its title contains “This”, that is the capitalized form of the query.</p>
+<p>A <a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a> command accepts an optional parameter, named <cite>match_columns</cite>, that specifies the default target columns. This parameter is used if target columns are not specified in a query. <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<p>The combination of “<cite>–match_columns</cite> title” and “<cite>–query</cite> this” brings you the same result that “<cite>–query</cite> title:&#64;this” does.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span> <span class="o">--</span><span class="n">match_columns</span> <span class="n">title</span> <span class="o">--</span><span class="n">query</span> <span class="n">this</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         1</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_id&quot;,</span>
+<span class="c1">#           &quot;UInt32&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;title&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         1,</span>
+<span class="c1">#         &quot;http://example.org/&quot;,</span>
+<span class="c1">#         &quot;This is test record 1!&quot;</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+</section>
+<section id="specify-output-columns">
+<h2><span class="section-number">4.1.13. </span>Specify output columns<a class="headerlink" href="#specify-output-columns" title="Link to this heading">#</a></h2>
+<p>An <code class="docutils literal notranslate"><span class="pre">output_columns</span></code> parameter of a <a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a> command specifies columns to appear in the search result. If you want to specify more than one columns, please separate column names by commas (‘,’).</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span> <span class="o">--</span><span class="n">output_columns</span> <span class="n">_key</span><span class="p">,</span><span class="n">title</span><span class="p">,</span><span class="n">_score</span> <span class="o">--</span><span class="n">query</span> <span class="n">title</span><span class="p">:</span><span class="nd">@test</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         9</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;title&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_score&quot;,</span>
+<span class="c1">#           &quot;Int32&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;http://example.org/&quot;,</span>
+<span class="c1">#         &quot;This is test record 1!&quot;,</span>
+<span class="c1">#         1</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;http://example.net/&quot;,</span>
+<span class="c1">#         &quot;test record 2.&quot;,</span>
+<span class="c1">#         1</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;http://example.com/&quot;,</span>
+<span class="c1">#         &quot;test test record three.&quot;,</span>
+<span class="c1">#         2</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;http://example.net/afr&quot;,</span>
+<span class="c1">#         &quot;test record four.&quot;,</span>
+<span class="c1">#         1</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;http://example.org/aba&quot;,</span>
+<span class="c1">#         &quot;test test test record five.&quot;,</span>
+<span class="c1">#         3</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;http://example.com/rab&quot;,</span>
+<span class="c1">#         &quot;test test test test record six.&quot;,</span>
+<span class="c1">#         4</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;http://example.net/atv&quot;,</span>
+<span class="c1">#         &quot;test test test record seven.&quot;,</span>
+<span class="c1">#         3</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;http://example.org/gat&quot;,</span>
+<span class="c1">#         &quot;test test record eight.&quot;,</span>
+<span class="c1">#         2</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         &quot;http://example.com/vdw&quot;,</span>
+<span class="c1">#         &quot;test test record nine.&quot;,</span>
+<span class="c1">#         2</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+<p>This example specifies three output columns including the _score column, which stores the relevance score of each record.</p>
+</section>
+<section id="specify-output-ranges">
+<h2><span class="section-number">4.1.14. </span>Specify output ranges<a class="headerlink" href="#specify-output-ranges" title="Link to this heading">#</a></h2>
+<p>A <a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a> command returns a part of its search result if <code class="docutils literal notranslate"><span class="pre">offset</span></code> and/or <code class="docutils literal notranslate"><span class="pre">limit</span></code> parameters are specified. These parameters are useful to paginate a search result, a widely-used interface which shows a search result on a page by page basis.</p>
+<p>An <code class="docutils literal notranslate"><span class="pre">offset</span></code> parameter specifies the starting point and a <code class="docutils literal notranslate"><span class="pre">limit</span></code> parameter specifies the maximum number of records to be returned. If you need the first record in a search result, the offset parameter must be 0 or omitted.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span> <span class="o">--</span><span class="n">offset</span> <span class="mi">0</span> <span class="o">--</span><span class="n">limit</span> <span class="mi">3</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         9</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_id&quot;,</span>
+<span class="c1">#           &quot;UInt32&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;title&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         1,</span>
+<span class="c1">#         &quot;http://example.org/&quot;,</span>
+<span class="c1">#         &quot;This is test record 1!&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         2,</span>
+<span class="c1">#         &quot;http://example.net/&quot;,</span>
+<span class="c1">#         &quot;test record 2.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         3,</span>
+<span class="c1">#         &quot;http://example.com/&quot;,</span>
+<span class="c1">#         &quot;test test record three.&quot;</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+<span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span> <span class="o">--</span><span class="n">offset</span> <span class="mi">3</span> <span class="o">--</span><span class="n">limit</span> <span class="mi">3</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         9</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_id&quot;,</span>
+<span class="c1">#           &quot;UInt32&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;title&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         4,</span>
+<span class="c1">#         &quot;http://example.net/afr&quot;,</span>
+<span class="c1">#         &quot;test record four.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         5,</span>
+<span class="c1">#         &quot;http://example.org/aba&quot;,</span>
+<span class="c1">#         &quot;test test test record five.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         6,</span>
+<span class="c1">#         &quot;http://example.com/rab&quot;,</span>
+<span class="c1">#         &quot;test test test test record six.&quot;</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+<span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span> <span class="o">--</span><span class="n">offset</span> <span class="mi">7</span> <span class="o">--</span><span class="n">limit</span> <span class="mi">3</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         9</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_id&quot;,</span>
+<span class="c1">#           &quot;UInt32&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;title&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         8,</span>
+<span class="c1">#         &quot;http://example.org/gat&quot;,</span>
+<span class="c1">#         &quot;test test record eight.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         9,</span>
+<span class="c1">#         &quot;http://example.com/vdw&quot;,</span>
+<span class="c1">#         &quot;test test record nine.&quot;</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+</section>
+<section id="sort-a-search-result">
+<h2><span class="section-number">4.1.15. </span>Sort a search result<a class="headerlink" href="#sort-a-search-result" title="Link to this heading">#</a></h2>
+<p>A <a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a> command sorts its result when used with a <code class="docutils literal notranslate"><span class="pre">sort_keys</span></code> parameter.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">sort_keys</span></code> parameter specifies a column as a sorting creteria. A search result is arranged in ascending order of the column values. If you want to sort a search result in reverse order, please add a leading hyphen (‘-’) to the column name in a parameter.</p>
+<p>The following example shows records in the Site table in reverse order.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span> <span class="o">--</span><span class="n">sort_keys</span> <span class="o">-</span><span class="n">_id</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         9</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_id&quot;,</span>
+<span class="c1">#           &quot;UInt32&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_key&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;title&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         9,</span>
+<span class="c1">#         &quot;http://example.com/vdw&quot;,</span>
+<span class="c1">#         &quot;test test record nine.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         8,</span>
+<span class="c1">#         &quot;http://example.org/gat&quot;,</span>
+<span class="c1">#         &quot;test test record eight.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         7,</span>
+<span class="c1">#         &quot;http://example.net/atv&quot;,</span>
+<span class="c1">#         &quot;test test test record seven.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         6,</span>
+<span class="c1">#         &quot;http://example.com/rab&quot;,</span>
+<span class="c1">#         &quot;test test test test record six.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         5,</span>
+<span class="c1">#         &quot;http://example.org/aba&quot;,</span>
+<span class="c1">#         &quot;test test test record five.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         4,</span>
+<span class="c1">#         &quot;http://example.net/afr&quot;,</span>
+<span class="c1">#         &quot;test record four.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         3,</span>
+<span class="c1">#         &quot;http://example.com/&quot;,</span>
+<span class="c1">#         &quot;test test record three.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         2,</span>
+<span class="c1">#         &quot;http://example.net/&quot;,</span>
+<span class="c1">#         &quot;test record 2.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         1,</span>
+<span class="c1">#         &quot;http://example.org/&quot;,</span>
+<span class="c1">#         &quot;This is test record 1!&quot;</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+<p>The next example uses the _score column as the sorting criteria for ranking the search result. The result is sorted in relevance order.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span> <span class="o">--</span><span class="n">query</span> <span class="n">title</span><span class="p">:</span><span class="nd">@test</span> <span class="o">--</span><span class="n">output_columns</span> <span class="n">_id</span><span class="p">,</span><span class="n">_score</span><span class="p">,</span><span class="n">title</span> <span class="o">--</span><span class="n">sort_keys</span> <span class="o">-</span><span class="n">_score</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         9</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_id&quot;,</span>
+<span class="c1">#           &quot;UInt32&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_score&quot;,</span>
+<span class="c1">#           &quot;Int32&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;title&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         6,</span>
+<span class="c1">#         4,</span>
+<span class="c1">#         &quot;test test test test record six.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         5,</span>
+<span class="c1">#         3,</span>
+<span class="c1">#         &quot;test test test record five.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         7,</span>
+<span class="c1">#         3,</span>
+<span class="c1">#         &quot;test test test record seven.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         8,</span>
+<span class="c1">#         2,</span>
+<span class="c1">#         &quot;test test record eight.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         3,</span>
+<span class="c1">#         2,</span>
+<span class="c1">#         &quot;test test record three.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         9,</span>
+<span class="c1">#         2,</span>
+<span class="c1">#         &quot;test test record nine.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         1,</span>
+<span class="c1">#         1,</span>
+<span class="c1">#         &quot;This is test record 1!&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         4,</span>
+<span class="c1">#         1,</span>
+<span class="c1">#         &quot;test record four.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         2,</span>
+<span class="c1">#         1,</span>
+<span class="c1">#         &quot;test record 2.&quot;</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+<p>If you want to specify more than one columns, please separate column names by commas (‘,’). In such a case, a search result is sorted in order of the values in the first column, and then records having the same values in the first column are sorted in order of the second column values.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="o">--</span><span class="n">table</span> <span class="n">Site</span> <span class="o">--</span><span class="n">query</span> <span class="n">title</span><span class="p">:</span><span class="nd">@test</span> <span class="o">--</span><span class="n">output_columns</span> <span class="n">_id</span><span class="p">,</span><span class="n">_score</span><span class="p">,</span><span class="n">title</span> <span class="o">--</span><span class="n">sort_keys</span> <span class="o">-</span><span class="n">_score</span><span class="p">,</span><span class="n">_id</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   [</span>
+<span class="c1">#     [</span>
+<span class="c1">#       [</span>
+<span class="c1">#         9</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_id&quot;,</span>
+<span class="c1">#           &quot;UInt32&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;_score&quot;,</span>
+<span class="c1">#           &quot;Int32&quot;</span>
+<span class="c1">#         ],</span>
+<span class="c1">#         [</span>
+<span class="c1">#           &quot;title&quot;,</span>
+<span class="c1">#           &quot;ShortText&quot;</span>
+<span class="c1">#         ]</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         6,</span>
+<span class="c1">#         4,</span>
+<span class="c1">#         &quot;test test test test record six.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         5,</span>
+<span class="c1">#         3,</span>
+<span class="c1">#         &quot;test test test record five.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         7,</span>
+<span class="c1">#         3,</span>
+<span class="c1">#         &quot;test test test record seven.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         3,</span>
+<span class="c1">#         2,</span>
+<span class="c1">#         &quot;test test record three.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         8,</span>
+<span class="c1">#         2,</span>
+<span class="c1">#         &quot;test test record eight.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         9,</span>
+<span class="c1">#         2,</span>
+<span class="c1">#         &quot;test test record nine.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         1,</span>
+<span class="c1">#         1,</span>
+<span class="c1">#         &quot;This is test record 1!&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         2,</span>
+<span class="c1">#         1,</span>
+<span class="c1">#         &quot;test record 2.&quot;</span>
+<span class="c1">#       ],</span>
+<span class="c1">#       [</span>
+<span class="c1">#         4,</span>
+<span class="c1">#         1,</span>
+<span class="c1">#         &quot;test record four.&quot;</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   ]</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+<p class="rubric">footnote</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Currently, a <code class="docutils literal notranslate"><span class="pre">match_columns</span></code> parameter is available iff there exists an inverted index for full text search. A <code class="docutils literal notranslate"><span class="pre">match_columns</span></code> parameter for a regular column is not supported.</p>
+</aside>
+</aside>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../tutorial.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Tutorial</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="network.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4.2. </span>Remote access</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-database">4.1.1. Create a database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operate-a-database">4.1.2. Operate a database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-format">4.1.3. Command format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-commands">4.1.4. Basic commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-table">4.1.5. Create a table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#view-a-table">4.1.6. View a table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-column">4.1.7. Create a column</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-records">4.1.8. Load records</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-record">4.1.9. Get a record</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-lexicon-table-for-full-text-search">4.1.10. Create a lexicon table for full text search</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-index-column-for-full-text-search">4.1.11. Create an index column for full text search</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-text-search">4.1.12. Full text search</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-output-columns">4.1.13. Specify output columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-output-ranges">4.1.14. Specify output ranges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sort-a-search-result">4.1.15. Sort a search result</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/groonga/groonga/edit/main/doc/source/tutorial/introduction.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2009-2024 Groonga Project.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

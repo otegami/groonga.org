@@ -1,0 +1,652 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ja" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>12.3.8. テスト方法 &#8212; Groonga v14.1.2 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=d4c2f41a"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-7532323-1');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-7532323-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contribution/development/test';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'japanese';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="13. Groongaの起源以前について" href="../../origin.html" />
+    <link rel="prev" title="12.3.7. リリース手順" href="release.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  <meta name="docsearch:version" content="14.1.2" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">本文へスキップ</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>トップに戻る</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="バージョン警告"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="サイトナビゲーション">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+     
+  
+
+<a class="navbar-brand logo" href="https://groonga.org/ja/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.2 documentation - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.2 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="ライト"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="ダーク"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/ja/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Blog</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="このページでは">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="ライト"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="ダーク"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/groonga/groonga" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/groonga" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/ja/blog" title="Blog" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-blog fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Blog</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="セクションナビゲーション">
+  <p class="bd-links__title" role="heading" aria-level="1">セクションナビゲーション</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../report.html">12.1. バグレポートの送り方</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../documentation.html">12.2. ドキュメント関連のコントリビュート方法</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/introduction.html">12.2.1. 導入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/i18n.html">12.2.2. 国際化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/c-api.html">12.2.3. C API</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../development.html">12.3. Groonga開発者向け情報</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="repository.html">12.3.1. リポジトリ</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="build.html">12.3.2. リポジトリーのGroongaをビルドする方法</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="build/unix_cmake.html">12.3.2.1. GNU/LinuxまたはUnix上でCMakeを使ってリポジトリーのGroongaをビルドする方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build/windows_cmake.html">12.3.2.2. Windows上でCMakeを使ってリポジトリーのGroongaをビルドする方法</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="com.html">12.3.3. Groonga 通信アーキテクチャ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cooperation.html">12.3.4. ユーザーと協力して開発をうまく進めていくための指針</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query.html">12.3.5. クエリの実現</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="release.html">12.3.7. リリース手順</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">12.3.8. テスト方法</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="パンくずリスト" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="ホーム">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../contribution.html" class="nav-link"><span class="section-number">12. </span>Groongaへのコントリビュート方法</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../development.html" class="nav-link"><span class="section-number">12.3. </span>Groonga開発者向け情報</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">12.3.8. </span>テスト方法</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="id1">
+<h1><span class="section-number">12.3.8. </span>テスト方法<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>TODO: Write in English.</p>
+<p>TODO: Write about <code class="docutils literal notranslate"><span class="pre">test/command/run-test.sh</span></code>.</p>
+<section id="id2">
+<h2><span class="section-number">12.3.8.1. </span>テスト環境の構築<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="cutter">
+<h3><span class="section-number">12.3.8.1.1. </span>Cutterのインストール<a class="headerlink" href="#cutter" title="Link to this heading">#</a></h3>
+<p>Groongaは、テストのフレームワークとして <a class="reference external" href="http://cutter.sourceforge.net/">Cutter</a> を用いています。</p>
+<p>Cutterのインストール方法は <a class="reference external" href="http://cutter.sourceforge.net/reference/ja/install.html">プラットフォーム毎のCutterのインストール方法</a> をご覧下さい。</p>
+</section>
+<section id="lcov">
+<h3><span class="section-number">12.3.8.1.2. </span>lcovのインストール<a class="headerlink" href="#lcov" title="Link to this heading">#</a></h3>
+<p>カバレッジ情報を計測するためには、lcov 1.6以上が必要です。DebianやUbuntuでは以下のようにしてインストールできます。:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="n">aptitude</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">lcov</span>
+</pre></div>
+</div>
+</section>
+<section id="clang">
+<h3><span class="section-number">12.3.8.1.3. </span>clangのインストール<a class="headerlink" href="#clang" title="Link to this heading">#</a></h3>
+<p>ソースコードの静的解析を行うためには、clang(scan-build)をインストールする必要があります。DebianやUbuntuでは以下のようにしてインストールできます。:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="n">aptitude</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">clang</span>
+</pre></div>
+</div>
+</section>
+<section id="libmemcached">
+<h3><span class="section-number">12.3.8.1.4. </span>libmemcachedのインストール<a class="headerlink" href="#libmemcached" title="Link to this heading">#</a></h3>
+<p>memcachedのバイナリプロトコルのテストを動作させるためには、libmemcachedの導入が必要です。squeeze以降のDebianやKarmic以降のUubntuでは以下の用にしてインストールできます。:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="n">aptitude</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">libmemcached</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id5">
+<h2><span class="section-number">12.3.8.2. </span>テストの動作<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>Groongaのトップディレクトリで、以下のコマンドを実行します。:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">check</span>
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h2><span class="section-number">12.3.8.3. </span>カバレッジ情報<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p>Groongaのトップディレクトリで、以下のコマンドを実行します。:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">coverage</span>
+</pre></div>
+</div>
+<p>すると、coverageディレクトリ以下に、カバレッジ情報が入ったhtmlが出力されます。</p>
+<p>カバレッジには、Lines/Functions/Branchesの3つの対象があります。それぞれ、行／関数／分岐に対応します。Functionsがもっとも重要な対象です。すべての関数がテストされるようになっていることを心がけてください。</p>
+<p>テストがカバーしていない部分の編集は慎重に行ってください。また、テストがカバーしている部分を増やすことも重要です。</p>
+</section>
+<section id="id7">
+<h2><span class="section-number">12.3.8.4. </span>様々なテスト<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p>テストは、test/unitディレクトリにおいて、./run-test.shを実行することによっても行えます。run-test.shはいくつかのオプションをとります。詳細は、./run-test.sh --helpを実行しヘルプをご覧ください。</p>
+<section id="id8">
+<h3><span class="section-number">12.3.8.4.1. </span>特定のテスト関数のみテストする<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>特定のテスト関数(Cutterではテストと呼ぶ)のみをテストすることができます。</p>
+<p>実行例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">run</span><span class="o">-</span><span class="n">test</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">n</span> <span class="n">test_text_otoj</span>
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h3><span class="section-number">12.3.8.4.2. </span>特定のテストファイルのみテストする<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>特定のテストファイル(Cutterではテストケースと呼ぶ)のみテストすることができます。</p>
+<p>実行例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">run</span><span class="o">-</span><span class="n">test</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">t</span> <span class="n">test_string</span>
+</pre></div>
+</div>
+</section>
+<section id="id10">
+<h3><span class="section-number">12.3.8.4.3. </span>不正メモリアクセス・メモリリーク検出<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>環境変数CUTTER_CHECK_LEAKをyesと設定すると、valgrindを用いて不正メモリアクセスやメモリリークを検出しつつ、テストを動作させることができます。</p>
+<p>run-test.shのみならず、make checkでも利用可能です。</p>
+<p>実行例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">CUTTER_CHECK_LEAK</span><span class="o">=</span><span class="n">yes</span> <span class="n">make</span> <span class="n">check</span>
+</pre></div>
+</div>
+</section>
+<section id="id11">
+<h3><span class="section-number">12.3.8.4.4. </span>デバッガ上でのテスト実行<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p>環境変数CUTTER_DEBUGをyesと設定すると、テストが実行できる環境が整ったgdbが実行されます。gdb上でrunを行うと、テストの実行が開始されます。</p>
+<p>run-test.shのみならず、make checkでも利用可能です。</p>
+<p>実行例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">CUTTER_DEBUG</span><span class="o">=</span><span class="n">yes</span> <span class="n">make</span> <span class="n">check</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id12">
+<h2><span class="section-number">12.3.8.5. </span>静的解析<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<p>scan-buildを用いて、ソースコードの静的解析を行うことができます。scan_buildというディレクトリに解析結果のhtmlが出力されます。:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">scan</span><span class="o">-</span><span class="n">build</span> <span class="o">./</span><span class="n">configure</span> <span class="o">--</span><span class="n">prefix</span><span class="o">=/</span><span class="n">usr</span>
+<span class="o">%</span> <span class="n">make</span> <span class="n">clean</span>
+<span class="o">%</span> <span class="n">scan</span><span class="o">-</span><span class="n">build</span> <span class="o">-</span><span class="n">o</span> <span class="o">./</span><span class="n">scan_build</span> <span class="n">make</span> <span class="o">-</span><span class="n">j4</span>
+</pre></div>
+</div>
+<p>configureは１度のみ実行する必要があります。</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="release.html"
+       title="前のページ">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">前へ</p>
+        <p class="prev-next-title"><span class="section-number">12.3.7. </span>リリース手順</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../origin.html"
+       title="次ページ">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">次へ</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Groongaの起源以前について</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> このページでは
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">12.3.8.1. テスト環境の構築</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cutter">12.3.8.1.1. Cutterのインストール</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lcov">12.3.8.1.2. lcovのインストール</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clang">12.3.8.1.3. clangのインストール</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libmemcached">12.3.8.1.4. libmemcachedのインストール</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">12.3.8.2. テストの動作</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">12.3.8.3. カバレッジ情報</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">12.3.8.4. 様々なテスト</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">12.3.8.4.1. 特定のテスト関数のみテストする</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">12.3.8.4.2. 特定のテストファイルのみテストする</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">12.3.8.4.3. 不正メモリアクセス・メモリリーク検出</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">12.3.8.4.4. デバッガ上でのテスト実行</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">12.3.8.5. 静的解析</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2009-2024 Groonga Project.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1 で構築されています。
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
