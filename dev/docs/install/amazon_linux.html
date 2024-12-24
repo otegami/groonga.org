@@ -418,13 +418,13 @@
   <section id="amazon-linux">
 <h1><span class="section-number">2.6. </span>Amazon Linux<a class="headerlink" href="#amazon-linux" title="Link to this heading">#</a></h1>
 <p>This section describes how to install Groonga related RPM packages on
-Amazon Linux. You can install them by <code class="docutils literal notranslate"><span class="pre">yum</span></code>.</p>
-<section id="amazon-linux-2">
-<h2><span class="section-number">2.6.1. </span>Amazon Linux 2<a class="headerlink" href="#amazon-linux-2" title="Link to this heading">#</a></h2>
+Amazon Linux. You can install them by <code class="docutils literal notranslate"><span class="pre">dnf</span></code>.</p>
+<section id="amazon-linux-2023">
+<h2><span class="section-number">2.6.1. </span>Amazon Linux 2023<a class="headerlink" href="#amazon-linux-2023" title="Link to this heading">#</a></h2>
 <p>Install:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="n">amazon</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">extras</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">epel</span>
-<span class="o">%</span> <span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packages</span><span class="o">.</span><span class="n">groonga</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">amazon</span><span class="o">-</span><span class="n">linux</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">groonga</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">latest</span><span class="o">.</span><span class="n">noarch</span><span class="o">.</span><span class="n">rpm</span>
-<span class="o">%</span> <span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">groonga</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>https://apache.jfrog.io/artifactory/arrow/amazon-linux/<span class="k">$(</span>cut<span class="w"> </span>-d:<span class="w"> </span>-f6<span class="w"> </span>/etc/system-release-cpe<span class="k">)</span>/apache-arrow-release-latest.rpm
+<span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>https://packages.groonga.org/amazon-linux/2023/groonga-release-latest.noarch.rpm
+<span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>groonga
 </pre></div>
 </div>
 <div class="admonition note">
@@ -442,20 +442,14 @@ additional preconfigured packages.</p>
 <p>If you want to use <a class="reference external" href="https://taku910.github.io/mecab/">MeCab</a> as a
 tokenizer, install groonga-tokenizer-mecab package.</p>
 <p>Install groonga-tokenizer-mecab package:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">groonga</span><span class="o">-</span><span class="n">tokenizer</span><span class="o">-</span><span class="n">mecab</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>groonga-tokenizer-mecab
 </pre></div>
 </div>
-<p>There is a package that provides <a class="reference external" href="http://munin-monitoring.org/">Munin</a> plugins. If you want to monitor
-Groonga status by Munin, install groonga-munin-plugins package.</p>
-<p>Install groonga-munin-plugins package:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">groonga</span><span class="o">-</span><span class="n">munin</span><span class="o">-</span><span class="n">plugins</span>
-</pre></div>
-</div>
-<p>There is a package that provides MySQL compatible normalizer as
-a Groonga plugin.
-If you want to use that one, install groonga-normalizer-mysql package.</p>
+<p>There is a package that provides MySQL compatible normalizer as a
+Groonga plugin. If you want to use that one, install
+groonga-normalizer-mysql package.</p>
 <p>Install groonga-normalizer-mysql package:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">groonga</span><span class="o">-</span><span class="n">normalizer</span><span class="o">-</span><span class="n">mysql</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>groonga-normalizer-mysql
 </pre></div>
 </div>
 </section>
@@ -513,7 +507,7 @@ If you want to use that one, install groonga-normalizer-mysql package.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amazon-linux-2">2.6.1. Amazon Linux 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amazon-linux-2023">2.6.1. Amazon Linux 2023</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-from-source">2.6.2. Build from source</a></li>
 </ul>
   </nav></div>

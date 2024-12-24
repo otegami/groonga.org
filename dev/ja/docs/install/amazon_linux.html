@@ -418,13 +418,13 @@
                   
   <section id="amazon-linux">
 <h1><span class="section-number">2.6. </span>Amazon Linux<a class="headerlink" href="#amazon-linux" title="Link to this heading">#</a></h1>
-<p>このセクションではAmazon Linux上でGroonga関連のRPMパッケージをインストールする方法を説明します。これらのパッケージは <code class="docutils literal notranslate"><span class="pre">yum</span></code> でインストールできます。</p>
-<section id="amazon-linux-2">
-<h2><span class="section-number">2.6.1. </span>Amazon Linux 2<a class="headerlink" href="#amazon-linux-2" title="Link to this heading">#</a></h2>
+<p>このセクションではAmazon Linux上でGroonga関連のRPMパッケージをインストールする方法を説明します。これらのパッケージは <code class="docutils literal notranslate"><span class="pre">dnf</span></code> でインストールできます。</p>
+<section id="amazon-linux-2023">
+<h2><span class="section-number">2.6.1. </span>Amazon Linux 2023<a class="headerlink" href="#amazon-linux-2023" title="Link to this heading">#</a></h2>
 <p>インストール:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="n">amazon</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">extras</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">epel</span>
-<span class="o">%</span> <span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packages</span><span class="o">.</span><span class="n">groonga</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">amazon</span><span class="o">-</span><span class="n">linux</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">groonga</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">latest</span><span class="o">.</span><span class="n">noarch</span><span class="o">.</span><span class="n">rpm</span>
-<span class="o">%</span> <span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">groonga</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>https://apache.jfrog.io/artifactory/arrow/amazon-linux/<span class="k">$(</span>cut<span class="w"> </span>-d:<span class="w"> </span>-f6<span class="w"> </span>/etc/system-release-cpe<span class="k">)</span>/apache-arrow-release-latest.rpm
+<span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>https://packages.groonga.org/amazon-linux/2023/groonga-release-latest.noarch.rpm
+<span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>groonga
 </pre></div>
 </div>
 <div class="admonition note">
@@ -439,17 +439,12 @@
 </div>
 <p><a class="reference external" href="https://taku910.github.io/mecab/">MeCab</a> をトークナイザーとして使いたいときは、groonga-tokenizer-mecabパッケージをインストールしてください。</p>
 <p>groonga-tokenizer-mecabパッケージのインストール:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">groonga</span><span class="o">-</span><span class="n">tokenizer</span><span class="o">-</span><span class="n">mecab</span>
-</pre></div>
-</div>
-<p><a class="reference external" href="http://munin-monitoring.org/">Munin</a> プラグインを提供するパッケージもあります。MuninでGroongaの状態をモニターしたい場合は、groonga-munin-pluginsパッケージをインストールしてください。</p>
-<p>groonga-munin-pluginsパッケージのインストール:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">groonga</span><span class="o">-</span><span class="n">munin</span><span class="o">-</span><span class="n">plugins</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>groonga-tokenizer-mecab
 </pre></div>
 </div>
 <p>MySQL互換のノーマライザーをGroongaのプラグインとして提供するパッケージがあります。MySQL互換のノーマライザーを使うには <a class="reference external" href="https://github.com/groonga/groonga-normalizer-mysql">groonga-normalizer-mysql</a> パッケージをインストールしてください。</p>
 <p>groonga-normalizer-mysqlパッケージのインストール:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">groonga</span><span class="o">-</span><span class="n">normalizer</span><span class="o">-</span><span class="n">mysql</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>groonga-normalizer-mysql
 </pre></div>
 </div>
 </section>
@@ -507,7 +502,7 @@
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amazon-linux-2">2.6.1. Amazon Linux 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amazon-linux-2023">2.6.1. Amazon Linux 2023</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-from-source">2.6.2. ソースからビルド</a></li>
 </ul>
   </nav></div>
