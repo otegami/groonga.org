@@ -424,62 +424,50 @@
 <p>以下は、GNU/Linux、UNIX、Windows向けの必要なソフトウェアの一覧です。</p>
 <section id="gnu-linux-or-unix">
 <h3><span class="section-number">2.8.1.1. </span>GNU/LinuxまたはUNIX<a class="headerlink" href="#gnu-linux-or-unix" title="Link to this heading">#</a></h3>
-<p>ソースコードに含まれる<code class="docutils literal notranslate"><span class="pre">setup.sh</span></code>を実行してください。</p>
-<p><code class="docutils literal notranslate"><span class="pre">groonga-14.1.1.tar.gz</span></code>を展開した場合は<code class="docutils literal notranslate"><span class="pre">groonga-14.1.1/setup.sh</span></code>がそのスクリプトです。</p>
+<p>ソースコードに含まれる<code class="docutils literal notranslate"><span class="pre">setup.sh</span></code>を実行してください。トップディレクトリーにあります。</p>
 <p>コマンド実行例</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>groonga-14.1.1/setup.sh
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>groonga-*/setup.sh
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">setup.sh</span></code>はDebian GNU/Linux、Ubuntu、AlmaLinux、Amazon Linux 2023をサポートしています。</p>
 <section id="macos">
 <h4><span class="section-number">2.8.1.1.1. </span>macOS<a class="headerlink" href="#macos" title="Link to this heading">#</a></h4>
 <p><a class="reference external" href="https://developer.apple.com/xcode/">Xcode</a>をインストールしてください。</p>
-<p>ソースコードに含まれる<code class="docutils literal notranslate"><span class="pre">setup.sh</span></code>を実行してください。</p>
-<p><code class="docutils literal notranslate"><span class="pre">groonga-14.1.1.tar.gz</span></code>を展開した場合は<code class="docutils literal notranslate"><span class="pre">groonga-14.1.1/setup.sh</span></code>がそのスクリプトです。</p>
+<p>ソースコードに含まれる<code class="docutils literal notranslate"><span class="pre">setup.sh</span></code>を実行してください。トップディレクトリーにあります。</p>
 <p>コマンド実行例</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>groonga-14.1.1/setup.sh
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>groonga-*/setup.sh
 </pre></div>
 </div>
 </section>
 </section>
 <section id="windows">
 <h3><span class="section-number">2.8.1.2. </span>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
+<p>次のソフトウェアをインストールします。</p>
+<ul class="simple">
 <li><p><a class="reference external" href="https://visualstudio.microsoft.com/ja/vs/community/">Microsoft Visual Studio Community</a></p></li>
-</ul>
-</div></blockquote>
-<blockquote>
-<div><ul class="simple">
 <li><p><a class="reference external" href="http://www.cmake.org/">CMake</a></p></li>
 </ul>
-</div></blockquote>
 </section>
 </section>
 <section id="download-source">
 <h2><span class="section-number">2.8.2. </span>ソースコードのダウンロード<a class="headerlink" href="#download-source" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://packages.groonga.org/source/groonga">packages.groonga.org</a>から最新のソースコードをダウンロードできます。</p>
+<p>最新のソースアーカイブをpackages.groonga.orgからダウンロードできます： <a class="reference external" href="https://packages.groonga.org/source/groonga/groonga-latest.tar.gz">https://packages.groonga.org/source/groonga/groonga-latest.tar.gz</a></p>
 <section id="id1">
 <h3><span class="section-number">2.8.2.1. </span>GNU/LinuxまたはUNIX<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>wget<span class="w"> </span>https://packages.groonga.org/source/groonga/groonga-14.1.1.tar.gz
-<span class="gp">$ </span>tar<span class="w"> </span>xvzf<span class="w"> </span>groonga-14.1.1.tar.gz
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>wget<span class="w"> </span>https://packages.groonga.org/source/groonga/groonga-latest.tar.gz
+<span class="gp">$ </span>tar<span class="w"> </span>xvf<span class="w"> </span>groonga-latest.tar.gz
 </pre></div>
 </div>
 </section>
 <section id="id2">
 <h3><span class="section-number">2.8.2.2. </span>Windows<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<p>最新のzipアーカイブをpackages.groonga.orgからダウンロードしてください。</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference external" href="https://packages.groonga.org/source/groonga/groonga-14.1.1.zip">https://packages.groonga.org/source/groonga/groonga-14.1.1.zip</a></p></li>
-</ul>
-</div></blockquote>
+<p>最新のzip形式のソースアーカイブをpackages.groonga.orgからダウンロードできます： <a class="reference external" href="https://packages.groonga.org/source/groonga/groonga-latest.zip">https://packages.groonga.org/source/groonga/groonga-latest.zip</a></p>
 <p>その後、アーカイブを展開します。</p>
 </section>
 </section>
 <section id="run-cmake">
 <span id="cmake-run"></span><h2><span class="section-number">2.8.3. </span><code class="docutils literal notranslate"><span class="pre">cmake</span></code> を実行<a class="headerlink" href="#run-cmake" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Makefile</span></code> のような、あなたの環境用のビルド用ファイルを作る必要があります。</p>
+<p>ビルド環境にあった<code class="docutils literal notranslate"><span class="pre">build.ninja</span></code>のようなビルドファイルを生成する必要があります。</p>
 <p><code class="docutils literal notranslate"><span class="pre">cmake</span></code> へオプションを渡してビルドパラメーターをカスタマイズできます。</p>
 <p>GNU/Linux or UNIXでのコマンド例</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>-S<span class="w"> </span>&lt;Groonga<span class="w"> </span><span class="nb">source</span><span class="w"> </span>code<span class="w"> </span>directory<span class="w"> </span>path&gt;<span class="w"> </span>-B<span class="w"> </span>&lt;Build<span class="w"> </span>directory<span class="w"> </span>path&gt;<span class="w"> </span>--preset<span class="o">=</span>release-maximum
@@ -579,17 +567,8 @@
 </pre></div>
 </div>
 </section>
-<section id="dgrn-with-debug">
-<h4><span class="section-number">2.8.3.2.4. </span><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_DEBUG</span></code><a class="headerlink" href="#dgrn-with-debug" title="Link to this heading">#</a></h4>
-<p>C/C++コンパイラーのデバッグオプションを有効にします。GDBやLLDBなどのデバッガーでデバッグするときに便利です。</p>
-<p>デフォルトは <code class="docutils literal notranslate"><span class="pre">OFF</span></code> です。</p>
-<p>以下はデバッグオプションを有効にする例です。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>.<span class="w"> </span>-DGRN_WITH_DEBUG<span class="o">=</span>ON
-</pre></div>
-</div>
-</section>
 <section id="dgrn-with-apache-arrow">
-<h4><span class="section-number">2.8.3.2.5. </span><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_APACHE_ARROW</span></code><a class="headerlink" href="#dgrn-with-apache-arrow" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.8.3.2.4. </span><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_APACHE_ARROW</span></code><a class="headerlink" href="#dgrn-with-apache-arrow" title="Link to this heading">#</a></h4>
 <p>Apache Arrowサポートを有効化します。</p>
 <p>Apache Arrowサポートを有効化すると、Apache ArrowのIPC streaming formatが使えるだけでなく、 <a class="reference internal" href="../reference/commands/select.html#select-n-workers"><span class="std std-ref">n_workers</span></a> や <a class="reference internal" href="../reference/functions/query_parallel_or.html"><span class="doc">query_parallel_or</span></a> でマルチスレッドで処理できるようになります。</p>
 <p>デフォルトは <code class="docutils literal notranslate"><span class="pre">OFF</span></code> です。</p>
@@ -604,7 +583,7 @@
 </div>
 </section>
 <section id="dcmake-prefix-path-paths">
-<span id="cmake-options-cmake-prefix-path"></span><h4><span class="section-number">2.8.3.2.6. </span><code class="docutils literal notranslate"><span class="pre">-DCMAKE_PREFIX_PATH=PATHS</span></code><a class="headerlink" href="#dcmake-prefix-path-paths" title="Link to this heading">#</a></h4>
+<span id="cmake-options-cmake-prefix-path"></span><h4><span class="section-number">2.8.3.2.5. </span><code class="docutils literal notranslate"><span class="pre">-DCMAKE_PREFIX_PATH=PATHS</span></code><a class="headerlink" href="#dcmake-prefix-path-paths" title="Link to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">.cmake</span></code> ファイルの検索パスを追加します。</p>
 <p>GNU/LinuxまたはUNIXでは <code class="docutils literal notranslate"><span class="pre">:</span></code> で、Windowsでは <code class="docutils literal notranslate"><span class="pre">;</span></code> 区切ることで複数のパスを指定できます。</p>
 <p>パッケージ管理システムを使用してインストールしたライブラリを使いたい場合は、 CMake のデフォルトの検索パスに <code class="docutils literal notranslate"><span class="pre">.cmake</span></code> ファイルが存在するためこのパラメータを指定する必要はありません。</p>
@@ -711,9 +690,8 @@
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-generator">2.8.3.2.1. <code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">GENERATOR</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dcmake-install-prefix">2.8.3.2.2. <code class="docutils literal notranslate"><span class="pre">-DCMAKE_INSTALL_PREFIX</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-mruby">2.8.3.2.3. <code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_MRUBY</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-debug">2.8.3.2.4. <code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_DEBUG</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-apache-arrow">2.8.3.2.5. <code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_APACHE_ARROW</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dcmake-prefix-path-paths">2.8.3.2.6. <code class="docutils literal notranslate"><span class="pre">-DCMAKE_PREFIX_PATH=PATHS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-apache-arrow">2.8.3.2.4. <code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_APACHE_ARROW</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dcmake-prefix-path-paths">2.8.3.2.5. <code class="docutils literal notranslate"><span class="pre">-DCMAKE_PREFIX_PATH=PATHS</span></code></a></li>
 </ul>
 </li>
 </ul>

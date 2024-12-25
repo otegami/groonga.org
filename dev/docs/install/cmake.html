@@ -423,62 +423,57 @@
 <p>Here is depended software for GNU/Linux, UNIX and Windows.</p>
 <section id="gnu-linux-or-unix">
 <h3><span class="section-number">2.8.1.1. </span>GNU/Linux or UNIX<a class="headerlink" href="#gnu-linux-or-unix" title="Link to this heading">#</a></h3>
-<p>Execute <code class="docutils literal notranslate"><span class="pre">setup.sh</span></code> included in the source code.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">groonga-14.1.1.tar.gz</span></code> is expanded, it is <code class="docutils literal notranslate"><span class="pre">groonga-14.1.1/setup.sh</span></code>.</p>
+<p>Execute <code class="docutils literal notranslate"><span class="pre">setup.sh</span></code> included in the source code. It exists in the
+top directory.</p>
 <p>Example of command execution.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>groonga-14.1.1/setup.sh
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>groonga-*/setup.sh
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">setup.sh</span></code> supports Debian GNU/Linux, Ubuntu, AlmaLinux, and Amazon Linux 2023.</p>
+<p><code class="docutils literal notranslate"><span class="pre">setup.sh</span></code> supports Debian GNU/Linux, Ubuntu, AlmaLinux, and Amazon
+Linux 2023.</p>
 <section id="macos">
 <h4><span class="section-number">2.8.1.1.1. </span>macOS<a class="headerlink" href="#macos" title="Link to this heading">#</a></h4>
 <p>Install <a class="reference external" href="https://developer.apple.com/xcode/">Xcode</a>.</p>
-<p>Execute <code class="docutils literal notranslate"><span class="pre">setup.sh</span></code> included in the source code.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">groonga-14.1.1.tar.gz</span></code> is expanded, it is <code class="docutils literal notranslate"><span class="pre">groonga-14.1.1/setup.sh</span></code>.</p>
+<p>Execute <code class="docutils literal notranslate"><span class="pre">setup.sh</span></code> included in the source code. It exists in the
+top directory.</p>
 <p>Example of command execution.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>groonga-14.1.1/setup.sh
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>groonga-*/setup.sh
 </pre></div>
 </div>
 </section>
 </section>
 <section id="windows">
 <h3><span class="section-number">2.8.1.2. </span>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><ul class="simple">
+<p>Install the followings software:</p>
+<ul class="simple">
 <li><p><a class="reference external" href="https://visualstudio.microsoft.com/vs/community/">Microsoft Visual Studio Community</a></p></li>
-</ul>
-</div></blockquote>
-<blockquote>
-<div><ul class="simple">
 <li><p><a class="reference external" href="http://www.cmake.org/">CMake</a></p></li>
 </ul>
-</div></blockquote>
 </section>
 </section>
 <section id="download-source">
 <h2><span class="section-number">2.8.2. </span>Download source<a class="headerlink" href="#download-source" title="Link to this heading">#</a></h2>
-<p>You can get the latest source from <a class="reference external" href="https://packages.groonga.org/source/groonga">packages.groonga.org</a>.</p>
+<p>You can download the latest source archive from <a class="reference external" href="http://packages.groonga.org">packages.groonga.org</a>:
+<a class="reference external" href="https://packages.groonga.org/source/groonga/groonga-latest.tar.gz">https://packages.groonga.org/source/groonga/groonga-latest.tar.gz</a></p>
 <section id="id1">
 <h3><span class="section-number">2.8.2.1. </span>GNU/Linux or UNIX<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>wget<span class="w"> </span>https://packages.groonga.org/source/groonga/groonga-14.1.1.tar.gz
-<span class="gp">$ </span>tar<span class="w"> </span>xvzf<span class="w"> </span>groonga-14.1.1.tar.gz
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>wget<span class="w"> </span>https://packages.groonga.org/source/groonga/groonga-latest.tar.gz
+<span class="gp">$ </span>tar<span class="w"> </span>xvf<span class="w"> </span>groonga-latest.tar.gz
 </pre></div>
 </div>
 </section>
 <section id="id2">
 <h3><span class="section-number">2.8.2.2. </span>Windows<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<p>Download the latest zipped source from <a class="reference external" href="http://packages.groonga.org">packages.groonga.org</a>.</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference external" href="https://packages.groonga.org/source/groonga/groonga-14.1.1.zip">https://packages.groonga.org/source/groonga/groonga-14.1.1.zip</a></p></li>
-</ul>
-</div></blockquote>
+<p>You can download the latest zipped source archive from
+<a class="reference external" href="http://packages.groonga.org">packages.groonga.org</a>:
+<a class="reference external" href="https://packages.groonga.org/source/groonga/groonga-latest.zip">https://packages.groonga.org/source/groonga/groonga-latest.zip</a></p>
 <p>Then extract it.</p>
 </section>
 </section>
 <section id="run-cmake">
 <span id="cmake-run"></span><h2><span class="section-number">2.8.3. </span>Run <code class="docutils literal notranslate"><span class="pre">cmake</span></code><a class="headerlink" href="#run-cmake" title="Link to this heading">#</a></h2>
-<p>You need to generate build files such as <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> for your environment.</p>
+<p>You need to generate build files such as <code class="docutils literal notranslate"><span class="pre">build.ninja</span></code> for your
+environment.</p>
 <p>You can custom your build configuration by passing options to <code class="docutils literal notranslate"><span class="pre">cmake</span></code>.</p>
 <p>Command example for GNU/Linux or UNIX.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>-S<span class="w"> </span>&lt;Groonga<span class="w"> </span><span class="nb">source</span><span class="w"> </span>code<span class="w"> </span>directory<span class="w"> </span>path&gt;<span class="w"> </span>-B<span class="w"> </span>&lt;Build<span class="w"> </span>directory<span class="w"> </span>path&gt;<span class="w"> </span>--preset<span class="o">=</span>release-maximum
@@ -500,7 +495,11 @@
 </ul>
 <section id="cmake-presets">
 <span id="id3"></span><h3><span class="section-number">2.8.3.1. </span>CMake presets<a class="headerlink" href="#cmake-presets" title="Link to this heading">#</a></h3>
-<p>Using CMake version 3.21.0 or higher, some presets for various build configurations are provided. We have provided a combination of frequently used CMake options, so you can basically use this presets. Use CMake options only if you want to make custom settings. You can get a list of the available presets using <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--list-presets</span></code> .</p>
+<p>Using CMake version 3.21.0 or higher, some presets for various build
+configurations are provided. We have provided a combination of
+frequently used CMake options, so you can basically use this
+presets. Use CMake options only if you want to make custom
+settings. You can get a list of the available presets using <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--list-presets</span></code> .</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>--list-presets
 <span class="go">Available configure presets:</span>
 
@@ -549,8 +548,9 @@
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>.<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;Unix Makefiles&quot;</span>
 </pre></div>
 </div>
-<p>Here is an example how to specify <code class="docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">17</span> <span class="pre">2022</span> <span class="pre">x64</span></code> as a generator on Windows.
-You can specify a target platform name (architecture) with the <code class="docutils literal notranslate"><span class="pre">-A</span></code> option.</p>
+<p>Here is an example how to specify <code class="docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">17</span> <span class="pre">2022</span> <span class="pre">x64</span></code> as a
+generator on Windows. You can specify a target platform name
+(architecture) with the <code class="docutils literal notranslate"><span class="pre">-A</span></code> option.</p>
 <div class="highlight-pwsh-session notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">cmake</span> <span class="p">.</span> <span class="n">-G</span> <span class="s2">&quot;Visual Studio 17 2022&quot;</span> <span class="n">-A</span> <span class="n">x64</span>
 </pre></div>
 </div>
@@ -558,12 +558,15 @@ You can specify a target platform name (architecture) with the <code class="docu
 <section id="dcmake-install-prefix">
 <h4><span class="section-number">2.8.3.2.2. </span><code class="docutils literal notranslate"><span class="pre">-DCMAKE_INSTALL_PREFIX</span></code><a class="headerlink" href="#dcmake-install-prefix" title="Link to this heading">#</a></h4>
 <p>Specify a directory to install Groonga.</p>
-<p>The default is depending on the system, e.g. <code class="docutils literal notranslate"><span class="pre">/usr/local</span></code> or <code class="docutils literal notranslate"><span class="pre">C:/Program</span> <span class="pre">Files/groonga</span></code>.</p>
-<p>Here is an example how to specify <code class="docutils literal notranslate"><span class="pre">/tmp/local/</span></code> as an install directory on GNU/Linux or UNIX.</p>
+<p>The default is depending on the system, e.g. <code class="docutils literal notranslate"><span class="pre">/usr/local</span></code> or
+<code class="docutils literal notranslate"><span class="pre">C:/Program</span> <span class="pre">Files/groonga</span></code>.</p>
+<p>Here is an example how to specify <code class="docutils literal notranslate"><span class="pre">/tmp/local/</span></code> as an install
+directory on GNU/Linux or UNIX.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>.<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="s2">&quot;/tmp/local/&quot;</span>
 </pre></div>
 </div>
-<p>Here is an example how to specify <code class="docutils literal notranslate"><span class="pre">C:\Groonga</span></code> as an install directory on Windows.</p>
+<p>Here is an example how to specify <code class="docutils literal notranslate"><span class="pre">C:\Groonga</span></code> as an install directory
+on Windows.</p>
 <div class="highlight-pwsh-session notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">cmake</span> <span class="p">.</span> <span class="n">-DCMAKE_INSTALL_PREFIX</span><span class="p">=</span><span class="s2">&quot;C:\Groonga&quot;</span>
 </pre></div>
 </div>
@@ -571,54 +574,58 @@ You can specify a target platform name (architecture) with the <code class="docu
 <section id="dgrn-with-mruby">
 <h4><span class="section-number">2.8.3.2.3. </span><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_MRUBY</span></code><a class="headerlink" href="#dgrn-with-mruby" title="Link to this heading">#</a></h4>
 <p>Enables mruby support.</p>
-<p>You can use the <a class="reference internal" href="../reference/sharding.html"><span class="doc">Sharding</span></a> plugin and <a class="reference internal" href="../reference/commands/ruby_eval.html"><span class="doc">ruby_eval</span></a>
-with the mruby support.</p>
+<p>You can use the <a class="reference internal" href="../reference/sharding.html"><span class="doc">Sharding</span></a> plugin and
+<a class="reference internal" href="../reference/commands/ruby_eval.html"><span class="doc">ruby_eval</span></a> with the mruby support.</p>
 <p>The default is <code class="docutils literal notranslate"><span class="pre">OFF</span></code>.</p>
-<p>Groonga builds bundled mruby if the mruby support is enabled. In order to build mruby, you must
-install some required libraries. See the <a class="reference external" href="https://github.com/mruby/mruby/blob/master/doc/guides/compile.md">mruby compile guide</a>
+<p>Groonga builds bundled mruby if the mruby support is enabled. In order
+to build mruby, you must install some required libraries. See the
+<a class="reference external" href="https://github.com/mruby/mruby/blob/master/doc/guides/compile.md">mruby compile
+guide</a>
 for more details.</p>
 <p>Here is an example how to enable the mruby support.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>.<span class="w"> </span>-DGRN_WITH_MRUBY<span class="o">=</span>ON
 </pre></div>
 </div>
 </section>
-<section id="dgrn-with-debug">
-<h4><span class="section-number">2.8.3.2.4. </span><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_DEBUG</span></code><a class="headerlink" href="#dgrn-with-debug" title="Link to this heading">#</a></h4>
-<p>Enables debug options for C/C++ compiler. It’s useful for debugging on debugger such as GDB and LLDB.</p>
-<p>The default is <code class="docutils literal notranslate"><span class="pre">OFF</span></code>.</p>
-<p>Here is an example how to enable debug options.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>.<span class="w"> </span>-DGRN_WITH_DEBUG<span class="o">=</span>ON
-</pre></div>
-</div>
-</section>
 <section id="dgrn-with-apache-arrow">
-<h4><span class="section-number">2.8.3.2.5. </span><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_APACHE_ARROW</span></code><a class="headerlink" href="#dgrn-with-apache-arrow" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.8.3.2.4. </span><code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_APACHE_ARROW</span></code><a class="headerlink" href="#dgrn-with-apache-arrow" title="Link to this heading">#</a></h4>
 <p>Enables Apache Arrow support.</p>
-<p>In addition to using Apache Arrow IPC streaming format output, you can also use multithreading processing that is used in <a class="reference internal" href="../reference/commands/select.html#select-n-workers"><span class="std std-ref">n_workers</span></a>
-and <a class="reference internal" href="../reference/functions/query_parallel_or.html"><span class="doc">query_parallel_or</span></a> with the Apache Arrow support.</p>
+<p>In addition to using Apache Arrow IPC streaming format output, you can
+also use multithreading processing that is used in
+<a class="reference internal" href="../reference/commands/select.html#select-n-workers"><span class="std std-ref">n_workers</span></a> and
+<a class="reference internal" href="../reference/functions/query_parallel_or.html"><span class="doc">query_parallel_or</span></a> with the Apache Arrow
+support.</p>
 <p>The default is <code class="docutils literal notranslate"><span class="pre">OFF</span></code>.</p>
-<p>You can install Apache Arrow following to <a class="reference external" href="https://arrow.apache.org/install/">the official installation procedure</a>.</p>
+<p>You can install Apache Arrow following to <a class="reference external" href="https://arrow.apache.org/install/">the official installation
+procedure</a>.</p>
 <p>Here is an example how to enable the Apache Arrow support.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>.<span class="w"> </span>-DGRN_WITH_APACHE_ARROW<span class="o">=</span>ON
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you install Apache Arrow manually, you need to use the <a class="reference internal" href="#cmake-options-cmake-prefix-path"><span class="std std-ref">-DCMAKE_PREFIX_PATH=PATHS</span></a> option.</p>
+<p>If you install Apache Arrow manually, you need to use the
+<a class="reference internal" href="#cmake-options-cmake-prefix-path"><span class="std std-ref">-DCMAKE_PREFIX_PATH=PATHS</span></a> option.</p>
 </div>
 </section>
 <section id="dcmake-prefix-path-paths">
-<span id="cmake-options-cmake-prefix-path"></span><h4><span class="section-number">2.8.3.2.6. </span><code class="docutils literal notranslate"><span class="pre">-DCMAKE_PREFIX_PATH=PATHS</span></code><a class="headerlink" href="#dcmake-prefix-path-paths" title="Link to this heading">#</a></h4>
+<span id="cmake-options-cmake-prefix-path"></span><h4><span class="section-number">2.8.3.2.5. </span><code class="docutils literal notranslate"><span class="pre">-DCMAKE_PREFIX_PATH=PATHS</span></code><a class="headerlink" href="#dcmake-prefix-path-paths" title="Link to this heading">#</a></h4>
 <p>Adds search paths for <code class="docutils literal notranslate"><span class="pre">.cmake</span></code> files.</p>
-<p>You can specify multiple path separating them with <code class="docutils literal notranslate"><span class="pre">:</span></code> on GNU/Linux or UNIX, <code class="docutils literal notranslate"><span class="pre">;</span></code> on Windows.</p>
-<p>In case of using libraries installed via a package manager, you do not need to specify this
-parameter. It is because <code class="docutils literal notranslate"><span class="pre">.cmake</span></code> files for those libraries are in the default search paths of CMake.</p>
-<p>In case of using libraries installed in non-system directories such as <code class="docutils literal notranslate"><span class="pre">/usr</span></code>, you need to specify <code class="docutils literal notranslate"><span class="pre">.cmake</span></code> file paths of those libraries by this parameter.</p>
-<p>Here is an example how to specify a <code class="docutils literal notranslate"><span class="pre">.cmake</span></code> file path for <code class="docutils literal notranslate"><span class="pre">/tmp/local/lib/cmake/Arrow/ArrowConfig.cmake</span></code> on GNU/Linux or UNIX.</p>
+<p>You can specify multiple path separating them with <code class="docutils literal notranslate"><span class="pre">:</span></code> on GNU/Linux or
+UNIX, <code class="docutils literal notranslate"><span class="pre">;</span></code> on Windows.</p>
+<p>In case of using libraries installed via a package manager, you do not
+need to specify this parameter. It is because <code class="docutils literal notranslate"><span class="pre">.cmake</span></code> files for those
+libraries are in the default search paths of CMake.</p>
+<p>In case of using libraries installed in non-system directories such as
+<code class="docutils literal notranslate"><span class="pre">/usr</span></code>, you need to specify <code class="docutils literal notranslate"><span class="pre">.cmake</span></code> file paths of those libraries by
+this parameter.</p>
+<p>Here is an example how to specify a <code class="docutils literal notranslate"><span class="pre">.cmake</span></code> file path for
+<code class="docutils literal notranslate"><span class="pre">/tmp/local/lib/cmake/Arrow/ArrowConfig.cmake</span></code> on GNU/Linux or UNIX.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>.<span class="w"> </span>-DCMAKE_PREFIX_PATH<span class="o">=</span><span class="s2">&quot;/tmp/local&quot;</span>
 </pre></div>
 </div>
-<p>Here is an example how to specify a <code class="docutils literal notranslate"><span class="pre">.cmake</span></code> file path for <code class="docutils literal notranslate"><span class="pre">C:\arrow\lib\cmake\Arrow\ArrowConfig.cmake</span></code> on Windows.</p>
+<p>Here is an example how to specify a <code class="docutils literal notranslate"><span class="pre">.cmake</span></code> file path for
+<code class="docutils literal notranslate"><span class="pre">C:\arrow\lib\cmake\Arrow\ArrowConfig.cmake</span></code> on Windows.</p>
 <div class="highlight-pwsh-session notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">cmake</span> <span class="p">.</span> <span class="n">-DCMAKE_PREFIX_PATH</span><span class="p">=</span><span class="s2">&quot;C:\arrow&quot;</span>
 </pre></div>
 </div>
@@ -638,14 +645,16 @@ parameter. It is because <code class="docutils literal notranslate"><span class=
 </section>
 <section id="id6">
 <h3><span class="section-number">2.8.4.2. </span>Windows<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
-<p>Here is how it is to do it when Visual Studio is specified as the generator, like <code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">&quot;Visual</span> <span class="pre">Studio</span> <span class="pre">17</span> <span class="pre">2022&quot;</span></code> .</p>
+<p>Here is how it is to do it when Visual Studio is specified as the
+generator, like <code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">&quot;Visual</span> <span class="pre">Studio</span> <span class="pre">17</span> <span class="pre">2022&quot;</span></code> .</p>
 <p>You can use Visual Studio or <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span></code>.</p>
 <p>Here is a command line to build and install Groonga by <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span></code>.</p>
 <div class="highlight-pwsh-session notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">cmake</span> <span class="p">-</span><span class="n">-build</span> <span class="p">.</span> <span class="p">-</span><span class="n">-config</span> <span class="n">Release</span>
 <span class="gp">&gt; </span><span class="n">cmake</span> <span class="p">-</span><span class="n">-build</span> <span class="p">.</span> <span class="p">-</span><span class="n">-config</span> <span class="n">Release</span> <span class="p">-</span><span class="n">-target</span> <span class="n">Install</span>
 </pre></div>
 </div>
-<p>You should specify <code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">Debug</span></code> instead of <code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">Release</span></code> when debugging.</p>
+<p>You should specify <code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">Debug</span></code> instead of <code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">Release</span></code> when
+debugging.</p>
 </section>
 </section>
 </section>
@@ -716,9 +725,8 @@ parameter. It is because <code class="docutils literal notranslate"><span class=
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-generator">2.8.3.2.1. <code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">GENERATOR</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dcmake-install-prefix">2.8.3.2.2. <code class="docutils literal notranslate"><span class="pre">-DCMAKE_INSTALL_PREFIX</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-mruby">2.8.3.2.3. <code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_MRUBY</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-debug">2.8.3.2.4. <code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_DEBUG</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-apache-arrow">2.8.3.2.5. <code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_APACHE_ARROW</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dcmake-prefix-path-paths">2.8.3.2.6. <code class="docutils literal notranslate"><span class="pre">-DCMAKE_PREFIX_PATH=PATHS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dgrn-with-apache-arrow">2.8.3.2.4. <code class="docutils literal notranslate"><span class="pre">-DGRN_WITH_APACHE_ARROW</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dcmake-prefix-path-paths">2.8.3.2.5. <code class="docutils literal notranslate"><span class="pre">-DCMAKE_PREFIX_PATH=PATHS</span></code></a></li>
 </ul>
 </li>
 </ul>
