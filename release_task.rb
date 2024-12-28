@@ -97,7 +97,7 @@ class ReleaseTask
     <<-CONTENT
 ---
 layout: post.ja
-title: #{@product} #{@version}リリース
+title: #{@product} #{@version}リリース！
 description: #{@product} #{@version}をリリースしました！
 ---
 
@@ -117,7 +117,7 @@ description: #{@product} #{@version}をリリースしました！
     <<-CONTENT
 ---
 layout: post.en
-title: #{@product} #{@version} has been released
+title: #{@product} #{@version} has been released!
 description: #{@product} #{@version} has been released!
 ---
 
