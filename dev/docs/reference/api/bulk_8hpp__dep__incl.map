@@ -1,5 +1,7 @@
 <map id="include/groonga/bulk.hpp" name="include/groonga/bulk.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="9,5,196,32"/>
-<area shape="rect" id="node2" href="$groonga_8hpp.html" title=" " alt="" coords="25,80,180,107"/>
-<area shape="rect" id="node3" href="$arrow_8hpp.html" title=" " alt="" coords="5,155,200,181"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="9,5,196,31"/>
+<area shape="rect" id="Node000002" href="$groonga_8hpp.html" title=" " alt="" coords="25,79,180,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,44,105,79,100,79,100,44"/>
+<area shape="rect" id="Node000003" href="$arrow_8hpp.html" title=" " alt="" coords="5,152,200,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="105,118,105,152,100,152,100,118"/>
 </map>

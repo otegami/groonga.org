@@ -30,7 +30,7 @@
   <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -711,28 +711,8 @@ case. If you open only one database or don’t use
 <dt class="sig sig-object c" id="c.grn_cache">
 <span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_cache</span></span></span><a class="headerlink" href="#c.grn_cache" title="Link to this definition">#</a><br /></dt>
 <dd><p>It is an opaque cache object. You can create a <code class="docutils literal notranslate"><span class="pre">grn_cache</span></code> by
-<a class="reference internal" href="#c.grn_cache_open" title="grn_cache_open"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_cache_open()</span></code></a> and free the created object by
+<code class="xref c c-func docutils literal notranslate"><span class="pre">grn_cache_open()</span></code> and free the created object by
 <a class="reference internal" href="#c.grn_cache_close" title="grn_cache_close"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_cache_close()</span></code></a>.</p>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_cache_open">
-<a class="reference internal" href="#c.grn_cache" title="grn_cache"><span class="n"><span class="pre">grn_cache</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">grn_cache_open</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">grn_ctx</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_cache_open" title="Link to this definition">#</a><br /></dt>
-<dd><p>Creates a new cache object.</p>
-<p>If memory allocation for the new cache object is failed, <code class="docutils literal notranslate"><span class="pre">NULL</span></code>
-is returned. Error information is stored into the <code class="docutils literal notranslate"><span class="pre">ctx</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ctx</strong> – The context.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A newly allocated cache object on success, <code class="docutils literal notranslate"><span class="pre">NULL</span></code>
-otherwise. The returned cache object must be freed by
-<a class="reference internal" href="#c.grn_cache_close" title="grn_cache_close"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_cache_close()</span></code></a>.</p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="c function">
