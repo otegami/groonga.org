@@ -454,12 +454,13 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="normalizers.html">7.7. ノーマライザー</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_auto.html">7.7.2.1. <code class="docutils literal notranslate"><span class="pre">NormalizerAuto</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc100.html">7.7.2.2. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC100</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc121.html">7.7.2.3. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc130.html">7.7.2.4. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC130</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc150.html">7.7.2.5. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC150</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc51.html">7.7.2.6. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC51</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_table.html">7.7.2.7. <code class="docutils literal notranslate"><span class="pre">NormalizerTable</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc.html">7.7.2.2. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc100.html">7.7.2.3. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC100</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc121.html">7.7.2.4. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc130.html">7.7.2.5. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC130</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc150.html">7.7.2.6. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC150</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc51.html">7.7.2.7. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC51</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_table.html">7.7.2.8. <code class="docutils literal notranslate"><span class="pre">NormalizerTable</span></code></a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="tokenizers.html">7.8. トークナイザー</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -682,71 +683,11 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#{TIME_STAMP}|#{L}|#{PID}: #{MESSAGE}</span>
 </pre></div>
 </div>
-<dl>
-<dt>TIME_STAMP</dt><dd><p>タイムスタンプのフォーマットは次の通りです。:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">YYYY</span><span class="o">-</span><span class="n">MM</span><span class="o">-</span><span class="n">DD</span> <span class="n">hh</span><span class="p">:</span><span class="n">mm</span><span class="p">:</span><span class="n">ss</span><span class="o">.</span><span class="n">SSSSSS</span>
+<p><a class="reference internal" href="#query-log"><span class="std std-ref">クエリーログ</span></a> でも使われているコンテキストIDを出力することもできます。コンテキストIDも表示すると、 <a class="reference internal" href="#process-log"><span class="std std-ref">プロセスログ</span></a> と <a class="reference internal" href="#query-log"><span class="std std-ref">クエリーログ</span></a> の中にある関連するログを簡単に関連付けることができます。:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#{TIME_STAMP}|#{L}|#{PID}|#{CONTEXT_ID}: #{MESSAGE}</span>
 </pre></div>
 </div>
-<dl class="simple">
-<dt>YYYY</dt><dd><p>年（4桁）</p>
-</dd>
-<dt>MM</dt><dd><p>月（2桁）</p>
-</dd>
-<dt>DD</dt><dd><p>日（2桁）</p>
-</dd>
-<dt>hh</dt><dd><p>時（2桁）</p>
-</dd>
-<dt>mm</dt><dd><p>分（2桁）</p>
-</dd>
-<dt>ss</dt><dd><p>秒（2桁）</p>
-</dd>
-<dt>SSSSSS</dt><dd><p>マイクロ秒（6桁）</p>
-</dd>
-</dl>
-<p>実行例:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2011</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">05</span> <span class="mi">06</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mf">18.345734</span>
-</pre></div>
-</div>
-</dd>
-<dt>L</dt><dd><p>ログレベル（1文字）。文字がどのログレベルに対応するかは次の通りです。</p>
-<dl class="simple">
-<dt>E</dt><dd><p>緊急</p>
-</dd>
-<dt>A</dt><dd><p>アラート</p>
-</dd>
-<dt>C</dt><dd><p>危機的</p>
-</dd>
-<dt>e</dt><dd><p>エラー</p>
-</dd>
-<dt>w</dt><dd><p>警告</p>
-</dd>
-<dt>n</dt><dd><p>通知</p>
-</dd>
-<dt>i</dt><dd><p>情報</p>
-</dd>
-<dt>d</dt><dd><p>デバッグ</p>
-</dd>
-<dt>-</dt><dd><p>ダンプ</p>
-</dd>
-</dl>
-<p>実行例:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">E</span>
-</pre></div>
-</div>
-</dd>
-<dt>PID</dt><dd><p>プロセスID。</p>
-<p>実行例:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1129</span>
-</pre></div>
-</div>
-</dd>
-<dt>MESSAGE</dt><dd><p>自由形式でのログの詳細。</p>
-<p>実行例:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">log</span> <span class="n">opened</span><span class="o">.</span>
-</pre></div>
-</div>
-</dd>
-</dl>
+<p>PIDやコンテキストIDなどを表示する方法は <a class="reference internal" href="executables/groonga.html#cmdoption-groonga-log-flags"><code class="xref std std-option docutils literal notranslate"><span class="pre">groonga</span> <span class="pre">--log-flags</span></code></a> を参照してください。</p>
 <p>実行例:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2011</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">05</span> <span class="mi">08</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span><span class="mf">09.276421</span><span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">grn_init</span>
 <span class="mi">2011</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">05</span> <span class="mi">08</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span><span class="mf">09.276553</span><span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">RLIMIT_NOFILE</span><span class="p">(</span><span class="mi">4096</span><span class="p">,</span><span class="mi">4096</span><span class="p">)</span>
@@ -755,6 +696,115 @@
 <p>実行例（PIDを含む場合）:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2011</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">05</span> <span class="mi">08</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span><span class="mf">09.276421</span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="mi">1129</span><span class="p">:</span> <span class="n">grn_init</span>
 <span class="mi">2011</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">05</span> <span class="mi">08</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span><span class="mf">09.276553</span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="mi">1129</span><span class="p">:</span> <span class="n">RLIMIT_NOFILE</span><span class="p">(</span><span class="mi">4096</span><span class="p">,</span><span class="mi">4096</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>実行例（PIDとコンテキストIDを含む）:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2025</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">27</span> <span class="mi">16</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="mf">40.709869</span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="mi">3901936</span><span class="o">|</span><span class="mh">0x55788b59dbe0</span><span class="p">:</span> <span class="n">grn_init</span><span class="p">:</span> <span class="o">&lt;</span><span class="mf">14.0.9</span><span class="o">-</span><span class="mi">27</span><span class="o">-</span><span class="n">gd6cd635</span><span class="o">&gt;</span>
+<span class="mi">2025</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">27</span> <span class="mi">16</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="mf">40.710013</span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="mi">3901936</span><span class="o">|</span><span class="mh">0x55788b59dbe0</span><span class="p">:</span> <span class="n">vm</span><span class="o">.</span><span class="n">overcommit_memory</span> <span class="n">kernel</span> <span class="n">parameter</span> <span class="n">should</span> <span class="n">be</span> <span class="mi">1</span><span class="p">:</span> <span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">:</span> <span class="n">See</span> <span class="n">INFO</span> <span class="n">level</span> <span class="n">log</span> <span class="n">to</span> <span class="n">resolve</span> <span class="n">this</span>
+<span class="mi">2025</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">27</span> <span class="mi">16</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="mf">42.052517</span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="mi">3901936</span><span class="o">|</span><span class="mh">0x55788b59dbe0</span><span class="p">:</span> <span class="n">grn_fin</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="time-stamp">
+<h3><span class="section-number">7.24.1.2. </span><code class="docutils literal notranslate"><span class="pre">TIME_STAMP</span></code><a class="headerlink" href="#time-stamp" title="Link to this heading">#</a></h3>
+<p>タイムスタンプのフォーマットは次の通りです。:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">YYYY</span><span class="o">-</span><span class="n">MM</span><span class="o">-</span><span class="n">DD</span> <span class="n">hh</span><span class="p">:</span><span class="n">mm</span><span class="p">:</span><span class="n">ss</span><span class="o">.</span><span class="n">SSSSSS</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>フォーマット</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">YYYY</span></code></p></td>
+<td><p>年（4桁）</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MM</span></code></p></td>
+<td><p>月（2桁）</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DD</span></code></p></td>
+<td><p>日（2桁）</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hh</span></code></p></td>
+<td><p>時（2桁）</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mm</span></code></p></td>
+<td><p>分（2桁）</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ss</span></code></p></td>
+<td><p>秒（2桁）</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SSSSSS</span></code></p></td>
+<td><p>マイクロ秒（6桁）</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>実行例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2011</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">05</span> <span class="mi">06</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mf">18.345734</span>
+</pre></div>
+</div>
+</section>
+<section id="l">
+<h3><span class="section-number">7.24.1.3. </span><code class="docutils literal notranslate"><span class="pre">L</span></code><a class="headerlink" href="#l" title="Link to this heading">#</a></h3>
+<p>ログレベル（1文字）。文字がどのログレベルに対応するかは次の通りです。</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>フォーマット</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">E</span></code></p></td>
+<td><p>緊急</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">A</span></code></p></td>
+<td><p>アラート</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">C</span></code></p></td>
+<td><p>危機的</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">e</span></code></p></td>
+<td><p>エラー</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">w</span></code></p></td>
+<td><p>警告</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">n</span></code></p></td>
+<td><p>通知</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">i</span></code></p></td>
+<td><p>情報</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">d</span></code></p></td>
+<td><p>デバッグ</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td><p>ダンプ</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>実行例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">E</span>
+</pre></div>
+</div>
+</section>
+<section id="pid">
+<h3><span class="section-number">7.24.1.4. </span><code class="docutils literal notranslate"><span class="pre">PID</span></code><a class="headerlink" href="#pid" title="Link to this heading">#</a></h3>
+<p>プロセスID。</p>
+<p>実行例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1129</span>
+</pre></div>
+</div>
+</section>
+<section id="message">
+<h3><span class="section-number">7.24.1.5. </span><code class="docutils literal notranslate"><span class="pre">MESSAGE</span></code><a class="headerlink" href="#message" title="Link to this heading">#</a></h3>
+<p>自由形式でのログの詳細。</p>
+<p>実行例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">log</span> <span class="n">opened</span><span class="o">.</span>
 </pre></div>
 </div>
 </section>
@@ -766,95 +816,133 @@
 <h3><span class="section-number">7.24.2.1. </span>フォーマット<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>クエリーログのフォーマットは次の通りです。:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#{TIME_STAMP}|#{MESSAGE}</span>
-<span class="c1">#{TIME_STAMP}|#{ID}|&gt;#{QUERY}</span>
-<span class="c1">#{TIME_STAMP}|#{ID}|:#{ELAPSED_TIME} #{PROGRESS}</span>
-<span class="c1">#{TIME_STAMP}|#{ID}|&lt;#{ELAPSED_TIME} #{RETURN_CODE}</span>
+<span class="c1">#{TIME_STAMP}|#{CONTEXT_ID}|#{QUERY_STATUS}#{QUERY}</span>
+<span class="c1">#{TIME_STAMP}|#{CONTEXT_ID}|#{QUERY_STATUS}#{ELAPSED_TIME} #{PROGRESS}</span>
+<span class="c1">#{TIME_STAMP}|#{CONTEXT_ID}|#{QUERY_STATUS}#{ELAPSED_TIME} #{RETURN_CODE}</span>
 </pre></div>
 </div>
-<dl>
-<dt>TIME_STAMP</dt><dd><p>タイムスタンプのフォーマットは次の通りです。:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">YYYY</span><span class="o">-</span><span class="n">MM</span><span class="o">-</span><span class="n">DD</span> <span class="n">hh</span><span class="p">:</span><span class="n">mm</span><span class="p">:</span><span class="n">ss</span><span class="o">.</span><span class="n">SSSSSS</span>
-</pre></div>
-</div>
-<dl class="simple">
-<dt>YYYY</dt><dd><p>年（4桁）</p>
-</dd>
-<dt>MM</dt><dd><p>月（2桁）</p>
-</dd>
-<dt>DD</dt><dd><p>日（2桁）</p>
-</dd>
-<dt>hh</dt><dd><p>時（2桁）</p>
-</dd>
-<dt>mm</dt><dd><p>分（2桁）</p>
-</dd>
-<dt>ss</dt><dd><p>秒（2桁）</p>
-</dd>
-<dt>SSSSSS</dt><dd><p>マイクロ秒（6桁）</p>
-</dd>
-</dl>
-<p>実行例:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2011</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">05</span> <span class="mi">06</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mf">18.345734</span>
-</pre></div>
-</div>
-</dd>
-<dt>ID</dt><dd><p>スレッドのID。Groongaプロセスは並列に複数のリクエストを処理するためにスレッドを作ります。各スレッドは1つのリクエストにつき複数のログを出力します。このIDを使うとスレッド毎の一連のログを抽出できます。</p>
-<p>実行例:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">45</span><span class="n">ea3034</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-<dl class="simple">
-<dt>&gt;</dt><dd><p>クエリーが始まったことを示す文字。</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>:</dt><dd><p>クエリーが処理中であることを示す文字。</p>
-</dd>
-</dl>
-<dl>
-<dt>&lt;</dt><dd><p>クエリーが完了したことを示す文字。</p>
-</dd>
-<dt>MESSAGE</dt><dd><p>自由形式でのログの詳細。</p>
-<p>実行例:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="n">log</span> <span class="n">opened</span><span class="o">.</span>
-</pre></div>
-</div>
-</dd>
-<dt>QUERY</dt><dd><p>処理対象のクエリー。</p>
-<p>実行例:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="n">users</span> <span class="o">--</span><span class="n">match_columns</span> <span class="n">hobby</span> <span class="o">--</span><span class="n">query</span> <span class="n">music</span>
-</pre></div>
-</div>
-</dd>
-<dt>ELAPSED_TIME</dt><dd><p>クエリーの処理を開始してからの時間。単位はナノ秒。</p>
-<p>実行例:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">000000000075770</span>
-<span class="p">(</span><span class="n">It</span> <span class="n">means</span> <span class="mi">75</span><span class="p">,</span><span class="mi">770</span> <span class="n">nanoseconds</span><span class="o">.</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd>
-<dt>PROGRESS</dt><dd><p>このときに処理した内容。</p>
-<p>実行例:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span><span class="p">(</span><span class="mi">313401</span><span class="p">)</span>
-<span class="p">(</span><span class="n">It</span> <span class="n">means</span> <span class="n">that</span> <span class="s1">&#39;select&#39;</span> <span class="ow">is</span> <span class="n">processed</span> <span class="ow">and</span> <span class="mi">313</span><span class="p">,</span><span class="mi">401</span> <span class="n">records</span> <span class="n">are</span> <span class="n">remained</span><span class="o">.</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd>
-<dt>RETURN_CODE</dt><dd><p>クエリーのリターンコード。</p>
-<p>実行例:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rc</span><span class="o">=</span><span class="mi">0</span>
-<span class="p">(</span><span class="n">It</span> <span class="n">means</span> <span class="k">return</span> <span class="n">code</span> <span class="ow">is</span> <span class="mf">0.</span> <span class="mi">0</span> <span class="n">means</span> <span class="n">GRN_SUCCESS</span><span class="o">.</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd>
-</dl>
 <p>実行例:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2011</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">05</span> <span class="mi">06</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mf">19.458756</span><span class="o">|</span><span class="mi">45</span><span class="n">ea3034</span><span class="o">|&gt;</span><span class="n">select</span> <span class="n">Properties</span> <span class="o">--</span><span class="n">limit</span> <span class="mi">0</span>
 <span class="mi">2011</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">05</span> <span class="mi">06</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mf">19.458829</span><span class="o">|</span><span class="mi">45</span><span class="n">ea3034</span><span class="o">|</span><span class="p">:</span><span class="mi">000000000072779</span> <span class="n">select</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span>
 <span class="mi">2011</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">05</span> <span class="mi">06</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mf">19.458856</span><span class="o">|</span><span class="mi">45</span><span class="n">ea3034</span><span class="o">|</span><span class="p">:</span><span class="mi">000000000099998</span> <span class="n">output</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="mi">2011</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">05</span> <span class="mi">06</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mf">19.458875</span><span class="o">|</span><span class="mi">45</span><span class="n">ea3034</span><span class="o">|&lt;</span><span class="mi">000000000119062</span> <span class="n">rc</span><span class="o">=</span><span class="mi">0</span>
 <span class="mi">2011</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">05</span> <span class="mi">06</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mf">19.458986</span><span class="o">|</span><span class="mi">45</span><span class="n">ea3034</span><span class="o">|&gt;</span><span class="n">quit</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h3><span class="section-number">7.24.2.2. </span><code class="docutils literal notranslate"><span class="pre">TIME_STAMP</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>タイムスタンプのフォーマットは次の通りです。:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">YYYY</span><span class="o">-</span><span class="n">MM</span><span class="o">-</span><span class="n">DD</span> <span class="n">hh</span><span class="p">:</span><span class="n">mm</span><span class="p">:</span><span class="n">ss</span><span class="o">.</span><span class="n">SSSSSS</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>フォーマット</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">YYYY</span></code></p></td>
+<td><p>年（4桁）</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MM</span></code></p></td>
+<td><p>月（2桁）</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DD</span></code></p></td>
+<td><p>日（2桁）</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hh</span></code></p></td>
+<td><p>時（2桁）</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mm</span></code></p></td>
+<td><p>分（2桁）</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ss</span></code></p></td>
+<td><p>秒（2桁）</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">SSSSSS</span></code></dt><dd><p>マイクロ秒（6桁）</p>
+</dd>
+</dl>
+<p>実行例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2011</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">05</span> <span class="mi">06</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mf">18.345734</span>
+</pre></div>
+</div>
+</section>
+<section id="context-id">
+<h3><span class="section-number">7.24.2.3. </span><code class="docutils literal notranslate"><span class="pre">CONTEXT_ID</span></code><a class="headerlink" href="#context-id" title="Link to this heading">#</a></h3>
+<p>コンテキストのID。Groongaプロセスは並列に複数のリクエストを処理するためにコンテキストを作ります。各コンテキストは1つのリクエストにつき複数のログを出力します。このIDを使うとコンテキスト毎の一連のログを抽出できます。</p>
+<p>実行例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">45</span><span class="n">ea3034</span>
+</pre></div>
+</div>
+</section>
+<section id="query-status">
+<h3><span class="section-number">7.24.2.4. </span><code class="docutils literal notranslate"><span class="pre">QUERY_STATUS</span></code><a class="headerlink" href="#query-status" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>フォーマット</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
+<td><p>クエリーが始まったことを示す文字。</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:</span></code></p></td>
+<td><p>クエリーが処理中であることを示す文字。</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+<td><p>クエリーが完了したことを示す文字。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id5">
+<h3><span class="section-number">7.24.2.5. </span><code class="docutils literal notranslate"><span class="pre">MESSAGE</span></code><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>自由形式でのログの詳細。</p>
+<p>実行例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="n">log</span> <span class="n">opened</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="query">
+<h3><span class="section-number">7.24.2.6. </span><code class="docutils literal notranslate"><span class="pre">QUERY</span></code><a class="headerlink" href="#query" title="Link to this heading">#</a></h3>
+<p>処理対象のクエリー。</p>
+<p>実行例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="n">users</span> <span class="o">--</span><span class="n">match_columns</span> <span class="n">hobby</span> <span class="o">--</span><span class="n">query</span> <span class="n">music</span>
+</pre></div>
+</div>
+</section>
+<section id="elapsed-time">
+<h3><span class="section-number">7.24.2.7. </span><code class="docutils literal notranslate"><span class="pre">ELAPSED_TIME</span></code><a class="headerlink" href="#elapsed-time" title="Link to this heading">#</a></h3>
+<p>クエリーの処理を開始してからの時間。単位はナノ秒。</p>
+<p>実行例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">000000000075770</span>
+<span class="p">(</span><span class="n">It</span> <span class="n">means</span> <span class="mi">75</span><span class="p">,</span><span class="mi">770</span> <span class="n">nanoseconds</span><span class="o">.</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="progress">
+<h3><span class="section-number">7.24.2.8. </span><code class="docutils literal notranslate"><span class="pre">PROGRESS</span></code><a class="headerlink" href="#progress" title="Link to this heading">#</a></h3>
+<p>このときに処理した内容。</p>
+<p>実行例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span><span class="p">(</span><span class="mi">313401</span><span class="p">)</span>
+<span class="p">(</span><span class="n">It</span> <span class="n">means</span> <span class="n">that</span> <span class="s1">&#39;select&#39;</span> <span class="ow">is</span> <span class="n">processed</span> <span class="ow">and</span> <span class="mi">313</span><span class="p">,</span><span class="mi">401</span> <span class="n">records</span> <span class="n">are</span> <span class="n">remained</span><span class="o">.</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="return-code">
+<h3><span class="section-number">7.24.2.9. </span><code class="docutils literal notranslate"><span class="pre">RETURN_CODE</span></code><a class="headerlink" href="#return-code" title="Link to this heading">#</a></h3>
+<p>クエリーのリターンコード。</p>
+<p>実行例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rc</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">(</span><span class="n">It</span> <span class="n">means</span> <span class="k">return</span> <span class="n">code</span> <span class="ow">is</span> <span class="mf">0.</span> <span class="mi">0</span> <span class="n">means</span> <span class="n">GRN_SUCCESS</span><span class="o">.</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -910,10 +998,22 @@
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#process-log">7.24.1. プロセスログ</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format">7.24.1.1. フォーマット</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-stamp">7.24.1.2. <code class="docutils literal notranslate"><span class="pre">TIME_STAMP</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l">7.24.1.3. <code class="docutils literal notranslate"><span class="pre">L</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pid">7.24.1.4. <code class="docutils literal notranslate"><span class="pre">PID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#message">7.24.1.5. <code class="docutils literal notranslate"><span class="pre">MESSAGE</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#query-log">7.24.2. クエリーログ</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">7.24.2.1. フォーマット</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">7.24.2.2. <code class="docutils literal notranslate"><span class="pre">TIME_STAMP</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-id">7.24.2.3. <code class="docutils literal notranslate"><span class="pre">CONTEXT_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-status">7.24.2.4. <code class="docutils literal notranslate"><span class="pre">QUERY_STATUS</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">7.24.2.5. <code class="docutils literal notranslate"><span class="pre">MESSAGE</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query">7.24.2.6. <code class="docutils literal notranslate"><span class="pre">QUERY</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elapsed-time">7.24.2.7. <code class="docutils literal notranslate"><span class="pre">ELAPSED_TIME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#progress">7.24.2.8. <code class="docutils literal notranslate"><span class="pre">PROGRESS</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-code">7.24.2.9. <code class="docutils literal notranslate"><span class="pre">RETURN_CODE</span></code></a></li>
 </ul>
 </li>
 </ul>

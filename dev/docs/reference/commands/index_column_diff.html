@@ -453,12 +453,13 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../normalizers.html">7.7. Normalizers</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_auto.html">7.7.2.1. <code class="docutils literal notranslate"><span class="pre">NormalizerAuto</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc100.html">7.7.2.2. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC100</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc121.html">7.7.2.3. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc130.html">7.7.2.4. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC130</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc150.html">7.7.2.5. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC150</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc51.html">7.7.2.6. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC51</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_table.html">7.7.2.7. <code class="docutils literal notranslate"><span class="pre">NormalizerTable</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc.html">7.7.2.2. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc100.html">7.7.2.3. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC100</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc121.html">7.7.2.4. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc130.html">7.7.2.5. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC130</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc150.html">7.7.2.6. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC150</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc51.html">7.7.2.7. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC51</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_table.html">7.7.2.8. <code class="docutils literal notranslate"><span class="pre">NormalizerTable</span></code></a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../tokenizers.html">7.8. Tokenizers</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -692,9 +693,10 @@ this command on standby system.</p>
 </section>
 <section id="syntax">
 <h2><span class="section-number">7.3.24.2. </span>Syntax<a class="headerlink" href="#syntax" title="Link to this heading">#</a></h2>
-<p>This command takes two parameters.
-All parameters are required:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">index_column_diff</span> <span class="n">table</span> <span class="n">name</span>
+<p>Here is the syntax of this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">index_column_diff</span> <span class="n">table</span>
+                  <span class="n">name</span>
+                  <span class="p">[</span><span class="n">progress_log_level</span><span class="o">=</span><span class="n">debug</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
@@ -801,6 +803,23 @@ All parameters are required:</p>
 <section id="name">
 <h3><span class="section-number">7.3.24.4.2. </span><code class="docutils literal notranslate"><span class="pre">name</span></code><a class="headerlink" href="#name" title="Link to this heading">#</a></h3>
 <p>Specifies the name of check target of the index column.</p>
+</section>
+<section id="progress-log-level">
+<span id="index-column-diff-progress-log-level"></span><h3><span class="section-number">7.3.24.4.3. </span><code class="docutils literal notranslate"><span class="pre">progress_log_level</span></code><a class="headerlink" href="#progress-log-level" title="Link to this heading">#</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 14.1.3.</span></p>
+</div>
+<p>Specifies the log level of progress logs.</p>
+<p>The default log level is <code class="docutils literal notranslate"><span class="pre">debug</span></code>. So you need to log all debug logs
+to see progress logs.</p>
+<p>If you use <code class="docutils literal notranslate"><span class="pre">notice</span></code> as a log level, you can see progress logs
+without other debug logs. See <a class="reference internal" href="log_level.html#log-level-level"><span class="std std-ref">level</span></a> for available log
+levels.</p>
+<p>The default is <code class="docutils literal notranslate"><span class="pre">debug</span></code>.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">index_column_diff</span> <span class="n">Terms</span> <span class="n">data_index</span> <span class="o">--</span><span class="n">progress_log_level</span> <span class="n">notice</span>
+</pre></div>
+</div>
 </section>
 </section>
 <section id="return-value">
@@ -915,6 +934,7 @@ is supposing to remain in a index has been deleted from the index.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">7.3.24.4. Parameters</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table">7.3.24.4.1. <code class="docutils literal notranslate"><span class="pre">table</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#name">7.3.24.4.2. <code class="docutils literal notranslate"><span class="pre">name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#progress-log-level">7.3.24.4.3. <code class="docutils literal notranslate"><span class="pre">progress_log_level</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#return-value">7.3.24.5. Return value</a><ul class="nav section-nav flex-column">

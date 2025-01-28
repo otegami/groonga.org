@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.7.2.4. NormalizerNFKC121 &#8212; Groonga v14.1.3 documentation</title>
+    <title>7.7.2.2. NormalizerNFKC &#8212; Groonga v14.1.3 documentation</title>
   
   
   
@@ -54,7 +54,7 @@
                 gtag('js', new Date());
                 gtag('config', 'UA-7532323-1');
             </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/normalizers/normalizer_nfkc121';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/normalizers/normalizer_nfkc';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
@@ -65,8 +65,8 @@
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="7.7.2.5. NormalizerNFKC130" href="normalizer_nfkc130.html" />
-    <link rel="prev" title="7.7.2.3. NormalizerNFKC100" href="normalizer_nfkc100.html" />
+    <link rel="next" title="7.7.2.3. NormalizerNFKC100" href="normalizer_nfkc100.html" />
+    <link rel="prev" title="7.7.2.1. NormalizerAuto" href="normalizer_auto.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="14.1.3" />
@@ -453,9 +453,9 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../normalizers.html">7.7. Normalizers</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="normalizer_auto.html">7.7.2.1. <code class="docutils literal notranslate"><span class="pre">NormalizerAuto</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="normalizer_nfkc.html">7.7.2.2. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.7.2.2. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="normalizer_nfkc100.html">7.7.2.3. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC100</span></code></a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.7.2.4. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalizer_nfkc121.html">7.7.2.4. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="normalizer_nfkc130.html">7.7.2.5. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC130</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="normalizer_nfkc150.html">7.7.2.6. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC150</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="normalizer_nfkc51.html">7.7.2.7. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC51</span></code></a></li>
@@ -652,7 +652,7 @@
     
     <li class="breadcrumb-item"><a href="../normalizers.html" class="nav-link"><span class="section-number">7.7. </span>Normalizers</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">7.7.2.4. </span><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code></span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">7.7.2.2. </span><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code></span></li>
   </ul>
 </nav>
 </div>
@@ -669,90 +669,83 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="normalizernfkc121">
-<span id="normalizer-nfkc121"></span><h1><span class="section-number">7.7.2.4. </span><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code><a class="headerlink" href="#normalizernfkc121" title="Link to this heading">#</a></h1>
+  <section id="normalizernfkc">
+<span id="normalizer-nfkc"></span><h1><span class="section-number">7.7.2.2. </span><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code><a class="headerlink" href="#normalizernfkc" title="Link to this heading">#</a></h1>
 <section id="summary">
-<h2><span class="section-number">7.7.2.4.1. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.7.2.2.1. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 9.0.3.</span></p>
+<p><span class="versionmodified added">Added in version 14.1.3.</span></p>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code> normalizes text by Unicode NFKC (Normalization Form Compatibility Composition) for Unicode version 12.1.</p>
+<p><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code> normalizes text by Unicode NFKC (Normalization Form Compatibility Composition) for Unicode version 15.0.</p>
 <p>This normalizer can change behavior by specifying options.</p>
 </section>
 <section id="syntax">
-<h2><span class="section-number">7.7.2.4.2. </span>Syntax<a class="headerlink" href="#syntax" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code> has optional parameter.</p>
+<h2><span class="section-number">7.7.2.2.2. </span>Syntax<a class="headerlink" href="#syntax" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code> has optional parameter.</p>
 <p>No options:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NormalizerNFKC121</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NormalizerNFKC</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code> normalizes text by Unicode NFKC (Normalization Form Compatibility Composition) for Unicode version 12.1.</p>
+<p><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code> normalizes text by Unicode NFKC (Normalization Form Compatibility Composition) for Unicode version 15.0.</p>
 <p>Specify option:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_kana&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_kana&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 
-<span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_kana_case&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_kana_case&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 
-<span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_kana_voiced_sound_mark&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_kana_voiced_sound_mark&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 
-<span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_hyphen&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_hyphen&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 
-<span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_prolonged_sound_mark&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_prolonged_sound_mark&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 
-<span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_hyphen_and_prolonged_sound_mark&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_hyphen_and_prolonged_sound_mark&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 
-<span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_middle_dot&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_middle_dot&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 
-<span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_katakana_v_sounds&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_katakana_v_sounds&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 
-<span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_katakana_bu_sound&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_katakana_bu_sound&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 
-<span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_to_romaji&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_to_katakana&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 
-<span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_katakana_gu_small_sounds&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_to_romaji&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 
-<span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_katakana_di_sound&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;remove_symbol&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 
-<span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_katakana_wo_sound&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_katakana_gu_small_sounds&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 
-<span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_katakana_zu_small_sounds&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_katakana_di_sound&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 
-<span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_katakana_du_sound&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_katakana_wo_sound&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 
-<span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_katakana_trailing_o&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_katakana_zu_small_sounds&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 
-<span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_katakana_du_small_sounds&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_katakana_du_sound&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 
-<span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_kana_prolonged_sound_mark&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_katakana_trailing_o&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 
-<span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_kana_hyphen&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_katakana_du_small_sounds&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_kana_prolonged_sound_mark&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_kana_hyphen&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+
+<span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_latin_alphabet_with&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 </pre></div>
-</div>
-<div class="versionadded">
-<p><span class="versionmodified added">Added in version 13.0.0: </span><a class="reference internal" href="#normalizer-nfkc121-unify-katakana-gu-small-sounds"><span class="std std-ref">unify_katakana_gu_small_sounds</span></a> is added.</p>
-<p><a class="reference internal" href="#normalizer-nfkc121-unify-katakana-di-sound"><span class="std std-ref">unify_katakana_di_sound</span></a> is added.</p>
-<p><a class="reference internal" href="#normalizer-nfkc121-unify-katakana-wo-sound"><span class="std std-ref">unify_katakana_wo_sound</span></a> is added.</p>
-<p><a class="reference internal" href="#normalizer-nfkc121-unify-katakana-zu-small-sounds"><span class="std std-ref">unify_katakana_zu_small_sounds</span></a> is added.</p>
-<p><a class="reference internal" href="#normalizer-nfkc121-unify-katakana-du-sound"><span class="std std-ref">unify_katakana_du_sound</span></a> is added.</p>
-<p><a class="reference internal" href="#normalizer-nfkc121-unify-katakana-trailing-o"><span class="std std-ref">unify_katakana_trailing_o</span></a> is added.</p>
-<p><a class="reference internal" href="#normalizer-nfkc121-unify-katakana-du-small-sounds"><span class="std std-ref">unify_katakana_du_small_sounds</span></a> is added.</p>
-</div>
-<div class="versionadded">
-<p><span class="versionmodified added">Added in version 13.0.1: </span><a class="reference internal" href="#normalizer-nfkc121-unify-kana-prolonged-sound-mark"><span class="std std-ref">unify_kana_prolonged_sound_mark</span></a> is added.</p>
-<p><a class="reference internal" href="#normalizer-nfkc121-unify-kana-hyphen"><span class="std std-ref">unify_kana_hyphen</span></a> is added.</p>
 </div>
 <p>Specify multiple options:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NormalizerNFKC121</span><span class="p">(</span><span class="s2">&quot;unify_to_romaji&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s2">&quot;unify_kana_case&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s2">&quot;unify_hyphen_and_prolonged_sound_mark&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NormalizerNFKC</span><span class="p">(</span><span class="s2">&quot;unify_to_romaji&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s2">&quot;unify_kana_case&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s2">&quot;unify_hyphen_and_prolonged_sound_mark&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code> also specify multiple options as above. You can also specify mingle multiple options except above example.</p>
+<p><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code> also specify multiple options as above. You can also specify mingle multiple options except above example.</p>
 </section>
 <section id="usage">
-<h2><span class="section-number">7.7.2.4.3. </span>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.7.2.2.3. </span>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
 <section id="simple-usage">
-<h3><span class="section-number">7.7.2.4.3.1. </span>Simple usage<a class="headerlink" href="#simple-usage" title="Link to this heading">#</a></h3>
-<p>Here is an example of <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code>. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code> normalizes text by Unicode NFKC (Normalization Form Compatibility Composition) for Unicode version 12.1.</p>
+<h3><span class="section-number">7.7.2.2.3.1. </span>Simple usage<a class="headerlink" href="#simple-usage" title="Link to this heading">#</a></h3>
+<p>Here is an example of <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code>. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC150</span></code> normalizes text by Unicode NFKC (Normalization Form Compatibility Composition) for Unicode version 15.0.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span> <span class="n">NormalizerNFKC121</span> <span class="s2">&quot;©&quot;</span> <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span> <span class="n">NormalizerNFKC150</span> <span class="s2">&quot;©&quot;</span> <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -772,10 +765,10 @@
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc121-unify-kana"><span class="std std-ref">unify_kana</span></a> option.</p>
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-kana"><span class="std std-ref">unify_kana</span></a> option.</p>
 <p>This option enables that same pronounced characters in all of full-width Hiragana, full-width Katakana and half-width Katakana are regarded as the same character as below.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_kana&quot;, true)&#39;</span>   <span class="s2">&quot;あイｳｪおヽヾ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_kana&quot;, true)&#39;</span>   <span class="s2">&quot;あイｳｪおヽヾ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -801,10 +794,10 @@
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc121-unify-kana-case"><span class="std std-ref">unify_kana_case</span></a> option.</p>
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-kana-case"><span class="std std-ref">unify_kana_case</span></a> option.</p>
 <p>This option enables that large and small versions of same letters in all of full-width Hiragana, full-width Katakana and half-width Katakana are regarded as the same character as below.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_kana_case&quot;, true)&#39;</span>   <span class="s2">&quot;ぁあぃいぅうぇえぉおゃやゅゆょよゎわゕかゖけ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_kana_case&quot;, true)&#39;</span>   <span class="s2">&quot;ぁあぃいぅうぇえぉおゃやゅゆょよゎわゕかゖけ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -846,7 +839,7 @@
 </pre></div>
 </div>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_kana_case&quot;, true)&#39;</span>   <span class="s2">&quot;ァアィイゥウェエォオャヤュユョヨヮワヵカヶケ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_kana_case&quot;, true)&#39;</span>   <span class="s2">&quot;ァアィイゥウェエォオャヤュユョヨヮワヵカヶケ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -887,10 +880,10 @@
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc121-unify-kana-voiced-sound-mark"><span class="std std-ref">unify_kana_voiced_sound_mark</span></a> option.</p>
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-kana-voiced-sound-mark"><span class="std std-ref">unify_kana_voiced_sound_mark</span></a> option.</p>
 <p>This option enables that letters with/without voiced sound mark and semi voiced sound mark in all of full-width Hiragana, full-width Katakana and half-width Katakana are regarded as the same character as below.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_kana_voiced_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;かがきぎくぐけげこごさざしじすずせぜそぞただちぢつづてでとどはばぱひびぴふぶぷへべぺほぼぽ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_kana_voiced_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;かがきぎくぐけげこごさざしじすずせぜそぞただちぢつづてでとどはばぱひびぴふぶぷへべぺほぼぽ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -955,7 +948,7 @@
 </pre></div>
 </div>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_kana_voiced_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;カガキギクグケゲコゴサザシジスズセゼソゾタダチヂツヅテデトドハバパヒビピフブプヘベペホボポ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_kana_voiced_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;カガキギクグケゲコゴサザシジスズセゼソゾタダチヂツヅテデトドハバパヒビピフブプヘベペホボポ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1019,10 +1012,10 @@
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc121-unify-hyphen"><span class="std std-ref">unify_hyphen</span></a> option.
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-hyphen"><span class="std std-ref">unify_hyphen</span></a> option.
 This option enables normalize hyphen to “-” (U+002D HYPHEN-MINUS) as below.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_hyphen&quot;, true)&#39;</span>   <span class="s2">&quot;-˗֊‐‑‒–⁃⁻₋−&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_hyphen&quot;, true)&#39;</span>   <span class="s2">&quot;-˗֊‐‑‒–⁃⁻₋−&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1052,10 +1045,10 @@ This option enables normalize hyphen to “-” (U+002D HYPHEN-MINUS) as below.<
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc121-unify-prolonged-sound-mark"><span class="std std-ref">unify_prolonged_sound_mark</span></a> option.
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-prolonged-sound-mark"><span class="std std-ref">unify_prolonged_sound_mark</span></a> option.
 This option enables normalize prolonged sound to “-” (U+30FC KATAKANA-HIRAGANA PROLONGED SOUND MARK) as below.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_prolonged_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;ー—―─━ｰ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_prolonged_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;ー—―─━ｰ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1080,10 +1073,10 @@ This option enables normalize prolonged sound to “-” (U+30FC KATAKANA-HIRAGA
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc121-unify-hyphen-and-prolonged-sound-mark"><span class="std std-ref">unify_hyphen_and_prolonged_sound_mark</span></a> option.
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-hyphen-and-prolonged-sound-mark"><span class="std std-ref">unify_hyphen_and_prolonged_sound_mark</span></a> option.
 This option enables normalize hyphen and prolonged sound to “-” (U+002D HYPHEN-MINUS) as below.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_hyphen_and_prolonged_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;-˗֊‐‑‒–⁃⁻₋− ﹣－ ー—―─━ｰ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_hyphen_and_prolonged_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;-˗֊‐‑‒–⁃⁻₋− ﹣－ ー—―─━ｰ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1123,10 +1116,11 @@ This option enables normalize hyphen and prolonged sound to “-” (U+002D HYPH
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc121-unify-middle-dot"><span class="std std-ref">unify_middle_dot</span></a> option.
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-middle-dot"><span class="std std-ref">unify_middle_dot</span></a> option.
 This option enables normalize middle dot to “·” (U+00B7 MIDDLE DOT) as below.</p>
+<p>You can use it with <a class="reference internal" href="#normalizer-nfkc-remove-symbol"><span class="std std-ref">remove_symbol</span></a> to remove all characters like middle dot.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_middle_dot&quot;, true)&#39;</span>   <span class="s2">&quot;·ᐧ•∙⋅⸱・･&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_middle_dot&quot;, true)&#39;</span>   <span class="s2">&quot;·ᐧ•∙⋅⸱・･&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1153,10 +1147,10 @@ This option enables normalize middle dot to “·” (U+00B7 MIDDLE DOT) as belo
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc121-unify-katakana-v-sounds"><span class="std std-ref">unify_katakana_v_sounds</span></a> option.
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-katakana-v-sounds"><span class="std std-ref">unify_katakana_v_sounds</span></a> option.
 This option enables normalize “ヴァヴィヴヴェヴォ” to “バビブベボ” as below.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_katakana_v_sounds&quot;, true)&#39;</span>   <span class="s2">&quot;ヴァヴィヴヴェヴォヴ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_katakana_v_sounds&quot;, true)&#39;</span>   <span class="s2">&quot;ヴァヴィヴヴェヴォヴ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1181,10 +1175,10 @@ This option enables normalize “ヴァヴィヴヴェヴォ” to “バビブ�
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc121-unify-katakana-bu-sounds"><span class="std std-ref">unify_katakana_bu_sound</span></a> option.
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-katakana-bu-sounds"><span class="std std-ref">unify_katakana_bu_sound</span></a> option.
 This option enables normalize “ヴァヴィヴゥヴェヴォ” to “ブ” as below.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_katakana_bu_sound&quot;, true)&#39;</span>   <span class="s2">&quot;ヴァヴィヴヴェヴォヴ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_katakana_bu_sound&quot;, true)&#39;</span>   <span class="s2">&quot;ヴァヴィヴヴェヴォヴ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1209,10 +1203,41 @@ This option enables normalize “ヴァヴィヴゥヴェヴォ” to “ブ” 
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc121-unify-to-romaji"><span class="std std-ref">unify_to_romaji</span></a> option.
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-to-katakana"><span class="std std-ref">unify_to_katakana</span></a> option.
+This option normalizes hiragana to katakana.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_to_katakana&quot;, true)&#39;</span>   <span class="s2">&quot;ゔぁゔぃゔゔぇゔぉ&quot;</span>   <span class="n">WITH_TYPES</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   {</span>
+<span class="c1">#     &quot;normalized&quot;: &quot;ヴァヴィヴヴェヴォ&quot;,</span>
+<span class="c1">#     &quot;types&quot;: [</span>
+<span class="c1">#       &quot;katakana&quot;,</span>
+<span class="c1">#       &quot;katakana&quot;,</span>
+<span class="c1">#       &quot;katakana&quot;,</span>
+<span class="c1">#       &quot;katakana&quot;,</span>
+<span class="c1">#       &quot;katakana&quot;,</span>
+<span class="c1">#       &quot;katakana&quot;,</span>
+<span class="c1">#       &quot;katakana&quot;,</span>
+<span class="c1">#       &quot;katakana&quot;,</span>
+<span class="c1">#       &quot;katakana&quot;,</span>
+<span class="c1">#       &quot;null&quot;</span>
+<span class="c1">#     ],</span>
+<span class="c1">#     &quot;checks&quot;: [</span>
+<span class="c1">#</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   }</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-to-romaji"><span class="std std-ref">unify_to_romaji</span></a> option.
 This option enables normalize hiragana and katakana to romaji as below.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_to_romaji&quot;, true)&#39;</span>   <span class="s2">&quot;アァイィウゥエェオォ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_to_romaji&quot;, true)&#39;</span>   <span class="s2">&quot;アァイィウゥエェオォ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1246,10 +1271,47 @@ This option enables normalize hiragana and katakana to romaji as below.</p>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc121-unify-katakana-gu-small-sounds"><span class="std std-ref">unify_katakana_gu_small_sounds</span></a> option.
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-remove-symbol"><span class="std std-ref">remove_symbol</span></a> option.
+This option removes symbols (e.g. #, !, “, &amp;, %, …) as below.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;remove_symbol&quot;, true)&#39;</span>   <span class="s2">&quot;#This &amp; is </span><span class="si">%%</span><span class="s2"> a pen.&quot;</span>   <span class="n">WITH_TYPES</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   {</span>
+<span class="c1">#     &quot;normalized&quot;: &quot;this  is  a pen&quot;,</span>
+<span class="c1">#     &quot;types&quot;: [</span>
+<span class="c1">#       &quot;alpha&quot;,</span>
+<span class="c1">#       &quot;alpha&quot;,</span>
+<span class="c1">#       &quot;alpha&quot;,</span>
+<span class="c1">#       &quot;alpha&quot;,</span>
+<span class="c1">#       &quot;others&quot;,</span>
+<span class="c1">#       &quot;others&quot;,</span>
+<span class="c1">#       &quot;alpha&quot;,</span>
+<span class="c1">#       &quot;alpha&quot;,</span>
+<span class="c1">#       &quot;others&quot;,</span>
+<span class="c1">#       &quot;others&quot;,</span>
+<span class="c1">#       &quot;alpha&quot;,</span>
+<span class="c1">#       &quot;others&quot;,</span>
+<span class="c1">#       &quot;alpha&quot;,</span>
+<span class="c1">#       &quot;alpha&quot;,</span>
+<span class="c1">#       &quot;alpha&quot;,</span>
+<span class="c1">#       &quot;null&quot;</span>
+<span class="c1">#     ],</span>
+<span class="c1">#     &quot;checks&quot;: [</span>
+<span class="c1">#</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   }</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-katakana-gu-small-sounds"><span class="std std-ref">unify_katakana_gu_small_sounds</span></a> option.
 This option enables to normalize “グァグィグェグォ” to “ガギゲゴ” as below.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_katakana_gu_small_sounds&quot;, true)&#39;</span>   <span class="s2">&quot;グァグィグェグォ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_katakana_gu_small_sounds&quot;, true)&#39;</span>   <span class="s2">&quot;グァグィグェグォ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1272,10 +1334,10 @@ This option enables to normalize “グァグィグェグォ” to “ガギゲ�
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc121-unify-katakana-di-sound"><span class="std std-ref">unify_katakana_di_sound</span></a> option.
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-katakana-di-sound"><span class="std std-ref">unify_katakana_di_sound</span></a> option.
 This option enables to normalize “ヂ” to “ジ” as below.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_katakana_di_sound&quot;, true)&#39;</span>   <span class="s2">&quot;ヂ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_katakana_di_sound&quot;, true)&#39;</span>   <span class="s2">&quot;ヂ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1295,10 +1357,10 @@ This option enables to normalize “ヂ” to “ジ” as below.</p>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc121-unify-katakana-wo-sound"><span class="std std-ref">unify_katakana_wo_sound</span></a> option.
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-katakana-wo-sound"><span class="std std-ref">unify_katakana_wo_sound</span></a> option.
 This option enables to normalize “ヲ” to “オ” as below.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_katakana_wo_sound&quot;, true)&#39;</span>   <span class="s2">&quot;ヲ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_katakana_wo_sound&quot;, true)&#39;</span>   <span class="s2">&quot;ヲ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1318,10 +1380,10 @@ This option enables to normalize “ヲ” to “オ” as below.</p>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc121-unify-katakana-zu-small-sounds"><span class="std std-ref">unify_katakana_zu_small_sounds</span></a> option.
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-katakana-zu-small-sounds"><span class="std std-ref">unify_katakana_zu_small_sounds</span></a> option.
 This option enables to normalize “ズァズィズェズォ” to “ザジゼゾ” as below.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_katakana_zu_small_sounds&quot;, true)&#39;</span>   <span class="s2">&quot;ズァズィズェズォ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_katakana_zu_small_sounds&quot;, true)&#39;</span>   <span class="s2">&quot;ズァズィズェズォ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1344,10 +1406,10 @@ This option enables to normalize “ズァズィズェズォ” to “ザジゼ�
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc121-unify-katakana-du-sound"><span class="std std-ref">unify_katakana_du_sound</span></a> option.
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-katakana-du-sound"><span class="std std-ref">unify_katakana_du_sound</span></a> option.
 This option enables to normalize “ヅ” to “ズ” as below.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_katakana_du_sound&quot;, true)&#39;</span>   <span class="s2">&quot;ヅ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_katakana_du_sound&quot;, true)&#39;</span>   <span class="s2">&quot;ヅ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1367,10 +1429,10 @@ This option enables to normalize “ヅ” to “ズ” as below.</p>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc121-unify-katakana-trailing-o"><span class="std std-ref">unify_katakana_trailing_o</span></a> option.
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-katakana-trailing-o"><span class="std std-ref">unify_katakana_trailing_o</span></a> option.
 This option enables to normalize “オ” to “ウ” when the vowel in the previous letter is “オ” as below.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_katakana_trailing_o&quot;, true)&#39;</span>   <span class="s2">&quot;オオコオソオトオノオ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_katakana_trailing_o&quot;, true)&#39;</span>   <span class="s2">&quot;オオコオソオトオノオ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1399,10 +1461,10 @@ This option enables to normalize “オ” to “ウ” when the vowel in the pr
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc121-unify-katakana-du-small-sounds"><span class="std std-ref">unify_katakana_du_small_sounds</span></a> option.
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-katakana-du-small-sounds"><span class="std std-ref">unify_katakana_du_small_sounds</span></a> option.
 This option enables to normalize “ヅァヅィヅェヅォ” to “ザジゼゾ”.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_katakana_du_small_sounds&quot;, true)&#39;</span>   <span class="s2">&quot;ヅァヅィヅェヅォ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_katakana_du_small_sounds&quot;, true)&#39;</span>   <span class="s2">&quot;ヅァヅィヅェヅォ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1425,13 +1487,13 @@ This option enables to normalize “ヅァヅィヅェヅォ” to “ザジゼ�
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc121-unify-kana-prolonged-sound-mark"><span class="std std-ref">unify_kana_prolonged_sound_mark</span></a> option.
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-kana-prolonged-sound-mark"><span class="std std-ref">unify_kana_prolonged_sound_mark</span></a> option.
 This option enables to normalize “ー” (U+30FC KATAKANA-HIRAGANA PROLONGED SOUND MARK)
 to a vowel of a previous kana letter.</p>
 <p>If a previous kana letter is “ん” , “ー” is normalized to “ん”,
 And a previous kana letter is “ン” , “ー” is normalized to “ン”.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_kana_prolonged_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;カーキークーケーコー&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_kana_prolonged_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;カーキークーケーコー&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1460,12 +1522,12 @@ And a previous kana letter is “ン” , “ー” is normalized to “ン”.<
 <span class="c1"># ]</span>
 </pre></div>
 </div>
-<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc121-unify-kana-hyphen"><span class="std std-ref">unify_kana_hyphen</span></a> option.
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-kana-hyphen"><span class="std std-ref">unify_kana_hyphen</span></a> option.
 This option enables to normalize “-” (U+002D HYPHEN-MINUS) to a vowel of a previous kana letter.</p>
 <p>If a previous kana letter is “ん” , “-” is normalized to “ん”,
 And a previous kana letter is “ン” , “-” is normalized to “ン”.</p>
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_kana_hyphen&quot;, true)&#39;</span>   <span class="s2">&quot;カ-キ-ク-ケ-コ-&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_kana_hyphen&quot;, true)&#39;</span>   <span class="s2">&quot;カ-キ-ク-ケ-コ-&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1485,6 +1547,34 @@ And a previous kana letter is “ン” , “-” is normalized to “ン”.</p
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;katakana&quot;,</span>
+<span class="c1">#       &quot;null&quot;</span>
+<span class="c1">#     ],</span>
+<span class="c1">#     &quot;checks&quot;: [</span>
+<span class="c1">#</span>
+<span class="c1">#     ]</span>
+<span class="c1">#   }</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+<p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-latin-alphabet-with"><span class="std std-ref">unify_latin_alphabet_with</span></a> option.
+This option enables that alphabets with diacritical mark and alphabets without diacritical mark regarded as the same character as below.</p>
+<p>However, this feature focus on only LATIN (SMALL|CAPITAL) LETTER X WITH XXX. It doesn’t support LATIN (SMALL|CAPITAL) LETTER X + COMBINING XXX characters.</p>
+<p>Execution example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_latin_alphabet_with&quot;, true)&#39;</span>   <span class="s2">&quot;ngoằn&quot;</span>   <span class="n">WITH_TYPES</span>
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   {</span>
+<span class="c1">#     &quot;normalized&quot;: &quot;ngoan&quot;,</span>
+<span class="c1">#     &quot;types&quot;: [</span>
+<span class="c1">#       &quot;alpha&quot;,</span>
+<span class="c1">#       &quot;alpha&quot;,</span>
+<span class="c1">#       &quot;alpha&quot;,</span>
+<span class="c1">#       &quot;alpha&quot;,</span>
+<span class="c1">#       &quot;alpha&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
 <span class="c1">#     &quot;checks&quot;: [</span>
@@ -1496,11 +1586,13 @@ And a previous kana letter is “ン” , “-” is normalized to “ン”.</p
 </div>
 </section>
 <section id="advanced-usage">
-<h3><span class="section-number">7.7.2.4.3.2. </span>Advanced usage<a class="headerlink" href="#advanced-usage" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.7.2.2.3.2. </span>Advanced usage<a class="headerlink" href="#advanced-usage" title="Link to this heading">#</a></h3>
+<section id="with-tokenmecab">
+<h4><span class="section-number">7.7.2.2.3.2.1. </span>With <code class="docutils literal notranslate"><span class="pre">TokenMecab</span></code><a class="headerlink" href="#with-tokenmecab" title="Link to this heading">#</a></h4>
 <p>You can output romaji of specific a part of speech with using to combine
-<code class="docutils literal notranslate"><span class="pre">TokenMecab</span></code> and <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code> as below.</p>
+<code class="docutils literal notranslate"><span class="pre">TokenMecab</span></code> and <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code> as below.</p>
 <p>First of all, you extract reading of a noun with excluding non-independent word and suffix of person name with <code class="docutils literal notranslate"><span class="pre">target_class</span></code> option and <code class="docutils literal notranslate"><span class="pre">include_reading</span></code> option.</p>
-<p>Next, you normalize reading of the noun that extracted with <code class="docutils literal notranslate"><span class="pre">unify_to_romaji</span></code> option of <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code>.</p>
+<p>Next, you normalize reading of the noun that extracted with <code class="docutils literal notranslate"><span class="pre">unify_to_romaji</span></code> option of <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code>.</p>
 <p>Execution example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tokenize</span> <span class="s1">&#39;TokenMecab(&quot;target_class&quot;, &quot;-名詞/非自立&quot;, &quot;target_class&quot;, &quot;-名詞/接尾/人名&quot;, &quot;target_class&quot;, &quot;名詞&quot;, &quot;include_reading&quot;, true)&#39;</span> <span class="s1">&#39;彼の名前は山田さんのはずです。&#39;</span>
 <span class="c1"># [</span>
@@ -1539,7 +1631,7 @@ And a previous kana letter is “ン” , “-” is normalized to “ン”.</p
 <span class="c1">#     }</span>
 <span class="c1">#   ]</span>
 <span class="c1"># ]</span>
-<span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_to_romaji&quot;, true)&#39;</span>   <span class="s2">&quot;カレ&quot;</span>   <span class="n">WITH_TYPES</span>
+<span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_to_romaji&quot;, true)&#39;</span>   <span class="s2">&quot;カレ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1560,7 +1652,7 @@ And a previous kana letter is “ン” , “-” is normalized to “ン”.</p
 <span class="c1">#     ]</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
-<span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_to_romaji&quot;, true)&#39;</span>   <span class="s2">&quot;ナマエ&quot;</span>   <span class="n">WITH_TYPES</span>
+<span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_to_romaji&quot;, true)&#39;</span>   <span class="s2">&quot;ナマエ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1582,7 +1674,7 @@ And a previous kana letter is “ン” , “-” is normalized to “ン”.</p
 <span class="c1">#     ]</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
-<span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC121(&quot;unify_to_romaji&quot;, true)&#39;</span>   <span class="s2">&quot;ヤマダ&quot;</span>   <span class="n">WITH_TYPES</span>
+<span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC150(&quot;unify_to_romaji&quot;, true)&#39;</span>   <span class="s2">&quot;ヤマダ&quot;</span>   <span class="n">WITH_TYPES</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1608,26 +1700,64 @@ And a previous kana letter is “ン” , “-” is normalized to “ン”.</p
 </pre></div>
 </div>
 </section>
+<section id="use-unify-to-katakana-with-other-options">
+<h4><span class="section-number">7.7.2.2.3.2.2. </span>Use <code class="docutils literal notranslate"><span class="pre">unify_to_katakana</span></code> with other options<a class="headerlink" href="#use-unify-to-katakana-with-other-options" title="Link to this heading">#</a></h4>
+<p><a class="reference internal" href="#normalizer-nfkc-unify-to-katakana"><span class="std std-ref">unify_to_katakana</span></a> can be combined with the following options to equate special katakana with general katakana.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#normalizer-nfkc-unify-katakana-v-sounds"><span class="std std-ref">unify_katakana_v_sounds</span></a></p>
+<ul>
+<li><p>Equivalent: “ゔぁゔぃゔゔぇゔぉ”, “ばびぶべぼ”, “ヴァヴィヴヴェヴォ” and “バビブベボ”</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#normalizer-nfkc-unify-katakana-gu-small-sounds"><span class="std std-ref">unify_katakana_gu_small_sounds</span></a></p>
+<ul>
+<li><p>Equivalent: “ぐぁぐぃぐぇぐぉ”, “がぎげご”, “グァグィグェグォ” and “ガギゲゴ”</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#normalizer-nfkc-unify-katakana-zu-small-sounds"><span class="std std-ref">unify_katakana_zu_small_sounds</span></a></p>
+<ul>
+<li><p>Equivalent: “ずぁずぃずぇずぉ”, “ざじぜぞ”, “ズァズィズェズォ” and “ザジゼゾ”</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#normalizer-nfkc-unify-katakana-wo-sound"><span class="std std-ref">unify_katakana_wo_sound</span></a></p>
+<ul>
+<li><p>Equivalent: “お”, “を”, “オ” and “ヲ”</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#normalizer-nfkc-unify-katakana-di-sound"><span class="std std-ref">unify_katakana_di_sound</span></a></p>
+<ul>
+<li><p>Equivalent: “じ”, “ぢ”, “ジ” and “ヂ”</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#normalizer-nfkc-unify-katakana-du-sound"><span class="std std-ref">unify_katakana_du_sound</span></a></p>
+<ul>
+<li><p>Equivalent: “ず”, “づ”, “ズ” and “ヅ”</p></li>
+</ul>
+</li>
+</ul>
+<p>For example, using <code class="docutils literal notranslate"><span class="pre">unify_to_katakana</span></code> and <code class="docutils literal notranslate"><span class="pre">unify_katakana_v_sounds</span></code> together, you can search “バイオリン”, “ヴァイオリン”, “ばいおりん” and “ゔぁいおりん” with “ばいおりん”.</p>
+</section>
+</section>
 </section>
 <section id="parameters">
-<h2><span class="section-number">7.7.2.4.4. </span>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.7.2.2.4. </span>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
 <section id="optional-parameter">
-<h3><span class="section-number">7.7.2.4.4.1. </span>Optional parameter<a class="headerlink" href="#optional-parameter" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.7.2.2.4.1. </span>Optional parameter<a class="headerlink" href="#optional-parameter" title="Link to this heading">#</a></h3>
 <p>There are optional parameters as below.</p>
 <section id="unify-kana">
-<span id="normalizer-nfkc121-unify-kana"></span><h4><span class="section-number">7.7.2.4.4.1.1. </span><code class="docutils literal notranslate"><span class="pre">unify_kana</span></code><a class="headerlink" href="#unify-kana" title="Link to this heading">#</a></h4>
+<span id="normalizer-nfkc-unify-kana"></span><h4><span class="section-number">7.7.2.2.4.1.1. </span><code class="docutils literal notranslate"><span class="pre">unify_kana</span></code><a class="headerlink" href="#unify-kana" title="Link to this heading">#</a></h4>
 <p>This option enables that same pronounced characters in all of full-width Hiragana, full-width Katakana and half-width Katakana are regarded as the same character.</p>
 </section>
 <section id="unify-kana-case">
-<span id="normalizer-nfkc121-unify-kana-case"></span><h4><span class="section-number">7.7.2.4.4.1.2. </span><code class="docutils literal notranslate"><span class="pre">unify_kana_case</span></code><a class="headerlink" href="#unify-kana-case" title="Link to this heading">#</a></h4>
+<span id="normalizer-nfkc-unify-kana-case"></span><h4><span class="section-number">7.7.2.2.4.1.2. </span><code class="docutils literal notranslate"><span class="pre">unify_kana_case</span></code><a class="headerlink" href="#unify-kana-case" title="Link to this heading">#</a></h4>
 <p>This option enables that large and small versions of same letters in all of full-width Hiragana, full-width Katakana and half-width Katakana are regarded as the same character.</p>
 </section>
 <section id="unify-kana-voiced-sound-mark">
-<span id="normalizer-nfkc121-unify-kana-voiced-sound-mark"></span><h4><span class="section-number">7.7.2.4.4.1.3. </span><code class="docutils literal notranslate"><span class="pre">unify_kana_voiced_sound_mark</span></code><a class="headerlink" href="#unify-kana-voiced-sound-mark" title="Link to this heading">#</a></h4>
+<span id="normalizer-nfkc-unify-kana-voiced-sound-mark"></span><h4><span class="section-number">7.7.2.2.4.1.3. </span><code class="docutils literal notranslate"><span class="pre">unify_kana_voiced_sound_mark</span></code><a class="headerlink" href="#unify-kana-voiced-sound-mark" title="Link to this heading">#</a></h4>
 <p>This option enables that letters with/without voiced sound mark and semi voiced sound mark in all of full-width Hiragana, full-width Katakana and half-width Katakana are regarded as the same character.</p>
 </section>
 <section id="unify-hyphen">
-<span id="normalizer-nfkc121-unify-hyphen"></span><h4><span class="section-number">7.7.2.4.4.1.4. </span><code class="docutils literal notranslate"><span class="pre">unify_hyphen</span></code><a class="headerlink" href="#unify-hyphen" title="Link to this heading">#</a></h4>
+<span id="normalizer-nfkc-unify-hyphen"></span><h4><span class="section-number">7.7.2.2.4.1.4. </span><code class="docutils literal notranslate"><span class="pre">unify_hyphen</span></code><a class="headerlink" href="#unify-hyphen" title="Link to this heading">#</a></h4>
 <p>This option enables normalize hyphen to “-” (U+002D HYPHEN-MINUS).</p>
 <p>Hyphen of the target of normalizing is as below.</p>
 <ul class="simple">
@@ -1643,7 +1773,7 @@ And a previous kana letter is “ン” , “-” is normalized to “ン”.</p
 </ul>
 </section>
 <section id="unify-prolonged-sound-mark">
-<span id="normalizer-nfkc121-unify-prolonged-sound-mark"></span><h4><span class="section-number">7.7.2.4.4.1.5. </span><code class="docutils literal notranslate"><span class="pre">unify_prolonged_sound_mark</span></code><a class="headerlink" href="#unify-prolonged-sound-mark" title="Link to this heading">#</a></h4>
+<span id="normalizer-nfkc-unify-prolonged-sound-mark"></span><h4><span class="section-number">7.7.2.2.4.1.5. </span><code class="docutils literal notranslate"><span class="pre">unify_prolonged_sound_mark</span></code><a class="headerlink" href="#unify-prolonged-sound-mark" title="Link to this heading">#</a></h4>
 <p>This option enables normalize prolonged sound to “-” (U+30FC KATAKANA-HIRAGANA PROLONGED SOUND MARK).</p>
 <p>Prolonged sound of the target of normalizing is as below.</p>
 <ul class="simple">
@@ -1656,7 +1786,7 @@ And a previous kana letter is “ン” , “-” is normalized to “ン”.</p
 </ul>
 </section>
 <section id="unify-hyphen-and-prolonged-sound-mark">
-<span id="normalizer-nfkc121-unify-hyphen-and-prolonged-sound-mark"></span><h4><span class="section-number">7.7.2.4.4.1.6. </span><code class="docutils literal notranslate"><span class="pre">unify_hyphen_and_prolonged_sound_mark</span></code><a class="headerlink" href="#unify-hyphen-and-prolonged-sound-mark" title="Link to this heading">#</a></h4>
+<span id="normalizer-nfkc-unify-hyphen-and-prolonged-sound-mark"></span><h4><span class="section-number">7.7.2.2.4.1.6. </span><code class="docutils literal notranslate"><span class="pre">unify_hyphen_and_prolonged_sound_mark</span></code><a class="headerlink" href="#unify-hyphen-and-prolonged-sound-mark" title="Link to this heading">#</a></h4>
 <p>This option enables normalize hyphen and prolonged sound to “-” (U+002D HYPHEN-MINUS).</p>
 <p>Hyphen and prolonged sound of the target normalizing is below.</p>
 <ul class="simple">
@@ -1678,7 +1808,7 @@ And a previous kana letter is “ン” , “-” is normalized to “ン”.</p
 </ul>
 </section>
 <section id="unify-middle-dot">
-<span id="normalizer-nfkc121-unify-middle-dot"></span><h4><span class="section-number">7.7.2.4.4.1.7. </span><code class="docutils literal notranslate"><span class="pre">unify_middle_dot</span></code><a class="headerlink" href="#unify-middle-dot" title="Link to this heading">#</a></h4>
+<span id="normalizer-nfkc-unify-middle-dot"></span><h4><span class="section-number">7.7.2.2.4.1.7. </span><code class="docutils literal notranslate"><span class="pre">unify_middle_dot</span></code><a class="headerlink" href="#unify-middle-dot" title="Link to this heading">#</a></h4>
 <p>This option enables normalize middle dot to “·” (U+00B7 MIDDLE DOT).</p>
 <p>Middle dot of the target of normalizing is as below.</p>
 <ul class="simple">
@@ -1691,59 +1821,50 @@ And a previous kana letter is “ン” , “-” is normalized to “ン”.</p
 <li><p>“・” (U+30FB KATAKANA MIDDLE DOT)</p></li>
 <li><p>“･” (U+FF65 HALFWIDTH KATAKANA MIDDLE DOT)</p></li>
 </ul>
+<p>You can use it with <a class="reference internal" href="#normalizer-nfkc-remove-symbol"><span class="std std-ref">remove_symbol</span></a> to remove all characters like middle dot.</p>
 </section>
 <section id="unify-katakana-v-sounds">
-<span id="normalizer-nfkc121-unify-katakana-v-sounds"></span><h4><span class="section-number">7.7.2.4.4.1.8. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_v_sounds</span></code><a class="headerlink" href="#unify-katakana-v-sounds" title="Link to this heading">#</a></h4>
+<span id="normalizer-nfkc-unify-katakana-v-sounds"></span><h4><span class="section-number">7.7.2.2.4.1.8. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_v_sounds</span></code><a class="headerlink" href="#unify-katakana-v-sounds" title="Link to this heading">#</a></h4>
 <p>This option enables normalize “ヴァヴィヴヴェヴォ” to “バビブベボ”.</p>
 </section>
 <section id="unify-katakana-bu-sound">
-<span id="normalizer-nfkc121-unify-katakana-bu-sounds"></span><h4><span class="section-number">7.7.2.4.4.1.9. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_bu_sound</span></code><a class="headerlink" href="#unify-katakana-bu-sound" title="Link to this heading">#</a></h4>
+<span id="normalizer-nfkc-unify-katakana-bu-sounds"></span><h4><span class="section-number">7.7.2.2.4.1.9. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_bu_sound</span></code><a class="headerlink" href="#unify-katakana-bu-sound" title="Link to this heading">#</a></h4>
 <p>This option enables normalize “ヴァヴィヴゥヴェヴォ” to “ブ”.</p>
 </section>
+<section id="unify-to-katakana">
+<span id="normalizer-nfkc-unify-to-katakana"></span><h4><span class="section-number">7.7.2.2.4.1.10. </span><code class="docutils literal notranslate"><span class="pre">unify_to_katakana</span></code><a class="headerlink" href="#unify-to-katakana" title="Link to this heading">#</a></h4>
+<p>This option normalizes hiragana to katakana.</p>
+</section>
 <section id="unify-to-romaji">
-<span id="normalizer-nfkc121-unify-to-romaji"></span><h4><span class="section-number">7.7.2.4.4.1.10. </span><code class="docutils literal notranslate"><span class="pre">unify_to_romaji</span></code><a class="headerlink" href="#unify-to-romaji" title="Link to this heading">#</a></h4>
+<span id="normalizer-nfkc-unify-to-romaji"></span><h4><span class="section-number">7.7.2.2.4.1.11. </span><code class="docutils literal notranslate"><span class="pre">unify_to_romaji</span></code><a class="headerlink" href="#unify-to-romaji" title="Link to this heading">#</a></h4>
 <p>This option enables normalize hiragana and katakana to romaji.</p>
 </section>
+<section id="remove-symbol">
+<span id="normalizer-nfkc-remove-symbol"></span><h4><span class="section-number">7.7.2.2.4.1.12. </span><code class="docutils literal notranslate"><span class="pre">remove_symbol</span></code><a class="headerlink" href="#remove-symbol" title="Link to this heading">#</a></h4>
+<p>This option removes symbols (e.g. #, !, “, &amp;, %, …) from the string that the target of normalizing.</p>
+</section>
 <section id="unify-katakana-gu-small-sounds">
-<span id="normalizer-nfkc121-unify-katakana-gu-small-sounds"></span><h4><span class="section-number">7.7.2.4.4.1.11. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_gu_small_sounds</span></code><a class="headerlink" href="#unify-katakana-gu-small-sounds" title="Link to this heading">#</a></h4>
-<div class="versionadded">
-<p><span class="versionmodified added">Added in version 13.0.0.</span></p>
-</div>
+<span id="normalizer-nfkc-unify-katakana-gu-small-sounds"></span><h4><span class="section-number">7.7.2.2.4.1.13. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_gu_small_sounds</span></code><a class="headerlink" href="#unify-katakana-gu-small-sounds" title="Link to this heading">#</a></h4>
 <p>This option enables to normalize “グァグィグェグォ” to “ガギゲゴ”.</p>
 </section>
 <section id="unify-katakana-di-sound">
-<span id="normalizer-nfkc121-unify-katakana-di-sound"></span><h4><span class="section-number">7.7.2.4.4.1.12. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_di_sound</span></code><a class="headerlink" href="#unify-katakana-di-sound" title="Link to this heading">#</a></h4>
-<div class="versionadded">
-<p><span class="versionmodified added">Added in version 13.0.0.</span></p>
-</div>
+<span id="normalizer-nfkc-unify-katakana-di-sound"></span><h4><span class="section-number">7.7.2.2.4.1.14. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_di_sound</span></code><a class="headerlink" href="#unify-katakana-di-sound" title="Link to this heading">#</a></h4>
 <p>This option enables to normalize “ヂ” to “ジ”.</p>
 </section>
 <section id="unify-katakana-wo-sound">
-<span id="normalizer-nfkc121-unify-katakana-wo-sound"></span><h4><span class="section-number">7.7.2.4.4.1.13. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_wo_sound</span></code><a class="headerlink" href="#unify-katakana-wo-sound" title="Link to this heading">#</a></h4>
-<div class="versionadded">
-<p><span class="versionmodified added">Added in version 13.0.0.</span></p>
-</div>
+<span id="normalizer-nfkc-unify-katakana-wo-sound"></span><h4><span class="section-number">7.7.2.2.4.1.15. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_wo_sound</span></code><a class="headerlink" href="#unify-katakana-wo-sound" title="Link to this heading">#</a></h4>
 <p>This option enables to normalize “ヲ” to “オ”.</p>
 </section>
 <section id="unify-katakana-zu-small-sounds">
-<span id="normalizer-nfkc121-unify-katakana-zu-small-sounds"></span><h4><span class="section-number">7.7.2.4.4.1.14. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_zu_small_sounds</span></code><a class="headerlink" href="#unify-katakana-zu-small-sounds" title="Link to this heading">#</a></h4>
-<div class="versionadded">
-<p><span class="versionmodified added">Added in version 13.0.0.</span></p>
-</div>
+<span id="normalizer-nfkc-unify-katakana-zu-small-sounds"></span><h4><span class="section-number">7.7.2.2.4.1.16. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_zu_small_sounds</span></code><a class="headerlink" href="#unify-katakana-zu-small-sounds" title="Link to this heading">#</a></h4>
 <p>This option enables to normalize “ズァズィズェズォ” to “ザジゼゾ”.</p>
 </section>
 <section id="unify-katakana-du-sound">
-<span id="normalizer-nfkc121-unify-katakana-du-sound"></span><h4><span class="section-number">7.7.2.4.4.1.15. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_du_sound</span></code><a class="headerlink" href="#unify-katakana-du-sound" title="Link to this heading">#</a></h4>
-<div class="versionadded">
-<p><span class="versionmodified added">Added in version 13.0.0.</span></p>
-</div>
+<span id="normalizer-nfkc-unify-katakana-du-sound"></span><h4><span class="section-number">7.7.2.2.4.1.17. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_du_sound</span></code><a class="headerlink" href="#unify-katakana-du-sound" title="Link to this heading">#</a></h4>
 <p>This option enables to normalize “ヅ” to “ズ”.</p>
 </section>
 <section id="unify-katakana-trailing-o">
-<span id="normalizer-nfkc121-unify-katakana-trailing-o"></span><h4><span class="section-number">7.7.2.4.4.1.16. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_trailing_o</span></code><a class="headerlink" href="#unify-katakana-trailing-o" title="Link to this heading">#</a></h4>
-<div class="versionadded">
-<p><span class="versionmodified added">Added in version 13.0.0.</span></p>
-</div>
+<span id="normalizer-nfkc-unify-katakana-trailing-o"></span><h4><span class="section-number">7.7.2.2.4.1.18. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_trailing_o</span></code><a class="headerlink" href="#unify-katakana-trailing-o" title="Link to this heading">#</a></h4>
 <p>This option enables to normalize “オ” to “ウ”
 when the vowel in the previous letter is “オ”.</p>
 <ul class="simple">
@@ -1767,17 +1888,11 @@ when the vowel in the previous letter is “オ”.</p>
 </ul>
 </section>
 <section id="unify-katakana-du-small-sounds">
-<span id="normalizer-nfkc121-unify-katakana-du-small-sounds"></span><h4><span class="section-number">7.7.2.4.4.1.17. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_du_small_sounds</span></code><a class="headerlink" href="#unify-katakana-du-small-sounds" title="Link to this heading">#</a></h4>
-<div class="versionadded">
-<p><span class="versionmodified added">Added in version 13.0.0.</span></p>
-</div>
+<span id="normalizer-nfkc-unify-katakana-du-small-sounds"></span><h4><span class="section-number">7.7.2.2.4.1.19. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_du_small_sounds</span></code><a class="headerlink" href="#unify-katakana-du-small-sounds" title="Link to this heading">#</a></h4>
 <p>This option enables to normalize “ヅァヅィヅェヅォ” to “ザジゼゾ”.</p>
 </section>
 <section id="unify-kana-prolonged-sound-mark">
-<span id="normalizer-nfkc121-unify-kana-prolonged-sound-mark"></span><h4><span class="section-number">7.7.2.4.4.1.18. </span><code class="docutils literal notranslate"><span class="pre">unify_kana_prolonged_sound_mark</span></code><a class="headerlink" href="#unify-kana-prolonged-sound-mark" title="Link to this heading">#</a></h4>
-<div class="versionadded">
-<p><span class="versionmodified added">Added in version 13.0.1.</span></p>
-</div>
+<span id="normalizer-nfkc-unify-kana-prolonged-sound-mark"></span><h4><span class="section-number">7.7.2.2.4.1.20. </span><code class="docutils literal notranslate"><span class="pre">unify_kana_prolonged_sound_mark</span></code><a class="headerlink" href="#unify-kana-prolonged-sound-mark" title="Link to this heading">#</a></h4>
 <p>This option enables to normalize “ー” (U+30FC KATAKANA-HIRAGANA PROLONGED SOUND MARK)
 to a vowel of a previous kana letter.</p>
 <p>If a previous kana letter is “ん” , “ー” is normalized to “ん”,
@@ -1828,10 +1943,7 @@ And a previous kana letter is “ン” , “ー” is normalized to “ン”.<
 </div>
 </section>
 <section id="unify-kana-hyphen">
-<span id="normalizer-nfkc121-unify-kana-hyphen"></span><h4><span class="section-number">7.7.2.4.4.1.19. </span><code class="docutils literal notranslate"><span class="pre">unify_kana_hyphen</span></code><a class="headerlink" href="#unify-kana-hyphen" title="Link to this heading">#</a></h4>
-<div class="versionadded">
-<p><span class="versionmodified added">Added in version 13.0.1.</span></p>
-</div>
+<span id="normalizer-nfkc-unify-kana-hyphen"></span><h4><span class="section-number">7.7.2.2.4.1.21. </span><code class="docutils literal notranslate"><span class="pre">unify_kana_hyphen</span></code><a class="headerlink" href="#unify-kana-hyphen" title="Link to this heading">#</a></h4>
 <p>This option enables to normalize “-” (U+002D HYPHEN-MINUS) to a vowel of a previous kana letter.</p>
 <p>If a previous kana letter is “ん” , “-” is normalized to “ん”,
 And a previous kana letter is “ン” , “-” is normalized to “ン”.</p>
@@ -1880,10 +1992,15 @@ And a previous kana letter is “ン” , “-” is normalized to “ン”.</p
 </pre></div>
 </div>
 </section>
+<section id="unify-latin-alphabet-with">
+<span id="normalizer-nfkc-unify-latin-alphabet-with"></span><h4><span class="section-number">7.7.2.2.4.1.22. </span><code class="docutils literal notranslate"><span class="pre">unify_latin_alphabet_with</span></code><a class="headerlink" href="#unify-latin-alphabet-with" title="Link to this heading">#</a></h4>
+<p>This option enables that alphabets with diacritical mark and alphabets without diacritical mark regarded as the same character as below.</p>
+<p>However, this feature focus on only LATIN (SMALL|CAPITAL) LETTER X WITH XXX. It doesn’t support LATIN (SMALL|CAPITAL) LETTER X + COMBINING XXX characters.</p>
+</section>
 </section>
 </section>
 <section id="see-also">
-<h2><span class="section-number">7.7.2.4.5. </span>See also<a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.7.2.2.5. </span>See also<a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../commands/normalize.html"><span class="doc">normalize</span></a></p></li>
 </ul>
@@ -1901,20 +2018,20 @@ And a previous kana letter is “ン” , “-” is normalized to “ン”.</p
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="normalizer_nfkc100.html"
+       href="normalizer_auto.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">7.7.2.3. </span><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC100</span></code></p>
+        <p class="prev-next-title"><span class="section-number">7.7.2.1. </span><code class="docutils literal notranslate"><span class="pre">NormalizerAuto</span></code></p>
       </div>
     </a>
     <a class="right-next"
-       href="normalizer_nfkc130.html"
+       href="normalizer_nfkc100.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7.7.2.5. </span><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC130</span></code></p>
+        <p class="prev-next-title"><span class="section-number">7.7.2.3. </span><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC100</span></code></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1937,39 +2054,46 @@ And a previous kana letter is “ン” , “-” is normalized to “ン”.</p
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">7.7.2.4.1. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax">7.7.2.4.2. Syntax</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">7.7.2.4.3. Usage</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-usage">7.7.2.4.3.1. Simple usage</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-usage">7.7.2.4.3.2. Advanced usage</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">7.7.2.4.4. Parameters</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-parameter">7.7.2.4.4.1. Optional parameter</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-kana">7.7.2.4.4.1.1. <code class="docutils literal notranslate"><span class="pre">unify_kana</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-kana-case">7.7.2.4.4.1.2. <code class="docutils literal notranslate"><span class="pre">unify_kana_case</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-kana-voiced-sound-mark">7.7.2.4.4.1.3. <code class="docutils literal notranslate"><span class="pre">unify_kana_voiced_sound_mark</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-hyphen">7.7.2.4.4.1.4. <code class="docutils literal notranslate"><span class="pre">unify_hyphen</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-prolonged-sound-mark">7.7.2.4.4.1.5. <code class="docutils literal notranslate"><span class="pre">unify_prolonged_sound_mark</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-hyphen-and-prolonged-sound-mark">7.7.2.4.4.1.6. <code class="docutils literal notranslate"><span class="pre">unify_hyphen_and_prolonged_sound_mark</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-middle-dot">7.7.2.4.4.1.7. <code class="docutils literal notranslate"><span class="pre">unify_middle_dot</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-v-sounds">7.7.2.4.4.1.8. <code class="docutils literal notranslate"><span class="pre">unify_katakana_v_sounds</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-bu-sound">7.7.2.4.4.1.9. <code class="docutils literal notranslate"><span class="pre">unify_katakana_bu_sound</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-to-romaji">7.7.2.4.4.1.10. <code class="docutils literal notranslate"><span class="pre">unify_to_romaji</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-gu-small-sounds">7.7.2.4.4.1.11. <code class="docutils literal notranslate"><span class="pre">unify_katakana_gu_small_sounds</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-di-sound">7.7.2.4.4.1.12. <code class="docutils literal notranslate"><span class="pre">unify_katakana_di_sound</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-wo-sound">7.7.2.4.4.1.13. <code class="docutils literal notranslate"><span class="pre">unify_katakana_wo_sound</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-zu-small-sounds">7.7.2.4.4.1.14. <code class="docutils literal notranslate"><span class="pre">unify_katakana_zu_small_sounds</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-du-sound">7.7.2.4.4.1.15. <code class="docutils literal notranslate"><span class="pre">unify_katakana_du_sound</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-trailing-o">7.7.2.4.4.1.16. <code class="docutils literal notranslate"><span class="pre">unify_katakana_trailing_o</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-du-small-sounds">7.7.2.4.4.1.17. <code class="docutils literal notranslate"><span class="pre">unify_katakana_du_small_sounds</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-kana-prolonged-sound-mark">7.7.2.4.4.1.18. <code class="docutils literal notranslate"><span class="pre">unify_kana_prolonged_sound_mark</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-kana-hyphen">7.7.2.4.4.1.19. <code class="docutils literal notranslate"><span class="pre">unify_kana_hyphen</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">7.7.2.2.1. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax">7.7.2.2.2. Syntax</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">7.7.2.2.3. Usage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-usage">7.7.2.2.3.1. Simple usage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-usage">7.7.2.2.3.2. Advanced usage</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#with-tokenmecab">7.7.2.2.3.2.1. With <code class="docutils literal notranslate"><span class="pre">TokenMecab</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-unify-to-katakana-with-other-options">7.7.2.2.3.2.2. Use <code class="docutils literal notranslate"><span class="pre">unify_to_katakana</span></code> with other options</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">7.7.2.4.5. See also</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">7.7.2.2.4. Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-parameter">7.7.2.2.4.1. Optional parameter</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-kana">7.7.2.2.4.1.1. <code class="docutils literal notranslate"><span class="pre">unify_kana</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-kana-case">7.7.2.2.4.1.2. <code class="docutils literal notranslate"><span class="pre">unify_kana_case</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-kana-voiced-sound-mark">7.7.2.2.4.1.3. <code class="docutils literal notranslate"><span class="pre">unify_kana_voiced_sound_mark</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-hyphen">7.7.2.2.4.1.4. <code class="docutils literal notranslate"><span class="pre">unify_hyphen</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-prolonged-sound-mark">7.7.2.2.4.1.5. <code class="docutils literal notranslate"><span class="pre">unify_prolonged_sound_mark</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-hyphen-and-prolonged-sound-mark">7.7.2.2.4.1.6. <code class="docutils literal notranslate"><span class="pre">unify_hyphen_and_prolonged_sound_mark</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-middle-dot">7.7.2.2.4.1.7. <code class="docutils literal notranslate"><span class="pre">unify_middle_dot</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-v-sounds">7.7.2.2.4.1.8. <code class="docutils literal notranslate"><span class="pre">unify_katakana_v_sounds</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-bu-sound">7.7.2.2.4.1.9. <code class="docutils literal notranslate"><span class="pre">unify_katakana_bu_sound</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-to-katakana">7.7.2.2.4.1.10. <code class="docutils literal notranslate"><span class="pre">unify_to_katakana</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-to-romaji">7.7.2.2.4.1.11. <code class="docutils literal notranslate"><span class="pre">unify_to_romaji</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-symbol">7.7.2.2.4.1.12. <code class="docutils literal notranslate"><span class="pre">remove_symbol</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-gu-small-sounds">7.7.2.2.4.1.13. <code class="docutils literal notranslate"><span class="pre">unify_katakana_gu_small_sounds</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-di-sound">7.7.2.2.4.1.14. <code class="docutils literal notranslate"><span class="pre">unify_katakana_di_sound</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-wo-sound">7.7.2.2.4.1.15. <code class="docutils literal notranslate"><span class="pre">unify_katakana_wo_sound</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-zu-small-sounds">7.7.2.2.4.1.16. <code class="docutils literal notranslate"><span class="pre">unify_katakana_zu_small_sounds</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-du-sound">7.7.2.2.4.1.17. <code class="docutils literal notranslate"><span class="pre">unify_katakana_du_sound</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-trailing-o">7.7.2.2.4.1.18. <code class="docutils literal notranslate"><span class="pre">unify_katakana_trailing_o</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-du-small-sounds">7.7.2.2.4.1.19. <code class="docutils literal notranslate"><span class="pre">unify_katakana_du_small_sounds</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-kana-prolonged-sound-mark">7.7.2.2.4.1.20. <code class="docutils literal notranslate"><span class="pre">unify_kana_prolonged_sound_mark</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-kana-hyphen">7.7.2.2.4.1.21. <code class="docutils literal notranslate"><span class="pre">unify_kana_hyphen</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-latin-alphabet-with">7.7.2.2.4.1.22. <code class="docutils literal notranslate"><span class="pre">unify_latin_alphabet_with</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">7.7.2.2.5. See also</a></li>
 </ul>
   </nav></div>
 
@@ -1977,7 +2101,7 @@ And a previous kana letter is “ン” , “-” is normalized to “ン”.</p
 
   
   <div class="tocsection editthispage">
-    <a href="https://github.com/groonga/groonga/edit/main/doc/source/reference/normalizers/normalizer_nfkc121.rst">
+    <a href="https://github.com/groonga/groonga/edit/main/doc/source/reference/normalizers/normalizer_nfkc.rst">
       <i class="fa-solid fa-pencil"></i>
       
       

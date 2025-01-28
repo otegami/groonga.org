@@ -453,12 +453,13 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="normalizers.html">7.7. Normalizers</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_auto.html">7.7.2.1. <code class="docutils literal notranslate"><span class="pre">NormalizerAuto</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc100.html">7.7.2.2. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC100</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc121.html">7.7.2.3. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc130.html">7.7.2.4. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC130</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc150.html">7.7.2.5. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC150</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc51.html">7.7.2.6. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC51</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_table.html">7.7.2.7. <code class="docutils literal notranslate"><span class="pre">NormalizerTable</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc.html">7.7.2.2. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc100.html">7.7.2.3. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC100</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc121.html">7.7.2.4. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc130.html">7.7.2.5. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC130</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc150.html">7.7.2.6. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC150</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_nfkc51.html">7.7.2.7. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC51</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalizers/normalizer_table.html">7.7.2.8. <code class="docutils literal notranslate"><span class="pre">NormalizerTable</span></code></a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="tokenizers.html">7.8. Tokenizers</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -763,6 +764,14 @@ construction:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">column_create</span> <span class="n">Lexicon</span> <span class="n">tweet</span> <span class="n">COLUMN_INDEX</span><span class="o">|</span><span class="n">WITH_POSITION</span> <span class="n">Tweets</span> <span class="n">content</span>
 <span class="c1"># [[0,1337566253.89858,0.000355720520019531],true]</span>
 </pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We can create an index in parallel by adding
+<code class="docutils literal notranslate"><span class="pre">--n_workers</span> <span class="pre">-1</span></code>. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">column_create</span> <span class="n">Lexicon</span> <span class="n">tweet</span> <span class="n">COLUMN_INDEX</span><span class="o">|</span><span class="n">WITH_POSITION</span> <span class="n">Tweets</span> <span class="n">content</span> <span class="o">--</span><span class="n">n_workers</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
 </div>
 <p>We search with index. We get a matched record:</p>
 <p>Execution example:</p>
