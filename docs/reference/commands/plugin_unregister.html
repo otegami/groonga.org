@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.3.46. plugin_unregister &#8212; Groonga v14.1.2 documentation</title>
+    <title>7.3.46. plugin_unregister &#8212; Groonga v14.1.3 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=e535604e"></script>
+    <script src="../../_static/documentation_options.js?v=81fab00a"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
@@ -69,7 +69,7 @@
     <link rel="prev" title="7.3.45. plugin_register" href="plugin_register.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="14.1.2" />
+  <meta name="docsearch:version" content="14.1.3" />
   </head>
   
   
@@ -135,8 +135,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.2 documentation - Home"/>
-    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.2 documentation - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.3 documentation - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.3 documentation - Home"/>
   
   
 </a></div>
@@ -453,12 +453,13 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../normalizers.html">7.7. Normalizers</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_auto.html">7.7.2.1. <code class="docutils literal notranslate"><span class="pre">NormalizerAuto</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc100.html">7.7.2.2. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC100</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc121.html">7.7.2.3. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc130.html">7.7.2.4. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC130</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc150.html">7.7.2.5. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC150</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc51.html">7.7.2.6. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC51</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_table.html">7.7.2.7. <code class="docutils literal notranslate"><span class="pre">NormalizerTable</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc.html">7.7.2.2. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc100.html">7.7.2.3. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC100</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc121.html">7.7.2.4. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC121</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc130.html">7.7.2.5. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC130</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc150.html">7.7.2.6. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC150</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_nfkc51.html">7.7.2.7. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC51</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../normalizers/normalizer_table.html">7.7.2.8. <code class="docutils literal notranslate"><span class="pre">NormalizerTable</span></code></a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../tokenizers.html">7.8. Tokenizers</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -484,10 +485,11 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../token_filters.html">7.9. Token filters</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../token_filter/summary.html">7.9.1. Summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../token_filters/token_filter_nfkc100.html">7.9.2. <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC100</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../token_filters/token_filter_nfkc150.html">7.9.3. <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC150</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../token_filters/token_filter_stem.html">7.9.4. <code class="docutils literal notranslate"><span class="pre">TokenFilterStem</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../token_filters/token_filter_stop_word.html">7.9.5. <code class="docutils literal notranslate"><span class="pre">TokenFilterStopWord</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../token_filters/token_filter_nfkc.html">7.9.2. <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../token_filters/token_filter_nfkc100.html">7.9.3. <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC100</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../token_filters/token_filter_nfkc150.html">7.9.4. <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC150</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../token_filters/token_filter_stem.html">7.9.5. <code class="docutils literal notranslate"><span class="pre">TokenFilterStem</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../token_filters/token_filter_stop_word.html">7.9.6. <code class="docutils literal notranslate"><span class="pre">TokenFilterStopWord</span></code></a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../query_expanders.html">7.10. Query expanders</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -816,7 +818,7 @@ They are completed automatically.</p>
 
   <p class="copyright">
     
-      © Copyright 2009-2024 Groonga Project.
+      © Copyright 2009-2025 Groonga Project.
       <br/>
     
   </p>

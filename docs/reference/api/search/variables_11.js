@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['scorer_0',['scorer',['../struct__grn__search__optarg.html#a37f56c0a528295b2a1405ddc0a600bb0',1,'_grn_search_optarg']]],
+  ['scorer_5fargs_5fexpr_1',['scorer_args_expr',['../struct__grn__search__optarg.html#a9ce75309c674ce7424b85834a5539fed',1,'_grn_search_optarg']]],
+  ['scorer_5fargs_5fexpr_5foffset_2',['scorer_args_expr_offset',['../struct__grn__search__optarg.html#a6b8e681a10282a2cbfa76b83f7407884',1,'_grn_search_optarg']]],
+  ['section_3',['section',['../struct__grn__index__datum.html#a5045999904496a86ae6ad044721eed1e',1,'_grn_index_datum']]],
+  ['sections_4',['sections',['../struct__grn__obj.html#a138c0117e945b935d97910579f32cc8a',1,'_grn_obj']]],
+  ['seqno_5',['seqno',['../struct__grn__ctx.html#a6cc867d512cbf3c2230fd78e5a928483',1,'_grn_ctx']]],
+  ['seqno2_6',['seqno2',['../struct__grn__ctx.html#a43296699d181650173e8b8c320be6423',1,'_grn_ctx']]],
+  ['sid_7',['sid',['../structgrn__posting.html#a42a6b7a3a2472ff75e1fdee2d7a17c7d',1,'grn_posting']]],
+  ['similarity_5fthreshold_8',['similarity_threshold',['../struct__grn__search__optarg.html#af1fd93ab9d5b63b6af6a5b201a1f69f5',1,'_grn_search_optarg']]],
+  ['sort_5fkeys_9',['sort_keys',['../struct__grn__window__definition.html#a9b71e87f7ff55b4640ca42b6a20264f3',1,'_grn_window_definition']]],
+  ['src_10',['src',['../structgrn__caster.html#aae0f69e0e490a9b63ea7ac67d91a1750',1,'grn_caster']]],
+  ['start_5fposition_11',['start_position',['../struct__grn__search__optarg.html#a3e651ef6c0c97da413be0e9db72cd656',1,'_grn_search_optarg']]],
+  ['stat_12',['stat',['../struct__grn__ctx.html#a9212fa571e0334c46f416acace2195c1',1,'_grn_ctx::stat'],['../struct__grn__ctx__info.html#af080ee11525b9b58901b75764df6632d',1,'_grn_ctx_info::stat']]],
+  ['status_13',['status',['../struct__grn__tokenizer__token.html#a11b1fa51dccb76f6a368d27aeafcdc94',1,'_grn_tokenizer_token']]],
+  ['str_14',['str',['../struct__grn__tokenizer__token.html#a669ed19d9d00c1e4373a6c32573a7c6c',1,'_grn_tokenizer_token']]],
+  ['subno_15',['subno',['../struct__grn__ctx.html#a6c8a0850a7b93db844c79ac8d5f5b038',1,'_grn_ctx']]]
+];

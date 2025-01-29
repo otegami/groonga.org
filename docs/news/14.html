@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>News - 14 series &#8212; Groonga v14.1.2 documentation</title>
+    <title>News - 14 series &#8212; Groonga v14.1.3 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=e535604e"></script>
+    <script src="../_static/documentation_options.js?v=81fab00a"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
@@ -67,7 +67,7 @@
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="14.1.2" />
+  <meta name="docsearch:version" content="14.1.3" />
   </head>
   
   
@@ -133,8 +133,8 @@
       
     
     
-    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.2 documentation - Home"/>
-    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.2 documentation - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.3 documentation - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.3 documentation - Home"/>
   
   
 </a></div>
@@ -403,11 +403,125 @@
   <section class="tex2jax_ignore mathjax_ignore" id="news-14-series">
 <h1>News - 14 series<a class="headerlink" href="#news-14-series" title="Link to this heading">#</a></h1>
 <!-- prettier-ignore-start -->
-<section id="release-14-1-2-2024-12-24">
-<span id="release-14-1-2"></span><h2>Release 14.1.2 - 2024-12-24<a class="headerlink" href="#release-14-1-2-2024-12-24" title="Link to this heading">#</a></h2>
+<section id="release-14-1-3-2025-01-29">
+<span id="release-14-1-3"></span><h2>Release 14.1.3 - 2025-01-29<a class="headerlink" href="#release-14-1-3-2025-01-29" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
 <section id="improvements">
 <h3>Improvements<a class="headerlink" href="#improvements" title="Link to this heading">#</a></h3>
+<section id="offline-index-construction-added-support-for-parallel-execution">
+<h4><a class="reference internal" href="../reference/indexing.html#offline-index-construction"><span class="std std-ref">Offline index construction</span></a>: Added support for parallel execution<a class="headerlink" href="#offline-index-construction-added-support-for-parallel-execution" title="Link to this heading">#</a></h4>
+<p>If you have many CPU cores, you can improve
+<a class="reference internal" href="../reference/indexing.html#offline-index-construction"><span class="std std-ref">Offline index construction</span></a> performance. You can use it by
+<code class="docutils literal notranslate"><span class="pre">column_create</span> <span class="pre">...</span> <span class="pre">COLUMN_INDEX</span> <span class="pre">...</span> <span class="pre">--n_workers</span> <span class="pre">-1</span></code>.</p>
+<p>In general, <a class="reference internal" href="../reference/indexing.html#offline-index-construction"><span class="std std-ref">Offline index construction</span></a> will be 2-10x faster by
+this.</p>
+</section>
+<section id="reference-functions-language-model-vectorize-added-support-for-phi-4">
+<h4><a class="reference internal" href="../reference/functions/language_model_vectorize.html"><span class="doc">language_model_vectorize</span></a>: Added support for Phi-4<a class="headerlink" href="#reference-functions-language-model-vectorize-added-support-for-phi-4" title="Link to this heading">#</a></h4>
+<p>You can use <a class="reference external" href="https://huggingface.co/microsoft/phi-4">Phi-4</a> as a
+language model. Note that Phi-4 isn’t designing for generating
+embeddings.</p>
+</section>
+<section id="added-reference-normalizers-normalizer-nfkc">
+<h4>Added <a class="reference internal" href="../reference/normalizers/normalizer_nfkc.html"><span class="doc">NormalizerNFKC</span></a><a class="headerlink" href="#added-reference-normalizers-normalizer-nfkc" title="Link to this heading">#</a></h4>
+<p>It’s similar to existing <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC*</span></code> such as
+<a class="reference internal" href="../reference/normalizers/normalizer_nfkc150.html"><span class="doc">NormalizerNFKC150</span></a>. But it’s more
+generic than <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC*</span></code>.</p>
+<p><a class="reference internal" href="../reference/normalizers/normalizer_nfkc.html"><span class="doc">NormalizerNFKC</span></a> accepts <a class="reference internal" href="../reference/normalizers/normalizer_nfkc.html#normalizer-nfkc-version"><span class="std std-ref">version</span></a> argument to change used Unicode
+version. For example, <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC(&quot;version&quot;,</span> <span class="pre">&quot;15.0.0&quot;)</span></code> equals to
+<code class="docutils literal notranslate"><span class="pre">NormalizerNFKC150</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC*</span></code> are deprecated by <a class="reference internal" href="../reference/normalizers/normalizer_nfkc.html"><span class="doc">NormalizerNFKC</span></a>. You should use
+<a class="reference internal" href="../reference/normalizers/normalizer_nfkc.html"><span class="doc">NormalizerNFKC</span></a> for newly written applications.</p>
+<p><a class="reference internal" href="../reference/normalizers/normalizer_nfkc.html"><span class="doc">NormalizerNFKC</span></a> uses Unicode 16.0.0 by default.</p>
+</section>
+<section id="added-reference-token-filters-token-filter-nfkc">
+<h4>Added <a class="reference internal" href="../reference/token_filters/token_filter_nfkc.html"><span class="doc">TokenFilterNFKC</span></a><a class="headerlink" href="#added-reference-token-filters-token-filter-nfkc" title="Link to this heading">#</a></h4>
+<p>It’s similar to existing <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC*</span></code> such as
+<a class="reference internal" href="../reference/token_filters/token_filter_nfkc150.html"><span class="doc">TokenFilterNFKC150</span></a>. But it’s based
+on <a class="reference internal" href="../reference/normalizers/normalizer_nfkc.html"><span class="doc">NormalizerNFKC</span></a>. So you can specify Unicode version as <a class="reference internal" href="../reference/normalizers/normalizer_nfkc.html#normalizer-nfkc-version"><span class="std std-ref">version</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC*</span></code> are deprecated by <a class="reference internal" href="../reference/token_filters/token_filter_nfkc.html"><span class="doc">TokenFilterNFKC</span></a>. You should use
+<a class="reference internal" href="../reference/token_filters/token_filter_nfkc.html"><span class="doc">TokenFilterNFKC</span></a> for newly written applications.</p>
+<p><a class="reference internal" href="../reference/token_filters/token_filter_nfkc.html"><span class="doc">TokenFilterNFKC</span></a> uses Unicode 16.0.0 by default.</p>
+</section>
+<section id="install-amazon-linux-added-support-for-amazon-linux-2023-aarch64">
+<h4><a class="reference internal" href="../install/amazon_linux.html"><span class="doc">Amazon Linux</span></a>: Added support for Amazon Linux 2023 aarch64<a class="headerlink" href="#install-amazon-linux-added-support-for-amazon-linux-2023-aarch64" title="Link to this heading">#</a></h4>
+<p>See <a class="reference internal" href="../install/amazon_linux.html"><span class="doc">Amazon Linux</span></a> how to install.</p>
+</section>
+<section id="reference-commands-index-column-diff-added-support-for-changing-log-level-for-progress-logs">
+<h4><a class="reference internal" href="../reference/commands/index_column_diff.html"><span class="doc">index_column_diff</span></a>: Added support for changing log level for progress logs<a class="headerlink" href="#reference-commands-index-column-diff-added-support-for-changing-log-level-for-progress-logs" title="Link to this heading">#</a></h4>
+<p>It’s useful to see only progress logs without other debug logs.</p>
+<p>See <a class="reference internal" href="../reference/commands/index_column_diff.html#index-column-diff-progress-log-level"><span class="std std-ref">progress_log_level</span></a> for details.</p>
+</section>
+</section>
+<section id="fixes">
+<h3>Fixes<a class="headerlink" href="#fixes" title="Link to this heading">#</a></h3>
+<section id="fixed-a-bug-that-deb-rpm-packages-can-t-be-used-on-machines-that-don-t-have-avx">
+<h4>Fixed a bug that deb/rpm packages can’t be used on machines that don’t have AVX<a class="headerlink" href="#fixed-a-bug-that-deb-rpm-packages-can-t-be-used-on-machines-that-don-t-have-avx" title="Link to this heading">#</a></h4>
+<p>pgroonga/pgroonga#642</p>
+<p>Groonga uses llama.cpp to use language models. llama.cpp uses SIMD for
+fast processing.</p>
+<p>We defer llama.cpp initialization that needs SIMD. So you can use
+Groonga on machines that don’t have AVX if you don’t use language
+model related features such as
+<a class="reference internal" href="../reference/functions/language_model_vectorize.html"><span class="doc">language_model_vectorize</span></a>.</p>
+<p>Reported by Yuki Shira.</p>
+</section>
+<section id="table-pat-key-fixed-a-bug-that-existing-key-may-be-broken-after-reference-commands-defrag">
+<h4><a class="reference internal" href="../reference/tables.html#table-pat-key"><span class="std std-ref">TABLE_PAT_KEY</span></a>: Fixed a bug that existing key may be broken after <a class="reference internal" href="../reference/commands/defrag.html"><span class="doc">defrag</span></a><a class="headerlink" href="#table-pat-key-fixed-a-bug-that-existing-key-may-be-broken-after-reference-commands-defrag" title="Link to this heading">#</a></h4>
+<p>If you have some garbage nodes in <a class="reference internal" href="../reference/tables.html#table-pat-key"><span class="std std-ref">TABLE_PAT_KEY</span></a> and
+<a class="reference internal" href="../reference/commands/defrag.html"><span class="doc">defrag</span></a> it, new added keys to the
+<a class="reference internal" href="../reference/tables.html#table-pat-key"><span class="std std-ref">TABLE_PAT_KEY</span></a> might override existing keys.</p>
+<p>This bug exists since <a class="reference internal" href="#release-14-1-1"><span class="std std-ref">Release 14.1.1 - 2024-12-03</span></a>.</p>
+</section>
+<section id="table-pat-key-fixed-a-bug-that-some-wals-are-missing-for-reference-commands-defrag">
+<h4><a class="reference internal" href="../reference/tables.html#table-pat-key"><span class="std std-ref">TABLE_PAT_KEY</span></a>: Fixed a bug that some WALs are missing for <a class="reference internal" href="../reference/commands/defrag.html"><span class="doc">defrag</span></a><a class="headerlink" href="#table-pat-key-fixed-a-bug-that-some-wals-are-missing-for-reference-commands-defrag" title="Link to this heading">#</a></h4>
+<p>This release added some missing WALs on
+<a class="reference internal" href="../reference/commands/defrag.html"><span class="doc">defrag</span></a>. If some WALs are missing, we may
+not be able to recover a crash in <a class="reference internal" href="../reference/commands/defrag.html"><span class="doc">defrag</span></a>.</p>
+</section>
+<section id="reference-commands-defrag-fixed-a-bug-that-columns-of-table-pat-key-aren-t-processed">
+<h4><a class="reference internal" href="../reference/commands/defrag.html"><span class="doc">defrag</span></a>: Fixed a bug that columns of <a class="reference internal" href="../reference/tables.html#table-pat-key"><span class="std std-ref">TABLE_PAT_KEY</span></a> aren’t processed<a class="headerlink" href="#reference-commands-defrag-fixed-a-bug-that-columns-of-table-pat-key-aren-t-processed" title="Link to this heading">#</a></h4>
+<p>GH-2168</p>
+<p><code class="docutils literal notranslate"><span class="pre">defrag</span> <span class="pre">pat</span></code> should process <code class="docutils literal notranslate"><span class="pre">pat</span></code> and its columns. But it processes
+only <code class="docutils literal notranslate"><span class="pre">pat</span></code> since <a class="reference internal" href="#release-14-1-1"><span class="std std-ref">Release 14.1.1 - 2024-12-03</span></a>. It’s a regression bug.</p>
+</section>
+<section id="reference-columns-index-fixed-an-offline-index-construction-bug">
+<h4><a class="reference internal" href="../reference/columns/index.html"><span class="doc">Index column</span></a>: Fixed an <a class="reference internal" href="../reference/indexing.html#offline-index-construction"><span class="std std-ref">Offline index construction</span></a> bug<a class="headerlink" href="#reference-columns-index-fixed-an-offline-index-construction-bug" title="Link to this heading">#</a></h4>
+<p>It happened when:</p>
+<ul class="simple">
+<li><p>Source is a <a class="reference internal" href="../reference/columns/vector.html#reference-vector-column"><span class="std std-ref">Reference vector column</span></a></p></li>
+<li><p>Source has a <code class="docutils literal notranslate"><span class="pre">GRN_ID_NIL</span></code> element (an element that refers nothing)
+between <code class="docutils literal notranslate"><span class="pre">1..-2</span></code> position</p></li>
+<li><p>Index column has <code class="docutils literal notranslate"><span class="pre">WITH_POSITION</span></code> flag</p></li>
+</ul>
+<p>Offline index construction always uses wrong position for elements
+after the <code class="docutils literal notranslate"><span class="pre">GRN_ID_NIL</span></code> element.</p>
+<p>Offline index construction may use wrong index key. It depends on an
+uninitialized memory.</p>
+</section>
+<section id="table-hash-key-fixed-a-bug-that-garbage-entry-may-not-be-reused">
+<h4><a class="reference internal" href="../reference/tables.html#table-hash-key"><span class="std std-ref">TABLE_HASH_KEY</span></a>: Fixed a bug that garbage entry may not be reused<a class="headerlink" href="#table-hash-key-fixed-a-bug-that-garbage-entry-may-not-be-reused" title="Link to this heading">#</a></h4>
+<p>It happened when a <a class="reference internal" href="../reference/tables.html#table-hash-key"><span class="std std-ref">TABLE_HASH_KEY</span></a> is rehashed with
+garbage. Garbage is increased by deleting records.</p>
+<p>If rehash is done with garbage, the garbage is never reused after the
+rehash. A <a class="reference internal" href="../reference/tables.html#table-pat-key"><span class="std std-ref">TABLE_PAT_KEY</span></a> may large even when it has only a few
+valid records.</p>
+<p>This bug exists since <a class="reference internal" href="10.html#release-10-1-1"><span class="std std-ref">Release 10.1.1 - 2021-01-25</span></a>.</p>
+</section>
+</section>
+<section id="thanks">
+<h3>Thanks<a class="headerlink" href="#thanks" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Yuki Shira</p></li>
+</ul>
+<!-- prettier-ignore-start -->
+</section>
+</section>
+<section id="release-14-1-2-2024-12-24">
+<span id="release-14-1-2"></span><h2>Release 14.1.2 - 2024-12-24<a class="headerlink" href="#release-14-1-2-2024-12-24" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
+<section id="id1">
+<h3>Improvements<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <section id="relicensed-to-lgpl-2-1-or-later-from-lgpl-2-1-only">
 <h4>Relicensed to LGPL-2.1-or-later from LGPL-2.1-only<a class="headerlink" href="#relicensed-to-lgpl-2-1-or-later-from-lgpl-2-1-only" title="Link to this heading">#</a></h4>
 <p><a class="reference external" href="https://github.com/groonga/groonga/issues/1774">GH-1774</a></p>
@@ -422,8 +536,8 @@ vector column but didn’t work for a reference “weight” vector column.</p>
 column.</p>
 </section>
 </section>
-<section id="fixes">
-<h3>Fixes<a class="headerlink" href="#fixes" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>Fixes<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <section id="reference-columns-vector-fixed-a-bug-that-needed-cast-may-not-be-done">
 <h4><a class="reference internal" href="../reference/columns/vector.html"><span class="doc">Vector column</span></a>: Fixed a bug that needed cast may not be done<a class="headerlink" href="#reference-columns-vector-fixed-a-bug-that-needed-cast-may-not-be-done" title="Link to this heading">#</a></h4>
 <p>Groonga casts a value automatically when it’s needed.</p>
@@ -437,8 +551,8 @@ value. But it was not done.</p>
 <section id="release-14-1-1-2024-12-03">
 <span id="release-14-1-1"></span><h2>Release 14.1.1 - 2024-12-03<a class="headerlink" href="#release-14-1-1-2024-12-03" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id1">
-<h3>Improvements<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>Improvements<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <section id="stopped-vendoring-rapidjson">
 <h4>Stopped vendoring RapidJSON<a class="headerlink" href="#stopped-vendoring-rapidjson" title="Link to this heading">#</a></h4>
 <p><a class="reference external" href="https://github.com/groonga/groonga/issues/1462">GH-1462</a></p>
@@ -477,8 +591,8 @@ value. But it was not done.</p>
 <p>There was a case that wastes key space. Now, we can use key space as efficiency as possible.</p>
 </section>
 </section>
-<section id="id2">
-<h3>Fixes<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>Fixes<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <section id="grn-pat-size-fixed-a-bug-that-0-may-not-be-returned-on-error">
 <h4><code class="docutils literal notranslate"><span class="pre">grn_pat_size()</span></code>: Fixed a bug that <code class="docutils literal notranslate"><span class="pre">0</span></code> may not be returned on error<a class="headerlink" href="#grn-pat-size-fixed-a-bug-that-0-may-not-be-returned-on-error" title="Link to this heading">#</a></h4>
 <p><a class="reference external" href="https://github.com/groonga/groonga/issues/2097">GH-2097</a></p>
@@ -501,8 +615,8 @@ value. But it was not done.</p>
 <section id="release-14-1-0-2024-11-05">
 <span id="release-14-1-0"></span><h2>Release 14.1.0 - 2024-11-05<a class="headerlink" href="#release-14-1-0-2024-11-05" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id3">
-<h3>Improvements<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>Improvements<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <section id="reference-commands-status-added-features-llama-cpp-entry">
 <h4>[<a class="reference internal" href="../reference/commands/status.html"><span class="doc">status</span></a>] Added <code class="docutils literal notranslate"><span class="pre">.[&quot;features&quot;][&quot;llama.cpp&quot;]</span></code> entry<a class="headerlink" href="#reference-commands-status-added-features-llama-cpp-entry" title="Link to this heading">#</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">.[&quot;features&quot;]</span></code> entry shows whether each feature is enabled or not like the following:</p>
@@ -561,8 +675,8 @@ value. But it was not done.</p>
 <p>You can <a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a> only the text to be searched while simultaneously storing the embedding with this feature.</p>
 </section>
 </section>
-<section id="id4">
-<h3>Fixes<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>Fixes<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <section id="server-gqtp-fixed-a-bug-that-wrong-return-code-is-returned">
 <h4>[<a class="reference internal" href="../server/gqtp.html"><span class="doc">GQTP</span></a>] Fixed a bug that wrong return code is returned<a class="headerlink" href="#server-gqtp-fixed-a-bug-that-wrong-return-code-is-returned" title="Link to this heading">#</a></h4>
 <p>This is a client side problem. This problem was introduced in 14.0.0.</p>
@@ -622,8 +736,8 @@ value. But it was not done.</p>
 <section id="release-14-0-9-2024-09-27">
 <span id="release-14-0-9"></span><h2>Release 14.0.9 - 2024-09-27<a class="headerlink" href="#release-14-0-9-2024-09-27" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id5">
-<h3>Fixes<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3>Fixes<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Fixed build error when we build from source on Alpine Linux 3.20.</p></li>
 </ul>
@@ -633,8 +747,8 @@ value. But it was not done.</p>
 <section id="release-14-0-8-2024-09-25">
 <span id="release-14-0-8"></span><h2>Release 14.0.8 - 2024-09-25<a class="headerlink" href="#release-14-0-8-2024-09-25" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id6">
-<h3>Improvements<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h3>Improvements<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[Amazon Linux 2023] Added support for Amazon Linux 2023. [GH-1845][Reported by takoyaki-nyokki and Watson]</p>
 <p>However, we don’t support Amazon Linux 2023 for aarch64 currently.
@@ -644,14 +758,14 @@ Because Amazon Linux 2023 doesn’t provide MeCab package.</p>
 </li>
 </ul>
 </section>
-<section id="id7">
-<h3>Fixes<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h3>Fixes<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Fixed a crash bug when we specified <code class="docutils literal notranslate"><span class="pre">pgroonga.log_type</span></code> on PGroonga for Windows.</p></li>
 </ul>
 </section>
-<section id="thanks">
-<h3>Thanks<a class="headerlink" href="#thanks" title="Link to this heading">#</a></h3>
+<section id="id10">
+<h3>Thanks<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>takoyaki-nyokki</p></li>
 <li><p>Watson</p></li>
@@ -662,8 +776,8 @@ Because Amazon Linux 2023 doesn’t provide MeCab package.</p>
 <section id="release-14-0-7-2024-09-03">
 <span id="release-14-0-7"></span><h2>Release 14.0.7 - 2024-09-03<a class="headerlink" href="#release-14-0-7-2024-09-03" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id8">
-<h3>Improvements<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id11">
+<h3>Improvements<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[NormalizerNFKC] Added a new option <code class="docutils literal notranslate"><span class="pre">unify_latin_alphabet_with</span></code>.[pgroonga/pgroonga#418][Reported by Man Hoang]</p>
 <p>This option enables that alphabets with diacritical mark and alphabets without diacritical mark regarded as the same character as below.</p>
@@ -745,8 +859,8 @@ But the current implementation uses <code class="docutils literal notranslate"><
 </li>
 </ul>
 </section>
-<section id="id9">
-<h3>Fixes<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<section id="id12">
+<h3>Fixes<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[status] Fixed a bug that “h3” is never shown in <code class="docutils literal notranslate"><span class="pre">groonga</span> <span class="pre">--version</span></code>/<code class="docutils literal notranslate"><span class="pre">status</span></code>.</p></li>
 <li><p>Fixed a crash bug when log rotate is enabled.</p>
@@ -774,8 +888,8 @@ But the current implementation uses <code class="docutils literal notranslate"><
 <li><p>Fixed a bug that Groonga use bundled Onigmo even if we specify <code class="docutils literal notranslate"><span class="pre">GRN_WITH_BUNDLED_ONIGMO=OFF</span></code>. [termux/termux-packages#21252][Patch by Biswapriyo Nath]</p></li>
 </ul>
 </section>
-<section id="id10">
-<h3>Thanks<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<section id="id13">
+<h3>Thanks<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Man Hoang</p></li>
 <li><p>Biswapriyo Nath</p></li>
@@ -786,8 +900,8 @@ But the current implementation uses <code class="docutils literal notranslate"><
 <section id="release-14-0-6-2024-07-29">
 <span id="release-14-0-6"></span><h2>Release 14.0.6 - 2024-07-29<a class="headerlink" href="#release-14-0-6-2024-07-29" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id11">
-<h3>Improvements<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<section id="id14">
+<h3>Improvements<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>Added support for prefix search without index against vector column.</p>
 <p>We can already prefix search with index against vector column.
@@ -854,8 +968,8 @@ However, we can’t prefix search without index against vector column until now.
 <section id="release-14-0-5-2024-07-04">
 <span id="release-14-0-5"></span><h2>Release 14.0.5 - 2024-07-04<a class="headerlink" href="#release-14-0-5-2024-07-04" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id12">
-<h3>Improvements<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<section id="id15">
+<h3>Improvements<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>Dropped support for CentOS 7.</p>
 <p>Because CentOS 7 reached EOL.</p>
@@ -868,8 +982,8 @@ So, if broken objects exist in database, Groonga will try as remove as possible 
 </li>
 </ul>
 </section>
-<section id="id13">
-<h3>Fixes<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<section id="id16">
+<h3>Fixes<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[<a class="reference internal" href="../reference/functions/query.html"><span class="doc">query</span></a>] Fixed a bug that the order of evaluation of <code class="docutils literal notranslate"><span class="pre">'A</span> <span class="pre">||</span> <span class="pre">query(&quot;...&quot;,</span> <span class="pre">&quot;B</span> <span class="pre">C&quot;)'</span></code> is wrong</p>
 <p>We expect that <code class="docutils literal notranslate"><span class="pre">{&quot;name&quot;:</span> <span class="pre">&quot;Alice&quot;,</span> <span class="pre">&quot;memo&quot;:</span> <span class="pre">&quot;Groonga</span> <span class="pre">user&quot;}</span></code> is hit in the following example.
@@ -987,8 +1101,8 @@ As a result, The following query does not hit. Because <code class="docutils lit
 <section id="release-14-0-4-2024-05-29">
 <span id="release-14-0-4"></span><h2>Release 14.0.4 - 2024-05-29<a class="headerlink" href="#release-14-0-4-2024-05-29" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id14">
-<h3>Fixes<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<section id="id17">
+<h3>Fixes<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[<a class="reference internal" href="../reference/functions/query_parallel_or.html"><span class="doc">query_parallel_or</span></a>] Fixed a bug that the <a class="reference internal" href="../reference/commands/select.html#select-match-escalation-threshold"><span class="std std-ref">match_escalation_threshold</span></a> or <code class="docutils literal notranslate"><span class="pre">force_match_escalation</span></code> options were ignored when using <code class="docutils literal notranslate"><span class="pre">query_parallel_or()</span></code>.</p>
 <p>Before the fix, even when <code class="docutils literal notranslate"><span class="pre">match_escalation_threshold</span></code> was set to disable match escalation, the results still escalated when we use <code class="docutils literal notranslate"><span class="pre">query_parallel_or()</span></code>.
@@ -1093,8 +1207,8 @@ However, before the fix, Groonga always returned 0 hits as below because of we e
 <section id="release-14-0-3-2024-05-09">
 <span id="release-14-0-3"></span><h2>Release 14.0.3 - 2024-05-09<a class="headerlink" href="#release-14-0-3-2024-05-09" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id15">
-<h3>Improvements<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<section id="id18">
+<h3>Improvements<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>We optimized performance as below.</p>
 <ul class="simple">
@@ -1179,8 +1293,8 @@ However, before the fix, Groonga always returned 0 hits as below because of we e
 <li><p>[<a class="reference internal" href="../install/ubuntu.html"><span class="doc">Ubuntu</span></a>] Add support for Ubuntu 24.04 LTS (Noble Numbat).</p></li>
 </ul>
 </section>
-<section id="id16">
-<h3>Fixes<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<section id="id19">
+<h3>Fixes<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[<a class="reference internal" href="../reference/commands/request_cancel.html"><span class="doc">request_cancel</span></a>] Fix a bug that Groonga may crash when we execute <code class="docutils literal notranslate"><span class="pre">request_cancel</span></code> command while we execute the other query.</p></li>
 <li><p>Fixed the unexpected error when using <code class="docutils literal notranslate"><span class="pre">--post_filter</span></code> with <code class="docutils literal notranslate"><span class="pre">--offset</span></code> greater than the post-filtered result</p>
@@ -1462,8 +1576,8 @@ However, Groonga returned <code class="docutils literal notranslate"><span class
 <section id="release-14-0-2-2024-03-29">
 <span id="release-14-0-2"></span><h2>Release 14.0.2 - 2024-03-29<a class="headerlink" href="#release-14-0-2-2024-03-29" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id17">
-<h3>Improvements<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<section id="id20">
+<h3>Improvements<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>Reduced a log level of a log when Groonga setting normalizers/tokenizer/token_filters against temporary table.</p>
 <p>For example, the target log of this modification is the following log.</p>
@@ -1482,8 +1596,8 @@ Thus, this log does not output when PGroonga start in default.</p>
 <section id="release-14-0-1-2024-03-14">
 <span id="release-14-0-1"></span><h2>Release 14.0.1 - 2024-03-14<a class="headerlink" href="#release-14-0-1-2024-03-14" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
-<section id="id18">
-<h3>Improvements<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<section id="id21">
+<h3>Improvements<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[<a class="reference internal" href="../reference/commands/load.html"><span class="doc">load</span></a>] Stopped reporting an error when we <code class="docutils literal notranslate"><span class="pre">load</span></code> key that becomes an empty key by normalization.</p>
 <p><code class="docutils literal notranslate"><span class="pre">&quot;-&quot;</span></code> becomes <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> with <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC150(&quot;remove_symbol&quot;,</span> <span class="pre">true)</span></code>. So the following case reports a “empty key” error.</p>
@@ -1504,8 +1618,8 @@ Because we don’t match anything even if we search by empty string. So, we stop
 </li>
 </ul>
 </section>
-<section id="id19">
-<h3>Fixes<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<section id="id22">
+<h3>Fixes<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>Fixed a crash bug if a request is canceled <a class="reference internal" href="../reference/functions/between.html"><span class="doc">between</span></a> or range search.</p>
 <p>This bug doesn’t necessarily occur. This bug occur when we cancel a request in the specific timing.
@@ -1579,8 +1693,8 @@ Because we fail makeing Groonga package for Ubuntu by problrm of build environme
 <li><p>Fixed build error when we build from source by using <a class="reference external" href="https://clang.llvm.org/"><code class="docutils literal notranslate"><span class="pre">clang</span></code></a>. [GitHub#1738][Reported by windymelt]</p></li>
 </ul>
 </section>
-<section id="id20">
-<h3>Thanks<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<section id="id23">
+<h3>Thanks<a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>windymelt</p></li>
 </ul>
@@ -1592,8 +1706,8 @@ Because we fail makeing Groonga package for Ubuntu by problrm of build environme
 <!-- prettier-ignore-end -->
 <p>This is a major version up!
 But It keeps backward compatibility. We can upgrade to 14.0.0 without rebuilding database.</p>
-<section id="id21">
-<h3>Improvements<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<section id="id24">
+<h3>Improvements<a class="headerlink" href="#id24" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>Added a new tokenizer <code class="docutils literal notranslate"><span class="pre">TokenH3Index</span></code> (experimental).</p>
 <p><code class="docutils literal notranslate"><span class="pre">TokenH3Index</span></code>tokenizes WGS84GetPoint to UInt64(H3 index).</p>
@@ -1630,8 +1744,8 @@ But It keeps backward compatibility. We can upgrade to 14.0.0 without rebuilding
 <li><p>[<a class="reference internal" href="../reference/commands/select.html"><span class="doc">select</span></a>] Added support for <code class="docutils literal notranslate"><span class="pre">Int64</span></code> in <code class="docutils literal notranslate"><span class="pre">output_type=apache-arrow</span></code> for columns that reference other table.</p></li>
 </ul>
 </section>
-<section id="id22">
-<h3>Fixes<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<section id="id25">
+<h3>Fixes<a class="headerlink" href="#id25" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>[Windows] Fixed path for documents of <code class="docutils literal notranslate"><span class="pre">groonga-normalizer-mysql</span></code> in package for Windows.</p>
 <p>Documents of <code class="docutils literal notranslate"><span class="pre">groonga-normalizer-mysql</span></code> put under the <code class="docutils literal notranslate"><span class="pre">share/</span></code> in this release.</p>
@@ -1671,20 +1785,42 @@ But It keeps backward compatibility. We can upgrade to 14.0.0 without rebuilding
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-1-2-2024-12-24">Release 14.1.2 - 2024-12-24</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-1-3-2025-01-29">Release 14.1.3 - 2025-01-29</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#improvements">Improvements</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#offline-index-construction-added-support-for-parallel-execution"><span class="xref std std-ref">offline-index-construction</span>: Added support for parallel execution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-functions-language-model-vectorize-added-support-for-phi-4"><span class="xref std std-doc">/reference/functions/language_model_vectorize</span>: Added support for Phi-4</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#added-reference-normalizers-normalizer-nfkc">Added <span class="xref std std-doc">/reference/normalizers/normalizer_nfkc</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#added-reference-token-filters-token-filter-nfkc">Added <span class="xref std std-doc">/reference/token_filters/token_filter_nfkc</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-amazon-linux-added-support-for-amazon-linux-2023-aarch64"><span class="xref std std-doc">/install/amazon_linux</span>: Added support for Amazon Linux 2023 aarch64</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-index-column-diff-added-support-for-changing-log-level-for-progress-logs"><span class="xref std std-doc">/reference/commands/index_column_diff</span>: Added support for changing log level for progress logs</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixes">Fixes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-a-bug-that-deb-rpm-packages-can-t-be-used-on-machines-that-don-t-have-avx">Fixed a bug that deb/rpm packages can’t be used on machines that don’t have AVX</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#table-pat-key-fixed-a-bug-that-existing-key-may-be-broken-after-reference-commands-defrag"><span class="xref std std-ref">table-pat-key</span>: Fixed a bug that existing key may be broken after <span class="xref std std-doc">/reference/commands/defrag</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#table-pat-key-fixed-a-bug-that-some-wals-are-missing-for-reference-commands-defrag"><span class="xref std std-ref">table-pat-key</span>: Fixed a bug that some WALs are missing for <span class="xref std std-doc">/reference/commands/defrag</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-defrag-fixed-a-bug-that-columns-of-table-pat-key-aren-t-processed"><span class="xref std std-doc">/reference/commands/defrag</span>: Fixed a bug that columns of <span class="xref std std-ref">table-pat-key</span> aren’t processed</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-columns-index-fixed-an-offline-index-construction-bug"><span class="xref std std-doc">/reference/columns/index</span>: Fixed an <span class="xref std std-ref">offline-index-construction</span> bug</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#table-hash-key-fixed-a-bug-that-garbage-entry-may-not-be-reused"><span class="xref std std-ref">table-hash-key</span>: Fixed a bug that garbage entry may not be reused</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thanks">Thanks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-1-2-2024-12-24">Release 14.1.2 - 2024-12-24</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Improvements</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relicensed-to-lgpl-2-1-or-later-from-lgpl-2-1-only">Relicensed to LGPL-2.1-or-later from LGPL-2.1-only</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-delete-added-support-for-reference-weight-vector"><span class="xref std std-doc">/reference/commands/delete</span>: Added support for reference weight vector</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixes">Fixes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Fixes</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-columns-vector-fixed-a-bug-that-needed-cast-may-not-be-done"><span class="xref std std-doc">/reference/columns/vector</span>: Fixed a bug that needed cast may not be done</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-1-1-2024-12-03">Release 14.1.1 - 2024-12-03</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Improvements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Improvements</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#stopped-vendoring-rapidjson">Stopped vendoring RapidJSON</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#made-llama-cpp-initialization-lazy">Made llama.cpp initialization lazy</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizernfkc-added-support-for-mixing-unify-middle-dot-and-remove-symbol"><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code>: Added support for mixing <code class="docutils literal notranslate"><span class="pre">unify_middle_dot</span></code> and <code class="docutils literal notranslate"><span class="pre">remove_symbol</span></code></a></li>
@@ -1695,7 +1831,7 @@ But It keeps backward compatibility. We can upgrade to 14.0.0 without rebuilding
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#table-pat-key-improved-key-space-efficiency"><span class="xref std std-ref">table-pat-key</span>: Improved key space efficiency</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Fixes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Fixes</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#grn-pat-size-fixed-a-bug-that-0-may-not-be-returned-on-error"><code class="docutils literal notranslate"><span class="pre">grn_pat_size()</span></code>: Fixed a bug that <code class="docutils literal notranslate"><span class="pre">0</span></code> may not be returned on error</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-regular-expression-fixed-a-bug-with-an-empty-pattern"><span class="xref std std-doc">/reference/regular_expression</span>: Fixed a bug with an empty pattern</a></li>
 </ul>
@@ -1703,13 +1839,13 @@ But It keeps backward compatibility. We can upgrade to 14.0.0 without rebuilding
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-1-0-2024-11-05">Release 14.1.0 - 2024-11-05</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Improvements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Improvements</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-status-added-features-llama-cpp-entry">[<span class="xref std std-doc">/reference/commands/status</span>] Added <code class="docutils literal notranslate"><span class="pre">.["features"]["llama.cpp"]</span></code> entry</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-functions-language-model-vectorize-added-experimental">[<span class="xref std std-doc">/reference/functions/language_model_vectorize</span>] Added (Experimental)</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-column-create-added-the-column-create-generator-parameter">[<span class="xref std std-doc">/reference/commands/column_create</span>] Added the <span class="xref std std-ref">column-create-generator</span> parameter</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Fixes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Fixes</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#server-gqtp-fixed-a-bug-that-wrong-return-code-is-returned">[<span class="xref std std-doc">/server/gqtp</span>] Fixed a bug that wrong return code is returned</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-logical-range-filter-fixed-a-bug-that-invalid-json-format-response-may-be-returned">[<span class="xref std std-doc">/reference/commands/logical_range_filter</span>] Fixed a bug that invalid JSON format response may be returned</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-request-cancel-fixed-a-bug-that-invalid-json-format-response-may-be-returned">[<span class="xref std std-doc">/reference/commands/request_cancel</span>] Fixed a bug that invalid JSON format response may be returned</a></li>
@@ -1719,52 +1855,52 @@ But It keeps backward compatibility. We can upgrade to 14.0.0 without rebuilding
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-9-2024-09-27">Release 14.0.9 - 2024-09-27</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Fixes</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-8-2024-09-25">Release 14.0.8 - 2024-09-25</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Improvements</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Fixes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thanks">Thanks</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-7-2024-09-03">Release 14.0.7 - 2024-09-03</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Improvements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Fixes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Thanks</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-6-2024-07-29">Release 14.0.6 - 2024-07-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-7-2024-09-03">Release 14.0.7 - 2024-09-03</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Improvements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Thanks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-6-2024-07-29">Release 14.0.6 - 2024-07-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Improvements</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-5-2024-07-04">Release 14.0.5 - 2024-07-04</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Improvements</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Fixes</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-4-2024-05-29">Release 14.0.4 - 2024-05-29</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Fixes</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-3-2024-05-09">Release 14.0.3 - 2024-05-09</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Improvements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Fixes</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-4-2024-05-29">Release 14.0.4 - 2024-05-29</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Fixes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-3-2024-05-09">Release 14.0.3 - 2024-05-09</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Improvements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Fixes</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-2-2024-03-29">Release 14.0.2 - 2024-03-29</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Improvements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Improvements</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-1-2024-03-14">Release 14.0.1 - 2024-03-14</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Improvements</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Fixes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Thanks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Improvements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Thanks</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-14-0-0-2024-02-29">Release 14.0.0 - 2024-02-29</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Improvements</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">Improvements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">Fixes</a></li>
 </ul>
 </li>
 </ul>
@@ -1811,7 +1947,7 @@ But It keeps backward compatibility. We can upgrade to 14.0.0 without rebuilding
 
   <p class="copyright">
     
-      © Copyright 2009-2024 Groonga Project.
+      © Copyright 2009-2025 Groonga Project.
       <br/>
     
   </p>
