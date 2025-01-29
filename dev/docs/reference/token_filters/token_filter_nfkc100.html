@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.9.2. TokenFilterNFKC100 &#8212; Groonga v14.1.3 documentation</title>
+    <title>7.9.3. TokenFilterNFKC100 &#8212; Groonga v14.1.3 documentation</title>
   
   
   
@@ -65,8 +65,8 @@
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="7.9.3. TokenFilterNFKC150" href="token_filter_nfkc150.html" />
-    <link rel="prev" title="7.9.1. Summary" href="../token_filter/summary.html" />
+    <link rel="next" title="7.9.4. TokenFilterNFKC150" href="token_filter_nfkc150.html" />
+    <link rel="prev" title="7.9.2. TokenFilterNFKC" href="token_filter_nfkc.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="14.1.3" />
@@ -485,10 +485,11 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../token_filters.html">7.9. Token filters</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../token_filter/summary.html">7.9.1. Summary</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.9.2. <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC100</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="token_filter_nfkc150.html">7.9.3. <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC150</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="token_filter_stem.html">7.9.4. <code class="docutils literal notranslate"><span class="pre">TokenFilterStem</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="token_filter_stop_word.html">7.9.5. <code class="docutils literal notranslate"><span class="pre">TokenFilterStopWord</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="token_filter_nfkc.html">7.9.2. <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC</span></code></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.9.3. <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC100</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="token_filter_nfkc150.html">7.9.4. <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC150</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="token_filter_stem.html">7.9.5. <code class="docutils literal notranslate"><span class="pre">TokenFilterStem</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="token_filter_stop_word.html">7.9.6. <code class="docutils literal notranslate"><span class="pre">TokenFilterStopWord</span></code></a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../query_expanders.html">7.10. Query expanders</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -652,7 +653,7 @@
     
     <li class="breadcrumb-item"><a href="../token_filters.html" class="nav-link"><span class="section-number">7.9. </span>Token filters</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">7.9.2. </span><code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC100</span></code></span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">7.9.3. </span><code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC100</span></code></span></li>
   </ul>
 </nav>
 </div>
@@ -670,9 +671,13 @@
                 <article class="bd-article">
                   
   <section id="tokenfilternfkc100">
-<h1><span class="section-number">7.9.2. </span><code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC100</span></code><a class="headerlink" href="#tokenfilternfkc100" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">7.9.3. </span><code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC100</span></code><a class="headerlink" href="#tokenfilternfkc100" title="Link to this heading">#</a></h1>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 14.1.3: </span>Use <a class="reference internal" href="token_filter_nfkc.html"><span class="doc">TokenFilterNFKC</span></a> instead.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC100</span></code> and <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC(&quot;version&quot;,</span> <span class="pre">&quot;10.0.0&quot;)</span></code> are equal.</p>
+</div>
 <section id="summary">
-<h2><span class="section-number">7.9.2.1. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.9.3.1. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 8.0.9.</span></p>
 </div>
@@ -681,7 +686,7 @@ This token filter is used to normalize after tokenizing.
 Because, if you normalize before tokenizing with <code class="docutils literal notranslate"><span class="pre">TokenMecab</span></code> , the meaning of a token may be lost.</p>
 </section>
 <section id="syntax">
-<h2><span class="section-number">7.9.2.2. </span>Syntax<a class="headerlink" href="#syntax" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.9.3.2. </span>Syntax<a class="headerlink" href="#syntax" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC100</span></code> has optional parameter.</p>
 <p>No options:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TokenFilterNFKC100</span>
@@ -713,10 +718,9 @@ for Unicode version 10.0.</p>
 </div>
 </section>
 <section id="usage">
-<h2><span class="section-number">7.9.2.3. </span>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
-</section>
+<h2><span class="section-number">7.9.3.3. </span>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
 <section id="simple-usage">
-<h2><span class="section-number">7.9.2.4. </span>Simple usage<a class="headerlink" href="#simple-usage" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">7.9.3.3.1. </span>Simple usage<a class="headerlink" href="#simple-usage" title="Link to this heading">#</a></h3>
 <p>Here is an example of <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC100</span></code>. <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC100</span></code> normalizes text by Unicode NFKC (Normalization Form Compatibility Composition) for Unicode version 10.0.</p>
 <p>Execution example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tokenize</span> <span class="n">TokenDelimit</span> <span class="s2">&quot;©&quot;</span> <span class="o">--</span><span class="n">token_filters</span> <span class="n">TokenFilterNFKC100</span>
@@ -999,7 +1003,7 @@ This option enables normalize hiragana and katakana to romaji as below.</p>
 </div>
 </section>
 <section id="advanced-usage">
-<h2><span class="section-number">7.9.2.5. </span>Advanced usage<a class="headerlink" href="#advanced-usage" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">7.9.3.3.2. </span>Advanced usage<a class="headerlink" href="#advanced-usage" title="Link to this heading">#</a></h3>
 <p>You can output all input string as hiragana with cimbining <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC100</span></code> with <code class="docutils literal notranslate"><span class="pre">use_reading</span></code> option of <code class="docutils literal notranslate"><span class="pre">TokenMecab</span></code> as below.</p>
 <p>Execution example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tokenize</span>   <span class="s1">&#39;TokenMecab(&quot;use_reading&quot;, true)&#39;</span>   <span class="s2">&quot;私は林檎を食べます。&quot;</span>   <span class="o">--</span><span class="n">token_filters</span> <span class="s1">&#39;TokenFilterNFKC100(&quot;unify_kana&quot;, true)&#39;</span>
@@ -1057,25 +1061,26 @@ This option enables normalize hiragana and katakana to romaji as below.</p>
 </pre></div>
 </div>
 </section>
+</section>
 <section id="parameters">
-<h2><span class="section-number">7.9.2.6. </span>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.9.3.4. </span>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
 <section id="optional-parameter">
-<h3><span class="section-number">7.9.2.6.1. </span>Optional parameter<a class="headerlink" href="#optional-parameter" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.9.3.4.1. </span>Optional parameter<a class="headerlink" href="#optional-parameter" title="Link to this heading">#</a></h3>
 <p>There are optional parameters as below.</p>
 <section id="unify-kana">
-<span id="token-filter-nfkc100-unify-kana"></span><h4><span class="section-number">7.9.2.6.1.1. </span><code class="docutils literal notranslate"><span class="pre">unify_kana</span></code><a class="headerlink" href="#unify-kana" title="Link to this heading">#</a></h4>
+<span id="token-filter-nfkc100-unify-kana"></span><h4><span class="section-number">7.9.3.4.1.1. </span><code class="docutils literal notranslate"><span class="pre">unify_kana</span></code><a class="headerlink" href="#unify-kana" title="Link to this heading">#</a></h4>
 <p>This option enables that same pronounced characters in all of full-width Hiragana, full-width Katakana and half-width Katakana are regarded as the same character.</p>
 </section>
 <section id="unify-kana-case">
-<span id="token-filter-nfkc100-unify-kana-case"></span><h4><span class="section-number">7.9.2.6.1.2. </span><code class="docutils literal notranslate"><span class="pre">unify_kana_case</span></code><a class="headerlink" href="#unify-kana-case" title="Link to this heading">#</a></h4>
+<span id="token-filter-nfkc100-unify-kana-case"></span><h4><span class="section-number">7.9.3.4.1.2. </span><code class="docutils literal notranslate"><span class="pre">unify_kana_case</span></code><a class="headerlink" href="#unify-kana-case" title="Link to this heading">#</a></h4>
 <p>This option enables that large and small versions of same letters in all of full-width Hiragana, full-width Katakana and half-width Katakana are regarded as the same character.</p>
 </section>
 <section id="unify-kana-voiced-sound-mark">
-<span id="token-filter-nfkc100-unify-kana-voiced-sound-mark"></span><h4><span class="section-number">7.9.2.6.1.3. </span><code class="docutils literal notranslate"><span class="pre">unify_kana_voiced_sound_mark</span></code><a class="headerlink" href="#unify-kana-voiced-sound-mark" title="Link to this heading">#</a></h4>
+<span id="token-filter-nfkc100-unify-kana-voiced-sound-mark"></span><h4><span class="section-number">7.9.3.4.1.3. </span><code class="docutils literal notranslate"><span class="pre">unify_kana_voiced_sound_mark</span></code><a class="headerlink" href="#unify-kana-voiced-sound-mark" title="Link to this heading">#</a></h4>
 <p>This option enables that letters with/without voiced sound mark and semi voiced sound mark in all of full-width Hiragana, full-width Katakana and half-width Katakana are regarded as the same character.</p>
 </section>
 <section id="unify-hyphen">
-<span id="token-filter-nfkc100-unify-hyphen"></span><h4><span class="section-number">7.9.2.6.1.4. </span><code class="docutils literal notranslate"><span class="pre">unify_hyphen</span></code><a class="headerlink" href="#unify-hyphen" title="Link to this heading">#</a></h4>
+<span id="token-filter-nfkc100-unify-hyphen"></span><h4><span class="section-number">7.9.3.4.1.4. </span><code class="docutils literal notranslate"><span class="pre">unify_hyphen</span></code><a class="headerlink" href="#unify-hyphen" title="Link to this heading">#</a></h4>
 <p>This option enables normalize hyphen to “-” (U+002D HYPHEN-MINUS).</p>
 <p>Hyphen of the target of normalizing is as below.</p>
 <ul class="simple">
@@ -1091,7 +1096,7 @@ This option enables normalize hiragana and katakana to romaji as below.</p>
 </ul>
 </section>
 <section id="unify-prolonged-sound-mark">
-<span id="token-filter-nfkc100-unify-prolonged-sound-mark"></span><h4><span class="section-number">7.9.2.6.1.5. </span><code class="docutils literal notranslate"><span class="pre">unify_prolonged_sound_mark</span></code><a class="headerlink" href="#unify-prolonged-sound-mark" title="Link to this heading">#</a></h4>
+<span id="token-filter-nfkc100-unify-prolonged-sound-mark"></span><h4><span class="section-number">7.9.3.4.1.5. </span><code class="docutils literal notranslate"><span class="pre">unify_prolonged_sound_mark</span></code><a class="headerlink" href="#unify-prolonged-sound-mark" title="Link to this heading">#</a></h4>
 <p>This option enables normalize prolonged sound to “-” (U+30FC KATAKANA-HIRAGANA PROLONGED SOUND MARK).</p>
 <p>Prolonged sound of the target of normalizing is as below.</p>
 <ul class="simple">
@@ -1104,7 +1109,7 @@ This option enables normalize hiragana and katakana to romaji as below.</p>
 </ul>
 </section>
 <section id="unify-hyphen-and-prolonged-sound-mark">
-<span id="token-filter-nfkc100-unify-hyphen-and-prolonged-sound-mark"></span><h4><span class="section-number">7.9.2.6.1.6. </span><code class="docutils literal notranslate"><span class="pre">unify_hyphen_and_prolonged_sound_mark</span></code><a class="headerlink" href="#unify-hyphen-and-prolonged-sound-mark" title="Link to this heading">#</a></h4>
+<span id="token-filter-nfkc100-unify-hyphen-and-prolonged-sound-mark"></span><h4><span class="section-number">7.9.3.4.1.6. </span><code class="docutils literal notranslate"><span class="pre">unify_hyphen_and_prolonged_sound_mark</span></code><a class="headerlink" href="#unify-hyphen-and-prolonged-sound-mark" title="Link to this heading">#</a></h4>
 <p>This option enables normalize hyphen and prolonged sound to “-” (U+002D HYPHEN-MINUS).</p>
 <p>Hyphen and prolonged sound of the target normalizing is below.</p>
 <ul class="simple">
@@ -1126,7 +1131,7 @@ This option enables normalize hiragana and katakana to romaji as below.</p>
 </ul>
 </section>
 <section id="unify-middle-dot">
-<span id="token-filter-nfkc100-unify-middle-dot"></span><h4><span class="section-number">7.9.2.6.1.7. </span><code class="docutils literal notranslate"><span class="pre">unify_middle_dot</span></code><a class="headerlink" href="#unify-middle-dot" title="Link to this heading">#</a></h4>
+<span id="token-filter-nfkc100-unify-middle-dot"></span><h4><span class="section-number">7.9.3.4.1.7. </span><code class="docutils literal notranslate"><span class="pre">unify_middle_dot</span></code><a class="headerlink" href="#unify-middle-dot" title="Link to this heading">#</a></h4>
 <p>This option enables normalize middle dot to “·” (U+00B7 MIDDLE DOT).</p>
 <p>Middle dot of the target of normalizing is as below.</p>
 <ul class="simple">
@@ -1141,15 +1146,15 @@ This option enables normalize hiragana and katakana to romaji as below.</p>
 </ul>
 </section>
 <section id="unify-katakana-v-sounds">
-<span id="token-filter-nfkc100-unify-katakana-v-sounds"></span><h4><span class="section-number">7.9.2.6.1.8. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_v_sounds</span></code><a class="headerlink" href="#unify-katakana-v-sounds" title="Link to this heading">#</a></h4>
+<span id="token-filter-nfkc100-unify-katakana-v-sounds"></span><h4><span class="section-number">7.9.3.4.1.8. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_v_sounds</span></code><a class="headerlink" href="#unify-katakana-v-sounds" title="Link to this heading">#</a></h4>
 <p>This option enables normalize “ヴァヴィヴヴェヴォ” to “バビブベボ”.</p>
 </section>
 <section id="unify-katakana-bu-sound">
-<span id="token-filter-nfkc100-unify-katakana-bu-sounds"></span><h4><span class="section-number">7.9.2.6.1.9. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_bu_sound</span></code><a class="headerlink" href="#unify-katakana-bu-sound" title="Link to this heading">#</a></h4>
+<span id="token-filter-nfkc100-unify-katakana-bu-sounds"></span><h4><span class="section-number">7.9.3.4.1.9. </span><code class="docutils literal notranslate"><span class="pre">unify_katakana_bu_sound</span></code><a class="headerlink" href="#unify-katakana-bu-sound" title="Link to this heading">#</a></h4>
 <p>This option enables normalize “ヴァヴィヴゥヴェヴォ” to “ブ”.</p>
 </section>
 <section id="unify-to-romaji">
-<span id="token-filter-nfkc100-unify-to-romaji"></span><h4><span class="section-number">7.9.2.6.1.10. </span><code class="docutils literal notranslate"><span class="pre">unify_to_romaji</span></code><a class="headerlink" href="#unify-to-romaji" title="Link to this heading">#</a></h4>
+<span id="token-filter-nfkc100-unify-to-romaji"></span><h4><span class="section-number">7.9.3.4.1.10. </span><code class="docutils literal notranslate"><span class="pre">unify_to_romaji</span></code><a class="headerlink" href="#unify-to-romaji" title="Link to this heading">#</a></h4>
 <p>This option enables normalize hiragana and katakana to romaji.</p>
 </section>
 </section>
@@ -1167,12 +1172,12 @@ This option enables normalize hiragana and katakana to romaji as below.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../token_filter/summary.html"
+       href="token_filter_nfkc.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">7.9.1. </span>Summary</p>
+        <p class="prev-next-title"><span class="section-number">7.9.2. </span><code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC</span></code></p>
       </div>
     </a>
     <a class="right-next"
@@ -1180,7 +1185,7 @@ This option enables normalize hiragana and katakana to romaji as below.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7.9.3. </span><code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC150</span></code></p>
+        <p class="prev-next-title"><span class="section-number">7.9.4. </span><code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC150</span></code></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1203,23 +1208,25 @@ This option enables normalize hiragana and katakana to romaji as below.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">7.9.2.1. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax">7.9.2.2. Syntax</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">7.9.2.3. Usage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-usage">7.9.2.4. Simple usage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-usage">7.9.2.5. Advanced usage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">7.9.2.6. Parameters</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-parameter">7.9.2.6.1. Optional parameter</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-kana">7.9.2.6.1.1. <code class="docutils literal notranslate"><span class="pre">unify_kana</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-kana-case">7.9.2.6.1.2. <code class="docutils literal notranslate"><span class="pre">unify_kana_case</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-kana-voiced-sound-mark">7.9.2.6.1.3. <code class="docutils literal notranslate"><span class="pre">unify_kana_voiced_sound_mark</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-hyphen">7.9.2.6.1.4. <code class="docutils literal notranslate"><span class="pre">unify_hyphen</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-prolonged-sound-mark">7.9.2.6.1.5. <code class="docutils literal notranslate"><span class="pre">unify_prolonged_sound_mark</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-hyphen-and-prolonged-sound-mark">7.9.2.6.1.6. <code class="docutils literal notranslate"><span class="pre">unify_hyphen_and_prolonged_sound_mark</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-middle-dot">7.9.2.6.1.7. <code class="docutils literal notranslate"><span class="pre">unify_middle_dot</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-v-sounds">7.9.2.6.1.8. <code class="docutils literal notranslate"><span class="pre">unify_katakana_v_sounds</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-bu-sound">7.9.2.6.1.9. <code class="docutils literal notranslate"><span class="pre">unify_katakana_bu_sound</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-to-romaji">7.9.2.6.1.10. <code class="docutils literal notranslate"><span class="pre">unify_to_romaji</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">7.9.3.1. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax">7.9.3.2. Syntax</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">7.9.3.3. Usage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-usage">7.9.3.3.1. Simple usage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-usage">7.9.3.3.2. Advanced usage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">7.9.3.4. Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-parameter">7.9.3.4.1. Optional parameter</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-kana">7.9.3.4.1.1. <code class="docutils literal notranslate"><span class="pre">unify_kana</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-kana-case">7.9.3.4.1.2. <code class="docutils literal notranslate"><span class="pre">unify_kana_case</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-kana-voiced-sound-mark">7.9.3.4.1.3. <code class="docutils literal notranslate"><span class="pre">unify_kana_voiced_sound_mark</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-hyphen">7.9.3.4.1.4. <code class="docutils literal notranslate"><span class="pre">unify_hyphen</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-prolonged-sound-mark">7.9.3.4.1.5. <code class="docutils literal notranslate"><span class="pre">unify_prolonged_sound_mark</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-hyphen-and-prolonged-sound-mark">7.9.3.4.1.6. <code class="docutils literal notranslate"><span class="pre">unify_hyphen_and_prolonged_sound_mark</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-middle-dot">7.9.3.4.1.7. <code class="docutils literal notranslate"><span class="pre">unify_middle_dot</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-v-sounds">7.9.3.4.1.8. <code class="docutils literal notranslate"><span class="pre">unify_katakana_v_sounds</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-katakana-bu-sound">7.9.3.4.1.9. <code class="docutils literal notranslate"><span class="pre">unify_katakana_bu_sound</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-to-romaji">7.9.3.4.1.10. <code class="docutils literal notranslate"><span class="pre">unify_to_romaji</span></code></a></li>
 </ul>
 </li>
 </ul>

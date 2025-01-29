@@ -422,26 +422,26 @@ this.</p>
 language model. Note that Phi-4 isn’t designing for generating
 embeddings.</p>
 </section>
-<section id="added-normalizernfkc">
-<h4>Added <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code><a class="headerlink" href="#added-normalizernfkc" title="Link to this heading">#</a></h4>
+<section id="added-reference-normalizers-normalizer-nfkc">
+<h4>Added <a class="reference internal" href="../reference/normalizers/normalizer_nfkc.html"><span class="doc">NormalizerNFKC</span></a><a class="headerlink" href="#added-reference-normalizers-normalizer-nfkc" title="Link to this heading">#</a></h4>
 <p>It’s similar to existing <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC*</span></code> such as
 <a class="reference internal" href="../reference/normalizers/normalizer_nfkc150.html"><span class="doc">NormalizerNFKC150</span></a>. But it’s more
 generic than <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC*</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code> accepts <code class="docutils literal notranslate"><span class="pre">version</span></code> argument to change used Unicode
+<p><a class="reference internal" href="../reference/normalizers/normalizer_nfkc.html"><span class="doc">NormalizerNFKC</span></a> accepts <a class="reference internal" href="../reference/normalizers/normalizer_nfkc.html#normalizer-nfkc-version"><span class="std std-ref">version</span></a> argument to change used Unicode
 version. For example, <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC(&quot;version&quot;,</span> <span class="pre">&quot;15.0.0&quot;)</span></code> equals to
 <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC150</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC*</span></code> are deprecated by it. You should use
-<code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code> for newly written applications.</p>
-<p><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code> uses Unicode 16.0.0 by default.</p>
+<p><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC*</span></code> are deprecated by <a class="reference internal" href="../reference/normalizers/normalizer_nfkc.html"><span class="doc">NormalizerNFKC</span></a>. You should use
+<a class="reference internal" href="../reference/normalizers/normalizer_nfkc.html"><span class="doc">NormalizerNFKC</span></a> for newly written applications.</p>
+<p><a class="reference internal" href="../reference/normalizers/normalizer_nfkc.html"><span class="doc">NormalizerNFKC</span></a> uses Unicode 16.0.0 by default.</p>
 </section>
-<section id="added-tokenfilternfkc">
-<h4>Added <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC</span></code><a class="headerlink" href="#added-tokenfilternfkc" title="Link to this heading">#</a></h4>
+<section id="added-reference-token-filters-token-filter-nfkc">
+<h4>Added <a class="reference internal" href="../reference/token_filters/token_filter_nfkc.html"><span class="doc">TokenFilterNFKC</span></a><a class="headerlink" href="#added-reference-token-filters-token-filter-nfkc" title="Link to this heading">#</a></h4>
 <p>It’s similar to existing <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC*</span></code> such as
 <a class="reference internal" href="../reference/token_filters/token_filter_nfkc150.html"><span class="doc">TokenFilterNFKC150</span></a>. But it’s based
-on <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code>. So you can specify Unicode version as <code class="docutils literal notranslate"><span class="pre">version</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC*</span></code> are deprecated by it. You should use
-<code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC</span></code> for newly written applications.</p>
-<p><code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC</span></code> uses Unicode 16.0.0 by default.</p>
+on <a class="reference internal" href="../reference/normalizers/normalizer_nfkc.html"><span class="doc">NormalizerNFKC</span></a>. So you can specify Unicode version as <a class="reference internal" href="../reference/normalizers/normalizer_nfkc.html#normalizer-nfkc-version"><span class="std std-ref">version</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC*</span></code> are deprecated by <a class="reference internal" href="../reference/token_filters/token_filter_nfkc.html"><span class="doc">TokenFilterNFKC</span></a>. You should use
+<a class="reference internal" href="../reference/token_filters/token_filter_nfkc.html"><span class="doc">TokenFilterNFKC</span></a> for newly written applications.</p>
+<p><a class="reference internal" href="../reference/token_filters/token_filter_nfkc.html"><span class="doc">TokenFilterNFKC</span></a> uses Unicode 16.0.0 by default.</p>
 </section>
 <section id="install-amazon-linux-added-support-for-amazon-linux-2023-aarch64">
 <h4><a class="reference internal" href="../install/amazon_linux.html"><span class="doc">Amazon Linux</span></a>: Added support for Amazon Linux 2023 aarch64<a class="headerlink" href="#install-amazon-linux-added-support-for-amazon-linux-2023-aarch64" title="Link to this heading">#</a></h4>
@@ -1789,8 +1789,8 @@ But It keeps backward compatibility. We can upgrade to 14.0.0 without rebuilding
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#improvements">Improvements</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#offline-index-construction-added-support-for-parallel-execution"><span class="xref std std-ref">offline-index-construction</span>: Added support for parallel execution</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-functions-language-model-vectorize-added-support-for-phi-4"><span class="xref std std-doc">/reference/functions/language_model_vectorize</span>: Added support for Phi-4</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#added-normalizernfkc">Added <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#added-tokenfilternfkc">Added <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#added-reference-normalizers-normalizer-nfkc">Added <span class="xref std std-doc">/reference/normalizers/normalizer_nfkc</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#added-reference-token-filters-token-filter-nfkc">Added <span class="xref std std-doc">/reference/token_filters/token_filter_nfkc</span></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-amazon-linux-added-support-for-amazon-linux-2023-aarch64"><span class="xref std std-doc">/install/amazon_linux</span>: Added support for Amazon Linux 2023 aarch64</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-commands-index-column-diff-added-support-for-changing-log-level-for-progress-logs"><span class="xref std std-doc">/reference/commands/index_column_diff</span>: Added support for changing log level for progress logs</a></li>
 </ul>
