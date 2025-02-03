@@ -842,7 +842,7 @@ var searchData=
   ['grn_5fobj_839',['grn_obj',['../groonga_2groonga_8h.html#a907ed57b4771c954f759a9f0faaf57b2',1,'groonga.h']]],
   ['grn_5fobj_5fadd_5fhook_840',['grn_obj_add_hook',['../groonga_2groonga_8h.html#a28049c5e50e4dd302b732bd65fd2d1f6',1,'groonga.h']]],
   ['grn_5fobj_5fappend_841',['GRN_OBJ_APPEND',['../groonga_2groonga_8h.html#a2b24293039a9935c4a8113c0fcd23b6c',1,'groonga.h']]],
-  ['grn_5fobj_5fcast_842',['grn_obj_cast',['../cast_8h.html#a8a7d0a1eaf751b1e2c822dddb08edde7',1,'cast.h']]],
+  ['grn_5fobj_5fcast_842',['grn_obj_cast',['../cast_8h.html#ae409a782cbf1694f0ec22d35e37b98ca',1,'cast.h']]],
   ['grn_5fobj_5fcheck_843',['grn_obj_check',['../groonga_2groonga_8h.html#a5f365bad6bf138c2e21ba7d80f1746fd',1,'groonga.h']]],
   ['grn_5fobj_5fclear_5flock_844',['grn_obj_clear_lock',['../groonga_2groonga_8h.html#ad596e23103bf793f4d4a3f5f3ad9dea4',1,'groonga.h']]],
   ['grn_5fobj_5fclear_5foption_5fvalues_845',['grn_obj_clear_option_values',['../obj_8h.html#ae31a034c39dd8671cff0a67c3c156cda',1,'obj.h']]],
