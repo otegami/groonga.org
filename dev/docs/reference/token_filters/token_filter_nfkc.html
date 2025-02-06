@@ -670,7 +670,9 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="tokenfilternfkc">
+  <!-- groonga-command -->
+<!-- database: token_filters_nfkc -->
+<section class="tex2jax_ignore mathjax_ignore" id="tokenfilternfkc">
 <h1><span class="section-number">7.9.2. </span><code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC</span></code><a class="headerlink" href="#tokenfilternfkc" title="Link to this heading">#</a></h1>
 <section id="summary">
 <h2><span class="section-number">7.9.2.1. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
@@ -707,8 +709,9 @@ Because, if you normalize before tokenizing with <code class="docutils literal n
 <h3><span class="section-number">7.9.2.3.1. </span>Simple usage<a class="headerlink" href="#simple-usage" title="Link to this heading">#</a></h3>
 <p>Normalization is the same as in <a class="reference internal" href="../normalizers/normalizer_nfkc.html#normalizer-nfkc"><span class="std std-ref">NormalizerNFKC</span></a>, so here are a few examples of how to use the options.</p>
 <p>Here is an example of <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC</span></code>. <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC</span></code> normalizes text by Unicode NFKC (Normalization Form Compatibility Composition).</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tokenize</span> <span class="n">TokenDelimit</span> <span class="s2">&quot;©&quot;</span> <span class="o">--</span><span class="n">token_filters</span> <span class="n">TokenFilterNFKC</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tokenize<span class="w"> </span>TokenDelimit<span class="w"> </span><span class="s2">&quot;©&quot;</span><span class="w"> </span>--token_filters<span class="w"> </span>TokenFilterNFKC
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -728,8 +731,9 @@ Because, if you normalize before tokenizing with <code class="docutils literal n
 </div>
 <p>Here is an example of <a class="reference internal" href="../normalizers/normalizer_nfkc.html#normalizer-nfkc-version"><span class="std std-ref">version</span></a> option.
 You can specify the Unicode version for this option.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tokenize</span> <span class="n">TokenDelimit</span> <span class="s2">&quot;©&quot;</span> <span class="o">--</span><span class="n">token_filters</span> <span class="s1">&#39;TokenFilterNFKC(&quot;version&quot;, &quot;16.0.0&quot;)&#39;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tokenize<span class="w"> </span>TokenDelimit<span class="w"> </span><span class="s2">&quot;©&quot;</span><span class="w"> </span>--token_filters<span class="w"> </span><span class="s1">&#39;TokenFilterNFKC(&quot;version&quot;, &quot;16.0.0&quot;)&#39;</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -749,8 +753,12 @@ You can specify the Unicode version for this option.</p>
 </div>
 <p>Here is an example of <a class="reference internal" href="../normalizers/normalizer_nfkc.html#normalizer-nfkc-unify-kana"><span class="std std-ref">unify_kana</span></a> option.</p>
 <p>This option enables that same pronounced characters in all of full-width Hiragana, full-width Katakana and half-width Katakana are regarded as the same character as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tokenize</span> <span class="n">TokenDelimit</span> <span class="s2">&quot;あイｳｪおヽヾ&quot;</span> <span class="o">--</span><span class="n">token_filters</span> <span class="s1">&#39;TokenFilterNFKC(&quot;unify_kana&quot;, true)&#39;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tokenize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>TokenDelimit<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;あイｳｪおヽヾ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--token_filters<span class="w"> </span><span class="s1">&#39;TokenFilterNFKC(&quot;unify_kana&quot;, true)&#39;</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -770,8 +778,12 @@ You can specify the Unicode version for this option.</p>
 </div>
 <p>Here is an example of <a class="reference internal" href="../normalizers/normalizer_nfkc.html#normalizer-nfkc-unify-hyphen"><span class="std std-ref">unify_hyphen</span></a> option.
 This option enables normalize hyphen to “-” (U+002D HYPHEN-MINUS) as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tokenize</span> <span class="n">TokenDelimit</span> <span class="s2">&quot;-˗֊‐‑‒–⁃⁻₋−&quot;</span> <span class="o">--</span><span class="n">token_filters</span> <span class="s1">&#39;TokenFilterNFKC(&quot;unify_hyphen&quot;, true)&#39;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tokenize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>TokenDelimit<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;-˗֊‐‑‒–⁃⁻₋−&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--token_filters<span class="w"> </span><span class="s1">&#39;TokenFilterNFKC(&quot;unify_hyphen&quot;, true)&#39;</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -791,8 +803,12 @@ This option enables normalize hyphen to “-” (U+002D HYPHEN-MINUS) as below.<
 </div>
 <p>Here is an example of <a class="reference internal" href="../normalizers/normalizer_nfkc.html#normalizer-nfkc-unify-to-romaji"><span class="std std-ref">unify_to_romaji</span></a> option.
 This option enables normalize hiragana and katakana to romaji as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tokenize</span> <span class="n">TokenDelimit</span> <span class="s2">&quot;アァイィウゥエェオォ&quot;</span> <span class="o">--</span><span class="n">token_filters</span>  <span class="s1">&#39;TokenFilterNFKC(&quot;unify_to_romaji&quot;, true)&#39;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tokenize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>TokenDelimit<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;アァイィウゥエェオォ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--token_filters<span class="w">  </span><span class="s1">&#39;TokenFilterNFKC(&quot;unify_to_romaji&quot;, true)&#39;</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -814,8 +830,12 @@ This option enables normalize hiragana and katakana to romaji as below.</p>
 <section id="advanced-usage">
 <h3><span class="section-number">7.9.2.3.2. </span>Advanced usage<a class="headerlink" href="#advanced-usage" title="Link to this heading">#</a></h3>
 <p>You can output all input string as hiragana with cimbining <code class="docutils literal notranslate"><span class="pre">TokenFilterNFKC</span></code> with <code class="docutils literal notranslate"><span class="pre">use_reading</span></code> option of <code class="docutils literal notranslate"><span class="pre">TokenMecab</span></code> as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tokenize</span>   <span class="s1">&#39;TokenMecab(&quot;use_reading&quot;, true)&#39;</span>   <span class="s2">&quot;私は林檎を食べます。&quot;</span>   <span class="o">--</span><span class="n">token_filters</span> <span class="s1">&#39;TokenFilterNFKC(&quot;unify_kana&quot;, true)&#39;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tokenize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;TokenMecab(&quot;use_reading&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;私は林檎を食べます。&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--token_filters<span class="w"> </span><span class="s1">&#39;TokenFilterNFKC(&quot;unify_kana&quot;, true)&#39;</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -939,7 +959,7 @@ This option enables normalize hiragana and katakana to romaji as below.</p>
 
   
   <div class="tocsection editthispage">
-    <a href="https://github.com/groonga/groonga/edit/main/doc/source/reference/token_filters/token_filter_nfkc.rst">
+    <a href="https://github.com/groonga/groonga/edit/main/doc/source/reference/token_filters/token_filter_nfkc.md">
       <i class="fa-solid fa-pencil"></i>
       
       

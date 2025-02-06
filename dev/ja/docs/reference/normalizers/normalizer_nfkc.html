@@ -671,7 +671,9 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="normalizernfkc">
+  <!-- groonga-command -->
+<!-- database: normalisers -->
+<section class="tex2jax_ignore mathjax_ignore" id="normalizernfkc">
 <span id="normalizer-nfkc"></span><h1><span class="section-number">7.7.2.2. </span><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code><a class="headerlink" href="#normalizernfkc" title="Link to this heading">#</a></h1>
 <section id="summary">
 <h2><span class="section-number">7.7.2.2.1. </span>概要<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
@@ -749,8 +751,9 @@
 <section id="simple-usage">
 <h3><span class="section-number">7.7.2.2.3.1. </span>簡単な使い方<a class="headerlink" href="#simple-usage" title="Link to this heading">#</a></h3>
 <p>以下は、 <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code> の使用例です。 <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code> はUnicode NFKC（Normalization Form Compatibility Composition）を使ってテキストを正規化します。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span> <span class="n">NormalizerNFKC</span> <span class="s2">&quot;©&quot;</span> <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span>NormalizerNFKC<span class="w"> </span><span class="s2">&quot;©&quot;</span><span class="w"> </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -763,16 +766,15 @@
 <span class="c1">#       &quot;emoji&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は <a class="reference internal" href="#normalizer-nfkc-version"><span class="std std-ref">version</span></a> オプションの使用例です。Unicodeのバージョンを指定できます。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span> <span class="s1">&#39;NormalizerNFKC(&quot;version&quot;, &quot;16.0.0&quot;)&#39;</span> <span class="s2">&quot;©&quot;</span> <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="s1">&#39;NormalizerNFKC(&quot;version&quot;, &quot;16.0.0&quot;)&#39;</span><span class="w"> </span><span class="s2">&quot;©&quot;</span><span class="w"> </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -785,17 +787,16 @@
 <span class="c1">#       &quot;emoji&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は <a class="reference internal" href="#normalizer-nfkc-unify-kana"><span class="std std-ref">unify_kana</span></a> オプションの使用例です。</p>
 <p>このオプションは、以下のように同じ音となる全角ひらがな、全角カタカナ、半角カタカナの文字を同一視します。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_kana&quot;, true)&#39;</span>   <span class="s2">&quot;あイｳｪおヽヾ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_kana&quot;, true)&#39;</span><span class="w"> </span><span class="s2">&quot;あイｳｪおヽヾ&quot;</span><span class="w"> </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -814,17 +815,19 @@
 <span class="c1">#       &quot;hiragana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は <a class="reference internal" href="#normalizer-nfkc-unify-kana-case"><span class="std std-ref">unify_kana_case</span></a> オプションの使用例です。</p>
 <p>このオプションは、以下のように、全角ひらがな、全角カタカナ、半角カタカナの小さな文字を大きな文字と同一視します。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_case&quot;, true)&#39;</span>   <span class="s2">&quot;ぁあぃいぅうぇえぉおゃやゅゆょよゎわゕかゖけ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_case&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ぁあぃいぅうぇえぉおゃやゅゆょよゎわゕかゖけ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -858,15 +861,17 @@
 <span class="c1">#       &quot;hiragana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_case&quot;, true)&#39;</span>   <span class="s2">&quot;ァアィイゥウェエォオャヤュユョヨヮワヵカヶケ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_case&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ァアィイゥウェエォオャヤュユョヨヮワヵカヶケ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -900,17 +905,19 @@
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は、 <a class="reference internal" href="#normalizer-nfkc-unify-kana-voiced-sound-mark"><span class="std std-ref">unify_kana_voiced_sound_mark</span></a> オプションの使用例です。</p>
 <p>このオプションは、以下のように、全角ひらがな、全角カタカナ、半角カタカナで濁点や半濁点の有無を同一視します。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_voiced_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;かがきぎくぐけげこごさざしじすずせぜそぞただちぢつづてでとどはばぱひびぴふぶぷへべぺほぼぽ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_voiced_sound_mark&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;かがきぎくぐけげこごさざしじすずせぜそぞただちぢつづてでとどはばぱひびぴふぶぷへべぺほぼぽ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -967,15 +974,17 @@
 <span class="c1">#       &quot;hiragana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_voiced_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;カガキギクグケゲコゴサザシジスズセゼソゾタダチヂツヅテデトドハバパヒビピフブプヘベペホボポ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_voiced_sound_mark&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;カガキギクグケゲコゴサザシジスズセゼソゾタダチヂツヅテデトドハバパヒビピフブプヘベペホボポ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1032,16 +1041,18 @@
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は、 <a class="reference internal" href="#normalizer-nfkc-unify-hyphen"><span class="std std-ref">unify_hyphen</span></a> オプションの使用例です。このオプションは、以下のように、ハイフンを&quot;-&quot; (U+002D HYPHEN-MINUS)に正規化します。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_hyphen&quot;, true)&#39;</span>   <span class="s2">&quot;-˗֊‐‑‒–⁃⁻₋−&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_hyphen&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;-˗֊‐‑‒–⁃⁻₋−&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1064,16 +1075,18 @@
 <span class="c1">#       &quot;symbol&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は、 <a class="reference internal" href="#normalizer-nfkc-unify-prolonged-sound-mark"><span class="std std-ref">unify_prolonged_sound_mark</span></a> オプションの使用例です。このオプションは、以下のように長音記号を&quot;-&quot; (U+30FC KATAKANA-HIRAGANA PROLONGED SOUND MARK)に正規化します。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_prolonged_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;ー—―─━ｰ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_prolonged_sound_mark&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ー—―─━ｰ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1091,16 +1104,18 @@
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は、 <a class="reference internal" href="#normalizer-nfkc-unify-hyphen-and-prolonged-sound-mark"><span class="std std-ref">unify_hyphen_and_prolonged_sound_mark</span></a> オプションの使用例です。このオプションは、以下のように、ハイフンと長音記号を&quot;-&quot; (U+002D HYPHEN-MINUS)に正規化します。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_hyphen_and_prolonged_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;-˗֊‐‑‒–⁃⁻₋− ﹣－ ー—―─━ｰ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_hyphen_and_prolonged_sound_mark&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;-˗֊‐‑‒–⁃⁻₋− ﹣－ ー—―─━ｰ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1133,17 +1148,19 @@
 <span class="c1">#       &quot;symbol&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は、 <a class="reference internal" href="#normalizer-nfkc-unify-middle-dot"><span class="std std-ref">unify_middle_dot</span></a> オプションの使用例です。このオプションは、中点を&quot;·&quot; (U+00B7 MIDDLE DOT)に正規化します。</p>
 <p><a class="reference internal" href="#normalizer-nfkc-remove-symbol"><span class="std std-ref">remove_symbol</span></a> と一緒に使うと中点のような文字をすべて削除できます。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_middle_dot&quot;, true)&#39;</span>   <span class="s2">&quot;·ᐧ•∙⋅⸱・･&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_middle_dot&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;·ᐧ•∙⋅⸱・･&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1163,16 +1180,18 @@
 <span class="c1">#       &quot;symbol&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は、 <a class="reference internal" href="#normalizer-nfkc-unify-katakana-v-sounds"><span class="std std-ref">unify_katakana_v_sounds</span></a> オプションの使用例です。このオプションは、以下のように、&quot;ヴァヴィヴヴェヴォ&quot;を&quot;バビブベボ&quot;に正規化します。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_v_sounds&quot;, true)&#39;</span>   <span class="s2">&quot;ヴァヴィヴヴェヴォヴ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_v_sounds&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ヴァヴィヴヴェヴォヴ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1190,16 +1209,18 @@
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は、 <a class="reference internal" href="#normalizer-nfkc-unify-katakana-bu-sounds"><span class="std std-ref">unify_katakana_bu_sound</span></a> オプションの使用例です。このオプションは、以下のように、&quot;ヴァヴィヴゥヴェヴォ&quot;を&quot;ブ&quot;に正規化します。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_bu_sound&quot;, true)&#39;</span>   <span class="s2">&quot;ヴァヴィヴヴェヴォヴ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_bu_sound&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ヴァヴィヴヴェヴォヴ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1217,16 +1238,18 @@
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は、 <a class="reference internal" href="#normalizer-nfkc-unify-to-katakana"><span class="std std-ref">unify_to_katakana</span></a> オプションの使用例です。このオプションは、以下のように、ひらがなをカタカナに正規化します。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_to_katakana&quot;, true)&#39;</span>   <span class="s2">&quot;ゔぁゔぃゔゔぇゔぉ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_to_katakana&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ゔぁゔぃゔゔぇゔぉ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1247,16 +1270,18 @@
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は、 <a class="reference internal" href="#normalizer-nfkc-unify-to-romaji"><span class="std std-ref">unify_to_romaji</span></a> オプションの使用例です。このオプションは、以下のように、ひらがなとカタカナをローマ字に正規化します。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_to_romaji&quot;, true)&#39;</span>   <span class="s2">&quot;アァイィウゥエェオォ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_to_romaji&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;アァイィウゥエェオォ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1283,16 +1308,18 @@
 <span class="c1">#       &quot;alpha&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は、 <a class="reference internal" href="#normalizer-nfkc-remove-symbol"><span class="std std-ref">remove_symbol</span></a> オプションの使用例です。このオプションは、以下のように記号(例えば #, !, &quot;, &amp;, % 等)を削除します 。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;remove_symbol&quot;, true)&#39;</span>   <span class="s2">&quot;#This &amp; is </span><span class="si">%%</span><span class="s2"> a pen.&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;remove_symbol&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;#This &amp; is %% a pen.&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1319,16 +1346,18 @@
 <span class="c1">#       &quot;alpha&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は、 <a class="reference internal" href="#normalizer-nfkc-unify-katakana-gu-small-sounds"><span class="std std-ref">unify_katakana_gu_small_sounds</span></a> オプションの使用例です。このオプションは、以下のように、&quot;グァグィグェグォ&quot;を&quot;ガギゲゴ&quot;に正規化します。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_gu_small_sounds&quot;, true)&#39;</span>   <span class="s2">&quot;グァグィグェグォ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_gu_small_sounds&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;グァグィグェグォ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1344,16 +1373,18 @@
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は、 <a class="reference internal" href="#normalizer-nfkc-unify-katakana-di-sound"><span class="std std-ref">unify_katakana_di_sound</span></a> オプションの使用例です。このオプションは、以下のように、&quot;ヂ&quot;を&quot;ジ&quot;に正規化します。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_di_sound&quot;, true)&#39;</span>   <span class="s2">&quot;ヂ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_di_sound&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ヂ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1366,16 +1397,18 @@
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は、 <a class="reference internal" href="#normalizer-nfkc-unify-katakana-wo-sound"><span class="std std-ref">unify_katakana_wo_sound</span></a> オプションの使用例です。このオプションは、以下のように、&quot;ヲ&quot;を&quot;オ&quot;に正規化します。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_wo_sound&quot;, true)&#39;</span>   <span class="s2">&quot;ヲ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_wo_sound&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ヲ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1388,16 +1421,18 @@
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は、 <a class="reference internal" href="#normalizer-nfkc-unify-katakana-zu-small-sounds"><span class="std std-ref">unify_katakana_zu_small_sounds</span></a> オプションの使用例です。このオプションは、以下のように、&quot;ズァズィズェズォ&quot;を&quot;ザジゼゾ&quot;に正規化します。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_zu_small_sounds&quot;, true)&#39;</span>   <span class="s2">&quot;ズァズィズェズォ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_zu_small_sounds&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ズァズィズェズォ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1413,16 +1448,18 @@
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は、 <a class="reference internal" href="#normalizer-nfkc-unify-katakana-du-sound"><span class="std std-ref">unify_katakana_du_sound</span></a> オプションの使用例です。このオプションは、以下のように、&quot;ヅ&quot;を&quot;ズ&quot;に正規化します。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_du_sound&quot;, true)&#39;</span>   <span class="s2">&quot;ヅ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_du_sound&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ヅ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1435,16 +1472,18 @@
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は、 <a class="reference internal" href="#normalizer-nfkc-unify-katakana-trailing-o"><span class="std std-ref">unify_katakana_trailing_o</span></a> オプションの使用例です。このオプションは、以下のように、前の文字の母音が&quot;オ&quot;のとき、&quot;オ&quot;を&quot;ウ&quot;に正規化します。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_trailing_o&quot;, true)&#39;</span>   <span class="s2">&quot;オオコオソオトオノオ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_trailing_o&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;オオコオソオトオノオ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1466,16 +1505,18 @@
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は、 <a class="reference internal" href="#normalizer-nfkc-unify-katakana-du-small-sounds"><span class="std std-ref">unify_katakana_du_small_sounds</span></a> オプションの使用例です。このオプションは、以下のように、&quot;ヅァヅィヅェヅォ&quot;を&quot;ザジゼゾ&quot;に正規化します。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_du_small_sounds&quot;, true)&#39;</span>   <span class="s2">&quot;ヅァヅィヅェヅォ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_du_small_sounds&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ヅァヅィヅェヅォ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1491,17 +1532,19 @@
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は <a class="reference internal" href="#normalizer-nfkc-unify-kana-prolonged-sound-mark"><span class="std std-ref">unify_kana_prolonged_sound_mark</span></a> オプションの使用例です。このオプションは、&quot;ー&quot; (U+30FC KATAKANA-HIRAGANA PROLONGED SOUND MARK) を一文字前のひらがな・カタカナの母音に正規化します。</p>
 <p>もし、一文字前の文字が&quot;ん&quot;であれば、&quot;ー&quot;は&quot;ん&quot;に正規化されます。また、一文字前の文字が&quot;ン&quot;であれば、&quot;ー&quot;は&quot;ン&quot;に正規化されます。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_prolonged_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;カーキークーケーコー&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_prolonged_sound_mark&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;カーキークーケーコー&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1523,17 +1566,19 @@
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は <a class="reference internal" href="#normalizer-nfkc-unify-kana-hyphen"><span class="std std-ref">unify_kana_hyphen</span></a> オプションの使用例です。このオプションは、&quot;-&quot; (U+002D HYPHEN-MINUS) を一文字前のひらがな・カタカナの母音に正規化します。</p>
 <p>もし、一文字前の文字が&quot;ん&quot;であれば、&quot;-&quot;は&quot;ん&quot;に正規化されます。また、一文字前の文字が&quot;ン&quot;であれば、&quot;-&quot;は&quot;ン&quot;に正規化されます。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_hyphen&quot;, true)&#39;</span>   <span class="s2">&quot;カ-キ-ク-ケ-コ-&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_hyphen&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;カ-キ-ク-ケ-コ-&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1555,17 +1600,19 @@
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>以下は <a class="reference internal" href="#normalizer-nfkc-unify-latin-alphabet-with"><span class="std std-ref">unify_latin_alphabet_with</span></a> オプションの使用例です。このオプションは、以下のように発音記号付きの文字と発音記号なしの文字を同じ文字とみなすことができます。</p>
 <p>ただし、この機能は LATIN (SMALL|CAPITAL) LETTER X WITH XXX にのみフォーカスしています。 LATIN (SMALL|CAPITAL) LETTER X + COMBINING XXX はサポートしていません。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_latin_alphabet_with&quot;, true)&#39;</span>   <span class="s2">&quot;ngoằn&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_latin_alphabet_with&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ngoằn&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1582,9 +1629,7 @@
 <span class="c1">#       &quot;alpha&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
@@ -1596,9 +1641,12 @@
 <h4><span class="section-number">7.7.2.2.3.2.1. </span><code class="docutils literal notranslate"><span class="pre">TokenMecab</span></code> と使う<a class="headerlink" href="#with-tokenmecab" title="Link to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">TokenMecab</span></code> と <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code> を組み合わせて使うことで、特定の品詞の読みをローマ字で出力できます。</p>
 <p>まずはじめに、 <code class="docutils literal notranslate"><span class="pre">TokenMecab</span></code> の <code class="docutils literal notranslate"><span class="pre">target_class</span></code> オプションと <code class="docutils literal notranslate"><span class="pre">include_reading</span></code> オプションを使って人名の接尾語と非自立語を除いた名詞を抽出します。</p>
-<p>次に、抽出した名詞の読みを <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC130</span></code> の <code class="docutils literal notranslate"><span class="pre">unify_to_romaji</span></code> を使って正規化します。</p>
+<p>次に、抽出した名詞の読みを <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC1</span></code> の <code class="docutils literal notranslate"><span class="pre">unify_to_romaji</span></code> を使って正規化します。</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tokenize</span> <span class="s1">&#39;TokenMecab(&quot;target_class&quot;, &quot;-名詞/非自立&quot;, &quot;target_class&quot;, &quot;-名詞/接尾/人名&quot;, &quot;target_class&quot;, &quot;名詞&quot;, &quot;include_reading&quot;, true)&#39;</span> <span class="s1">&#39;彼の名前は山田さんのはずです。&#39;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tokenize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;TokenMecab(&quot;target_class&quot;, &quot;-名詞/非自立&quot;, &quot;target_class&quot;, &quot;-名詞/接尾/人名&quot;, &quot;target_class&quot;, &quot;名詞&quot;, &quot;include_reading&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;彼の名前は山田さんのはずです。&#39;</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1635,7 +1683,10 @@
 <span class="c1">#     }</span>
 <span class="c1">#   ]</span>
 <span class="c1"># ]</span>
-<span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_to_romaji&quot;, true)&#39;</span>   <span class="s2">&quot;カレ&quot;</span>   <span class="n">WITH_TYPES</span>
+normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_to_romaji&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;カレ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1651,12 +1702,13 @@
 <span class="c1">#       &quot;alpha&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
-<span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_to_romaji&quot;, true)&#39;</span>   <span class="s2">&quot;ナマエ&quot;</span>   <span class="n">WITH_TYPES</span>
+normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_to_romaji&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ナマエ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1673,12 +1725,13 @@
 <span class="c1">#       &quot;alpha&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
-<span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_to_romaji&quot;, true)&#39;</span>   <span class="s2">&quot;ヤマダ&quot;</span>   <span class="n">WITH_TYPES</span>
+normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_to_romaji&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ヤマダ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1696,9 +1749,7 @@
 <span class="c1">#       &quot;alpha&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
