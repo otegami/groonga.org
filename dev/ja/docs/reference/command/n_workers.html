@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.26.6. grn_command_version &#8212; Groonga v15.0.0 documentation</title>
+    <title>7.3.2. 並列実行 &#8212; Groonga v15.0.0 documentation</title>
   
   
   
@@ -55,7 +55,7 @@
                 gtag('js', new Date());
                 gtag('config', 'UA-7532323-1');
             </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/api/grn_command_version';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/command/n_workers';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://groonga.org/docs/_static/switcher.json';
@@ -66,8 +66,8 @@
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
-    <link rel="next" title="7.26.7. grn_content_type" href="grn_content_type.html" />
-    <link rel="prev" title="7.26.5. grn_column" href="grn_column.html" />
+    <link rel="next" title="7.3.3. 出力形式" href="output_format.html" />
+    <link rel="prev" title="7.3.1. コマンドバージョン" href="command_version.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
   <meta name="docsearch:version" content="15.0.0" />
@@ -361,21 +361,21 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../output.html">7.2. 出力</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../command.html">7.3. コマンド</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../command/command_version.html">7.3.1. コマンドバージョン</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../command/n_workers.html">7.3.2. 並列実行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../command/output_format.html">7.3.3. 出力形式</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../command/output_trace_log.html">7.3.4. トレースログの出力</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../command/pretty_print.html">7.3.5. プリティープリント</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../command/request_id.html">7.3.6. リクエストID</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../command/request_timeout.html">7.3.7. リクエストタイムアウト</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../command/return_code.html">7.3.8. リターンコード</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_operation_not_permitted.html">7.3.8.3.1. <code class="docutils literal notranslate"><span class="pre">-2:</span> <span class="pre">GRN_OPERATION_NOT_PERMITTED</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_no_such_file_or_directory.html">7.3.8.3.2. <code class="docutils literal notranslate"><span class="pre">-3:</span> <span class="pre">GRN_NO_SUCH_FILE_OR_DIRECTORY</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_input_output_error.html">7.3.8.3.3. <code class="docutils literal notranslate"><span class="pre">-6:</span> <span class="pre">GRN_INPUT_OUTPUT_ERROR</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_not_enough_space.html">7.3.8.3.4. <code class="docutils literal notranslate"><span class="pre">-13:</span> <span class="pre">GRN_NOT_ENOUGH_SPACE</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_invalid_argument.html">7.3.8.3.5. <code class="docutils literal notranslate"><span class="pre">-22:</span> <span class="pre">GRN_INVALID_ARGUMENT</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_resource_deadlock_avoided.html">7.3.8.3.6. <code class="docutils literal notranslate"><span class="pre">-34:</span> <span class="pre">GRN_RESOURCE_DEADLOCK_AVOIDED</span></code></a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../command.html">7.3. コマンド</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="command_version.html">7.3.1. コマンドバージョン</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.3.2. 並列実行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="output_format.html">7.3.3. 出力形式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="output_trace_log.html">7.3.4. トレースログの出力</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pretty_print.html">7.3.5. プリティープリント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request_id.html">7.3.6. リクエストID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request_timeout.html">7.3.7. リクエストタイムアウト</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="return_code.html">7.3.8. リターンコード</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="return_codes/grn_operation_not_permitted.html">7.3.8.3.1. <code class="docutils literal notranslate"><span class="pre">-2:</span> <span class="pre">GRN_OPERATION_NOT_PERMITTED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="return_codes/grn_no_such_file_or_directory.html">7.3.8.3.2. <code class="docutils literal notranslate"><span class="pre">-3:</span> <span class="pre">GRN_NO_SUCH_FILE_OR_DIRECTORY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="return_codes/grn_input_output_error.html">7.3.8.3.3. <code class="docutils literal notranslate"><span class="pre">-6:</span> <span class="pre">GRN_INPUT_OUTPUT_ERROR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="return_codes/grn_not_enough_space.html">7.3.8.3.4. <code class="docutils literal notranslate"><span class="pre">-13:</span> <span class="pre">GRN_NOT_ENOUGH_SPACE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="return_codes/grn_invalid_argument.html">7.3.8.3.5. <code class="docutils literal notranslate"><span class="pre">-22:</span> <span class="pre">GRN_INVALID_ARGUMENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="return_codes/grn_resource_deadlock_avoided.html">7.3.8.3.6. <code class="docutils literal notranslate"><span class="pre">-34:</span> <span class="pre">GRN_RESOURCE_DEADLOCK_AVOIDED</span></code></a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../commands/cache_limit.html">7.3.9. <code class="docutils literal notranslate"><span class="pre">cache_limit</span></code></a></li>
@@ -580,33 +580,33 @@
 <li class="toctree-l1"><a class="reference internal" href="../language_model.html">7.23. 言語モデル</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../log.html">7.24. ログ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tuning.html">7.25. チューニング</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../api.html">7.26. API</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="overview.html">7.26.1. 概要</a></li>
-<li class="toctree-l2"><a class="reference internal" href="global_configurations.html">7.26.2. 全体設定</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plugin.html">7.26.3. Plugin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_cache.html">7.26.4. <code class="docutils literal notranslate"><span class="pre">grn_cache</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_column.html">7.26.5. <code class="docutils literal notranslate"><span class="pre">grn_column</span></code></a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.26.6. <code class="docutils literal notranslate"><span class="pre">grn_command_version</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_content_type.html">7.26.7. <code class="docutils literal notranslate"><span class="pre">grn_content_type</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_ctx.html">7.26.8. <code class="docutils literal notranslate"><span class="pre">grn_ctx</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_db.html">7.26.9. <code class="docutils literal notranslate"><span class="pre">grn_db</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_encoding.html">7.26.10. <code class="docutils literal notranslate"><span class="pre">grn_encoding</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_expr.html">7.26.11. grn_expr</a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_geo.html">7.26.12. <code class="docutils literal notranslate"><span class="pre">grn_geo</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_hook.html">7.26.13. <code class="docutils literal notranslate"><span class="pre">grn_hook</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_ii.html">7.26.14. <code class="docutils literal notranslate"><span class="pre">grn_ii</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_index_cursor.html">7.26.15. <code class="docutils literal notranslate"><span class="pre">grn_index_cursor</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_info.html">7.26.16. <code class="docutils literal notranslate"><span class="pre">grn_info</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_inspect.html">7.26.17. <code class="docutils literal notranslate"><span class="pre">grn_inspect</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_match_escalation.html">7.26.18. <code class="docutils literal notranslate"><span class="pre">grn_match_escalation</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_obj.html">7.26.19. <code class="docutils literal notranslate"><span class="pre">grn_obj</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_proc.html">7.26.20. <code class="docutils literal notranslate"><span class="pre">grn_proc</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_search.html">7.26.21. <code class="docutils literal notranslate"><span class="pre">grn_search</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_table.html">7.26.22. <code class="docutils literal notranslate"><span class="pre">grn_table</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_table_cursor.html">7.26.23. <code class="docutils literal notranslate"><span class="pre">grn_table_cursor</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_thread.html">7.26.24. <code class="docutils literal notranslate"><span class="pre">grn_thread_*</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_type.html">7.26.25. <code class="docutils literal notranslate"><span class="pre">grn_type</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="grn_user_data.html">7.26.26. <code class="docutils literal notranslate"><span class="pre">grn_user_data</span></code></a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">7.26. API</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/overview.html">7.26.1. 概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/global_configurations.html">7.26.2. 全体設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/plugin.html">7.26.3. Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_cache.html">7.26.4. <code class="docutils literal notranslate"><span class="pre">grn_cache</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_column.html">7.26.5. <code class="docutils literal notranslate"><span class="pre">grn_column</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_command_version.html">7.26.6. <code class="docutils literal notranslate"><span class="pre">grn_command_version</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_content_type.html">7.26.7. <code class="docutils literal notranslate"><span class="pre">grn_content_type</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_ctx.html">7.26.8. <code class="docutils literal notranslate"><span class="pre">grn_ctx</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_db.html">7.26.9. <code class="docutils literal notranslate"><span class="pre">grn_db</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_encoding.html">7.26.10. <code class="docutils literal notranslate"><span class="pre">grn_encoding</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_expr.html">7.26.11. grn_expr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_geo.html">7.26.12. <code class="docutils literal notranslate"><span class="pre">grn_geo</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_hook.html">7.26.13. <code class="docutils literal notranslate"><span class="pre">grn_hook</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_ii.html">7.26.14. <code class="docutils literal notranslate"><span class="pre">grn_ii</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_index_cursor.html">7.26.15. <code class="docutils literal notranslate"><span class="pre">grn_index_cursor</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_info.html">7.26.16. <code class="docutils literal notranslate"><span class="pre">grn_info</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_inspect.html">7.26.17. <code class="docutils literal notranslate"><span class="pre">grn_inspect</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_match_escalation.html">7.26.18. <code class="docutils literal notranslate"><span class="pre">grn_match_escalation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_obj.html">7.26.19. <code class="docutils literal notranslate"><span class="pre">grn_obj</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_proc.html">7.26.20. <code class="docutils literal notranslate"><span class="pre">grn_proc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_search.html">7.26.21. <code class="docutils literal notranslate"><span class="pre">grn_search</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_table.html">7.26.22. <code class="docutils literal notranslate"><span class="pre">grn_table</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_table_cursor.html">7.26.23. <code class="docutils literal notranslate"><span class="pre">grn_table_cursor</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_thread.html">7.26.24. <code class="docutils literal notranslate"><span class="pre">grn_thread_*</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_type.html">7.26.25. <code class="docutils literal notranslate"><span class="pre">grn_type</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/grn_user_data.html">7.26.26. <code class="docutils literal notranslate"><span class="pre">grn_user_data</span></code></a></li>
 </ul>
 </details></li>
 </ul>
@@ -653,9 +653,9 @@
     <li class="breadcrumb-item"><a href="../../reference.html" class="nav-link"><span class="section-number">7. </span>リファレンスマニュアル</a></li>
     
     
-    <li class="breadcrumb-item"><a href="../api.html" class="nav-link"><span class="section-number">7.26. </span>API</a></li>
+    <li class="breadcrumb-item"><a href="../command.html" class="nav-link"><span class="section-number">7.3. </span>コマンド</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">7.26.6. </span><code class="docutils literal notranslate"><span class="pre">grn_command_version</span></code></span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">7.3.2. </span>並列実行</span></li>
   </ul>
 </nav>
 </div>
@@ -672,22 +672,160 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="grn-command-version">
-<h1><span class="section-number">7.26.6. </span><code class="docutils literal notranslate"><span class="pre">grn_command_version</span></code><a class="headerlink" href="#grn-command-version" title="Link to this heading">#</a></h1>
+  <!-- groonga-command -->
+<!-- database: n_workers -->
+<section class="tex2jax_ignore mathjax_ignore" id="parallel-execution">
+<h1><span class="section-number">7.3.2. </span>並列実行<a class="headerlink" href="#parallel-execution" title="Link to this heading">#</a></h1>
 <section id="summary">
-<h2><span class="section-number">7.26.6.1. </span>概要<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
-<p>TODO...</p>
+<h2><span class="section-number">7.3.2.1. </span>概要<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>Groongaはデフォルトでは逐次的に実行しますが、オプションで並列数を指定することで並列実行することもできます。</p>
+<p>次のセクションでは並列実行するための設定方法を説明します。その後に注意点も記載しているので合わせてご確認の上でご利用ください。</p>
 </section>
-<section id="example">
-<h2><span class="section-number">7.26.6.2. </span>例<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
-<p>TODO...</p>
-</section>
-<section id="reference">
-<h2><span class="section-number">7.26.6.3. </span>リファレンス<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p>現在、Doxygenを使った自動生成に切り替え中です。</p>
+<section id="how-to-use">
+<h2><span class="section-number">7.3.2.2. </span>使い方<a class="headerlink" href="#how-to-use" title="Link to this heading">#</a></h2>
+<section id="set-per-groonga-command">
+<h3><span class="section-number">7.3.2.2.1. </span>Groongaコマンドごとに設定する<a class="headerlink" href="#set-per-groonga-command" title="Link to this heading">#</a></h3>
+<p>実行するGroongaコマンドでのみ有効です。</p>
+<section id="specified-by-n-workers-option-of-groonga-command">
+<h4><span class="section-number">7.3.2.2.1.1. </span>Groongaコマンドの<code class="docutils literal notranslate"><span class="pre">--n_workers</span></code>オプションで指定する<a class="headerlink" href="#specified-by-n-workers-option-of-groonga-command" title="Link to this heading">#</a></h4>
+<p>Groongaコマンド例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">load</span> <span class="o">--</span><span class="n">table</span> <span class="n">Data</span> <span class="o">--</span><span class="n">n_workers</span> <span class="o">-</span><span class="mi">1</span>
+<span class="p">[</span>
+<span class="p">{</span><span class="s2">&quot;_key&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
 </div>
+</section>
+</section>
+<section id="set-the-default-value">
+<h3><span class="section-number">7.3.2.2.2. </span>デフォルト値を設定する<a class="headerlink" href="#set-the-default-value" title="Link to this heading">#</a></h3>
+<p>デフォルト値を設定するとGroongaコマンドごとに指定する必要はありません。すべてのGroongaコマンドでデフォルト値が利用されます。</p>
+<section id="specified-by-default-n-workers-option-of-groonga-executable-file">
+<h4><span class="section-number">7.3.2.2.2.1. </span><code class="docutils literal notranslate"><span class="pre">groonga</span></code>実行ファイルの<code class="docutils literal notranslate"><span class="pre">--default-n-workers</span></code>オプションで指定する<a class="headerlink" href="#specified-by-default-n-workers-option-of-groonga-executable-file" title="Link to this heading">#</a></h4>
+<p>Execution example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>groonga<span class="w"> </span>--default-n-workers<span class="w"> </span>-1<span class="w"> </span>DB_PATH<span class="w"> </span>status
+</pre></div>
+</div>
+</section>
+<section id="specified-by-environment-variable-grn-n-workers-default">
+<h4><span class="section-number">7.3.2.2.2.2. </span>環境変数<code class="docutils literal notranslate"><span class="pre">GRN_N_WORKERS_DEFAULT</span></code>で指定する<a class="headerlink" href="#specified-by-environment-variable-grn-n-workers-default" title="Link to this heading">#</a></h4>
+<p>Execution example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nv">GRN_N_WORKERS_DEFAULT</span><span class="o">=</span>-1<span class="w"> </span>groonga<span class="w"> </span>DB_PATH<span class="w"> </span>status
+</pre></div>
+</div>
+</section>
+</section>
+<section id="available-values">
+<h3><span class="section-number">7.3.2.2.3. </span>設定できる値<a class="headerlink" href="#available-values" title="Link to this heading">#</a></h3>
+<p>並列数を設定することができ、<code class="docutils literal notranslate"><span class="pre">-1</span></code> または <code class="docutils literal notranslate"><span class="pre">2</span></code> 以上を指定すると並列で実行します。</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>n_workers</p></th>
+<th class="head"><p>挙動</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">0</span></code>または<code class="docutils literal notranslate"><span class="pre">1</span></code>を指定した場合</p></td>
+<td><p>並列実行しません。</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">2</span></code>以上を指定した場合</p></td>
+<td><p>指定したスレッド数以下で並列実行します。</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-1</span></code>を指定した場合</p></td>
+<td><p>CPUのコア数以下のスレッドで並列実行します。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="check-the-settings">
+<h2><span class="section-number">7.3.2.3. </span>設定の確認<a class="headerlink" href="#check-the-settings" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="../commands/status.html"><span class="doc">status</span></a>コマンドの<code class="docutils literal notranslate"><span class="pre">n_workers</span></code>と<code class="docutils literal notranslate"><span class="pre">default_n_workers</span></code>の値で確認できます。</p>
+<!-- groonga-command -->
+<p>Execution example:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>status
+<span class="c1"># [</span>
+<span class="c1">#   [</span>
+<span class="c1">#     0,</span>
+<span class="c1">#     1337566253.89858,</span>
+<span class="c1">#     0.000355720520019531</span>
+<span class="c1">#   ],</span>
+<span class="c1">#   {</span>
+<span class="c1">#     &quot;alloc_count&quot;: 29,</span>
+<span class="c1">#     &quot;starttime&quot;: 1696558618,</span>
+<span class="c1">#     &quot;start_time&quot;: 1696558618,</span>
+<span class="c1">#     &quot;uptime&quot;: 1,</span>
+<span class="c1">#     &quot;version&quot;: &quot;2.9.1&quot;,</span>
+<span class="c1">#     &quot;n_queries&quot;: 0,</span>
+<span class="c1">#     &quot;cache_hit_rate&quot;: 0.0,</span>
+<span class="c1">#     &quot;command_version&quot;: 1,</span>
+<span class="c1">#     &quot;default_command_version&quot;: 1,</span>
+<span class="c1">#     &quot;max_command_version&quot;: 3,</span>
+<span class="c1">#     &quot;n_jobs&quot;: 0,</span>
+<span class="c1">#     &quot;features&quot;: {</span>
+<span class="c1">#       &quot;nfkc&quot;: true,</span>
+<span class="c1">#       &quot;mecab&quot;: true,</span>
+<span class="c1">#       &quot;message_pack&quot;: true,</span>
+<span class="c1">#       &quot;mruby&quot;: true,</span>
+<span class="c1">#       &quot;onigmo&quot;: true,</span>
+<span class="c1">#       &quot;zlib&quot;: true,</span>
+<span class="c1">#       &quot;lz4&quot;: true,</span>
+<span class="c1">#       &quot;zstandard&quot;: true,</span>
+<span class="c1">#       &quot;kqueue&quot;: false,</span>
+<span class="c1">#       &quot;epoll&quot;: true,</span>
+<span class="c1">#       &quot;poll&quot;: false,</span>
+<span class="c1">#       &quot;rapidjson&quot;: false,</span>
+<span class="c1">#       &quot;apache_arrow&quot;: true,</span>
+<span class="c1">#       &quot;xxhash&quot;: true,</span>
+<span class="c1">#       &quot;blosc&quot;: true,</span>
+<span class="c1">#       &quot;bfloat16&quot;: true,</span>
+<span class="c1">#       &quot;h3&quot;: true,</span>
+<span class="c1">#       &quot;simdjson&quot;: true,</span>
+<span class="c1">#       &quot;llama.cpp&quot;: true,</span>
+<span class="c1">#       &quot;back_trace&quot;: true,</span>
+<span class="c1">#       &quot;reference_count&quot;: false</span>
+<span class="c1">#     },</span>
+<span class="c1">#     &quot;apache_arrow&quot;: {</span>
+<span class="c1">#       &quot;version_major&quot;: 2,</span>
+<span class="c1">#       &quot;version_minor&quot;: 9,</span>
+<span class="c1">#       &quot;version_patch&quot;: 1,</span>
+<span class="c1">#       &quot;version&quot;: &quot;2.9.1&quot;</span>
+<span class="c1">#     },</span>
+<span class="c1">#     &quot;memory_map_size&quot;: 2929,</span>
+<span class="c1">#     &quot;n_workers&quot;: 0,</span>
+<span class="c1">#     &quot;default_n_workers&quot;: 0,</span>
+<span class="c1">#     &quot;os&quot;: &quot;Linux&quot;,</span>
+<span class="c1">#     &quot;cpu&quot;: &quot;x86_64&quot;</span>
+<span class="c1">#   }</span>
+<span class="c1"># ]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">n_workers</span></code>はGroongaコマンドごとに使われる値、<code class="docutils literal notranslate"><span class="pre">default_n_workers</span></code>はデフォルト値です。</p>
+</section>
+<section id="notes">
+<h2><span class="section-number">7.3.2.4. </span>注意点<a class="headerlink" href="#notes" title="Link to this heading">#</a></h2>
+<section id="apache-arrow-is-required">
+<h3><span class="section-number">7.3.2.4.1. </span>Apache Arrowが必須<a class="headerlink" href="#apache-arrow-is-required" title="Link to this heading">#</a></h3>
+<p>Apache Arrow が有効である必要があります。</p>
+<p>パッケージの提供元によりApache Arrowが有効かどうかは異なります。</p>
+<p>Apache Arrow が有効かどうかは、<a class="reference internal" href="../commands/status.html"><span class="doc">status</span></a> コマンドの結果で<code class="docutils literal notranslate"><span class="pre">apache_arrow</span></code>が<code class="docutils literal notranslate"><span class="pre">true</span></code>かどうかで確認することができます。</p>
+</section>
+<section id="for-use-as-a-daemon-process">
+<h3><span class="section-number">7.3.2.4.2. </span>常駐プロセスで利用する場合<a class="headerlink" href="#for-use-as-a-daemon-process" title="Link to this heading">#</a></h3>
+<p>たとえば、CPUが6個のシステムで<a class="reference internal" href="../executables/groonga-server-http.html"><span class="doc">Groonga HTTPサーバー</span></a> を使うケースを考えます。</p>
+<p><a class="reference internal" href="../executables/groonga-server-http.html"><span class="doc">Groonga HTTPサーバー</span></a>は各リクエストごとに1スレッド（= 1 CPU）を割り当てて処理します。</p>
+<p>平均同時接続数が6のとき、CPUを既に6つ使用しているのでCPUのリソースに空きはありません。各リクエストを処理するためにすべてのCPUが使われているからです。</p>
+<p>平均同時接続数が2のとき、リクエストを処理するためにはCPUを2つしか使用していないので、4つ空きがあります。<code class="docutils literal notranslate"><span class="pre">n_workers</span></code>に<code class="docutils literal notranslate"><span class="pre">2</span></code>を指定すると、リクエストを処理するためのスレッドを含んで最大で3つのCPUを使用します。そのため、<code class="docutils literal notranslate"><span class="pre">n_workers</span></code>に<code class="docutils literal notranslate"><span class="pre">2</span></code>を指定したGroongaプロセスに同時に2つリクエストがあると、合計で最大で6つのCPUを使用することになりリソースをすべて使って高速に処理できます。 <code class="docutils literal notranslate"><span class="pre">2</span></code>より大きな値を指定すると、CPUのリソースよりも高い並列度になってしまうので、かえって実行が遅くなる可能性があります。</p>
+</section>
+</section>
+<section id="parallel-execution-support">
+<h2><span class="section-number">7.3.2.5. </span>並列実行のサポート状況<a class="headerlink" href="#parallel-execution-support" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../indexing.html#offline-index-construction"><span class="std std-ref">静的なインデックス構築</span></a></p></li>
+<li><p><a class="reference internal" href="../commands/load.html"><span class="doc">load</span></a></p></li>
+<li><p><a class="reference internal" href="../commands/select.html#select-n-workers"><span class="std std-ref">select</span></a></p></li>
+</ul>
 </section>
 </section>
 
@@ -702,20 +840,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="grn_column.html"
+       href="command_version.html"
        title="前のページ">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">前へ</p>
-        <p class="prev-next-title"><span class="section-number">7.26.5. </span><code class="docutils literal notranslate"><span class="pre">grn_column</span></code></p>
+        <p class="prev-next-title"><span class="section-number">7.3.1. </span>コマンドバージョン</p>
       </div>
     </a>
     <a class="right-next"
-       href="grn_content_type.html"
+       href="output_format.html"
        title="次ページ">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">次へ</p>
-        <p class="prev-next-title"><span class="section-number">7.26.7. </span><code class="docutils literal notranslate"><span class="pre">grn_content_type</span></code></p>
+        <p class="prev-next-title"><span class="section-number">7.3.3. </span>出力形式</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -738,9 +876,27 @@
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">7.26.6.1. 概要</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">7.26.6.2. 例</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">7.26.6.3. リファレンス</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">7.3.2.1. 概要</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use">7.3.2.2. 使い方</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-per-groonga-command">7.3.2.2.1. Groongaコマンドごとに設定する</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#specified-by-n-workers-option-of-groonga-command">7.3.2.2.1.1. Groongaコマンドの<code class="docutils literal notranslate"><span class="pre">--n_workers</span></code>オプションで指定する</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-default-value">7.3.2.2.2. デフォルト値を設定する</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#specified-by-default-n-workers-option-of-groonga-executable-file">7.3.2.2.2.1. <code class="docutils literal notranslate"><span class="pre">groonga</span></code>実行ファイルの<code class="docutils literal notranslate"><span class="pre">--default-n-workers</span></code>オプションで指定する</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#specified-by-environment-variable-grn-n-workers-default">7.3.2.2.2.2. 環境変数<code class="docutils literal notranslate"><span class="pre">GRN_N_WORKERS_DEFAULT</span></code>で指定する</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#available-values">7.3.2.2.3. 設定できる値</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-settings">7.3.2.3. 設定の確認</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">7.3.2.4. 注意点</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apache-arrow-is-required">7.3.2.4.1. Apache Arrowが必須</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-use-as-a-daemon-process">7.3.2.4.2. 常駐プロセスで利用する場合</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-execution-support">7.3.2.5. 並列実行のサポート状況</a></li>
 </ul>
   </nav></div>
 
