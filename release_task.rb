@@ -33,6 +33,18 @@ class ReleaseTask
       end
     end
 
+    def latest_tag
+      api_uri("tags").open do |input|
+        JSON.parse(input.read)[0]
+      end
+    end
+
+    def tag_commit(tag)
+      URI(tag["commit"]["url"]).open do |input|
+        JSON.parse(input.read)
+      end
+    end
+
     private
     def api_uri(path)
       URI("https://api.github.com/repos/#{@user}/#{@repository}/#{path}")
@@ -143,13 +155,17 @@ For the information on the changes in this release, please see the [Release Note
     namespace :version do
       desc "Update version"
       task :update do
-        latest_release = GitHubClient.new(@product, @product).latest_release
-        # "Groonga 14.1.1 - 2024-12-03" or "Mroonga 14.11 - 2024-12-03"
-        release_name = latest_release["name"]
-        # "14.1.1" or "14.11"
-        latest_version = release_name[/\d+(\.\d+){1,2}/, 0]
-        # "2024-12-03"
-        latest_release_date = release_name[/\d+-\d+-\d+/, 0]
+        github_client = GitHubClient.new(@product, @product)
+        latest_tag = github_client.latest_tag
+        tag_commit = github_client.tag_commit(latest_tag)
+        # "v14.1.3"(Groonga), "v14.14"(Mroonga) or "3.2.5"(PGroonga)
+        release_tag_name = latest_tag["name"]
+        # "14.1.3", "14.14" or "3.2.5"
+        latest_version = release_tag_name[/\d+(\.\d+){1,2}/, 0]
+        # "2025-01-29T15:00:00Z(UTC)" -> "2025-01-30(JST)"
+        latest_release_date = Time.parse(tag_commit["commit"]["committer"]["date"])
+                                  .getlocal("+09:00")
+                                  .strftime("%Y-%m-%d")
         jekyll_config = File.read(@jekyll_config_path)
         escaped_product_id = Regexp.escape(@product_id)
         jekyll_config.gsub!(/^(#{escaped_product_id}_version: ).+$/) do
