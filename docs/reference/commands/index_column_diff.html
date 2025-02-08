@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.3.24. index_column_diff &#8212; Groonga v14.1.3 documentation</title>
+    <title>7.3.25. index_column_diff &#8212; Groonga v15.0.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=81fab00a"></script>
+    <script src="../../_static/documentation_options.js?v=a12e6846"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
@@ -65,11 +65,11 @@
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="7.3.25. io_flush" href="io_flush.html" />
-    <link rel="prev" title="7.3.23. dump" href="dump.html" />
+    <link rel="next" title="7.3.26. io_flush" href="io_flush.html" />
+    <link rel="prev" title="7.3.24. dump" href="dump.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="14.1.3" />
+  <meta name="docsearch:version" content="15.0.0" />
   </head>
   
   
@@ -135,8 +135,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.3 documentation - Home"/>
-    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.3 documentation - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v15.0.0 documentation - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v15.0.0 documentation - Home"/>
   
   
 </a></div>
@@ -362,84 +362,85 @@
 <li class="toctree-l1"><a class="reference internal" href="../output.html">7.2. Output</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../command.html">7.3. Command</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../command/command_version.html">7.3.1. Command version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../command/output_format.html">7.3.2. Output format</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../command/output_trace_log.html">7.3.3. Output trace log</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../command/pretty_print.html">7.3.4. Pretty print</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../command/request_id.html">7.3.5. Request ID</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../command/request_timeout.html">7.3.6. Request timeout</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../command/return_code.html">7.3.7. Return code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_operation_not_permitted.html">7.3.7.3.1. <code class="docutils literal notranslate"><span class="pre">-2:</span> <span class="pre">GRN_OPERATION_NOT_PERMITTED</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_no_such_file_or_directory.html">7.3.7.3.2. <code class="docutils literal notranslate"><span class="pre">-3:</span> <span class="pre">GRN_NO_SUCH_FILE_OR_DIRECTORY</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_input_output_error.html">7.3.7.3.3. <code class="docutils literal notranslate"><span class="pre">-6:</span> <span class="pre">GRN_INPUT_OUTPUT_ERROR</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_not_enough_space.html">7.3.7.3.4. <code class="docutils literal notranslate"><span class="pre">-13:</span> <span class="pre">GRN_NOT_ENOUGH_SPACE</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_invalid_argument.html">7.3.7.3.5. <code class="docutils literal notranslate"><span class="pre">-22:</span> <span class="pre">GRN_INVALID_ARGUMENT</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_resource_deadlock_avoided.html">7.3.7.3.6. <code class="docutils literal notranslate"><span class="pre">-34:</span> <span class="pre">GRN_RESOURCE_DEADLOCK_AVOIDED</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../command/n_workers.html">7.3.2. Parallel execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../command/output_format.html">7.3.3. Output format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../command/output_trace_log.html">7.3.4. Output trace log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../command/pretty_print.html">7.3.5. Pretty print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../command/request_id.html">7.3.6. Request ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../command/request_timeout.html">7.3.7. Request timeout</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../command/return_code.html">7.3.8. Return code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_operation_not_permitted.html">7.3.8.3.1. <code class="docutils literal notranslate"><span class="pre">-2:</span> <span class="pre">GRN_OPERATION_NOT_PERMITTED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_no_such_file_or_directory.html">7.3.8.3.2. <code class="docutils literal notranslate"><span class="pre">-3:</span> <span class="pre">GRN_NO_SUCH_FILE_OR_DIRECTORY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_input_output_error.html">7.3.8.3.3. <code class="docutils literal notranslate"><span class="pre">-6:</span> <span class="pre">GRN_INPUT_OUTPUT_ERROR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_not_enough_space.html">7.3.8.3.4. <code class="docutils literal notranslate"><span class="pre">-13:</span> <span class="pre">GRN_NOT_ENOUGH_SPACE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_invalid_argument.html">7.3.8.3.5. <code class="docutils literal notranslate"><span class="pre">-22:</span> <span class="pre">GRN_INVALID_ARGUMENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_resource_deadlock_avoided.html">7.3.8.3.6. <code class="docutils literal notranslate"><span class="pre">-34:</span> <span class="pre">GRN_RESOURCE_DEADLOCK_AVOIDED</span></code></a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="cache_limit.html">7.3.8. <code class="docutils literal notranslate"><span class="pre">cache_limit</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="check.html">7.3.9. <code class="docutils literal notranslate"><span class="pre">check</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="clearlock.html">7.3.10. <code class="docutils literal notranslate"><span class="pre">clearlock</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="column_copy.html">7.3.11. <code class="docutils literal notranslate"><span class="pre">column_copy</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="column_create.html">7.3.12. <code class="docutils literal notranslate"><span class="pre">column_create</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="column_list.html">7.3.13. <code class="docutils literal notranslate"><span class="pre">column_list</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="column_remove.html">7.3.14. <code class="docutils literal notranslate"><span class="pre">column_remove</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="column_rename.html">7.3.15. <code class="docutils literal notranslate"><span class="pre">column_rename</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="config_delete.html">7.3.16. <code class="docutils literal notranslate"><span class="pre">config_delete</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="config_get.html">7.3.17. <code class="docutils literal notranslate"><span class="pre">config_get</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="config_set.html">7.3.18. <code class="docutils literal notranslate"><span class="pre">config_set</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="database_unmap.html">7.3.19. <code class="docutils literal notranslate"><span class="pre">database_unmap</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="define_selector.html">7.3.20. <code class="docutils literal notranslate"><span class="pre">define_selector</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="defrag.html">7.3.21. <code class="docutils literal notranslate"><span class="pre">defrag</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="delete.html">7.3.22. <code class="docutils literal notranslate"><span class="pre">delete</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="dump.html">7.3.23. <code class="docutils literal notranslate"><span class="pre">dump</span></code></a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.3.24. <code class="docutils literal notranslate"><span class="pre">index_column_diff</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="io_flush.html">7.3.25. <code class="docutils literal notranslate"><span class="pre">io_flush</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="load.html">7.3.26. <code class="docutils literal notranslate"><span class="pre">load</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="lock_acquire.html">7.3.27. <code class="docutils literal notranslate"><span class="pre">lock_acquire</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="lock_clear.html">7.3.28. <code class="docutils literal notranslate"><span class="pre">lock_clear</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="lock_release.html">7.3.29. <code class="docutils literal notranslate"><span class="pre">lock_release</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="log_level.html">7.3.30. <code class="docutils literal notranslate"><span class="pre">log_level</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="log_put.html">7.3.31. <code class="docutils literal notranslate"><span class="pre">log_put</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="log_reopen.html">7.3.32. <code class="docutils literal notranslate"><span class="pre">log_reopen</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="logical_count.html">7.3.33. <code class="docutils literal notranslate"><span class="pre">logical_count</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="logical_parameters.html">7.3.34. <code class="docutils literal notranslate"><span class="pre">logical_parameters</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="logical_range_filter.html">7.3.35. <code class="docutils literal notranslate"><span class="pre">logical_range_filter</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="logical_select.html">7.3.36. <code class="docutils literal notranslate"><span class="pre">logical_select</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="logical_shard_list.html">7.3.37. <code class="docutils literal notranslate"><span class="pre">logical_shard_list</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="logical_table_remove.html">7.3.38. <code class="docutils literal notranslate"><span class="pre">logical_table_remove</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="normalize.html">7.3.39. <code class="docutils literal notranslate"><span class="pre">normalize</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="normalizer_list.html">7.3.40. <code class="docutils literal notranslate"><span class="pre">normalizer_list</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="object_exist.html">7.3.41. <code class="docutils literal notranslate"><span class="pre">object_exist</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="object_inspect.html">7.3.42. <code class="docutils literal notranslate"><span class="pre">object_inspect</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="object_list.html">7.3.43. <code class="docutils literal notranslate"><span class="pre">object_list</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="object_remove.html">7.3.44. <code class="docutils literal notranslate"><span class="pre">object_remove</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="plugin_register.html">7.3.45. <code class="docutils literal notranslate"><span class="pre">plugin_register</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="plugin_unregister.html">7.3.46. <code class="docutils literal notranslate"><span class="pre">plugin_unregister</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="query_expand.html">7.3.47. <code class="docutils literal notranslate"><span class="pre">query_expand</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="quit.html">7.3.48. <code class="docutils literal notranslate"><span class="pre">quit</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="range_filter.html">7.3.49. <code class="docutils literal notranslate"><span class="pre">range_filter</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference_acquire.html">7.3.50. <code class="docutils literal notranslate"><span class="pre">reference_acquire</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference_release.html">7.3.51. <code class="docutils literal notranslate"><span class="pre">reference_release</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="register.html">7.3.52. <code class="docutils literal notranslate"><span class="pre">register</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="reindex.html">7.3.53. <code class="docutils literal notranslate"><span class="pre">reindex</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="request_cancel.html">7.3.54. <code class="docutils literal notranslate"><span class="pre">request_cancel</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="ruby_eval.html">7.3.55. <code class="docutils literal notranslate"><span class="pre">ruby_eval</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="schema.html">7.3.56. <code class="docutils literal notranslate"><span class="pre">schema</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="select.html">7.3.57. <code class="docutils literal notranslate"><span class="pre">select</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="shutdown.html">7.3.58. <code class="docutils literal notranslate"><span class="pre">shutdown</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="status.html">7.3.59. <code class="docutils literal notranslate"><span class="pre">status</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="suggest.html">7.3.60. <code class="docutils literal notranslate"><span class="pre">suggest</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="table_copy.html">7.3.61. <code class="docutils literal notranslate"><span class="pre">table_copy</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="table_create.html">7.3.62. <code class="docutils literal notranslate"><span class="pre">table_create</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="table_list.html">7.3.63. <code class="docutils literal notranslate"><span class="pre">table_list</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="table_remove.html">7.3.64. <code class="docutils literal notranslate"><span class="pre">table_remove</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="table_rename.html">7.3.65. <code class="docutils literal notranslate"><span class="pre">table_rename</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="table_tokenize.html">7.3.66. <code class="docutils literal notranslate"><span class="pre">table_tokenize</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="thread_dump.html">7.3.67. <code class="docutils literal notranslate"><span class="pre">thread_dump</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="thread_limit.html">7.3.68. <code class="docutils literal notranslate"><span class="pre">thread_limit</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tokenize.html">7.3.69. <code class="docutils literal notranslate"><span class="pre">tokenize</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tokenizer_list.html">7.3.70. <code class="docutils literal notranslate"><span class="pre">tokenizer_list</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="truncate.html">7.3.71. <code class="docutils literal notranslate"><span class="pre">truncate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cache_limit.html">7.3.9. <code class="docutils literal notranslate"><span class="pre">cache_limit</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="check.html">7.3.10. <code class="docutils literal notranslate"><span class="pre">check</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="clearlock.html">7.3.11. <code class="docutils literal notranslate"><span class="pre">clearlock</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="column_copy.html">7.3.12. <code class="docutils literal notranslate"><span class="pre">column_copy</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="column_create.html">7.3.13. <code class="docutils literal notranslate"><span class="pre">column_create</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="column_list.html">7.3.14. <code class="docutils literal notranslate"><span class="pre">column_list</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="column_remove.html">7.3.15. <code class="docutils literal notranslate"><span class="pre">column_remove</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="column_rename.html">7.3.16. <code class="docutils literal notranslate"><span class="pre">column_rename</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_delete.html">7.3.17. <code class="docutils literal notranslate"><span class="pre">config_delete</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_get.html">7.3.18. <code class="docutils literal notranslate"><span class="pre">config_get</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_set.html">7.3.19. <code class="docutils literal notranslate"><span class="pre">config_set</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="database_unmap.html">7.3.20. <code class="docutils literal notranslate"><span class="pre">database_unmap</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_selector.html">7.3.21. <code class="docutils literal notranslate"><span class="pre">define_selector</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defrag.html">7.3.22. <code class="docutils literal notranslate"><span class="pre">defrag</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="delete.html">7.3.23. <code class="docutils literal notranslate"><span class="pre">delete</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="dump.html">7.3.24. <code class="docutils literal notranslate"><span class="pre">dump</span></code></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.3.25. <code class="docutils literal notranslate"><span class="pre">index_column_diff</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="io_flush.html">7.3.26. <code class="docutils literal notranslate"><span class="pre">io_flush</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="load.html">7.3.27. <code class="docutils literal notranslate"><span class="pre">load</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lock_acquire.html">7.3.28. <code class="docutils literal notranslate"><span class="pre">lock_acquire</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lock_clear.html">7.3.29. <code class="docutils literal notranslate"><span class="pre">lock_clear</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lock_release.html">7.3.30. <code class="docutils literal notranslate"><span class="pre">lock_release</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="log_level.html">7.3.31. <code class="docutils literal notranslate"><span class="pre">log_level</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="log_put.html">7.3.32. <code class="docutils literal notranslate"><span class="pre">log_put</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="log_reopen.html">7.3.33. <code class="docutils literal notranslate"><span class="pre">log_reopen</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="logical_count.html">7.3.34. <code class="docutils literal notranslate"><span class="pre">logical_count</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="logical_parameters.html">7.3.35. <code class="docutils literal notranslate"><span class="pre">logical_parameters</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="logical_range_filter.html">7.3.36. <code class="docutils literal notranslate"><span class="pre">logical_range_filter</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="logical_select.html">7.3.37. <code class="docutils literal notranslate"><span class="pre">logical_select</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="logical_shard_list.html">7.3.38. <code class="docutils literal notranslate"><span class="pre">logical_shard_list</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="logical_table_remove.html">7.3.39. <code class="docutils literal notranslate"><span class="pre">logical_table_remove</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalize.html">7.3.40. <code class="docutils literal notranslate"><span class="pre">normalize</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalizer_list.html">7.3.41. <code class="docutils literal notranslate"><span class="pre">normalizer_list</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="object_exist.html">7.3.42. <code class="docutils literal notranslate"><span class="pre">object_exist</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="object_inspect.html">7.3.43. <code class="docutils literal notranslate"><span class="pre">object_inspect</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="object_list.html">7.3.44. <code class="docutils literal notranslate"><span class="pre">object_list</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="object_remove.html">7.3.45. <code class="docutils literal notranslate"><span class="pre">object_remove</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin_register.html">7.3.46. <code class="docutils literal notranslate"><span class="pre">plugin_register</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin_unregister.html">7.3.47. <code class="docutils literal notranslate"><span class="pre">plugin_unregister</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="query_expand.html">7.3.48. <code class="docutils literal notranslate"><span class="pre">query_expand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="quit.html">7.3.49. <code class="docutils literal notranslate"><span class="pre">quit</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="range_filter.html">7.3.50. <code class="docutils literal notranslate"><span class="pre">range_filter</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference_acquire.html">7.3.51. <code class="docutils literal notranslate"><span class="pre">reference_acquire</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference_release.html">7.3.52. <code class="docutils literal notranslate"><span class="pre">reference_release</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="register.html">7.3.53. <code class="docutils literal notranslate"><span class="pre">register</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="reindex.html">7.3.54. <code class="docutils literal notranslate"><span class="pre">reindex</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="request_cancel.html">7.3.55. <code class="docutils literal notranslate"><span class="pre">request_cancel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ruby_eval.html">7.3.56. <code class="docutils literal notranslate"><span class="pre">ruby_eval</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="schema.html">7.3.57. <code class="docutils literal notranslate"><span class="pre">schema</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="select.html">7.3.58. <code class="docutils literal notranslate"><span class="pre">select</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="shutdown.html">7.3.59. <code class="docutils literal notranslate"><span class="pre">shutdown</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="status.html">7.3.60. <code class="docutils literal notranslate"><span class="pre">status</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="suggest.html">7.3.61. <code class="docutils literal notranslate"><span class="pre">suggest</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_copy.html">7.3.62. <code class="docutils literal notranslate"><span class="pre">table_copy</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_create.html">7.3.63. <code class="docutils literal notranslate"><span class="pre">table_create</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_list.html">7.3.64. <code class="docutils literal notranslate"><span class="pre">table_list</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_remove.html">7.3.65. <code class="docutils literal notranslate"><span class="pre">table_remove</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_rename.html">7.3.66. <code class="docutils literal notranslate"><span class="pre">table_rename</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_tokenize.html">7.3.67. <code class="docutils literal notranslate"><span class="pre">table_tokenize</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread_dump.html">7.3.68. <code class="docutils literal notranslate"><span class="pre">thread_dump</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread_limit.html">7.3.69. <code class="docutils literal notranslate"><span class="pre">thread_limit</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tokenize.html">7.3.70. <code class="docutils literal notranslate"><span class="pre">tokenize</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tokenizer_list.html">7.3.71. <code class="docutils literal notranslate"><span class="pre">tokenizer_list</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="truncate.html">7.3.72. <code class="docutils literal notranslate"><span class="pre">truncate</span></code></a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../types.html">7.4. Data types</a></li>
@@ -653,7 +654,7 @@
     
     <li class="breadcrumb-item"><a href="../command.html" class="nav-link"><span class="section-number">7.3. </span>Command</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">7.3.24. </span><code class="docutils literal notranslate"><span class="pre">index_column_diff</span></code></span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">7.3.25. </span><code class="docutils literal notranslate"><span class="pre">index_column_diff</span></code></span></li>
   </ul>
 </nav>
 </div>
@@ -671,9 +672,9 @@
                 <article class="bd-article">
                   
   <section id="index-column-diff">
-<h1><span class="section-number">7.3.24. </span><code class="docutils literal notranslate"><span class="pre">index_column_diff</span></code><a class="headerlink" href="#index-column-diff" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">7.3.25. </span><code class="docutils literal notranslate"><span class="pre">index_column_diff</span></code><a class="headerlink" href="#index-column-diff" title="Link to this heading">#</a></h1>
 <section id="summary">
-<h2><span class="section-number">7.3.24.1. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.3.25.1. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 9.0.1.</span></p>
 </div>
@@ -693,7 +694,7 @@ this command on standby system.</p>
 </div>
 </section>
 <section id="syntax">
-<h2><span class="section-number">7.3.24.2. </span>Syntax<a class="headerlink" href="#syntax" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.3.25.2. </span>Syntax<a class="headerlink" href="#syntax" title="Link to this heading">#</a></h2>
 <p>Here is the syntax of this command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">index_column_diff</span> <span class="n">table</span>
                   <span class="n">name</span>
@@ -702,7 +703,7 @@ this command on standby system.</p>
 </div>
 </section>
 <section id="usage">
-<h2><span class="section-number">7.3.24.3. </span>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.3.25.3. </span>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
 <p>Here is an example to check a index column in the database:</p>
 <p>Execution example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table_create</span> <span class="n">Data</span> <span class="n">TABLE_HASH_KEY</span> <span class="n">ShortText</span>
@@ -795,18 +796,18 @@ this command on standby system.</p>
 </div>
 </section>
 <section id="parameters">
-<h2><span class="section-number">7.3.24.4. </span>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.3.25.4. </span>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
 <p>This section describes all parameters.</p>
 <section id="table">
-<h3><span class="section-number">7.3.24.4.1. </span><code class="docutils literal notranslate"><span class="pre">table</span></code><a class="headerlink" href="#table" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.3.25.4.1. </span><code class="docutils literal notranslate"><span class="pre">table</span></code><a class="headerlink" href="#table" title="Link to this heading">#</a></h3>
 <p>Specifies the name of a table include check target of the index column.</p>
 </section>
 <section id="name">
-<h3><span class="section-number">7.3.24.4.2. </span><code class="docutils literal notranslate"><span class="pre">name</span></code><a class="headerlink" href="#name" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.3.25.4.2. </span><code class="docutils literal notranslate"><span class="pre">name</span></code><a class="headerlink" href="#name" title="Link to this heading">#</a></h3>
 <p>Specifies the name of check target of the index column.</p>
 </section>
 <section id="progress-log-level">
-<span id="index-column-diff-progress-log-level"></span><h3><span class="section-number">7.3.24.4.3. </span><code class="docutils literal notranslate"><span class="pre">progress_log_level</span></code><a class="headerlink" href="#progress-log-level" title="Link to this heading">#</a></h3>
+<span id="index-column-diff-progress-log-level"></span><h3><span class="section-number">7.3.25.4.3. </span><code class="docutils literal notranslate"><span class="pre">progress_log_level</span></code><a class="headerlink" href="#progress-log-level" title="Link to this heading">#</a></h3>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 14.1.3.</span></p>
 </div>
@@ -824,7 +825,7 @@ levels.</p>
 </section>
 </section>
 <section id="return-value">
-<h2><span class="section-number">7.3.24.5. </span>Return value<a class="headerlink" href="#return-value" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.3.25.5. </span>Return value<a class="headerlink" href="#return-value" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">index_column_diff</span></code> command returns result of check indexes:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">HEADER</span><span class="p">,</span> <span class="n">CHECK_RESULT</span><span class="p">]</span>
 </pre></div>
@@ -864,19 +865,19 @@ is supposing to remain in a index has been deleted from the index.</p>
 </pre></div>
 </div>
 <section id="token-id">
-<h3><span class="section-number">7.3.24.5.1. </span><code class="docutils literal notranslate"><span class="pre">TOKEN_ID</span></code><a class="headerlink" href="#token-id" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.3.25.5.1. </span><code class="docutils literal notranslate"><span class="pre">TOKEN_ID</span></code><a class="headerlink" href="#token-id" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">TOKEN_ID</span></code> is id of a broken token.</p>
 </section>
 <section id="token-value">
-<h3><span class="section-number">7.3.24.5.2. </span><code class="docutils literal notranslate"><span class="pre">TOKEN_VALUE</span></code><a class="headerlink" href="#token-value" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.3.25.5.2. </span><code class="docutils literal notranslate"><span class="pre">TOKEN_VALUE</span></code><a class="headerlink" href="#token-value" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">TOKEN_VALUE</span></code> is value of a broken token.</p>
 </section>
 <section id="record-id">
-<h3><span class="section-number">7.3.24.5.3. </span><code class="docutils literal notranslate"><span class="pre">RECORD_ID</span></code><a class="headerlink" href="#record-id" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.3.25.5.3. </span><code class="docutils literal notranslate"><span class="pre">RECORD_ID</span></code><a class="headerlink" href="#record-id" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">RECORD_ID</span></code> is id of a record include a broken token.</p>
 </section>
 <section id="position">
-<h3><span class="section-number">7.3.24.5.4. </span><code class="docutils literal notranslate"><span class="pre">POSITION</span></code><a class="headerlink" href="#position" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.3.25.5.4. </span><code class="docutils literal notranslate"><span class="pre">POSITION</span></code><a class="headerlink" href="#position" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">POSITION</span></code> is appearing position of a broken token.</p>
 </section>
 </section>
@@ -898,7 +899,7 @@ is supposing to remain in a index has been deleted from the index.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">7.3.23. </span><code class="docutils literal notranslate"><span class="pre">dump</span></code></p>
+        <p class="prev-next-title"><span class="section-number">7.3.24. </span><code class="docutils literal notranslate"><span class="pre">dump</span></code></p>
       </div>
     </a>
     <a class="right-next"
@@ -906,7 +907,7 @@ is supposing to remain in a index has been deleted from the index.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7.3.25. </span><code class="docutils literal notranslate"><span class="pre">io_flush</span></code></p>
+        <p class="prev-next-title"><span class="section-number">7.3.26. </span><code class="docutils literal notranslate"><span class="pre">io_flush</span></code></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -929,20 +930,20 @@ is supposing to remain in a index has been deleted from the index.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">7.3.24.1. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax">7.3.24.2. Syntax</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">7.3.24.3. Usage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">7.3.24.4. Parameters</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table">7.3.24.4.1. <code class="docutils literal notranslate"><span class="pre">table</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#name">7.3.24.4.2. <code class="docutils literal notranslate"><span class="pre">name</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#progress-log-level">7.3.24.4.3. <code class="docutils literal notranslate"><span class="pre">progress_log_level</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">7.3.25.1. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax">7.3.25.2. Syntax</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">7.3.25.3. Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">7.3.25.4. Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table">7.3.25.4.1. <code class="docutils literal notranslate"><span class="pre">table</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#name">7.3.25.4.2. <code class="docutils literal notranslate"><span class="pre">name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#progress-log-level">7.3.25.4.3. <code class="docutils literal notranslate"><span class="pre">progress_log_level</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#return-value">7.3.24.5. Return value</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#token-id">7.3.24.5.1. <code class="docutils literal notranslate"><span class="pre">TOKEN_ID</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#token-value">7.3.24.5.2. <code class="docutils literal notranslate"><span class="pre">TOKEN_VALUE</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#record-id">7.3.24.5.3. <code class="docutils literal notranslate"><span class="pre">RECORD_ID</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#position">7.3.24.5.4. <code class="docutils literal notranslate"><span class="pre">POSITION</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#return-value">7.3.25.5. Return value</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#token-id">7.3.25.5.1. <code class="docutils literal notranslate"><span class="pre">TOKEN_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#token-value">7.3.25.5.2. <code class="docutils literal notranslate"><span class="pre">TOKEN_VALUE</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#record-id">7.3.25.5.3. <code class="docutils literal notranslate"><span class="pre">RECORD_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#position">7.3.25.5.4. <code class="docutils literal notranslate"><span class="pre">POSITION</span></code></a></li>
 </ul>
 </li>
 </ul>

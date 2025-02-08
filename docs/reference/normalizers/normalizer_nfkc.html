@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.7.2.2. NormalizerNFKC &#8212; Groonga v14.1.3 documentation</title>
+    <title>7.7.2.2. NormalizerNFKC &#8212; Groonga v15.0.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=81fab00a"></script>
+    <script src="../../_static/documentation_options.js?v=a12e6846"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
@@ -69,7 +69,7 @@
     <link rel="prev" title="7.7.2.1. NormalizerAuto" href="normalizer_auto.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="14.1.3" />
+  <meta name="docsearch:version" content="15.0.0" />
   </head>
   
   
@@ -135,8 +135,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v14.1.3 documentation - Home"/>
-    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v14.1.3 documentation - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v15.0.0 documentation - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v15.0.0 documentation - Home"/>
   
   
 </a></div>
@@ -362,84 +362,85 @@
 <li class="toctree-l1"><a class="reference internal" href="../output.html">7.2. Output</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../command.html">7.3. Command</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../command/command_version.html">7.3.1. Command version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../command/output_format.html">7.3.2. Output format</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../command/output_trace_log.html">7.3.3. Output trace log</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../command/pretty_print.html">7.3.4. Pretty print</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../command/request_id.html">7.3.5. Request ID</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../command/request_timeout.html">7.3.6. Request timeout</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../command/return_code.html">7.3.7. Return code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_operation_not_permitted.html">7.3.7.3.1. <code class="docutils literal notranslate"><span class="pre">-2:</span> <span class="pre">GRN_OPERATION_NOT_PERMITTED</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_no_such_file_or_directory.html">7.3.7.3.2. <code class="docutils literal notranslate"><span class="pre">-3:</span> <span class="pre">GRN_NO_SUCH_FILE_OR_DIRECTORY</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_input_output_error.html">7.3.7.3.3. <code class="docutils literal notranslate"><span class="pre">-6:</span> <span class="pre">GRN_INPUT_OUTPUT_ERROR</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_not_enough_space.html">7.3.7.3.4. <code class="docutils literal notranslate"><span class="pre">-13:</span> <span class="pre">GRN_NOT_ENOUGH_SPACE</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_invalid_argument.html">7.3.7.3.5. <code class="docutils literal notranslate"><span class="pre">-22:</span> <span class="pre">GRN_INVALID_ARGUMENT</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_resource_deadlock_avoided.html">7.3.7.3.6. <code class="docutils literal notranslate"><span class="pre">-34:</span> <span class="pre">GRN_RESOURCE_DEADLOCK_AVOIDED</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../command/n_workers.html">7.3.2. Parallel execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../command/output_format.html">7.3.3. Output format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../command/output_trace_log.html">7.3.4. Output trace log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../command/pretty_print.html">7.3.5. Pretty print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../command/request_id.html">7.3.6. Request ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../command/request_timeout.html">7.3.7. Request timeout</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../command/return_code.html">7.3.8. Return code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_operation_not_permitted.html">7.3.8.3.1. <code class="docutils literal notranslate"><span class="pre">-2:</span> <span class="pre">GRN_OPERATION_NOT_PERMITTED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_no_such_file_or_directory.html">7.3.8.3.2. <code class="docutils literal notranslate"><span class="pre">-3:</span> <span class="pre">GRN_NO_SUCH_FILE_OR_DIRECTORY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_input_output_error.html">7.3.8.3.3. <code class="docutils literal notranslate"><span class="pre">-6:</span> <span class="pre">GRN_INPUT_OUTPUT_ERROR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_not_enough_space.html">7.3.8.3.4. <code class="docutils literal notranslate"><span class="pre">-13:</span> <span class="pre">GRN_NOT_ENOUGH_SPACE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_invalid_argument.html">7.3.8.3.5. <code class="docutils literal notranslate"><span class="pre">-22:</span> <span class="pre">GRN_INVALID_ARGUMENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../command/return_codes/grn_resource_deadlock_avoided.html">7.3.8.3.6. <code class="docutils literal notranslate"><span class="pre">-34:</span> <span class="pre">GRN_RESOURCE_DEADLOCK_AVOIDED</span></code></a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/cache_limit.html">7.3.8. <code class="docutils literal notranslate"><span class="pre">cache_limit</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/check.html">7.3.9. <code class="docutils literal notranslate"><span class="pre">check</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/clearlock.html">7.3.10. <code class="docutils literal notranslate"><span class="pre">clearlock</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/column_copy.html">7.3.11. <code class="docutils literal notranslate"><span class="pre">column_copy</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/column_create.html">7.3.12. <code class="docutils literal notranslate"><span class="pre">column_create</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/column_list.html">7.3.13. <code class="docutils literal notranslate"><span class="pre">column_list</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/column_remove.html">7.3.14. <code class="docutils literal notranslate"><span class="pre">column_remove</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/column_rename.html">7.3.15. <code class="docutils literal notranslate"><span class="pre">column_rename</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/config_delete.html">7.3.16. <code class="docutils literal notranslate"><span class="pre">config_delete</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/config_get.html">7.3.17. <code class="docutils literal notranslate"><span class="pre">config_get</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/config_set.html">7.3.18. <code class="docutils literal notranslate"><span class="pre">config_set</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/database_unmap.html">7.3.19. <code class="docutils literal notranslate"><span class="pre">database_unmap</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/define_selector.html">7.3.20. <code class="docutils literal notranslate"><span class="pre">define_selector</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/defrag.html">7.3.21. <code class="docutils literal notranslate"><span class="pre">defrag</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/delete.html">7.3.22. <code class="docutils literal notranslate"><span class="pre">delete</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/dump.html">7.3.23. <code class="docutils literal notranslate"><span class="pre">dump</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/index_column_diff.html">7.3.24. <code class="docutils literal notranslate"><span class="pre">index_column_diff</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/io_flush.html">7.3.25. <code class="docutils literal notranslate"><span class="pre">io_flush</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/load.html">7.3.26. <code class="docutils literal notranslate"><span class="pre">load</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/lock_acquire.html">7.3.27. <code class="docutils literal notranslate"><span class="pre">lock_acquire</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/lock_clear.html">7.3.28. <code class="docutils literal notranslate"><span class="pre">lock_clear</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/lock_release.html">7.3.29. <code class="docutils literal notranslate"><span class="pre">lock_release</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/log_level.html">7.3.30. <code class="docutils literal notranslate"><span class="pre">log_level</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/log_put.html">7.3.31. <code class="docutils literal notranslate"><span class="pre">log_put</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/log_reopen.html">7.3.32. <code class="docutils literal notranslate"><span class="pre">log_reopen</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/logical_count.html">7.3.33. <code class="docutils literal notranslate"><span class="pre">logical_count</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/logical_parameters.html">7.3.34. <code class="docutils literal notranslate"><span class="pre">logical_parameters</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/logical_range_filter.html">7.3.35. <code class="docutils literal notranslate"><span class="pre">logical_range_filter</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/logical_select.html">7.3.36. <code class="docutils literal notranslate"><span class="pre">logical_select</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/logical_shard_list.html">7.3.37. <code class="docutils literal notranslate"><span class="pre">logical_shard_list</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/logical_table_remove.html">7.3.38. <code class="docutils literal notranslate"><span class="pre">logical_table_remove</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/normalize.html">7.3.39. <code class="docutils literal notranslate"><span class="pre">normalize</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/normalizer_list.html">7.3.40. <code class="docutils literal notranslate"><span class="pre">normalizer_list</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/object_exist.html">7.3.41. <code class="docutils literal notranslate"><span class="pre">object_exist</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/object_inspect.html">7.3.42. <code class="docutils literal notranslate"><span class="pre">object_inspect</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/object_list.html">7.3.43. <code class="docutils literal notranslate"><span class="pre">object_list</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/object_remove.html">7.3.44. <code class="docutils literal notranslate"><span class="pre">object_remove</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/plugin_register.html">7.3.45. <code class="docutils literal notranslate"><span class="pre">plugin_register</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/plugin_unregister.html">7.3.46. <code class="docutils literal notranslate"><span class="pre">plugin_unregister</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/query_expand.html">7.3.47. <code class="docutils literal notranslate"><span class="pre">query_expand</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/quit.html">7.3.48. <code class="docutils literal notranslate"><span class="pre">quit</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/range_filter.html">7.3.49. <code class="docutils literal notranslate"><span class="pre">range_filter</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/reference_acquire.html">7.3.50. <code class="docutils literal notranslate"><span class="pre">reference_acquire</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/reference_release.html">7.3.51. <code class="docutils literal notranslate"><span class="pre">reference_release</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/register.html">7.3.52. <code class="docutils literal notranslate"><span class="pre">register</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/reindex.html">7.3.53. <code class="docutils literal notranslate"><span class="pre">reindex</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/request_cancel.html">7.3.54. <code class="docutils literal notranslate"><span class="pre">request_cancel</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/ruby_eval.html">7.3.55. <code class="docutils literal notranslate"><span class="pre">ruby_eval</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/schema.html">7.3.56. <code class="docutils literal notranslate"><span class="pre">schema</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/select.html">7.3.57. <code class="docutils literal notranslate"><span class="pre">select</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/shutdown.html">7.3.58. <code class="docutils literal notranslate"><span class="pre">shutdown</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/status.html">7.3.59. <code class="docutils literal notranslate"><span class="pre">status</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/suggest.html">7.3.60. <code class="docutils literal notranslate"><span class="pre">suggest</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/table_copy.html">7.3.61. <code class="docutils literal notranslate"><span class="pre">table_copy</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/table_create.html">7.3.62. <code class="docutils literal notranslate"><span class="pre">table_create</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/table_list.html">7.3.63. <code class="docutils literal notranslate"><span class="pre">table_list</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/table_remove.html">7.3.64. <code class="docutils literal notranslate"><span class="pre">table_remove</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/table_rename.html">7.3.65. <code class="docutils literal notranslate"><span class="pre">table_rename</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/table_tokenize.html">7.3.66. <code class="docutils literal notranslate"><span class="pre">table_tokenize</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/thread_dump.html">7.3.67. <code class="docutils literal notranslate"><span class="pre">thread_dump</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/thread_limit.html">7.3.68. <code class="docutils literal notranslate"><span class="pre">thread_limit</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/tokenize.html">7.3.69. <code class="docutils literal notranslate"><span class="pre">tokenize</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/tokenizer_list.html">7.3.70. <code class="docutils literal notranslate"><span class="pre">tokenizer_list</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands/truncate.html">7.3.71. <code class="docutils literal notranslate"><span class="pre">truncate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/cache_limit.html">7.3.9. <code class="docutils literal notranslate"><span class="pre">cache_limit</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/check.html">7.3.10. <code class="docutils literal notranslate"><span class="pre">check</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/clearlock.html">7.3.11. <code class="docutils literal notranslate"><span class="pre">clearlock</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/column_copy.html">7.3.12. <code class="docutils literal notranslate"><span class="pre">column_copy</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/column_create.html">7.3.13. <code class="docutils literal notranslate"><span class="pre">column_create</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/column_list.html">7.3.14. <code class="docutils literal notranslate"><span class="pre">column_list</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/column_remove.html">7.3.15. <code class="docutils literal notranslate"><span class="pre">column_remove</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/column_rename.html">7.3.16. <code class="docutils literal notranslate"><span class="pre">column_rename</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/config_delete.html">7.3.17. <code class="docutils literal notranslate"><span class="pre">config_delete</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/config_get.html">7.3.18. <code class="docutils literal notranslate"><span class="pre">config_get</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/config_set.html">7.3.19. <code class="docutils literal notranslate"><span class="pre">config_set</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/database_unmap.html">7.3.20. <code class="docutils literal notranslate"><span class="pre">database_unmap</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/define_selector.html">7.3.21. <code class="docutils literal notranslate"><span class="pre">define_selector</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/defrag.html">7.3.22. <code class="docutils literal notranslate"><span class="pre">defrag</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/delete.html">7.3.23. <code class="docutils literal notranslate"><span class="pre">delete</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/dump.html">7.3.24. <code class="docutils literal notranslate"><span class="pre">dump</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index_column_diff.html">7.3.25. <code class="docutils literal notranslate"><span class="pre">index_column_diff</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/io_flush.html">7.3.26. <code class="docutils literal notranslate"><span class="pre">io_flush</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/load.html">7.3.27. <code class="docutils literal notranslate"><span class="pre">load</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/lock_acquire.html">7.3.28. <code class="docutils literal notranslate"><span class="pre">lock_acquire</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/lock_clear.html">7.3.29. <code class="docutils literal notranslate"><span class="pre">lock_clear</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/lock_release.html">7.3.30. <code class="docutils literal notranslate"><span class="pre">lock_release</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/log_level.html">7.3.31. <code class="docutils literal notranslate"><span class="pre">log_level</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/log_put.html">7.3.32. <code class="docutils literal notranslate"><span class="pre">log_put</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/log_reopen.html">7.3.33. <code class="docutils literal notranslate"><span class="pre">log_reopen</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/logical_count.html">7.3.34. <code class="docutils literal notranslate"><span class="pre">logical_count</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/logical_parameters.html">7.3.35. <code class="docutils literal notranslate"><span class="pre">logical_parameters</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/logical_range_filter.html">7.3.36. <code class="docutils literal notranslate"><span class="pre">logical_range_filter</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/logical_select.html">7.3.37. <code class="docutils literal notranslate"><span class="pre">logical_select</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/logical_shard_list.html">7.3.38. <code class="docutils literal notranslate"><span class="pre">logical_shard_list</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/logical_table_remove.html">7.3.39. <code class="docutils literal notranslate"><span class="pre">logical_table_remove</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/normalize.html">7.3.40. <code class="docutils literal notranslate"><span class="pre">normalize</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/normalizer_list.html">7.3.41. <code class="docutils literal notranslate"><span class="pre">normalizer_list</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/object_exist.html">7.3.42. <code class="docutils literal notranslate"><span class="pre">object_exist</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/object_inspect.html">7.3.43. <code class="docutils literal notranslate"><span class="pre">object_inspect</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/object_list.html">7.3.44. <code class="docutils literal notranslate"><span class="pre">object_list</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/object_remove.html">7.3.45. <code class="docutils literal notranslate"><span class="pre">object_remove</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/plugin_register.html">7.3.46. <code class="docutils literal notranslate"><span class="pre">plugin_register</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/plugin_unregister.html">7.3.47. <code class="docutils literal notranslate"><span class="pre">plugin_unregister</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/query_expand.html">7.3.48. <code class="docutils literal notranslate"><span class="pre">query_expand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/quit.html">7.3.49. <code class="docutils literal notranslate"><span class="pre">quit</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/range_filter.html">7.3.50. <code class="docutils literal notranslate"><span class="pre">range_filter</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/reference_acquire.html">7.3.51. <code class="docutils literal notranslate"><span class="pre">reference_acquire</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/reference_release.html">7.3.52. <code class="docutils literal notranslate"><span class="pre">reference_release</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/register.html">7.3.53. <code class="docutils literal notranslate"><span class="pre">register</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/reindex.html">7.3.54. <code class="docutils literal notranslate"><span class="pre">reindex</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/request_cancel.html">7.3.55. <code class="docutils literal notranslate"><span class="pre">request_cancel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/ruby_eval.html">7.3.56. <code class="docutils literal notranslate"><span class="pre">ruby_eval</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/schema.html">7.3.57. <code class="docutils literal notranslate"><span class="pre">schema</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/select.html">7.3.58. <code class="docutils literal notranslate"><span class="pre">select</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/shutdown.html">7.3.59. <code class="docutils literal notranslate"><span class="pre">shutdown</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/status.html">7.3.60. <code class="docutils literal notranslate"><span class="pre">status</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/suggest.html">7.3.61. <code class="docutils literal notranslate"><span class="pre">suggest</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/table_copy.html">7.3.62. <code class="docutils literal notranslate"><span class="pre">table_copy</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/table_create.html">7.3.63. <code class="docutils literal notranslate"><span class="pre">table_create</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/table_list.html">7.3.64. <code class="docutils literal notranslate"><span class="pre">table_list</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/table_remove.html">7.3.65. <code class="docutils literal notranslate"><span class="pre">table_remove</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/table_rename.html">7.3.66. <code class="docutils literal notranslate"><span class="pre">table_rename</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/table_tokenize.html">7.3.67. <code class="docutils literal notranslate"><span class="pre">table_tokenize</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/thread_dump.html">7.3.68. <code class="docutils literal notranslate"><span class="pre">thread_dump</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/thread_limit.html">7.3.69. <code class="docutils literal notranslate"><span class="pre">thread_limit</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/tokenize.html">7.3.70. <code class="docutils literal notranslate"><span class="pre">tokenize</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/tokenizer_list.html">7.3.71. <code class="docutils literal notranslate"><span class="pre">tokenizer_list</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/truncate.html">7.3.72. <code class="docutils literal notranslate"><span class="pre">truncate</span></code></a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../types.html">7.4. Data types</a></li>
@@ -670,7 +671,9 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="normalizernfkc">
+  <!-- groonga-command -->
+<!-- database: normalisers -->
+<section class="tex2jax_ignore mathjax_ignore" id="normalizernfkc">
 <span id="normalizer-nfkc"></span><h1><span class="section-number">7.7.2.2. </span><code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code><a class="headerlink" href="#normalizernfkc" title="Link to this heading">#</a></h1>
 <section id="summary">
 <h2><span class="section-number">7.7.2.2.1. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
@@ -748,8 +751,9 @@
 <section id="simple-usage">
 <h3><span class="section-number">7.7.2.2.3.1. </span>Simple usage<a class="headerlink" href="#simple-usage" title="Link to this heading">#</a></h3>
 <p>Here is an example of <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code>. <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code> normalizes text by Unicode NFKC (Normalization Form Compatibility Composition).</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span> <span class="n">NormalizerNFKC</span> <span class="s2">&quot;©&quot;</span> <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span>NormalizerNFKC<span class="w"> </span><span class="s2">&quot;©&quot;</span><span class="w"> </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -762,17 +766,16 @@
 <span class="c1">#       &quot;emoji&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-version"><span class="std std-ref">version</span></a> option.
 You can specify the Unicode version for this option.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span> <span class="s1">&#39;NormalizerNFKC(&quot;version&quot;, &quot;16.0.0&quot;)&#39;</span> <span class="s2">&quot;©&quot;</span> <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="s1">&#39;NormalizerNFKC(&quot;version&quot;, &quot;16.0.0&quot;)&#39;</span><span class="w"> </span><span class="s2">&quot;©&quot;</span><span class="w"> </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -785,17 +788,16 @@ You can specify the Unicode version for this option.</p>
 <span class="c1">#       &quot;emoji&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-kana"><span class="std std-ref">unify_kana</span></a> option.</p>
 <p>This option enables that same pronounced characters in all of full-width Hiragana, full-width Katakana and half-width Katakana are regarded as the same character as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_kana&quot;, true)&#39;</span>   <span class="s2">&quot;あイｳｪおヽヾ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_kana&quot;, true)&#39;</span><span class="w"> </span><span class="s2">&quot;あイｳｪおヽヾ&quot;</span><span class="w"> </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -814,17 +816,19 @@ You can specify the Unicode version for this option.</p>
 <span class="c1">#       &quot;hiragana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-kana-case"><span class="std std-ref">unify_kana_case</span></a> option.</p>
 <p>This option enables that large and small versions of same letters in all of full-width Hiragana, full-width Katakana and half-width Katakana are regarded as the same character as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_case&quot;, true)&#39;</span>   <span class="s2">&quot;ぁあぃいぅうぇえぉおゃやゅゆょよゎわゕかゖけ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_case&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ぁあぃいぅうぇえぉおゃやゅゆょよゎわゕかゖけ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -858,15 +862,17 @@ You can specify the Unicode version for this option.</p>
 <span class="c1">#       &quot;hiragana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_case&quot;, true)&#39;</span>   <span class="s2">&quot;ァアィイゥウェエォオャヤュユョヨヮワヵカヶケ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_case&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ァアィイゥウェエォオャヤュユョヨヮワヵカヶケ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -900,17 +906,19 @@ You can specify the Unicode version for this option.</p>
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-kana-voiced-sound-mark"><span class="std std-ref">unify_kana_voiced_sound_mark</span></a> option.</p>
 <p>This option enables that letters with/without voiced sound mark and semi voiced sound mark in all of full-width Hiragana, full-width Katakana and half-width Katakana are regarded as the same character as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_voiced_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;かがきぎくぐけげこごさざしじすずせぜそぞただちぢつづてでとどはばぱひびぴふぶぷへべぺほぼぽ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_voiced_sound_mark&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;かがきぎくぐけげこごさざしじすずせぜそぞただちぢつづてでとどはばぱひびぴふぶぷへべぺほぼぽ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -967,15 +975,17 @@ You can specify the Unicode version for this option.</p>
 <span class="c1">#       &quot;hiragana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_voiced_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;カガキギクグケゲコゴサザシジスズセゼソゾタダチヂツヅテデトドハバパヒビピフブプヘベペホボポ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_voiced_sound_mark&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;カガキギクグケゲコゴサザシジスズセゼソゾタダチヂツヅテデトドハバパヒビピフブプヘベペホボポ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1032,17 +1042,19 @@ You can specify the Unicode version for this option.</p>
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-hyphen"><span class="std std-ref">unify_hyphen</span></a> option.
 This option enables normalize hyphen to “-” (U+002D HYPHEN-MINUS) as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_hyphen&quot;, true)&#39;</span>   <span class="s2">&quot;-˗֊‐‑‒–⁃⁻₋−&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_hyphen&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;-˗֊‐‑‒–⁃⁻₋−&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1065,17 +1077,19 @@ This option enables normalize hyphen to “-” (U+002D HYPHEN-MINUS) as below.<
 <span class="c1">#       &quot;symbol&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-prolonged-sound-mark"><span class="std std-ref">unify_prolonged_sound_mark</span></a> option.
 This option enables normalize prolonged sound to “-” (U+30FC KATAKANA-HIRAGANA PROLONGED SOUND MARK) as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_prolonged_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;ー—―─━ｰ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_prolonged_sound_mark&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ー—―─━ｰ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1093,17 +1107,19 @@ This option enables normalize prolonged sound to “-” (U+30FC KATAKANA-HIRAGA
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-hyphen-and-prolonged-sound-mark"><span class="std std-ref">unify_hyphen_and_prolonged_sound_mark</span></a> option.
 This option enables normalize hyphen and prolonged sound to “-” (U+002D HYPHEN-MINUS) as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_hyphen_and_prolonged_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;-˗֊‐‑‒–⁃⁻₋− ﹣－ ー—―─━ｰ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_hyphen_and_prolonged_sound_mark&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;-˗֊‐‑‒–⁃⁻₋− ﹣－ ー—―─━ｰ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1136,9 +1152,7 @@ This option enables normalize hyphen and prolonged sound to “-” (U+002D HYPH
 <span class="c1">#       &quot;symbol&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
@@ -1146,8 +1160,12 @@ This option enables normalize hyphen and prolonged sound to “-” (U+002D HYPH
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-middle-dot"><span class="std std-ref">unify_middle_dot</span></a> option.
 This option enables normalize middle dot to “·” (U+00B7 MIDDLE DOT) as below.</p>
 <p>You can use it with <a class="reference internal" href="#normalizer-nfkc-remove-symbol"><span class="std std-ref">remove_symbol</span></a> to remove all characters like middle dot.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_middle_dot&quot;, true)&#39;</span>   <span class="s2">&quot;·ᐧ•∙⋅⸱・･&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_middle_dot&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;·ᐧ•∙⋅⸱・･&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1167,17 +1185,19 @@ This option enables normalize middle dot to “·” (U+00B7 MIDDLE DOT) as belo
 <span class="c1">#       &quot;symbol&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-katakana-v-sounds"><span class="std std-ref">unify_katakana_v_sounds</span></a> option.
 This option enables normalize “ヴァヴィヴヴェヴォ” to “バビブベボ” as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_v_sounds&quot;, true)&#39;</span>   <span class="s2">&quot;ヴァヴィヴヴェヴォヴ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_v_sounds&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ヴァヴィヴヴェヴォヴ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1195,17 +1215,19 @@ This option enables normalize “ヴァヴィヴヴェヴォ” to “バビブ�
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-katakana-bu-sounds"><span class="std std-ref">unify_katakana_bu_sound</span></a> option.
 This option enables normalize “ヴァヴィヴゥヴェヴォ” to “ブ” as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_bu_sound&quot;, true)&#39;</span>   <span class="s2">&quot;ヴァヴィヴヴェヴォヴ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_bu_sound&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ヴァヴィヴヴェヴォヴ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1223,17 +1245,19 @@ This option enables normalize “ヴァヴィヴゥヴェヴォ” to “ブ” 
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-to-katakana"><span class="std std-ref">unify_to_katakana</span></a> option.
 This option normalizes hiragana to katakana.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_to_katakana&quot;, true)&#39;</span>   <span class="s2">&quot;ゔぁゔぃゔゔぇゔぉ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_to_katakana&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ゔぁゔぃゔゔぇゔぉ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1254,17 +1278,19 @@ This option normalizes hiragana to katakana.</p>
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-to-romaji"><span class="std std-ref">unify_to_romaji</span></a> option.
 This option enables normalize hiragana and katakana to romaji as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_to_romaji&quot;, true)&#39;</span>   <span class="s2">&quot;アァイィウゥエェオォ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_to_romaji&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;アァイィウゥエェオォ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1291,17 +1317,19 @@ This option enables normalize hiragana and katakana to romaji as below.</p>
 <span class="c1">#       &quot;alpha&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-remove-symbol"><span class="std std-ref">remove_symbol</span></a> option.
 This option removes symbols (e.g. #, !, “, &amp;, %, …) as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;remove_symbol&quot;, true)&#39;</span>   <span class="s2">&quot;#This &amp; is </span><span class="si">%%</span><span class="s2"> a pen.&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;remove_symbol&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;#This &amp; is %% a pen.&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1328,17 +1356,19 @@ This option removes symbols (e.g. #, !, “, &amp;, %, …) as below.</p>
 <span class="c1">#       &quot;alpha&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-katakana-gu-small-sounds"><span class="std std-ref">unify_katakana_gu_small_sounds</span></a> option.
 This option enables to normalize “グァグィグェグォ” to “ガギゲゴ” as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_gu_small_sounds&quot;, true)&#39;</span>   <span class="s2">&quot;グァグィグェグォ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_gu_small_sounds&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;グァグィグェグォ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1354,17 +1384,19 @@ This option enables to normalize “グァグィグェグォ” to “ガギゲ�
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-katakana-di-sound"><span class="std std-ref">unify_katakana_di_sound</span></a> option.
 This option enables to normalize “ヂ” to “ジ” as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_di_sound&quot;, true)&#39;</span>   <span class="s2">&quot;ヂ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_di_sound&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ヂ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1377,17 +1409,19 @@ This option enables to normalize “ヂ” to “ジ” as below.</p>
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-katakana-wo-sound"><span class="std std-ref">unify_katakana_wo_sound</span></a> option.
 This option enables to normalize “ヲ” to “オ” as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_wo_sound&quot;, true)&#39;</span>   <span class="s2">&quot;ヲ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_wo_sound&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ヲ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1400,17 +1434,19 @@ This option enables to normalize “ヲ” to “オ” as below.</p>
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-katakana-zu-small-sounds"><span class="std std-ref">unify_katakana_zu_small_sounds</span></a> option.
 This option enables to normalize “ズァズィズェズォ” to “ザジゼゾ” as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_zu_small_sounds&quot;, true)&#39;</span>   <span class="s2">&quot;ズァズィズェズォ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_zu_small_sounds&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ズァズィズェズォ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1426,17 +1462,19 @@ This option enables to normalize “ズァズィズェズォ” to “ザジゼ�
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-katakana-du-sound"><span class="std std-ref">unify_katakana_du_sound</span></a> option.
 This option enables to normalize “ヅ” to “ズ” as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_du_sound&quot;, true)&#39;</span>   <span class="s2">&quot;ヅ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_du_sound&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ヅ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1449,17 +1487,19 @@ This option enables to normalize “ヅ” to “ズ” as below.</p>
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-katakana-trailing-o"><span class="std std-ref">unify_katakana_trailing_o</span></a> option.
 This option enables to normalize “オ” to “ウ” when the vowel in the previous letter is “オ” as below.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_trailing_o&quot;, true)&#39;</span>   <span class="s2">&quot;オオコオソオトオノオ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_trailing_o&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;オオコオソオトオノオ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1481,17 +1521,19 @@ This option enables to normalize “オ” to “ウ” when the vowel in the pr
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
 </div>
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-katakana-du-small-sounds"><span class="std std-ref">unify_katakana_du_small_sounds</span></a> option.
 This option enables to normalize “ヅァヅィヅェヅォ” to “ザジゼゾ”.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_du_small_sounds&quot;, true)&#39;</span>   <span class="s2">&quot;ヅァヅィヅェヅォ&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_katakana_du_small_sounds&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ヅァヅィヅェヅォ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1507,9 +1549,7 @@ This option enables to normalize “ヅァヅィヅェヅォ” to “ザジゼ�
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
@@ -1519,8 +1559,12 @@ This option enables to normalize “ー” (U+30FC KATAKANA-HIRAGANA PROLONGED S
 to a vowel of a previous kana letter.</p>
 <p>If a previous kana letter is “ん” , “ー” is normalized to “ん”,
 And a previous kana letter is “ン” , “ー” is normalized to “ン”.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_prolonged_sound_mark&quot;, true)&#39;</span>   <span class="s2">&quot;カーキークーケーコー&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_prolonged_sound_mark&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;カーキークーケーコー&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1542,9 +1586,7 @@ And a previous kana letter is “ン” , “ー” is normalized to “ン”.<
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
@@ -1553,8 +1595,12 @@ And a previous kana letter is “ン” , “ー” is normalized to “ン”.<
 This option enables to normalize “-” (U+002D HYPHEN-MINUS) to a vowel of a previous kana letter.</p>
 <p>If a previous kana letter is “ん” , “-” is normalized to “ん”,
 And a previous kana letter is “ン” , “-” is normalized to “ン”.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_hyphen&quot;, true)&#39;</span>   <span class="s2">&quot;カ-キ-ク-ケ-コ-&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_kana_hyphen&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;カ-キ-ク-ケ-コ-&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1576,9 +1622,7 @@ And a previous kana letter is “ン” , “-” is normalized to “ン”.</p
 <span class="c1">#       &quot;katakana&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
@@ -1586,8 +1630,12 @@ And a previous kana letter is “ン” , “-” is normalized to “ン”.</p
 <p>Here is an example of <a class="reference internal" href="#normalizer-nfkc-unify-latin-alphabet-with"><span class="std std-ref">unify_latin_alphabet_with</span></a> option.
 This option enables that alphabets with diacritical mark and alphabets without diacritical mark regarded as the same character as below.</p>
 <p>However, this feature focus on only LATIN (SMALL|CAPITAL) LETTER X WITH XXX. It doesn’t support LATIN (SMALL|CAPITAL) LETTER X + COMBINING XXX characters.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_latin_alphabet_with&quot;, true)&#39;</span>   <span class="s2">&quot;ngoằn&quot;</span>   <span class="n">WITH_TYPES</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_latin_alphabet_with&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ngoằn&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1604,9 +1652,7 @@ This option enables that alphabets with diacritical mark and alphabets without d
 <span class="c1">#       &quot;alpha&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
@@ -1620,8 +1666,11 @@ This option enables that alphabets with diacritical mark and alphabets without d
 <code class="docutils literal notranslate"><span class="pre">TokenMecab</span></code> and <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code> as below.</p>
 <p>First of all, you extract reading of a noun with excluding non-independent word and suffix of person name with <code class="docutils literal notranslate"><span class="pre">target_class</span></code> option and <code class="docutils literal notranslate"><span class="pre">include_reading</span></code> option.</p>
 <p>Next, you normalize reading of the noun that extracted with <code class="docutils literal notranslate"><span class="pre">unify_to_romaji</span></code> option of <code class="docutils literal notranslate"><span class="pre">NormalizerNFKC</span></code>.</p>
+<!-- groonga-command -->
 <p>Execution example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tokenize</span> <span class="s1">&#39;TokenMecab(&quot;target_class&quot;, &quot;-名詞/非自立&quot;, &quot;target_class&quot;, &quot;-名詞/接尾/人名&quot;, &quot;target_class&quot;, &quot;名詞&quot;, &quot;include_reading&quot;, true)&#39;</span> <span class="s1">&#39;彼の名前は山田さんのはずです。&#39;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tokenize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;TokenMecab(&quot;target_class&quot;, &quot;-名詞/非自立&quot;, &quot;target_class&quot;, &quot;-名詞/接尾/人名&quot;, &quot;target_class&quot;, &quot;名詞&quot;, &quot;include_reading&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;彼の名前は山田さんのはずです。&#39;</span>
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1658,7 +1707,10 @@ This option enables that alphabets with diacritical mark and alphabets without d
 <span class="c1">#     }</span>
 <span class="c1">#   ]</span>
 <span class="c1"># ]</span>
-<span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_to_romaji&quot;, true)&#39;</span>   <span class="s2">&quot;カレ&quot;</span>   <span class="n">WITH_TYPES</span>
+normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_to_romaji&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;カレ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1674,12 +1726,13 @@ This option enables that alphabets with diacritical mark and alphabets without d
 <span class="c1">#       &quot;alpha&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
-<span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_to_romaji&quot;, true)&#39;</span>   <span class="s2">&quot;ナマエ&quot;</span>   <span class="n">WITH_TYPES</span>
+normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_to_romaji&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ナマエ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1696,12 +1749,13 @@ This option enables that alphabets with diacritical mark and alphabets without d
 <span class="c1">#       &quot;alpha&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
-<span class="n">normalize</span>   <span class="s1">&#39;NormalizerNFKC(&quot;unify_to_romaji&quot;, true)&#39;</span>   <span class="s2">&quot;ヤマダ&quot;</span>   <span class="n">WITH_TYPES</span>
+normalize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;NormalizerNFKC(&quot;unify_to_romaji&quot;, true)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;ヤマダ&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>WITH_TYPES
 <span class="c1"># [</span>
 <span class="c1">#   [</span>
 <span class="c1">#     0,</span>
@@ -1719,9 +1773,7 @@ This option enables that alphabets with diacritical mark and alphabets without d
 <span class="c1">#       &quot;alpha&quot;,</span>
 <span class="c1">#       &quot;null&quot;</span>
 <span class="c1">#     ],</span>
-<span class="c1">#     &quot;checks&quot;: [</span>
-<span class="c1">#</span>
-<span class="c1">#     ]</span>
+<span class="c1">#     &quot;checks&quot;: []</span>
 <span class="c1">#   }</span>
 <span class="c1"># ]</span>
 </pre></div>
@@ -2169,7 +2221,7 @@ And a previous kana letter is “ン” , “-” is normalized to “ン”.</p
 
   
   <div class="tocsection editthispage">
-    <a href="https://github.com/groonga/groonga/edit/main/doc/source/reference/normalizers/normalizer_nfkc.rst">
+    <a href="https://github.com/groonga/groonga/edit/main/doc/source/reference/normalizers/normalizer_nfkc.md">
       <i class="fa-solid fa-pencil"></i>
       
       
