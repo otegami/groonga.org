@@ -446,10 +446,7 @@
 <li><p>GROONGA_DIR=$HOME/work/groonga</p></li>
 <li><p>GROONGA_CLONE_DIR=$HOME/work/groonga/groonga.clean</p></li>
 <li><p>GROONGA_ORG_PATH=$HOME/work/groonga/groonga.org</p></li>
-<li><p>CUTTER_DIR=$HOME/work/cutter</p></li>
-<li><p>CUTTER_SOURCE_PATH=$HOME/work/cutter/cutter</p></li>
 <li><p>APACHE_ARROW_REPOSITORY=$HOME/work/apache/arrow</p></li>
-<li><p>PACKAGES_GROONGA_ORG_REPOSITORY=$HOME/work/groonga/packages.groonga.org</p></li>
 </ul>
 </section>
 <section id="id3">
@@ -462,59 +459,25 @@
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-V<span class="w"> </span>debootstrap<span class="w"> </span>createrepo<span class="w"> </span>rpm<span class="w"> </span>mercurial<span class="w"> </span>python-docutils<span class="w"> </span>python-jinja2<span class="w"> </span>ruby-full<span class="w"> </span>mingw-w64<span class="w"> </span>g++-mingw-w64<span class="w"> </span>mecab<span class="w"> </span>libmecab-dev<span class="w"> </span>nsis<span class="w"> </span>gnupg2<span class="w"> </span>dh-autoreconf<span class="w"> </span>bison
 </pre></div>
 </div>
-<p>また、Sphinxは常に最新のバージョンを使う事を推奨します。 <code class="docutils literal notranslate"><span class="pre">pip3</span></code> を使用して最新のSphinxをインストールするようにして下さい。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip3<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>sphinx
-</pre></div>
-</div>
 <p>また、rubyのrakeパッケージを以下のコマンドによりインストールします。</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>gem<span class="w"> </span>install<span class="w"> </span>rake
 </pre></div>
 </div>
 </section>
-<section id="id5">
-<h3><span class="section-number">12.3.7.2.2. </span>パッケージ署名用秘密鍵のインポート<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<p>リリース作業ではRPMパッケージに対する署名を行います。
-その際、パッケージ署名用の鍵が必要です。</p>
-<p>Groongaプロジェクトでは署名用の鍵をリリース担当者の公開鍵で暗号化してリポジトリのpackages/ディレクトリ以下へと登録しています。新しいリリース担当者に任命されたばかりで、まだ自分用に暗号化された鍵が無い場合には、他のリリース担当者に依頼して署名用の鍵を暗号化してもらって下さい。</p>
-<p>リリース担当者はリポジトリに登録された秘密鍵を復号した後に鍵のインポートを以下のコマンドにて行います。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>packages
-<span class="gp">$ </span>gpg<span class="w"> </span>--decrypt<span class="w"> </span>release-key-secret.asc.gpg.<span class="o">(</span>担当者<span class="o">)</span><span class="w"> </span>&gt;<span class="w"> </span><span class="o">(</span>復号した鍵ファイル<span class="o">)</span>
-<span class="gp">$ </span>gpg<span class="w"> </span>--import<span class="w">  </span><span class="o">(</span>復号した鍵ファイル<span class="o">)</span>
-</pre></div>
-</div>
-<p>鍵のインポートが正常終了すると gpg –list-keys でGroongaの署名用の鍵を確認することができます。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gpg<span class="w"> </span>--list-keys
-<span class="go">pub   1024R/F10399C0 2012-04-24</span>
-<span class="go">uid                  groonga Key (groonga Official Signing Key)</span>
-<span class="go">&lt;packages@groonga.org&gt;</span>
-<span class="go">sub   1024R/BC009774 2012-04-24</span>
-</pre></div>
-</div>
-<p>鍵をインポートしただけでは使用することができないため、インポートした鍵に対してtrust,signを行う必要があります。</p>
-<p>以下のコマンドを実行して署名を行います。(途中の選択肢は省略)</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gpg<span class="w"> </span>--edit-key<span class="w"> </span>packages@groonga.org
-<span class="go">gpg&gt; trust</span>
-<span class="go">gpg&gt; sign</span>
-<span class="go">gpg&gt; save</span>
-<span class="go">gpg&gt; quit</span>
-</pre></div>
-</div>
-<p>この作業は、新規にリリースを行うことになった担当者やパッケージに署名する鍵に変更があった場合などに行います。</p>
-</section>
 <section id="ppa">
-<h3><span class="section-number">12.3.7.2.3. </span>PPA用の鍵の登録<a class="headerlink" href="#ppa" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.3.7.2.2. </span>PPA用の鍵の登録<a class="headerlink" href="#ppa" title="Link to this heading">#</a></h3>
 <p>この作業は、新規にリリースを行うことになった担当者のみ行います。</p>
 <p>[Launchpad](<a class="reference external" href="https://launchpad.net/">https://launchpad.net/</a>)にアカウントを作成し、自分の普段使いの公開鍵を登録した上で、他のリリース担当者に依頼して[Groongaチーム](<a class="reference external" href="https://launchpad.net/~groonga">https://launchpad.net/~groonga</a>)に追加してもらって下さい。</p>
 </section>
-<section id="id6">
-<h3><span class="section-number">12.3.7.2.4. </span>リリース作業用ディレクトリの作成<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3><span class="section-number">12.3.7.2.3. </span>リリース作業用ディレクトリの作成<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>Groongaのリリース作業ではリリース専用の環境下(コンパイルフラグ)でビルドする必要があります。</p>
 <p>リリース時と開発時でディレクトリを分けずに作業することもできますが、誤ったコンパイルフラグでリリースしてしまう危険があります。</p>
 <p>そのため、以降の説明では$GROONGA_DIR以下のディレクトリにリリース用の作業ディレクトリ(groonga.clean)としてソースコードをcloneしたものとして説明します。</p>
 </section>
 </section>
-<section id="id7">
-<h2><span class="section-number">12.3.7.3. </span>毎回のリリースで行う手順<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h2><span class="section-number">12.3.7.3. </span>毎回のリリースで行う手順<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <section id="groonga">
 <h3><span class="section-number">12.3.7.3.1. </span>Groongaのソースコード取得<a class="headerlink" href="#groonga" title="Link to this heading">#</a></h3>
 <p>リリース用のクリーンな状態でソースコードを取得するために$GROONGA_DIRにて以下のコマンドを実行します。</p>
@@ -523,34 +486,30 @@
 </div>
 <p>この作業はリリース作業ごとに行います。</p>
 </section>
-<section id="id8">
-<h3><span class="section-number">12.3.7.3.2. </span>Groongaのウェブサイトの取得<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3><span class="section-number">12.3.7.3.2. </span>Groongaのウェブサイトの取得<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>GroongaのウェブサイトのソースはGroonga同様にGitHubにリポジトリを置いています。</p>
-<p>リリース作業では後述するコマンド(make update-latest-release)にてトップページのバージョンを置き換えることができるようになっています。</p>
-<p>Groongaのウェブサイトのソースコードを$GROONGA_ORG_PATHとして取得するためには、$GROONGA_DIRにて以下のコマンドを実行します。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:groonga/groonga.org.git
+<p>リリース作業では後述するコマンド( <code class="docutils literal notranslate"><span class="pre">rake</span> <span class="pre">release:version:update</span></code> )でタグをプッシュしてCIが動き出すトリガーとします。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:groonga/groonga.org.git<span class="w"> </span><span class="si">${</span><span class="nv">GROONGA_ORG_PATH</span><span class="si">}</span>
 </pre></div>
 </div>
 <p>これで、$GROONGA_ORG_PATHにgroonga.orgのソースを取得できます。</p>
 </section>
-<section id="cmake">
-<h3><span class="section-number">12.3.7.3.3. </span>CMakeの実行<a class="headerlink" href="#cmake" title="Link to this heading">#</a></h3>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>build-dir/groonga
-<span class="gp">$ </span>cmake<span class="w"> </span>-S<span class="w"> </span><span class="nv">$GROONGA_CLONE_DIR</span><span class="w"> </span>-B<span class="w"> </span>build-dir/groonga<span class="w"> </span>--preset<span class="o">=</span>doc<span class="w"> </span>--fresh<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="s2">&quot;/tmp/local&quot;</span>
-<span class="gp">$ </span>cmake<span class="w"> </span>--build<span class="w"> </span>build-dir/groonga
+<section id="apache-arrow">
+<h3><span class="section-number">12.3.7.3.3. </span>Apache Arrowリポジトリの取得<a class="headerlink" href="#apache-arrow" title="Link to this heading">#</a></h3>
+<p>Apache Arrowのソースも取得します。Apache ArrowのRakeタスクを利用するためです。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/apache/arrow.git<span class="w"> </span><span class="si">${</span><span class="nv">APACHE_ARROW_REPOSITORY</span><span class="si">}</span>
 </pre></div>
 </div>
-<p>また、あらかじめpackagesユーザでpackages.groonga.orgにsshログインできることを確認しておいてください。</p>
-<p>ログイン可能であるかの確認は以下のようにコマンドを実行して行います。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ssh<span class="w"> </span>packages@packages.groonga.org
-</pre></div>
-</div>
+</section>
+<section id="id8">
+<h3><span class="section-number">12.3.7.3.4. </span>事前確認<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>Ubuntu向けパッケージをテスト用に公開する時は、 <a class="reference internal" href="#build-for-ubuntu-nightly"><span class="std std-ref">Ubuntu向けパッケージのビルド確認</span></a> の手順で不安定版のリポジトリにアップロードするように指定します。</p>
 <p>新任のリリース担当者は必ず、この方法でPPAのリポジトリにパッケージをアップロードできる事を確認しておいてください。</p>
 <p>PPAのリポジトリは、同名のパッケージを上書いてアップロードできないので、不安定版のリポジトリでビルドできることを確認してから、安定版のリポジトリへアップロードするようにしてください。</p>
 </section>
 <section id="id9">
-<h3><span class="section-number">12.3.7.3.4. </span>変更点のまとめ<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.3.7.3.5. </span>変更点のまとめ<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>前回リリース時からの変更点を <code class="docutils literal notranslate"><span class="pre">$GROONGA_CLONE_DIR/doc/source/news/*.md</span></code> （英語）にまとめます。
 ここでまとめた内容についてはリリースアナウンスにも使用します。</p>
 <p>前回リリースからの変更履歴を参照するには以下のコマンドを実行します。</p>
@@ -568,18 +527,44 @@
 <li><p>内部的な変更(変数名の変更やらリファクタリング)</p></li>
 </ul>
 </section>
-<section id="rake-release-version-update">
-<h3><span class="section-number">12.3.7.3.5. </span>rake release:version:updateの実行<a class="headerlink" href="#rake-release-version-update" title="Link to this heading">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">rake</span> <span class="pre">release:version:update</span></code> コマンドでは、 <code class="docutils literal notranslate"><span class="pre">OLD_RELEASE</span></code> に前回のバージョンを、 <code class="docutils literal notranslate"><span class="pre">GROONGA_ORG_DIR</span></code> にGroongaのWebサイトのディレクトリーを、 <code class="docutils literal notranslate"><span class="pre">NEW_RELEASE_DATE</span></code> に次回リリースの日付（未来の日付）を指定します。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$GROONGA_CLONE_DIR</span>
-<span class="gp">$ </span>rake<span class="w"> </span>release:version:update<span class="w"> </span><span class="nv">OLD_RELEASE</span><span class="o">=</span><span class="m">14</span>.0.9<span class="w"> </span><span class="nv">GROONGA_ORG_DIR</span><span class="o">=</span>../groonga.org<span class="w"> </span><span class="nv">OLD_RELEASE_DATE</span><span class="o">=</span><span class="m">2024</span>-09-27<span class="w"> </span><span class="nv">NEW_RELEASE_DATE</span><span class="o">=</span><span class="m">2024</span>-11-05
+<section id="rake-release">
+<h3><span class="section-number">12.3.7.3.6. </span><code class="docutils literal notranslate"><span class="pre">rake</span> <span class="pre">release</span></code> の実行<a class="headerlink" href="#rake-release" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">rake</span> <span class="pre">release</span></code> コマンドでは、 <code class="docutils literal notranslate"><span class="pre">NEW_RELEASE_DATE</span></code> にリリースの日付（≒ 実行日）を指定します。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">GROONGA_CLONE_DIR</span><span class="si">}</span>
+<span class="gp">$ </span>rake<span class="w"> </span>release<span class="w"> </span><span class="nv">NEW_RELEASE_DATE</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+%Y-%m-%d<span class="k">)</span>
 </pre></div>
 </div>
-<p>これにより、clone済みのGroongaのWebサイトのトップページのソース(index.html,ja/index.html)やRPMパッケージのspecファイルのバージョン表記などが更新されます。</p>
+<p><code class="docutils literal notranslate"><span class="pre">release</span></code> タスクは次の3つのタスクを実行します。</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">release:version:update</span></code></p>
+<ul class="simple">
+<li><p>RPMパッケージのspecファイルに新しいバージョンのチェンジログを追記したりなどします。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">release:tag</span></code></p>
+<ul class="simple">
+<li><p>リリース用のタグを打ちます。</p></li>
+<li><p>これによりタグがプッシュされ自動リリースが動き出します。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dev:version:bump</span></code></p>
+<ul class="simple">
+<li><p>次のリリースに向けてバージョンを更新します。</p></li>
+</ul>
+</li>
+</ol>
+<section id="dev-version-bump">
+<h4><span class="section-number">12.3.7.3.6.1. </span>補足: <code class="docutils literal notranslate"><span class="pre">dev:version:bump</span></code> タスク<a class="headerlink" href="#dev-version-bump" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">rake</span> <span class="pre">dev:version:bump</span> <span class="pre">NEW_VERSION=x.x.x</span></code> のようにバージョンを指定して更新できます。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>base_versionはtar.gzなどのリリース用のファイル名で使用します。</p>
+</div>
+</section>
 </section>
 <section id="ubuntu">
-<span id="build-for-ubuntu-nightly"></span><h3><span class="section-number">12.3.7.3.6. </span>Ubuntu向けパッケージのビルド確認<a class="headerlink" href="#ubuntu" title="Link to this heading">#</a></h3>
-<p>Ubuntu向けのパッケージは、LaunchPadでビルドしています。
+<span id="build-for-ubuntu-nightly"></span><h3><span class="section-number">12.3.7.3.7. </span>Ubuntu向けパッケージのビルド確認<a class="headerlink" href="#ubuntu" title="Link to this heading">#</a></h3>
+<p>Ubuntu向けのパッケージは、Launchpadでビルドしています。
 リリース前にUbuntu向けパッケージが正常にビルドできるか以下の手順で確認します。</p>
 <p><code class="docutils literal notranslate"><span class="pre">rake</span> <span class="pre">release:version:update</span></code> の結果をリポジトリーにpush後にGitHub Actionsで生成されるソースアーカイブをダウンロードします。
 ダウンロードしたソースアーカイブを <code class="docutils literal notranslate"><span class="pre">$GROONGA_CLONE_DIR</span></code> のトップに配置します。その後、以下のコマンドを実行してください。</p>
@@ -589,61 +574,17 @@
 </div>
 </section>
 <section id="id10">
-<h3><span class="section-number">12.3.7.3.7. </span>各種テストの確認<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.3.7.3.8. </span>各種テストの確認<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p>リリース用のタグを設定する前に、以下のテストが全てパスしているかを確認します。
 タグを設定してから問題が発覚すると、再度リリースすることになってしまうので、タグを設定する前に問題がないか確認します。</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/groonga/groonga/actions?query=workflow%3APackage">GitHub Actions</a></p></li>
-<li><p><a class="reference external" href="https://launchpad.net/~groonga/+archive/ubuntu/nightly/+packages">LaunchPad</a></p></li>
+<li><p><a class="reference external" href="https://launchpad.net/~groonga/+archive/ubuntu/nightly/+packages">Launchpad</a></p></li>
 </ul>
 <p>テストやパッケージの作成に失敗していたら、原因を特定して修正します。</p>
 </section>
 <section id="id11">
-<h3><span class="section-number">12.3.7.3.8. </span>リリースタグの設定<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
-<p>リリース用のタグを打つには以下のコマンドを実行します。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>rake<span class="w"> </span>release:tag
-</pre></div>
-</div>
-</section>
-<section id="id12">
-<h3><span class="section-number">12.3.7.3.9. </span>リリース用アーカイブファイルの作成とアップロード<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
-<p>Groongaのリリース用アーカイブファイルは、MroongaやPGroonga、Rroonga等関連プロダクトのリリースにも使用します。
-生成でき次第アップロードしておくと、関連プロダクトのリリース作業がしやすくなります。</p>
-<p>タグを設定すると、GitHub Actionsで自動生成されます。
-GitHub Actionsでソースアーカイブが自動生成されたのを確認したら以下の手順でアップロードします。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>packages
-<span class="gp">$ </span>rake<span class="w"> </span><span class="nb">source</span><span class="w"> </span><span class="nv">GITHUB_ACCESS_TOKEN</span><span class="o">=</span>...
-</pre></div>
-</div>
-<p>これにより、GitHub Actionsで生成したソースアーカイブを $GROONGA_CLONE_DIR/groonga-(バージョン).tar.gz
-にダウンロードし packages.groonga.org へアップロードします。</p>
-</section>
-<section id="id13">
-<h3><span class="section-number">12.3.7.3.10. </span>パッケージのビルドとアップロード<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
-<p>パッケージングは以下の3種類を対象に行います。
-Ubuntu以外のOS向けのパッケージは全てGitHub Actionsで生成されます。</p>
-<ul class="simple">
-<li><p>Debian系(.deb)</p></li>
-<li><p>Red Hat系(.rpm)</p></li>
-<li><p>Windows系(.exe,.zip)</p></li>
-</ul>
-</section>
-<section id="debian">
-<h3><span class="section-number">12.3.7.3.11. </span>Debian系パッケージのビルドとアップロード<a class="headerlink" href="#debian" title="Link to this heading">#</a></h3>
-<p>タグを設定すると、GitHub Actionsで自動生成されます。</p>
-<p>GitHub Actionsでパッケージが自動生成されたのを確認したら以下の手順で、packages.groonga.orgへアップロードします。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>packages
-<span class="gp">$ </span>rake<span class="w"> </span>apt
-</pre></div>
-</div>
-<p>この段階では、ビルドしたパッケージは未署名なので、$PACKAGES_GROONGA_ORG_REPOSITORYに移動し、以下のコマンドを実行します。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>rake<span class="w"> </span>apt
-</pre></div>
-</div>
-<p>上記のコマンドを実行することで、リポジトリーの同期、パッケージの署名、リポジトリーの更新、アップロードまで実行できます。</p>
-</section>
-<section id="id14">
-<h3><span class="section-number">12.3.7.3.12. </span>Ubuntu用パッケージのアップロード<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.3.7.3.9. </span>Ubuntu用パッケージのアップロード<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
 <p>Ubuntu向けパッケージの作成には、作業マシン上にGroongaのビルドに必要な依存ソフトウェア一式がインストールされている必要があります。以下のようにしてインストールしておいて下さい。</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>build-dep<span class="w"> </span>groonga
 </pre></div>
@@ -657,38 +598,14 @@ Ubuntu以外のOS向けのパッケージは全てGitHub Actionsで生成され�
 <blockquote>
 <div><p><a class="reference external" href="https://launchpad.net/~groonga/+archive/ubuntu/ppa">https://launchpad.net/~groonga/+archive/ubuntu/ppa</a></p>
 </div></blockquote>
-<section id="id15">
-<h4><span class="section-number">12.3.7.3.12.1. </span>Ubuntu用パッケージの公開の取り消し<a class="headerlink" href="#id15" title="Link to this heading">#</a></h4>
+<section id="id12">
+<h4><span class="section-number">12.3.7.3.9.1. </span>Ubuntu用パッケージの公開の取り消し<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
 <p>LaunchpadのGroongaチームのページで対象のPPAを選択し、バージョン一覧の上にある「View package details」リンクの先で「Delete packages」リンクを辿ると、アップロード済みパッケージを削除できます。
 例；[不安定版リポジトリのパッケージの削除用のページ](<a class="reference external" href="https://launchpad.net/~groonga/+archive/ubuntu/nightly/+delete-packages">https://launchpad.net/~groonga/+archive/ubuntu/nightly/+delete-packages</a>)。</p>
 </section>
 </section>
-<section id="red-hat">
-<h3><span class="section-number">12.3.7.3.13. </span>Red Hat系パッケージのビルドとアップロード<a class="headerlink" href="#red-hat" title="Link to this heading">#</a></h3>
-<p>タグを設定すると、GitHub Actionsで自動生成されます。</p>
-<p>GitHub Actionsでパッケージが自動生成されたのを確認したら以下の手順で、packages.groonga.orgへアップロードします。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>packages
-<span class="gp">$ </span>rake<span class="w"> </span>yum
-</pre></div>
-</div>
-<p>この段階では、ビルドしたパッケージはまだ未署名なので、$PACKAGES_GROONGA_ORG_REPOSITORYに移動し、以下のコマンドを実行します。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>rake<span class="w"> </span>yum
-</pre></div>
-</div>
-<p>上記のコマンドを実行することで、リポジトリーの同期、パッケージの署名、リポジトリーの更新、アップロードまで実行できます。</p>
-</section>
-<section id="windows">
-<h3><span class="section-number">12.3.7.3.14. </span>Windows用パッケージのビルドとアップロード<a class="headerlink" href="#windows" title="Link to this heading">#</a></h3>
-<p>タグを設定すると、GitHub Actionsで自動生成されます。
-GitHub Actionsでパッケージが自動生成されたのを確認したら以下の手順で、packages.groonga.orgからGitHub Actionsへのリンクを作成します。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>packages
-<span class="gp">$ </span>rake<span class="w"> </span>windows
-</pre></div>
-</div>
-<p>packages.groonga.org上にWindows版の最新パッケージへリダイレクトする <code class="docutils literal notranslate"><span class="pre">.htaccess</span></code> が作成されます。</p>
-</section>
 <section id="windowsmsys2">
-<h3><span class="section-number">12.3.7.3.15. </span>WindowsのMSYS2用パッケージのアップロード<a class="headerlink" href="#windowsmsys2" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.3.7.3.10. </span>WindowsのMSYS2用パッケージのアップロード<a class="headerlink" href="#windowsmsys2" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://github.com/msys2/MINGW-packages">MINGW-packages</a> の、 <code class="docutils literal notranslate"><span class="pre">mingw-w64-groonga/PKGBUILD</span></code> を最新にして、プルリクエストを作成します。</p>
 <p>MINGW-packagesはforkして自分のリポジトリを作成しておきます。
 また、forkしたリポジトリのGitHub Actionsを有効にしておきます。</p>
@@ -726,8 +643,16 @@ GitHub Actionsでパッケージが自動生成されたのを確認したら以
 </div></blockquote>
 <p>プルリクエストがマージされると、MSYS2用のパッケージがリリースされます。</p>
 </section>
+<section id="id13">
+<h3><span class="section-number">12.3.7.3.11. </span>ドキュメントの更新<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">groonga.org</span></code> リポジトリにて次のタスクを実行します。そうすることでタグがプッシュされCIにてドキュメントが更新されます。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">GROONGA_ORG_PATH</span><span class="si">}</span>
+<span class="gp">$ </span>rake<span class="w"> </span>release:version:update
+</pre></div>
+</div>
+</section>
 <section id="docker">
-<h3><span class="section-number">12.3.7.3.16. </span>Dockerイメージの更新<a class="headerlink" href="#docker" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.3.7.3.12. </span>Dockerイメージの更新<a class="headerlink" href="#docker" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://hub.docker.com/r/groonga/groonga">Docker Hub</a> のGroongaのDockerイメージを更新します。</p>
 <p><a class="reference external" href="https://github.com/groonga/docker">GroongaのDockerリポジトリー</a> をクローンし、リポジトリーの中のDockerfileを更新します。</p>
 <p>以下は、Groongaのバージョンが <code class="docutils literal notranslate"><span class="pre">12.0.9</span></code> の場合の例です。作業時には最新のバージョンを指定してください。</p>
@@ -745,8 +670,8 @@ GitHub Actionsでパッケージが自動生成されたのを確認したら以
 </div>
 <p>pushすると、 GroongaのDockerリポジトリーのGithub Actions が Docker HubのGroonga のDockerイメージを自動で更新します。</p>
 </section>
-<section id="id16">
-<h3><span class="section-number">12.3.7.3.17. </span>リリースアナウンスの作成<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<section id="id14">
+<h3><span class="section-number">12.3.7.3.13. </span>リリースアナウンスの作成<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
 <p>リリースの際にはリリースアナウンスを流して、Groongaを広く通知します。</p>
 <p>news.rstに変更点をまとめましたが、それを元にリリースアナウンスを作成します。</p>
 <p>リリースアナウンスには以下を含めます。</p>
@@ -777,55 +702,8 @@ GitHub Actionsでパッケージが自動生成されたのを確認したら以
 </ul>
 <p>後述しますが、Twitter等でのリリースアナウンスの際はここで用意したアナウンス文の要約を使用します。</p>
 </section>
-<section id="blogroonga">
-<h3><span class="section-number">12.3.7.3.18. </span>BloGroonga(ブログ)の更新<a class="headerlink" href="#blogroonga" title="Link to this heading">#</a></h3>
-<p><a class="reference external" href="https://groonga.org/blog/">https://groonga.org/blog/</a> および <a class="reference external" href="https://groonga.org/blog/">https://groonga.org/blog/</a> にて公開されているリリース案内を作成します。</p>
-<p>基本的にはリリースアナウンスの内容をそのまま記載します。</p>
-<p>cloneしたWebサイトのソースに対して以下のファイルを新規追加します。</p>
-<ul class="simple">
-<li><p>groonga.org/en/_post/(リリース日)-release.md</p></li>
-<li><p>groonga.org/ja/_post/(リリース日)-release.md</p></li>
-</ul>
-<p>編集した内容をpushする前に確認したい場合にはJekyllおよびRedCloth（Textileパーサー）、RDiscount（Markdownパーサー）、JavaScript interpreter（therubyracer、Node.jsなど）が必要です。
-インストールするには以下のコマンドを実行します。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>gem<span class="w"> </span>install<span class="w"> </span>jekyll<span class="w"> </span>jekyll-paginate<span class="w"> </span>RedCloth<span class="w"> </span>rdiscount<span class="w"> </span>therubyracer
-</pre></div>
-</div>
-<p>jekyllのインストールを行ったら、以下のコマンドでローカルにwebサーバを起動します。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>jekyll<span class="w"> </span>serve<span class="w"> </span>--watch
-</pre></div>
-</div>
-<p>あとはブラウザにてhttp://localhost:4000にアクセスして内容に問題がないかを確認します。</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>記事を非公開の状態でアップロードするには.mdファイルのpublished:をfalseに設定します。</p>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>---
-layout: post.en
-title: Groonga 2.0.5 has been released
-<span class="gu">published: false</span>
-<span class="gu">---</span>
-</pre></div>
-</div>
-</div>
-</section>
-<section id="id17">
-<h3><span class="section-number">12.3.7.3.19. </span>ドキュメントのアップロード<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
-<p>doc/source以下のドキュメントを更新、翻訳まで完了している状態で、ドキュメントのアップロード作業を行います。</p>
-<p>そのためにはまず <code class="docutils literal notranslate"><span class="pre">groonga</span></code> のリポジトリをカレントディレクトリにして以下のコマンドを実行します。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>../groonga.doc<span class="w"> </span>--preset<span class="o">=</span>doc<span class="w"> </span>--fresh
-<span class="gp">$ </span>rake<span class="w"> </span>release:document:update<span class="w"> </span><span class="nv">BUILD_DIR</span><span class="o">=</span>../groonga.doc<span class="w"> </span><span class="nv">GROONGA_ORG_DIR</span><span class="o">=</span>../groonga.org
-</pre></div>
-</div>
-<p>これで、 <code class="docutils literal notranslate"><span class="pre">groonga.org</span></code> の <code class="docutils literal notranslate"><span class="pre">docs/</span></code> と <code class="docutils literal notranslate"><span class="pre">ja/docs</span></code> 以下に更新したドキュメントがコピーされます。</p>
-<p>生成されているドキュメントに問題のないことを確認できたら、コミット、pushして <code class="docutils literal notranslate"><span class="pre">groonga.org</span></code> へと反映します。</p>
-<p>また、 <code class="docutils literal notranslate"><span class="pre">groonga.org</span></code> リポジトリの <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> に最新リリースのバージョン番号と日付を表す情報の指定があるので、これらも更新します。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">groonga_version: x.x.x</span>
-<span class="go">groonga_release_date: xxxx-xx-xx</span>
-</pre></div>
-</div>
-</section>
 <section id="homebrew">
-<h3><span class="section-number">12.3.7.3.20. </span>Homebrewの更新<a class="headerlink" href="#homebrew" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.3.7.3.14. </span>Homebrewの更新<a class="headerlink" href="#homebrew" title="Link to this heading">#</a></h3>
 <p>この手順は省略可能です（Homebrewの更新はGroongaプロジェクト本体のリリース要件には含まれません）。</p>
 <p>OS Xでのパッケージ管理方法として <a class="reference external" href="http://brew.sh/">Homebrew</a> があります。</p>
 <p>Groongaを簡単にインストールできるようにするために、Homebrewへpull requestを送ります。</p>
@@ -839,52 +717,20 @@ title: Groonga 2.0.5 has been released
 </div></blockquote>
 <p>上記URLを参照するとわかるようにソースアーカイブのurlとsha1チェックサムを更新します。</p>
 </section>
-<section id="id19">
-<h3><span class="section-number">12.3.7.3.21. </span>リリースアナウンス<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
-<p>作成したリリースアナウンスをメーリングリストへと流します。</p>
-<ul class="simple">
-<li><p>groonga-dev <a class="reference external" href="mailto:groonga-dev&#37;&#52;&#48;lists&#46;osdn&#46;me">groonga-dev<span>&#64;</span>lists<span>&#46;</span>osdn<span>&#46;</span>me</a></p></li>
-<li><p>Groonga-talk <a class="reference external" href="mailto:groonga-talk&#37;&#52;&#48;lists&#46;sourceforge&#46;net">groonga-talk<span>&#64;</span>lists<span>&#46;</span>sourceforge<span>&#46;</span>net</a></p></li>
-</ul>
-</section>
 <section id="twitter">
-<h3><span class="section-number">12.3.7.3.22. </span>Twitterでリリースアナウンスをする<a class="headerlink" href="#twitter" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.3.7.3.15. </span>Twitterでリリースアナウンスをする<a class="headerlink" href="#twitter" title="Link to this heading">#</a></h3>
 <p>BloGroongaのリリースエントリには「リンクをあなたのフォロワーに共有する」ためのツイートボタンがあるので、そのボタンを使ってリリースアナウンスします。(画面下部に配置されている)</p>
 <p>このボタンを経由する場合、ツイート内容に自動的にリリースタイトル(「groonga 2.0.8リリース」など)とBloGroongaのリリースエントリのURLが挿入されます。</p>
 <p>この作業はBloGroongaの英語版、日本語版それぞれで行います。
 あらかじめgroongaアカウントでログインしておくとアナウンスを円滑に行うことができます。</p>
 </section>
 <section id="facebook">
-<h3><span class="section-number">12.3.7.3.23. </span>Facebookでリリースアナウンスをする<a class="headerlink" href="#facebook" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.3.7.3.16. </span>Facebookでリリースアナウンスをする<a class="headerlink" href="#facebook" title="Link to this heading">#</a></h3>
 <p>FacebookにGroongaグループがあります。
 <a class="reference external" href="https://www.facebook.com/groonga/">https://www.facebook.com/groonga/</a></p>
 <p>Groongaグループのメンバーになると、個人のアカウントではなく、Groongaグループのメンバーとして投稿できます。
 ブログエントリなどをもとに、リリースアナウンスを投稿します。</p>
 <p>以上でリリース作業は終了です。</p>
-</section>
-<section id="id20">
-<h3><span class="section-number">12.3.7.3.24. </span>リリース後にやること<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
-<p>リリースアナウンスを流し終えたら、次期バージョンの開発が始まります。</p>
-<ul class="simple">
-<li><p>Groonga のbase_versionの更新</p></li>
-</ul>
-<section id="id21">
-<h4><span class="section-number">12.3.7.3.24.1. </span>Groonga バージョン更新<a class="headerlink" href="#id21" title="Link to this heading">#</a></h4>
-<p>$GROONGA_CLONE_DIRにて以下のコマンドを実行します。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>rake<span class="w"> </span>dev:version:bump<span class="w"> </span><span class="nv">NEW_VERSION</span><span class="o">=</span>x.x.x
-</pre></div>
-</div>
-<p>これにより$GROONGA_CLONE_DIR/base_versionが更新されるのでコミットしておきます。</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>base_versionはtar.gzなどのリリース用のファイル名で使用します。</p>
-</div>
-</section>
-<section id="id22">
-<h4><span class="section-number">12.3.7.3.24.2. </span>パッケージの署名用のパスフレーズを知りたい<a class="headerlink" href="#id22" title="Link to this heading">#</a></h4>
-<p>パッケージの署名に必要な秘密鍵のパスフレーズについては
-リリース担当者向けの秘密鍵を復号したテキストの1行目に記載してあります。</p>
-</section>
 </section>
 </section>
 </section>
@@ -939,43 +785,33 @@ title: Groonga 2.0.5 has been released
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">12.3.7.1. 前提条件</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">12.3.7.2. 最初の1回だけ行う手順</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">12.3.7.2.1. ビルド環境の準備</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">12.3.7.2.2. パッケージ署名用秘密鍵のインポート</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ppa">12.3.7.2.3. PPA用の鍵の登録</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">12.3.7.2.4. リリース作業用ディレクトリの作成</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ppa">12.3.7.2.2. PPA用の鍵の登録</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">12.3.7.2.3. リリース作業用ディレクトリの作成</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">12.3.7.3. 毎回のリリースで行う手順</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">12.3.7.3. 毎回のリリースで行う手順</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groonga">12.3.7.3.1. Groongaのソースコード取得</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">12.3.7.3.2. Groongaのウェブサイトの取得</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cmake">12.3.7.3.3. CMakeの実行</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">12.3.7.3.4. 変更点のまとめ</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rake-release-version-update">12.3.7.3.5. rake release:version:updateの実行</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubuntu">12.3.7.3.6. Ubuntu向けパッケージのビルド確認</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">12.3.7.3.7. 各種テストの確認</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">12.3.7.3.8. リリースタグの設定</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">12.3.7.3.9. リリース用アーカイブファイルの作成とアップロード</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">12.3.7.3.10. パッケージのビルドとアップロード</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debian">12.3.7.3.11. Debian系パッケージのビルドとアップロード</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">12.3.7.3.12. Ubuntu用パッケージのアップロード</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">12.3.7.3.12.1. Ubuntu用パッケージの公開の取り消し</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">12.3.7.3.2. Groongaのウェブサイトの取得</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apache-arrow">12.3.7.3.3. Apache Arrowリポジトリの取得</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">12.3.7.3.4. 事前確認</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">12.3.7.3.5. 変更点のまとめ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rake-release">12.3.7.3.6. <code class="docutils literal notranslate"><span class="pre">rake</span> <span class="pre">release</span></code> の実行</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dev-version-bump">12.3.7.3.6.1. 補足: <code class="docutils literal notranslate"><span class="pre">dev:version:bump</span></code> タスク</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#red-hat">12.3.7.3.13. Red Hat系パッケージのビルドとアップロード</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">12.3.7.3.14. Windows用パッケージのビルドとアップロード</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windowsmsys2">12.3.7.3.15. WindowsのMSYS2用パッケージのアップロード</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">12.3.7.3.16. Dockerイメージの更新</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">12.3.7.3.17. リリースアナウンスの作成</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blogroonga">12.3.7.3.18. BloGroonga(ブログ)の更新</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">12.3.7.3.19. ドキュメントのアップロード</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#homebrew">12.3.7.3.20. Homebrewの更新</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">12.3.7.3.21. リリースアナウンス</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#twitter">12.3.7.3.22. Twitterでリリースアナウンスをする</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#facebook">12.3.7.3.23. Facebookでリリースアナウンスをする</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">12.3.7.3.24. リリース後にやること</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">12.3.7.3.24.1. Groonga バージョン更新</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">12.3.7.3.24.2. パッケージの署名用のパスフレーズを知りたい</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubuntu">12.3.7.3.7. Ubuntu向けパッケージのビルド確認</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">12.3.7.3.8. 各種テストの確認</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">12.3.7.3.9. Ubuntu用パッケージのアップロード</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">12.3.7.3.9.1. Ubuntu用パッケージの公開の取り消し</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windowsmsys2">12.3.7.3.10. WindowsのMSYS2用パッケージのアップロード</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">12.3.7.3.11. ドキュメントの更新</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">12.3.7.3.12. Dockerイメージの更新</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">12.3.7.3.13. リリースアナウンスの作成</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#homebrew">12.3.7.3.14. Homebrewの更新</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#twitter">12.3.7.3.15. Twitterでリリースアナウンスをする</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#facebook">12.3.7.3.16. Facebookでリリースアナウンスをする</a></li>
 </ul>
 </li>
 </ul>
