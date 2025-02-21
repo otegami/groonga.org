@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>お知らせ - 15系 &#8212; Groonga v15.0.1 documentation</title>
+    <title>お知らせ - 15系 &#8212; Groonga v15.0.2 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=f4162c56"></script>
+    <script src="../_static/documentation_options.js?v=59465c9a"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/translations.js?v=4755f45a"></script>
@@ -68,7 +68,7 @@
     <link rel="search" title="検索" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
-  <meta name="docsearch:version" content="15.0.1" />
+  <meta name="docsearch:version" content="15.0.2" />
   </head>
   
   
@@ -134,8 +134,8 @@
       
     
     
-    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v15.0.1 documentation - Home"/>
-    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v15.0.1 documentation - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v15.0.2 documentation - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v15.0.2 documentation - Home"/>
   
   
 </a></div>
@@ -404,6 +404,24 @@
   <section class="tex2jax_ignore mathjax_ignore" id="news-15-series">
 <h1>お知らせ - 15系<a class="headerlink" href="#news-15-series" title="Link to this heading">#</a></h1>
 <!-- prettier-ignore-start -->
+<section id="release-15-0-2-2025-02-21">
+<span id="release-15-0-2"></span><h2>15.0.2リリース - 2025-02-21<a class="headerlink" href="#release-15-0-2-2025-02-21" title="Link to this heading">#</a></h2>
+<!-- prettier-ignore-end -->
+<section id="fixes">
+<h3>修正<a class="headerlink" href="#fixes" title="Link to this heading">#</a></h3>
+<section id="offline-index-construction-fixed-a-bug-that-options-may-be-ignored-in-parallel-construction">
+<h4><a class="reference internal" href="../reference/indexing.html#offline-index-construction"><span class="std std-ref">静的なインデックス構築方法</span></a>: 並列に構築するとオプションを無視することがある問題を修正<a class="headerlink" href="#offline-index-construction-fixed-a-bug-that-options-may-be-ignored-in-parallel-construction" title="Link to this heading">#</a></h4>
+<p>静的なインデックス構築を並列で実行しているときにGroongaが<a class="reference internal" href="../reference/normalizers.html"><span class="doc">ノーマライザー</span></a>、<a class="reference internal" href="../reference/tokenizers.html"><span class="doc">トークナイザー</span></a>、<a class="reference internal" href="../reference/token_filters.html"><span class="doc">トークンフィルター</span></a>のオプションを無視することがある問題を修正しました。</p>
+<p>次の場合に発生することがあります。</p>
+<ul class="simple">
+<li><p>静的なインデックス構築を並列実行する。</p></li>
+<li><p><a class="reference internal" href="../reference/normalizers.html"><span class="doc">ノーマライザー</span></a>、 <a class="reference internal" href="../reference/tokenizers.html"><span class="doc">トークナイザー</span></a>、 <a class="reference internal" href="../reference/token_filters.html"><span class="doc">トークンフィルター</span></a> のオプションを使っている。</p></li>
+</ul>
+<p><a class="reference internal" href="../reference/normalizers/normalizer_table.html"><span class="doc">NormalizerTable</span></a> を使っていてこの問題が発生した場合、静的なインデックス構築は失敗します。 <a class="reference internal" href="../reference/normalizers/normalizer_table.html"><span class="doc">NormalizerTable</span></a> には必須の引数がありますが、オプションが無視されると必須の引数が指定されていないことになるためです。</p>
+<!-- prettier-ignore-start -->
+</section>
+</section>
+</section>
 <section id="release-15-0-1-2025-02-20">
 <span id="release-15-0-1"></span><h2>15.0.1リリース - 2025-02-20<a class="headerlink" href="#release-15-0-1-2025-02-20" title="Link to this heading">#</a></h2>
 <!-- prettier-ignore-end -->
@@ -460,6 +478,13 @@
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-15-0-2-2025-02-21">15.0.2リリース - 2025-02-21</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixes">修正</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#offline-index-construction-fixed-a-bug-that-options-may-be-ignored-in-parallel-construction"><span class="xref std std-ref">offline-index-construction</span>: 並列に構築するとオプションを無視することがある問題を修正</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-15-0-1-2025-02-20">15.0.1リリース - 2025-02-20</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#improvements">改良</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-ubuntu-dropped-support-for-ubuntu-20-04-focal-fossa">[<span class="xref std std-doc">/install/ubuntu</span>] Ubuntu 20.04 (Focal Fossa) のサポート終了</a></li>
