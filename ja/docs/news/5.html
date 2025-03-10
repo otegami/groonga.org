@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>お知らせ - 5系 &#8212; Groonga v15.0.2 documentation</title>
+    <title>お知らせ - 5系 &#8212; Groonga v15.0.3 documentation</title>
   
   
   
@@ -38,17 +38,11 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=59465c9a"></script>
+    <script src="../_static/documentation_options.js?v=3d898cde"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/translations.js?v=4755f45a"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'UA-7532323-1');
-            </script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
@@ -68,7 +62,7 @@
     <link rel="search" title="検索" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
-  <meta name="docsearch:version" content="15.0.2" />
+  <meta name="docsearch:version" content="15.0.3" />
   </head>
   
   
@@ -134,8 +128,8 @@
       
     
     
-    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v15.0.2 documentation - Home"/>
-    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v15.0.2 documentation - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-light" alt="Groonga v15.0.3 documentation - Home"/>
+    <img src="../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v15.0.3 documentation - Home"/>
   
   
 </a></div>
@@ -600,7 +594,7 @@
 <li><p>[CMake] 2回同じ <code class="docutils literal notranslate"><span class="pre">pkg-config</span></code> を実行しないようにしました。 [Sergei Golubchikさんがパッチ提供]</p></li>
 <li><p>時刻に対するチェックのうち、「年」に対する不要なチェックを削除しました。この変更前は紀元前は常に不正な時刻でした。この変更後は、システム（ <code class="docutils literal notranslate"><span class="pre">mktime()</span></code> ）が紀元前をサポートしていれば、紀元前の時刻も妥当な時刻になります。</p></li>
 <li><p>[<code class="xref c c-func docutils literal notranslate"><span class="pre">grn_ctx_is_opened()</span></code>] 指定したIDのオブジェクトが開かれているかどうかをチェックするAPIを追加しました。</p></li>
-<li><p>[<code class="xref c c-func docutils literal notranslate"><span class="pre">grn_obj_remove()</span></code>] 最大メモリー使用量を減らしました。 <a class="reference internal" href="../reference/api/grn_thread.html#c.grn_thread_get_limit" title="grn_thread_get_limit"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_thread_get_limit()</span></code></a> が <code class="docutils literal notranslate"><span class="pre">1</span></code> を返す場合、一時的に開いたオブジェクトを処理が終わったら閉じるようになります。</p></li>
+<li><p>[<code class="xref c c-func docutils literal notranslate"><span class="pre">grn_obj_remove()</span></code>] 最大メモリー使用量を減らしました。 <code class="xref c c-func docutils literal notranslate"><span class="pre">grn_thread_get_limit()</span></code> が <code class="docutils literal notranslate"><span class="pre">1</span></code> を返す場合、一時的に開いたオブジェクトを処理が終わったら閉じるようになります。</p></li>
 <li><p>[ドキュメント][<a class="reference internal" href="../reference/commands/table_remove.html"><span class="doc">table_remove</span></a>] 説明を増やしました。</p></li>
 <li><p>[<a class="reference internal" href="../reference/executables/groonga.html"><span class="doc">groonga 実行ファイル</span></a>] スタンドアローンモードのときは <a class="reference internal" href="../reference/commands/dump.html"><span class="doc">dump</span></a> の結果の最後に改行を追加するようにしました。</p></li>
 <li><p>[<a class="reference internal" href="../reference/log.html#process-log"><span class="std std-ref">プロセスログ</span></a>] <code class="docutils literal notranslate"><span class="pre">grn_init</span></code> のログにGroongaのバージョンを入れるようにしました。</p></li>

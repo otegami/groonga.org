@@ -112,10 +112,10 @@ This graph shows which files directly or indirectly include this file:</div>
 Macros</h2></td></tr>
 <tr class="memitem:a996725fbe729efb542f755fd54f0627d" id="r_a996725fbe729efb542f755fd54f0627d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pat_8h.html#a996725fbe729efb542f755fd54f0627d">GRN_PAT_EACH</a>(ctx,  pat,  id,  key,  key_size,  value,  block)</td></tr>
 <tr class="separator:a996725fbe729efb542f755fd54f0627d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60bb2ff743aa1d13687abf47da16f01f" id="r_a60bb2ff743aa1d13687abf47da16f01f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pat_8h.html#a60bb2ff743aa1d13687abf47da16f01f">GRN_PAT_EACH_BEGIN</a>(ctx,  pat,  cursur,  id)</td></tr>
-<tr class="separator:a60bb2ff743aa1d13687abf47da16f01f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57efea48383b5a6cdf47b637d4fd4c58" id="r_a57efea48383b5a6cdf47b637d4fd4c58"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pat_8h.html#a57efea48383b5a6cdf47b637d4fd4c58">GRN_PAT_EACH_END</a>(ctx,  cursur)</td></tr>
-<tr class="separator:a57efea48383b5a6cdf47b637d4fd4c58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa951bffc4eef2932c86739f77aa0bed9" id="r_aa951bffc4eef2932c86739f77aa0bed9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pat_8h.html#aa951bffc4eef2932c86739f77aa0bed9">GRN_PAT_EACH_BEGIN</a>(ctx,  pat,  cursor,  id)</td></tr>
+<tr class="separator:aa951bffc4eef2932c86739f77aa0bed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a415aebf117e33e5fa4ec906e5f4d65a6" id="r_a415aebf117e33e5fa4ec906e5f4d65a6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pat_8h.html#a415aebf117e33e5fa4ec906e5f4d65a6">GRN_PAT_EACH_END</a>(ctx,  cursor)</td></tr>
+<tr class="separator:a415aebf117e33e5fa4ec906e5f4d65a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -263,8 +263,8 @@ Functions</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a60bb2ff743aa1d13687abf47da16f01f" name="a60bb2ff743aa1d13687abf47da16f01f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60bb2ff743aa1d13687abf47da16f01f">&#9670;&#160;</a></span>GRN_PAT_EACH_BEGIN</h2>
+<a id="aa951bffc4eef2932c86739f77aa0bed9" name="aa951bffc4eef2932c86739f77aa0bed9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa951bffc4eef2932c86739f77aa0bed9">&#9670;&#160;</a></span>GRN_PAT_EACH_BEGIN</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -285,7 +285,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">cursur, </td>
+          <td class="paramname">cursor, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -301,18 +301,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                                         \</div>
-<div class="line">    if (pat &amp;&amp; <a class="code hl_function" href="pat_8h.html#a37f770572f465680a24f37dbc63d9ead">grn_pat_size</a>(ctx, pat) &gt; 0) {                                   \</div>
-<div class="line">      <a class="code hl_typedef" href="pat_8h.html#a4e5f38d72931a6818fff3c2f79a49be7">grn_pat_cursor</a> *cursur =                                                 \</div>
-<div class="line">        grn_pat_cursor_open(ctx, pat, NULL, 0, NULL, 0, 0, -1, 0);             \</div>
-<div class="line">      if (cursur) {                                                            \</div>
+<div class="line">    if ((pat) &amp;&amp; <a class="code hl_function" href="pat_8h.html#a37f770572f465680a24f37dbc63d9ead">grn_pat_size</a>((ctx), (pat)) &gt; 0) {                             \</div>
+<div class="line">      <a class="code hl_typedef" href="pat_8h.html#a4e5f38d72931a6818fff3c2f79a49be7">grn_pat_cursor</a> *cursor =                                                 \</div>
+<div class="line">        grn_pat_cursor_open((ctx), (pat), NULL, 0, NULL, 0, 0, -1, 0);         \</div>
+<div class="line">      if (cursor) {                                                            \</div>
 <div class="line">        <a class="code hl_typedef" href="groonga_2groonga_8h.html#a4a1a044ec7d98935eed6f3067f520240">grn_id</a> id;                                                             \</div>
-<div class="line">        while ((<span class="keywordtype">id</span> = <a class="code hl_function" href="pat_8h.html#a4c52752aca4940849182a84c7e0a790b">grn_pat_cursor_next</a>(ctx, cursur)) != <a class="code hl_define" href="groonga_2groonga_8h.html#a5e22145bca6ddd7f5116809e092524da">GRN_ID_NIL</a>) {</div>
+<div class="line">        while ((<span class="keywordtype">id</span> = <a class="code hl_function" href="pat_8h.html#a4c52752aca4940849182a84c7e0a790b">grn_pat_cursor_next</a>((ctx), (cursor))) != <a class="code hl_define" href="groonga_2groonga_8h.html#a5e22145bca6ddd7f5116809e092524da">GRN_ID_NIL</a>) {</div>
 <div class="ttc" id="agroonga_2groonga_8h_html_a5e22145bca6ddd7f5116809e092524da"><div class="ttname"><a href="groonga_2groonga_8h.html#a5e22145bca6ddd7f5116809e092524da">GRN_ID_NIL</a></div><div class="ttdeci">#define GRN_ID_NIL</div><div class="ttdoc">Means &quot;does not exist&quot;.</div><div class="ttdef"><b>Definition</b> groonga.h:55</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a57efea48383b5a6cdf47b637d4fd4c58" name="a57efea48383b5a6cdf47b637d4fd4c58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57efea48383b5a6cdf47b637d4fd4c58">&#9670;&#160;</a></span>GRN_PAT_EACH_END</h2>
+<a id="a415aebf117e33e5fa4ec906e5f4d65a6" name="a415aebf117e33e5fa4ec906e5f4d65a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a415aebf117e33e5fa4ec906e5f4d65a6">&#9670;&#160;</a></span>GRN_PAT_EACH_END</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -327,7 +327,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">cursur&#160;</td>
+          <td class="paramname">cursor&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -337,7 +337,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">  }                                                                            \</div>
-<div class="line">  grn_pat_cursor_close(ctx, cursur);                                           \</div>
+<div class="line">  grn_pat_cursor_close((ctx), (cursor));                                       \</div>
 <div class="line">  }                                                                            \</div>
 <div class="line">  }                                                                            \</div>
 <div class="line">  }                                                                            \</div>

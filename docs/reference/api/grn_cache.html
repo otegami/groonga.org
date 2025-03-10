@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.26.4. grn_cache &#8212; Groonga v15.0.2 documentation</title>
+    <title>7.26.4. grn_cache &#8212; Groonga v15.0.3 documentation</title>
   
   
   
@@ -38,16 +38,10 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=68b1c8ce"></script>
+    <script src="../../_static/documentation_options.js?v=0c7e188a"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-7532323-1"></script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'UA-7532323-1');
-            </script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
@@ -69,7 +63,7 @@
     <link rel="prev" title="7.26.3. Plugin" href="plugin.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="15.0.2" />
+  <meta name="docsearch:version" content="15.0.3" />
   </head>
   
   
@@ -135,8 +129,8 @@
       
     
     
-    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v15.0.2 documentation - Home"/>
-    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v15.0.2 documentation - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-light" alt="Groonga v15.0.3 documentation - Home"/>
+    <img src="../../_static/groonga.png" class="logo__image only-dark pst-js-only" alt="Groonga v15.0.3 documentation - Home"/>
   
   
 </a></div>
@@ -715,24 +709,7 @@ case. If you open only one database or don’t use
 <span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_cache</span></span></span><a class="headerlink" href="#c.grn_cache" title="Link to this definition">#</a><br /></dt>
 <dd><p>It is an opaque cache object. You can create a <code class="docutils literal notranslate"><span class="pre">grn_cache</span></code> by
 <code class="xref c c-func docutils literal notranslate"><span class="pre">grn_cache_open()</span></code> and free the created object by
-<a class="reference internal" href="#c.grn_cache_close" title="grn_cache_close"><code class="xref c c-func docutils literal notranslate"><span class="pre">grn_cache_close()</span></code></a>.</p>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_cache_close">
-<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_cache_close</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">grn_ctx</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_cache" title="grn_cache"><span class="n"><span class="pre">grn_cache</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">cache</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_cache_close" title="Link to this definition">#</a><br /></dt>
-<dd><p>Frees resourses of the <code class="docutils literal notranslate"><span class="pre">cache</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ctx</strong> – The context.</p></li>
-<li><p><strong>cache</strong> – The cache object to be freed.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">GRN_SUCCESS</span></code> on success, not <code class="docutils literal notranslate"><span class="pre">GRN_SUCCESS</span></code> otherwise.</p>
-</dd>
-</dl>
+<code class="xref c c-func docutils literal notranslate"><span class="pre">grn_cache_close()</span></code>.</p>
 </dd></dl>
 
 <dl class="c function">
@@ -768,41 +745,6 @@ case. If you open only one database or don’t use
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The cache object that is used in
 <a class="reference internal" href="../commands/select.html"><span class="doc">select</span></a> command. It may be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_cache_set_max_n_entries">
-<span class="n"><span class="pre">grn_rc</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_cache_set_max_n_entries</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">grn_ctx</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_cache" title="grn_cache"><span class="n"><span class="pre">grn_cache</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">cache</span></span>, <span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">n</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_cache_set_max_n_entries" title="Link to this definition">#</a><br /></dt>
-<dd><p>Sets the max number of entries of the cache object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ctx</strong> – The context.</p></li>
-<li><p><strong>cache</strong> – The cache object to be changed.</p></li>
-<li><p><strong>n</strong> – The new max number of entries of the cache object.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">GRN_SUCCESS</span></code> on success, not <code class="docutils literal notranslate"><span class="pre">GRN_SUCCESS</span></code> otherwise.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.grn_cache_get_max_n_entries">
-<span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grn_cache_get_max_n_entries</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">grn_ctx</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.grn_cache" title="grn_cache"><span class="n"><span class="pre">grn_cache</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">cache</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.grn_cache_get_max_n_entries" title="Link to this definition">#</a><br /></dt>
-<dd><p>Gets the max number of entries of the cache object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ctx</strong> – The context.</p></li>
-<li><p><strong>cache</strong> – The target cache object.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The max number of entries of the cache object.</p>
 </dd>
 </dl>
 </dd></dl>

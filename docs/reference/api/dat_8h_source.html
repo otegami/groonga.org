@@ -83,7 +83,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="contents">
 <a href="dat_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">  Copyright (C) 2009-2016  Brazil</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">  Copyright (C) 2020-2024  Sutou Kouhei &lt;kou@clear-code.com&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">  Copyright (C) 2020-2025  Sutou Kouhei &lt;kou@clear-code.com&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"></span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">  This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">  modify it under the terms of the GNU Lesser General Public</span></div>
@@ -242,9 +242,30 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="preprocessor">  } while (0)</span></div>
 </div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>}</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="preprocessor">#endif</span></div>
+<div class="foldopen" id="foldopen00160" data-start="" data-end="">
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="dat_8h.html#a069c9dcb2313708b5258eeb778509f6b">  160</a></span><span class="preprocessor">#define GRN_DAT_EACH_BEGIN(ctx, dat, cursor, id)                               \</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="preprocessor">  do {                                                                         \</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="preprocessor">    if ((dat) &amp;&amp; grn_dat_size((ctx), (dat)) &gt; 0) {                             \</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="preprocessor">      grn_dat_cursor *cursor =                                                 \</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="preprocessor">        grn_dat_cursor_open((ctx), (dat), NULL, 0, NULL, 0, 0, -1, 0);         \</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="preprocessor">      if (cursor) {                                                            \</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="preprocessor">        grn_id id;                                                             \</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="preprocessor">        while ((id = grn_dat_cursor_next((ctx), (cursor))) != GRN_ID_NIL) {</span></div>
+</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="foldopen" id="foldopen00169" data-start="" data-end="">
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="dat_8h.html#ad8ca68f6294243fbb59eb2d09845efde">  169</a></span><span class="preprocessor">#define GRN_DAT_EACH_END(ctx, cursor)                                          \</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="preprocessor">  }                                                                            \</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="preprocessor">  grn_dat_cursor_close((ctx), (cursor));                                       \</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="preprocessor">  }                                                                            \</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="preprocessor">  }                                                                            \</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="preprocessor">  }                                                                            \</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="preprocessor">  while (false)</span></div>
+</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>}</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="adat_8h_html_a0292e4fdd8412bc8512af7457cd35add"><div class="ttname"><a href="dat_8h.html#a0292e4fdd8412bc8512af7457cd35add">grn_dat_close</a></div><div class="ttdeci">GRN_API grn_rc grn_dat_close(grn_ctx *ctx, grn_dat *dat)</div></div>
 <div class="ttc" id="adat_8h_html_a06dd965d9c670fb6080da0153663ca08"><div class="ttname"><a href="dat_8h.html#a06dd965d9c670fb6080da0153663ca08">grn_dat</a></div><div class="ttdeci">struct _grn_dat grn_dat</div><div class="ttdef"><b>Definition</b> dat.h:26</div></div>
 <div class="ttc" id="adat_8h_html_a2faa1fab7fa8b44e88ef6ab3a68349c2"><div class="ttname"><a href="dat_8h.html#a2faa1fab7fa8b44e88ef6ab3a68349c2">grn_dat_get</a></div><div class="ttdeci">GRN_API grn_id grn_dat_get(grn_ctx *ctx, grn_dat *dat, const void *key, unsigned int key_size, void **value)</div></div>
