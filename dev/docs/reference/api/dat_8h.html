@@ -101,6 +101,10 @@ This graph shows which files directly or indirectly include this file:</div>
 Macros</h2></td></tr>
 <tr class="memitem:ab0076fb463b369faa765230762e2265c" id="r_ab0076fb463b369faa765230762e2265c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dat_8h.html#ab0076fb463b369faa765230762e2265c">GRN_DAT_EACH</a>(ctx,  dat,  id,  key,  key_size,  block)</td></tr>
 <tr class="separator:ab0076fb463b369faa765230762e2265c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a069c9dcb2313708b5258eeb778509f6b" id="r_a069c9dcb2313708b5258eeb778509f6b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dat_8h.html#a069c9dcb2313708b5258eeb778509f6b">GRN_DAT_EACH_BEGIN</a>(ctx,  dat,  cursor,  id)</td></tr>
+<tr class="separator:a069c9dcb2313708b5258eeb778509f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8ca68f6294243fbb59eb2d09845efde" id="r_ad8ca68f6294243fbb59eb2d09845efde"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dat_8h.html#ad8ca68f6294243fbb59eb2d09845efde">GRN_DAT_EACH_END</a>(ctx,  cursor)</td></tr>
+<tr class="separator:ad8ca68f6294243fbb59eb2d09845efde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -235,6 +239,88 @@ Functions</h2></td></tr>
 <div class="ttc" id="adat_8h_html_ae9983a8525b21914db02a7eff344a881"><div class="ttname"><a href="dat_8h.html#ae9983a8525b21914db02a7eff344a881">grn_dat_cursor_next</a></div><div class="ttdeci">GRN_API grn_id grn_dat_cursor_next(grn_ctx *ctx, grn_dat_cursor *c)</div></div>
 <div class="ttc" id="adat_8h_html_aed7161e10d54ef5651bac8f6e4ceeaf6"><div class="ttname"><a href="dat_8h.html#aed7161e10d54ef5651bac8f6e4ceeaf6">grn_dat_size</a></div><div class="ttdeci">GRN_API unsigned int grn_dat_size(grn_ctx *ctx, grn_dat *dat)</div></div>
 <div class="ttc" id="agroonga_2groonga_8h_html_a4a1a044ec7d98935eed6f3067f520240"><div class="ttname"><a href="groonga_2groonga_8h.html#a4a1a044ec7d98935eed6f3067f520240">grn_id</a></div><div class="ttdeci">uint32_t grn_id</div><div class="ttdef"><b>Definition</b> groonga.h:44</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a069c9dcb2313708b5258eeb778509f6b" name="a069c9dcb2313708b5258eeb778509f6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a069c9dcb2313708b5258eeb778509f6b">&#9670;&#160;</a></span>GRN_DAT_EACH_BEGIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GRN_DAT_EACH_BEGIN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ctx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">dat, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cursor, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">id&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                                         \</div>
+<div class="line">    if ((dat) &amp;&amp; <a class="code hl_function" href="dat_8h.html#aed7161e10d54ef5651bac8f6e4ceeaf6">grn_dat_size</a>((ctx), (dat)) &gt; 0) {                             \</div>
+<div class="line">      <a class="code hl_typedef" href="dat_8h.html#ae98327d667b7aa3e36e87ce49a380c37">grn_dat_cursor</a> *cursor =                                                 \</div>
+<div class="line">        grn_dat_cursor_open((ctx), (dat), NULL, 0, NULL, 0, 0, -1, 0);         \</div>
+<div class="line">      if (cursor) {                                                            \</div>
+<div class="line">        <a class="code hl_typedef" href="groonga_2groonga_8h.html#a4a1a044ec7d98935eed6f3067f520240">grn_id</a> id;                                                             \</div>
+<div class="line">        while ((<span class="keywordtype">id</span> = <a class="code hl_function" href="dat_8h.html#ae9983a8525b21914db02a7eff344a881">grn_dat_cursor_next</a>((ctx), (cursor))) != <a class="code hl_define" href="groonga_2groonga_8h.html#a5e22145bca6ddd7f5116809e092524da">GRN_ID_NIL</a>) {</div>
+<div class="ttc" id="agroonga_2groonga_8h_html_a5e22145bca6ddd7f5116809e092524da"><div class="ttname"><a href="groonga_2groonga_8h.html#a5e22145bca6ddd7f5116809e092524da">GRN_ID_NIL</a></div><div class="ttdeci">#define GRN_ID_NIL</div><div class="ttdoc">Means &quot;does not exist&quot;.</div><div class="ttdef"><b>Definition</b> groonga.h:55</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad8ca68f6294243fbb59eb2d09845efde" name="ad8ca68f6294243fbb59eb2d09845efde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8ca68f6294243fbb59eb2d09845efde">&#9670;&#160;</a></span>GRN_DAT_EACH_END</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GRN_DAT_EACH_END</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ctx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cursor&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  }                                                                            \</div>
+<div class="line">  grn_dat_cursor_close((ctx), (cursor));                                       \</div>
+<div class="line">  }                                                                            \</div>
+<div class="line">  }                                                                            \</div>
+<div class="line">  }                                                                            \</div>
+<div class="line">  while (<span class="keyword">false</span>)</div>
 </div><!-- fragment -->
 </div>
 </div>

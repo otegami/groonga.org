@@ -83,7 +83,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="contents">
 <a href="pat_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">  Copyright (C) 2009-2016  Brazil</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">  Copyright (C) 2024  Sutou Kouhei &lt;kou@clear-code.com&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">  Copyright (C) 2024-2025  Sutou Kouhei &lt;kou@clear-code.com&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"></span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">  This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">  modify it under the terms of the GNU Lesser General Public</span></div>
@@ -259,20 +259,20 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
 <div class="foldopen" id="foldopen00176" data-start="" data-end="">
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="pat_8h.html#a60bb2ff743aa1d13687abf47da16f01f">  176</a></span><span class="preprocessor">#define GRN_PAT_EACH_BEGIN(ctx, pat, cursur, id)                               \</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="pat_8h.html#aa951bffc4eef2932c86739f77aa0bed9">  176</a></span><span class="preprocessor">#define GRN_PAT_EACH_BEGIN(ctx, pat, cursor, id)                               \</span></div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="preprocessor">  do {                                                                         \</span></div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="preprocessor">    if (pat &amp;&amp; grn_pat_size(ctx, pat) &gt; 0) {                                   \</span></div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="preprocessor">      grn_pat_cursor *cursur =                                                 \</span></div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="preprocessor">        grn_pat_cursor_open(ctx, pat, NULL, 0, NULL, 0, 0, -1, 0);             \</span></div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="preprocessor">      if (cursur) {                                                            \</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="preprocessor">    if ((pat) &amp;&amp; grn_pat_size((ctx), (pat)) &gt; 0) {                             \</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="preprocessor">      grn_pat_cursor *cursor =                                                 \</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="preprocessor">        grn_pat_cursor_open((ctx), (pat), NULL, 0, NULL, 0, 0, -1, 0);         \</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="preprocessor">      if (cursor) {                                                            \</span></div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="preprocessor">        grn_id id;                                                             \</span></div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="preprocessor">        while ((id = grn_pat_cursor_next(ctx, cursur)) != GRN_ID_NIL) {</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="preprocessor">        while ((id = grn_pat_cursor_next((ctx), (cursor))) != GRN_ID_NIL) {</span></div>
 </div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
 <div class="foldopen" id="foldopen00185" data-start="" data-end="">
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="pat_8h.html#a57efea48383b5a6cdf47b637d4fd4c58">  185</a></span><span class="preprocessor">#define GRN_PAT_EACH_END(ctx, cursur)                                          \</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="pat_8h.html#a415aebf117e33e5fa4ec906e5f4d65a6">  185</a></span><span class="preprocessor">#define GRN_PAT_EACH_END(ctx, cursor)                                          \</span></div>
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="preprocessor">  }                                                                            \</span></div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="preprocessor">  grn_pat_cursor_close(ctx, cursur);                                           \</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="preprocessor">  grn_pat_cursor_close((ctx), (cursor));                                       \</span></div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="preprocessor">  }                                                                            \</span></div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="preprocessor">  }                                                                            \</span></div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="preprocessor">  }                                                                            \</span></div>
