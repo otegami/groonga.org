@@ -71,6 +71,7 @@ var table_8h =
     [ "grn_table_delete", "table_8h.html#ab2f79c2e530793b1eeafd31509dd292c", null ],
     [ "grn_table_delete_by_id", "table_8h.html#aa2c9c320bd7142680640f113392103c3", null ],
     [ "grn_table_difference", "table_8h.html#a72bdf647ef6c721a579a3f3f37dd2991", null ],
+    [ "grn_table_extract", "table_8h.html#adec648c3ce58a387f878c9b3cb486b64", null ],
     [ "grn_table_find_reference_object", "table_8h.html#a19fda3f75e1944619f4a764b7b378327", null ],
     [ "grn_table_get", "table_8h.html#ae1297db518b1e0450d85bb6ee0bec9da", null ],
     [ "grn_table_get_duplicated_keys", "table_8h.html#a7d4ef084ad619c46ccf087a8b6125018", null ],
