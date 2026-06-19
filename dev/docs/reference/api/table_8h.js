@@ -90,6 +90,7 @@ var table_8h =
     [ "grn_table_group_aggregator_set_output_column_type", "table_8h.html#ad4d7b47efa41433131afc4edd41fbfaa", null ],
     [ "grn_table_group_keys_parse", "table_8h.html#a761fd22155691a420b31e68888b8caa4", null ],
     [ "grn_table_have_duplicated_keys", "table_8h.html#ac8d08a32929bb22936048d1795125508", null ],
+    [ "grn_table_have_extractor", "table_8h.html#ad7ad7391f1713e54343094c0101bfe0e", null ],
     [ "grn_table_have_tokenizer", "table_8h.html#ae912c1350c8cad10db1cdc1bcf7a5d2f", null ],
     [ "grn_table_is_grouped", "table_8h.html#af7827fb1293f03eee61e92a45064b577", null ],
     [ "grn_table_lcp_search", "table_8h.html#a793a0fd18a6094417652f12253ea5aae", null ],
